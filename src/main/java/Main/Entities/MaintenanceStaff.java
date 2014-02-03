@@ -1,6 +1,6 @@
 package Main.Entities;
 
-public class MaintanceStaff extends Person {
+public class MaintenanceStaff extends Person {
 
 	private double PayPerHour;
 
