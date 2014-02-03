@@ -8,7 +8,7 @@ public class MaintenanceStaff extends Person {
 
 	private double HoursPerWeek;
 
-	public void MaintaniceStaff() {
+	public MaintenanceStaff() {
 
 	}
 

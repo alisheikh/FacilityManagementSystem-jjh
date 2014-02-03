@@ -10,7 +10,7 @@ public class Facility {
 
 	private int Capacity;
 
-	public void Facility() {
+	public Facility() {
 
 	}
 

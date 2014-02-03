@@ -7,7 +7,7 @@ public class Inspection {
 
 	private int ID;
 
-	private Facility Facility;
+	private Facility Facility;//TODO: issue 1
 
 	private int InspectingStaffID;
 

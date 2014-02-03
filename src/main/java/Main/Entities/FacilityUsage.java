@@ -9,7 +9,7 @@ public class FacilityUsage {
 
 	private DateTime endTime;
 
-	private Facility facility;
+	private Facility facility;//NOTE: I'm not sure I like this implementation. See Issues.txt
 
     public FacilityUsage()
     {
