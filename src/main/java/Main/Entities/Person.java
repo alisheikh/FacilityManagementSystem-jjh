@@ -12,7 +12,7 @@ public class Person {
 
 	private String EmailAddress;
 
-	public void Person() {
+	public Person() {
 
 	}
 

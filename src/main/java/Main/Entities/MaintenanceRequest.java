@@ -6,7 +6,7 @@ public class MaintenanceRequest {
 
 	private int ID;
 
-	private Facility Facility;
+	private Facility Facility; // see issues.txt issue #1
 
     private String Request;
 
@@ -14,11 +14,12 @@ public class MaintenanceRequest {
 
 	private Date DateForCompletion;
 
-	private MaintanceStaff StaffMemberAssigned;
+	private MaintenanceStaff StaffMemberAssigned; // see issue.txt issue 1
+    //private MaintenanceStaffID StaffMemberAssignedID; //CreateGetSet; // TODO: issue 1
 
 
 
-	public void MaintenanceRequest() {
+	public MaintenanceRequest() {
 
 	}
 
@@ -54,11 +55,11 @@ public class MaintenanceRequest {
         DateForCompletion = dateForCompletion;
     }
 
-    public MaintanceStaff getStaffMemberAssigned() {
+    public MaintenanceStaff getStaffMemberAssigned() {
         return StaffMemberAssigned;
     }
 
-    public void setStaffMemberAssigned(MaintanceStaff staffMemberAssigned) {
+    public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
         StaffMemberAssigned = staffMemberAssigned;
     }
 

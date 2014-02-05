@@ -2,7 +2,7 @@ package Main.BL;
 
 import Main.DAL.FacilityFactory;
 import Main.Entities.MaintenanceRequest;
-import Main.Entities.MaintanceStaff;
+import Main.Entities.MaintenanceStaff;
 import java.util.Date;
 import java.util.List;
 import Main.DAL.MaintenanceRequestFactory;
@@ -29,7 +29,7 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
     }
 
     @Override
-    public MaintenanceRequest scheduleMaintenance(int MaintainenceRequestID, MaintanceStaff staffMember, int estimatedTime) {
+    public MaintenanceRequest scheduleMaintenance(int MaintainenceRequestID, MaintenanceStaff staffMember, int estimatedTime) {
         return null;
     }
 

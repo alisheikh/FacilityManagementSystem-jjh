@@ -1,14 +1,14 @@
 package Main.DAL;
 
-import Main.Entities.MaintanceStaff;
+import Main.Entities.MaintenanceStaff;
 
 public class MaintanceStaffFactory {
 
-	public MaintanceStaffFactory Create(MaintanceStaff staff) {
+	public MaintanceStaffFactory Create(MaintenanceStaff staff) {
         return null;
 	}
 
-	public MaintanceStaffFactory Update(MaintanceStaff staff) {
+	public MaintanceStaffFactory Update(MaintenanceStaff staff) {
         return null;
 	}
 
@@ -16,7 +16,7 @@ public class MaintanceStaffFactory {
 
 	}
 
-	public MaintanceStaff Get(int ID) {
+	public MaintenanceStaff Get(int ID) {
 		return null;
 	}
 
