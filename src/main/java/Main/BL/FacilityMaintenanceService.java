@@ -14,17 +14,12 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
 
     public FacilityMaintenanceService(){
 
-       facilityFactory = new FacilityFactory();
+       //facilityFactory = new FacilityFactory(connector);
     }
 
 	public  MaintenanceRequest makeFacilityMaintRequest(int facilityID, String request){
-        MaintenanceRequestFactory requestFactory = new MaintenanceRequestFactory();
 
-        MaintenanceRequest Request = new MaintenanceRequest();
-        Request.setFacility(facilityFactory.Get(facilityID));
-        Request.setRequest(request);
-
-        return requestFactory.Create(Request);
+      return null;
 
     }
 
