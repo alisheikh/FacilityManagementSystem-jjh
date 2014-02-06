@@ -6,20 +6,27 @@ import Main.Entities.Unit;
 
 public interface IFacilityService {
 
-	public List<Facility> listFacilities();
 
-    public List<List> listUnitsForFacility();
+    List<Facility> ListFacilities();
 
-	public  Facility  getFacilityInformation(int facilityID);
+    List<Unit> ListUnitsForFacility(int facilityID);
 
-	public  int  requestAvailibleCapacity(int facilityID);
+    Facility GetFacilityInformation(int ID);
 
-	public  Facility  addNewFacility();
+    int RequestAvailibleCapacity(int UnitID);
 
-    public Unit addNewUnitToFacility(int facilityID, );
+    Facility AddNewFacility(String name, int managerID);
 
-    public void addFacilityDetail(int facilityID, String detail);
+    Unit AddNewUnitToFacility(int facilityID, int newUnitCapacity, double newUnitUsagePricePerHour);
 
-	public  void RemoveFacility(int facilityID);
+    /*
+        * My assumption is that this method is to be interpreted as update Facility
+        * */
+    void AddFacilityDetail(Facility facility);
 
+    void AddUnitDetail(Unit unit);
+
+    void RemoveFacility(int facilityID);
+
+    void RemoveUnit(int unitID);
 }

@@ -8,9 +8,9 @@ import java.util.List;
  * Created by john on 2/5/14.
  */
 public interface IFacilityFactory {
-    FacilityFactory Create(Facility facilty);
+    Facility Create(Facility facilty);
 
-    FacilityFactory Update(Facility facility);
+    Facility Update(Facility facility);
 
     void Delete(int ID);
 

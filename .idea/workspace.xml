@@ -55,7 +55,7 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java" line="8" class="DatabaseConnector.java" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -80,100 +80,121 @@
     <favorites_list name="FacilityManagementSystem-jjh" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Facility.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="0.38434783" vertical-offset="0" max-vertical-offset="575">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IFacilityFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InspectionFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="16" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="680">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseConnector.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="26" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="867">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MaintanceStaffFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintanceStaffFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="27" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MaintenanceRequestFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FacilityMaintenanceService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="9" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FacilityService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="5" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IFacilityService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="53" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IDatabaseConnectionFactory.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnectionFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="16" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="FacilityUseService.java" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="38" column="36" selection-start="1093" selection-end="1093" vertical-scroll-proportion="0.48237476" vertical-offset="216" max-vertical-offset="1190">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UnitUseageFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UnitUseageFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="49" column="28" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="1037">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IUnitUsegaeFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IUnitUsegaeFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="9" column="25" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IUnitUseageFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IUnitUseageFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="9" column="17" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IFacilityFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="12" column="12" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="InspectionFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="9" column="16" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="680">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UnitFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UnitFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="37" column="0" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IUnitFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IUnitFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="6" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FacilityUserFactory.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityUserFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Facility.java" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="5" column="18" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Unit.java" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Unit.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="15" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.4264214" vertical-offset="0" max-vertical-offset="598">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -186,10 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/MainClient/BL/FacilityService.java" />
-        <option value="$PROJECT_DIR$/src/Main/BL/DateTime.java" />
-        <option value="$PROJECT_DIR$/src/Main/BL/FacilityService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Main/Entities/Facility.java" />
         <option value="$PROJECT_DIR$/src/test/java/Main/Entities/FacilityUser.java" />
         <option value="$PROJECT_DIR$/src/test/java/Main/Entities/Inspection.java" />
         <option value="$PROJECT_DIR$/src/test/java/Main/Entities/MaintanceStaff.java" />
@@ -213,7 +230,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/IFacilityUseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/FacilityUsage.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/UnitUsage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/FacilityUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/Inspection.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/MaintenanceRequest.java" />
@@ -223,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnectionFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnector.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityUsegaeFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityUserFactory.java" />
@@ -231,9 +246,18 @@
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/MaintanceStaffFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/UnitFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/Facility.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IUnitFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityUsegaeFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IUnitUsegaeFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/UnitUsegaeFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IUnitUseageFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/UnitUseageFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java" />
       </list>
     </option>
   </component>
@@ -292,6 +316,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -402,8 +428,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -413,7 +437,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="options.lastSelected" value="vcs.Git" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -426,18 +450,21 @@
     <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Main.DAL" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Main.DAL" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\john\Documents\GitHub\FacilityManagementSystem-jjh\src\main\Entities" />
       <recent name="C:\Users\john\Documents\GitHub\FacilityManagementSystem-jjh\src\main" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
@@ -651,6 +678,90 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="53" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="16" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="16" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="26" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintanceStaffFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="27" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="9" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="5" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="53" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="16" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="10" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="935">
@@ -667,9 +778,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/FacilityUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="595">
-          <folding />
-        </state>
+        <state line="2" column="13" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="595" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Inspection.java">
@@ -681,9 +790,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Issues">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="172" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204">
-          <folding />
-        </state>
+        <state line="6" column="172" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="204" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/MaintenanceRequest.java">
@@ -695,30 +802,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/MaintenanceStaff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="748">
-          <folding />
-        </state>
+        <state line="13" column="0" selection-start="195" selection-end="195" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="748" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="10" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1105">
-          <folding />
-        </state>
+        <state line="14" column="10" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1105" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <folding />
-        </state>
+        <state line="11" column="10" selection-start="460" selection-end="460" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Issues">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="172" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding />
-        </state>
+        <state line="6" column="172" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityUseService.java">
@@ -730,23 +829,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IMaintenanceRequestFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <folding />
-        </state>
+        <state line="11" column="0" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/FacilityUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="10" selection-start="78" selection-end="78" vertical-scroll-proportion="0.11826087" vertical-offset="0" max-vertical-offset="575">
-          <folding />
-        </state>
+        <state line="4" column="10" selection-start="78" selection-end="78" vertical-scroll-proportion="0.11826087" vertical-offset="0" max-vertical-offset="575" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Inspection.java">
@@ -765,23 +853,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/MaintenanceStaff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="10" selection-start="145" selection-end="145" vertical-scroll-proportion="0.23652174" vertical-offset="0" max-vertical-offset="575">
-          <folding />
-        </state>
+        <state line="8" column="10" selection-start="145" selection-end="145" vertical-scroll-proportion="0.23652174" vertical-offset="0" max-vertical-offset="575" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
+        <state line="17" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/UnitUsage.java">
@@ -805,37 +882,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityUsegaeFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="4" selection-start="129" selection-end="268" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityUserFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="17" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnectionFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="16" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="326" selection-end="326" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="16" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="680">
           <folding />
         </state>
       </provider>
@@ -857,9 +906,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="26" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="867">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -870,23 +917,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="884">
+        <state line="9" column="16" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="680">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityUserFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="53" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UnitFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="12" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="175" selection-end="175" vertical-scroll-proportion="0.38434783" vertical-offset="0" max-vertical-offset="575">
+        <state line="5" column="18" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.4264214" vertical-offset="0" max-vertical-offset="598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IUnitFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="6" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="29" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IUnitUsegaeFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="25" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IUnitUseageFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="17" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.3/joda-time-2.3.jar!/org/joda/time/DateTime.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="19" selection-start="162" selection-end="162" vertical-scroll-proportion="0.16536964" vertical-offset="0" max-vertical-offset="4794">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UnitUseageFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="28" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="1037">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="36" selection-start="1093" selection-end="1093" vertical-scroll-proportion="0.48237476" vertical-offset="216" max-vertical-offset="1190">
           <folding />
         </state>
       </provider>
