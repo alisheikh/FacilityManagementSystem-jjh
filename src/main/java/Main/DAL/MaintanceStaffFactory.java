@@ -2,21 +2,31 @@ package Main.DAL;
 
 import Main.Entities.MaintenanceStaff;
 
-public class MaintanceStaffFactory {
+public class MaintanceStaffFactory implements IMaintanceStaffFactory {
 
-	public MaintanceStaffFactory Create(MaintenanceStaff staff) {
+
+    private IDatabaseConnector Connector;
+
+    public MaintanceStaffFactory(IDatabaseConnector connector){
+        Connector = connector;
+    }
+	@Override
+    public MaintanceStaffFactory Create(MaintenanceStaff staff) {
         return null;
 	}
 
-	public MaintanceStaffFactory Update(MaintenanceStaff staff) {
+	@Override
+    public MaintanceStaffFactory Update(MaintenanceStaff staff) {
         return null;
 	}
 
-	public void Delete(int ID) {
+	@Override
+    public void Delete(int ID) {
 
 	}
 
-	public MaintenanceStaff Get(int ID) {
+	@Override
+    public MaintenanceStaff Get(int ID) {
 		return null;
 	}
 

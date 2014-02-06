@@ -2,22 +2,32 @@ package Main.DAL;
 
 import Main.Entities.Inspection;
 
-public class InspectionFactory {
+public class InspectionFactory implements IInspectionFactory {
 
-	public Inspection Create(Inspection inspection) {
+
+    private IDatabaseConnector Connector;
+
+    public InspectionFactory(IDatabaseConnector connector){
+        Connector = connector;
+    }
+	@Override
+    public Inspection Create(Inspection inspection) {
         return null;
 	}
 
-	public Inspection Update(Inspection inspection)
+	@Override
+    public Inspection Update(Inspection inspection)
     {
         return null;
 	}
 
-	public void Delete(int ID) {
+	@Override
+    public void Delete(int ID) {
 
 	}
 
-	public Inspection Get(int ID) {
+	@Override
+    public Inspection Get(int ID) {
 		return null;
 	}
 

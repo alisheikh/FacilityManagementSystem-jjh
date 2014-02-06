@@ -1,6 +1,7 @@
 package Main.BL;
 
-import Main.Entities.FacilityUsage;
+import Main.DAL.IFacilityUsegaeFactory;
+import Main.Entities.UnitUsage;
 import Main.Entities.Facility;
 import Main.Entities.Inspection;
 import org.joda.time.DateTime;
@@ -9,16 +10,36 @@ import java.util.List;
 
 public class FacilityUseService implements IFacilityUseService {
 
-	public boolean UserDuringIntervale(DateTime startTime, DateTime endTime);
 
-	public FacilityUsage assignFacilityToUse(DateTime sartTime, DateTime entTime, int facilityUserID, int facilityID);
+    @Override
+    public boolean isInUseDuringInterval(int facilityID, DateTime startTime, DateTime endTime) {
 
-	public void vacateFacility(DateTime startTime, int facilityUser, Facility facility);
 
-	public List<Inspection> listInspections(int facilityID);
+        return false;
+    }
 
-	public List<FacilityUsage> listActualUsage(int facilityID);
+    @Override
+    public UnitUsage assignFacilityToUse(DateTime sartTime, DateTime entTime, int facilityUserID, int facilityID) {
+        return null;
+    }
 
-	public double calcUsageRate(int facilityID);
+    @Override
+    public void vacateFacility(DateTime startTime, int facilityUser, Facility facility) {
 
+    }
+
+    @Override
+    public List<Inspection> listInspections(int facilityID) {
+        return null;
+    }
+
+    @Override
+    public List<UnitUsage> listActualUsage(int facilityID) {
+        return null;
+    }
+
+    @Override
+    public double calcUsageRate(int facilityID) {
+        return 0;
+    }
 }

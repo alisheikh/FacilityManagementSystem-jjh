@@ -1,22 +1,33 @@
 package Main.DAL;
 
-import Main.Entities.FacilityUsage;
+import Main.Entities.UnitUsage;
 
-public class FacilityUsegaeFactory {
+public class FacilityUsegaeFactory implements IFacilityUsegaeFactory {
 
-	public FacilityUsegaeFactory Create(FacilityUsage facilityUsage) {
+
+    private IDatabaseConnector Connector;
+
+    public FacilityUsegaeFactory(IDatabaseConnector connector){
+        Connector = connector;
+    }
+
+	@Override
+    public FacilityUsegaeFactory Create(UnitUsage unitUsage) {
         return  null;
 	}
 
-	public FacilityUsegaeFactory Update(FacilityUsage facilityUsage) {
+	@Override
+    public FacilityUsegaeFactory Update(UnitUsage unitUsage) {
         return  null;
 	}
 
-	public void DeleteFacility(int ID) {
+	@Override
+    public void DeleteFacility(int ID) {
 
 	}
 
-	public FacilityUsage Get(int ID) {
+	@Override
+    public UnitUsage Get(int ID) {
 		return null;
 	}
 

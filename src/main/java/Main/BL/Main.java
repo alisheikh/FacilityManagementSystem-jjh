@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args){
-         Connection connection = DatabaseConnector.connect();
+         Connection connection = DatabaseConnector.GetConnection();
         try {
             if(connection.isValid(500)) System.out.println("Connected");
         } catch (SQLException e) {

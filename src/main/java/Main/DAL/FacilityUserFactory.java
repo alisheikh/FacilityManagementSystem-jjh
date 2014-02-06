@@ -2,21 +2,32 @@ package Main.DAL;
 
 import Main.Entities.FacilityUser;
 
-public class FacilityUserFactory {
+public class FacilityUserFactory implements IFacilityUserFactory {
 
-	public FacilityUserFactory Create(FacilityUser user) {
+
+    private IDatabaseConnector Connector;
+
+    public FacilityUserFactory(IDatabaseConnector connector){
+        Connector = connector;
+    }
+
+	@Override
+    public FacilityUserFactory Create(FacilityUser user) {
         return  null;
 	}
 
-	public FacilityUserFactory Update(FacilityUser user) {
+	@Override
+    public FacilityUserFactory Update(FacilityUser user) {
         return  null;
 	}
 
-	public void Delete(int ID) {
+	@Override
+    public void Delete(int ID) {
 
 	}
 
-	public FacilityUser Get(int ID) {
+	@Override
+    public FacilityUser Get(int ID) {
 		return null;
 	}
 

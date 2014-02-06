@@ -10,9 +10,9 @@ public class FacilityService implements IFacilityService {
 
     private FacilityFactory facilityFactory;
 
-    public FacilityService()
+    public FacilityService(IDatabaseConnector connector)
     {
-        facilityFactory = new FacilityFactory();
+        facilityFactory = new FacilityFactory(connector);
     }
 
     public List<Facility> listFacilities() {
@@ -27,7 +27,7 @@ public class FacilityService implements IFacilityService {
 
     public int requestAvailibleCapacity(int facilityID) {
         Facility facility = facilityFactory.Get(facilityID);
-        return facility.getCapacity();
+        return facility
     }
 
 

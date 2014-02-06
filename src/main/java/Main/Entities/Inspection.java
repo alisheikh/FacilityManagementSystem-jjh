@@ -5,43 +5,16 @@ import java.util.Date;
 
 public class Inspection {
 
-	private int ID;
+    public int ID;
 
-	private Facility Facility;//TODO: issue 1
+    public int FacilityID;
 
-	private int InspectingStaffID;
+    public int UnitID;
 
-	private Date InspectionDate;
+    public int InspectingStaffID;
 
-    public int getID() {
-        return ID;
-    }
+    public Date InspectionDate;
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
+    public Inspection(){}
 
-    public Facility getFacility() {
-        return Facility;
-    }
-
-    public void setFacility(Facility facility) {
-        Facility = facility;
-    }
-
-    public int getInspectingStaffID() {
-        return InspectingStaffID;
-    }
-
-    public void setInspectingStaffID(int inspectingStaffID) {
-        InspectingStaffID = inspectingStaffID;
-    }
-
-    public Date getInspectionDate() {
-        return InspectionDate;
-    }
-
-    public void setInspectionDate(Date inspectionDate) {
-        InspectionDate = inspectionDate;
-    }
 }

@@ -4,24 +4,35 @@ import Main.Entities.Facility;
 
 import java.util.List;
 
-public class FacilityFactory {
+public class FacilityFactory implements IFacilityFactory {
 
-	public FacilityFactory Create(Facility facilty) {
+    private IDatabaseConnector Connector;
+
+    public FacilityFactory(IDatabaseConnector connector){
+        Connector = connector;
+    }
+
+	@Override
+    public FacilityFactory Create(Facility facilty) {
         return null;
     }
 
-	public FacilityFactory Update(Facility facility) {
+	@Override
+    public FacilityFactory Update(Facility facility) {
         return null;
     }
 
-	public void Delete(int ID) {
+	@Override
+    public void Delete(int ID) {
 
 	}
 
-	public Facility Get(int ID) {
+	@Override
+    public Facility Get(int ID) {
 		return null;
 	}
 
+    @Override
     public List<Facility> GetAll() {
         return null;
     }
