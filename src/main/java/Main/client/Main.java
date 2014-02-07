@@ -1,4 +1,4 @@
-package Main.BL;
+package Main.client;
 
 /**
  * User: alexthornburg
