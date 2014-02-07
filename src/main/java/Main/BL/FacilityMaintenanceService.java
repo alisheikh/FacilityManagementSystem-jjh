@@ -1,55 +1,27 @@
 package Main.BL;
 
-import Main.DAL.FacilityFactory;
-import Main.Entities.MaintenanceRequest;
-import Main.Entities.MaintenanceStaff;
+import Main.Entities.Facility.Facility;
+import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.maintenance.MaintenanceStaff;
+
 import java.util.Date;
 import java.util.List;
-import Main.DAL.MaintenanceRequestFactory;
 
 
 public class FacilityMaintenanceService implements IFacilityMaintenanceService {
 
-    private FacilityFactory facilityFactory;
+    private MaintenanceRequest request;
 
-    public FacilityMaintenanceService(){
 
-       //facilityFactory = new FacilityFactory(connector);
-    }
-
-	public  MaintenanceRequest makeFacilityMaintRequest(int facilityID, String request){
-
-      return null;
+    @Override
+	public  MaintenanceRequest getFacilityMaintenanceRequest(){
+        return request;
 
     }
 
     @Override
-    public MaintenanceRequest scheduleMaintenance(int MaintainenceRequestID, MaintenanceStaff staffMember, int estimatedTime) {
-        return null;
+    public void setFacilityMaintenanceRequest(MaintenanceRequest request) {
+           this.request = request;
     }
 
-    @Override
-    public double calcMaintenanceCostForFacility(int facilityID, Date startDate, Date endDate) {
-        return 0;
-    }
-
-    @Override
-    public float calcProblemRateForFacility(int FacilityID, Date startDate, Date endDate) {
-        return 0;
-    }
-
-    @Override
-    public float calcDownTimeForFacility(int FacilityID, Date startDate, Date endDate) {
-        return 0;
-    }
-
-    @Override
-    public List<MaintenanceRequest> listMaintenanceRequests(int facilityID, Date startDate, Date endDate) {
-        return null;
-    }
-
-    @Override
-    public List<MaintenanceRequest> listFacilityProblems(int facilityID) {
-        return null;
-    }
 }

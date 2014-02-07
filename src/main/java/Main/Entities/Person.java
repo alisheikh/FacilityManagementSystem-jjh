@@ -2,18 +2,58 @@ package Main.Entities;
 
 public class Person {
 
-    public String FirstName;
+	private String FirstName;
 
-    public String LastName;
+	private String LastName;
 
-    public String PhoneNumber;
+	private String PhoneNumber;
 
-    public int ID;
+	private int ID;
 
-    public String EmailAddress;
+	private String EmailAddress;
 
-    public Person() {
+	public Person() {
 
 	}
 
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getEmailAddress() {
+        return EmailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        EmailAddress = emailAddress;
+    }
 }
