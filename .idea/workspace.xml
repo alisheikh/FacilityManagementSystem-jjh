@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/client/CreateTables.java" afterPath="$PROJECT_DIR$/src/main/java/Main/client/CreateTables.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/client/CreateTables.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FacilityManagementSystem-jjh.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Facility.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Facility.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/client/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main/client/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FacilityManagementSystem-jjh.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391751336192" ignored="false" />
+    <file path="/Dummy.txt" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391747377929" ignored="false" />
     <file path="/UnitFactory.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391725968503" ignored="false" />
     <file path="/IUnitDAO.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391725937544" ignored="false" />
     <file path="/Unit.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391732208568" ignored="false" />
@@ -21,7 +27,7 @@
     <file path="/Main.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391748456981" ignored="false" />
     <file path="/fragment.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391749266889" ignored="false" />
     <file path="/DatabaseConnector.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391747097676" ignored="false" />
-    <file path="/CreateTables.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391753087489" ignored="false" />
+    <file path="/CreateTables.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391749639332" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,22 +98,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MaintenanceStaff.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/MaintenanceStaff.java">
+      <file leaf-file-name="IFacilityService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
+            <state line="4" column="17" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateTables.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/CreateTables.java">
+      <file leaf-file-name="FacilityMaintenanceService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="11" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="22" column="16" selection-start="472" selection-end="501" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,19 +119,28 @@
       <file leaf-file-name="FacilityDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="12" selection-start="1576" selection-end="1600" vertical-scroll-proportion="0.0">
+            <state line="57" column="68" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseConnector.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java">
+      <file leaf-file-name="CreateTables.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/CreateTables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="221" selection-start="617" selection-end="617" vertical-scroll-proportion="0.20618556">
+            <state line="18" column="12" selection-start="433" selection-end="433" vertical-scroll-proportion="0.4489796">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IFacilityMaintenanceService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityMaintenanceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="17" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,28 +154,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Inspection.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
+      <file leaf-file-name="MaintenanceRequestDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="28" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
+            <state line="4" column="13" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnitUsage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUsage.java">
+      <file leaf-file-name="Unit.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Unit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="68" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
+            <state line="67" column="5" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnitUser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUser.java">
+      <file leaf-file-name="FacilityService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+            <state line="5" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -266,6 +279,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -508,7 +522,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -526,9 +539,9 @@
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -586,19 +599,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -625,6 +625,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -746,11 +759,6 @@
       <created>1391294349797</created>
       <updated>1391294349797</updated>
     </task>
-    <task id="LOCAL-00001" summary="Added CreateTables">
-      <created>1391751212956</created>
-      <updated>1391751212956</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -768,7 +776,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.60580206" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3208191" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32142857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -836,7 +844,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CreateTables" />
+    <option name="LAST_COMMIT_MESSAGE" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -850,7 +858,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Added CreateTables" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -860,6 +867,78 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="38" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="28" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="221" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUsage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="68" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Facility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="5" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/MaintenanceRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="80" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="16" selection-start="472" selection-end="501" vertical-scroll-proportion="0.0">
@@ -881,62 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="28" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/MaintenanceRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="80" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/MaintenanceStaff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUsage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="68" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="14" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
@@ -946,30 +969,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="12" selection-start="1576" selection-end="1600" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/postgresql/postgresql/9.1-901.jdbc4/postgresql-9.1-901.jdbc4.jar!/org/postgresql/core/v3/QueryExecutorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="0" selection-start="9253" selection-end="9253" vertical-scroll-proportion="0.70454544">
+        <state line="57" column="68" selection-start="1917" selection-end="1917" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/CreateTables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="11" selection-start="727" selection-end="727" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="221" selection-start="617" selection-end="617" vertical-scroll-proportion="0.20618556">
+        <state line="18" column="12" selection-start="433" selection-end="433" vertical-scroll-proportion="0.4489796">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
