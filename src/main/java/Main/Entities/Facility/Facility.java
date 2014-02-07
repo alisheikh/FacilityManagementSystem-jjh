@@ -10,8 +10,6 @@ public class Facility {
 
 	private int buildingNumber;
 
-	private int roomNumber;
-
 	private int capacity;
 
 	public Facility() {

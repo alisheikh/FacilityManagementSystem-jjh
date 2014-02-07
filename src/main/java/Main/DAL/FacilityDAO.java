@@ -41,17 +41,25 @@ public class FacilityDAO {
         }
         List<Unit> units = new ArrayList<Unit>();
         try {
-            ResultSet rs = connection.createStatement().executeQuery("Select*FROM Units where Facility = "+facility.getBuildingNumber());
-
+            ResultSet rs = connection.createStatement().executeQuery("Select*FROM Facilities where id = "+id);
             while (rs.next()) {
+                facility.setID(id);
+                facility.setBuildingNumber(Integer.parseInt(rs.getString("buildingNumber")));
+            }
+
+            ResultSet rsUnits = connection.createStatement().executeQuery("Select*FROM Units where Facility = "+facility.getBuildingNumber());
+
+            while (rsUnits.next()) {
                 Unit unit = new Unit();
-                unit.setCapacity(Integer.parseInt(rs.getString("capacity")));
+                unit.setCapacity(rs.getInt("capacity"));
                 unit.setId(id);
-                unit.setRoomNumber(Integer.parseInt(rs.getString("roomNumber")));
+                unit.setRoomNumber(rs.getInt("roomNumber"));
                 unit.setUsage(getUsages(unit.getRoomNumber()));
                 unit.setUsers(getUsers(unit.getRoomNumber()));
                 units.add(unit);
             }
+            rs.close();
+            rsUnits.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -65,7 +73,7 @@ public class FacilityDAO {
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM Usages where Unit = "+unitNumber);
             while (rs.next()) {
                 UnitUsage usage = new UnitUsage();
-                usage.setEndTime(DateTime.parse(rs.getString("startTime")));
+                usage.setEndTime(DateTime.parse(rs.getDate("endTime").toString()));
 
                 //TODO: Rest of Fields
                 usages.add(usage);

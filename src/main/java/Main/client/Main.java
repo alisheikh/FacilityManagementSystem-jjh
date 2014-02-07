@@ -11,9 +11,9 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args){
-         Connection connection = DatabaseConnector.GetConnection();
+        Connection connection = DatabaseConnector.connect();
         try {
-            if(connection.isValid(500)) System.out.println("Connected");
+            connection.createStatement().executeQuery("Select*FROM Users where Unit = ");
         } catch (SQLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
