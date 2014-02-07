@@ -198,6 +198,8 @@ eggs/
 parts/
 var/
 sdist/
+target/
+.idea
 develop-eggs/
 .installed.cfg
 
