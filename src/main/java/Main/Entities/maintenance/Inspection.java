@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Inspection {
 
-	private String id;
+	private int id;
 
 	private Facility facility;
 
@@ -15,7 +15,7 @@ public class Inspection {
 
 	private Date inspectionDate;
 
-    public String getID() {
+    public int getID() {
         return id;
     }
 

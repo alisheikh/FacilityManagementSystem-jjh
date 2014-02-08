@@ -5,7 +5,7 @@ import org.joda.time.DateTime;
 
 public class MaintenanceRequest {
 
-	private String id;
+	private int id;
 
 	private Facility facility;
 
@@ -13,7 +13,7 @@ public class MaintenanceRequest {
 
 	private DateTime dateRequested;
 
-	private DateTime dateForCompletion;
+	private DateTime completionDate;
 
 	private MaintenanceStaff staffMemberAssigned;
 
@@ -21,11 +21,11 @@ public class MaintenanceRequest {
 
 	}
 
-    public String getID() {
+    public int getID() {
         return id;
     }
 
-    public void setID(String id) {
+    public void setID(int id) {
         this.id = id;
     }
 
@@ -45,12 +45,12 @@ public class MaintenanceRequest {
         this.dateRequested = dateRequested;
     }
 
-    public DateTime getDateForCompletion() {
-        return dateForCompletion;
+    public DateTime getCompletionDate() {
+        return completionDate;
     }
 
-    public void setDateForCompletion(DateTime dateForCompletion) {
-        this.dateForCompletion = dateForCompletion;
+    public void setCompletionDate(DateTime completionDate) {
+        this.completionDate = completionDate;
     }
 
     public MaintenanceStaff getStaffMemberAssigned() {

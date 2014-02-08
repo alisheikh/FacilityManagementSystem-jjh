@@ -5,7 +5,8 @@ import Main.Entities.Facility.Facility;
 
 public class UnitUser extends Person {
 
-	private int CreditCard;
+
+    private int CreditCard;
 
 	private String CompanyName;
 

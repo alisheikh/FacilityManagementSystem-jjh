@@ -6,7 +6,9 @@ import java.util.List;
 
 public class UnitUsage {
 
-	private List<Person> user;
+    private int id;
+
+    private List<Person> user;
 
 	private DateTime startTime;
 
@@ -48,5 +50,13 @@ public class UnitUsage {
 
     public void setFacility(Facility facility) {
         this.facility = facility;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

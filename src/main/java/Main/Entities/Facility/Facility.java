@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Facility {
 
-	private String id;
+	private int id;
 
     private List<Unit> units;
 
@@ -24,11 +24,11 @@ public class Facility {
         this.units = unit;
     }
 
-    public String getID() {
+    public int getID() {
         return id;
     }
 
-    public void setID(String id) {
+    public void setID(int id) {
         this.id = id;
     }
 
