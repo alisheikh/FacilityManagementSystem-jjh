@@ -4,8 +4,6 @@ import Main.Entities.Person;
 
 public class MaintenanceStaff extends Person {
 
-	private int id;
-
     private double payPerHour;
 
 	private boolean isFullTime;
@@ -40,11 +38,4 @@ public class MaintenanceStaff extends Person {
         this.hoursPerWeek = hoursPerWeek;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

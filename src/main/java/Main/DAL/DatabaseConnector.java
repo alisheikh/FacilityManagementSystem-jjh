@@ -6,18 +6,23 @@ package Main.DAL;
  * Time: 7:07 PM
  */
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DatabaseConnector {
+public class DatabaseConnector implements IDatabaseConnector {
     static Connection connection = null;
 
     public DatabaseConnector(){
 
     }
 
-    public static Connection connect(){
+
+
+    @Override
+    public Connection connect(){
         try {
 
             Class.forName("org.postgresql.Driver");

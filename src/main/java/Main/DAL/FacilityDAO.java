@@ -14,9 +14,15 @@ import java.util.List;
 
 public class FacilityDAO {
 
-    Connection connection = DatabaseConnector.connect();
+    private IDatabaseConnector Connector;
+    private Connection connection;
 
-	public FacilityDAO create(Facility facilty) {
+    public FacilityDAO(IDatabaseConnector connector) {
+       Connector = connector;
+       connection = connector.connect();
+    }
+
+    public FacilityDAO create(Facility facilty) {
         return null;
     }
 
@@ -28,13 +34,13 @@ public class FacilityDAO {
 
 	}
 
-	public Facility get(String id) {
+	public Facility get(int id) {
         Facility facility = new Facility();
         try {
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM Facilities where id = "+id);
             while (rs.next()) {
                 facility.setID(id);
-                facility.setBuildingNumber(Integer.parseInt(rs.getString("buildingNumber")));
+                facility.setBuildingNumber(rs.getInt("building_number"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,7 +50,7 @@ public class FacilityDAO {
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM Facilities where id = "+id);
             while (rs.next()) {
                 facility.setID(id);
-                facility.setBuildingNumber(Integer.parseInt(rs.getString("buildingNumber")));
+                facility.setBuildingNumber(rs.getInt("building_number"));
             }
 
             ResultSet rsUnits = connection.createStatement().executeQuery("Select*FROM Units where Facility = "+facility.getBuildingNumber());
