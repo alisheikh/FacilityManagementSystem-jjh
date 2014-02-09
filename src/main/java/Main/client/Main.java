@@ -11,7 +11,10 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args){
-        Connection connection = DatabaseConnector.connect();
+
+
+        DatabaseConnector connector = new DatabaseConnector();
+        Connection connection = connector.connect();
         try {
             connection.createStatement().executeQuery("Select*FROM Users where Unit = ");
         } catch (SQLException e) {

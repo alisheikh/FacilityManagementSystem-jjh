@@ -13,7 +13,9 @@ import java.sql.SQLException;
 public class CreateTables {
 
     public static void main(String[] args){
-        Connection connection = DatabaseConnector.connect();
+
+        DatabaseConnector connector = new DatabaseConnector();
+        Connection connection = connector.connect();
         /*try {
             //connection.createStatement().executeQuery("DROP TABLE IF EXISTS Facility;");
             connection.createStatement().executeQuery("CREATE TABLE Facility (" +

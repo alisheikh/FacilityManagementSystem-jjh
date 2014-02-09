@@ -1,19 +1,21 @@
 package Main.Entities.maintenance;
 
 import Main.Entities.Facility.Facility;
-import org.joda.time.DateTime;
+import Main.Entities.Facility.Unit;
+
+import java.sql.Date;
 
 public class MaintenanceRequest {
 
 	private int id;
 
-	private Facility facility;
+	private Unit unit;
 
     private String request;
 
-	private DateTime dateRequested;
+	private Date dateRequested;
 
-	private DateTime completionDate;
+	private Date completionDate;
 
 	private MaintenanceStaff staffMemberAssigned;
 
@@ -29,37 +31,23 @@ public class MaintenanceRequest {
         this.id = id;
     }
 
-    public Facility getFacility() {
-        return facility;
-    }
 
-    public void setFacility(Facility facility) {
-        this.facility = facility;
-    }
-
-    public DateTime getDateRequested() {
+    public Date getDateRequested() {
         return dateRequested;
     }
 
-    public void setDateRequested(DateTime dateRequested) {
+    public void setDateRequested(Date dateRequested) {
         this.dateRequested = dateRequested;
     }
 
-    public DateTime getCompletionDate() {
+    public Date getCompletionDate() {
         return completionDate;
     }
 
-    public void setCompletionDate(DateTime completionDate) {
+    public void setCompletionDate(Date completionDate) {
         this.completionDate = completionDate;
     }
 
-    public MaintenanceStaff getStaffMemberAssigned() {
-        return staffMemberAssigned;
-    }
-
-    public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
-        staffMemberAssigned = staffMemberAssigned;
-    }
 
     public String getRequest() {
         return request;
@@ -67,5 +55,21 @@ public class MaintenanceRequest {
 
     public void setRequest(String request) {
         this.request = request;
+    }
+
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
+
+    public MaintenanceStaff getStaffMemberAssigned() {
+        return staffMemberAssigned;
+    }
+
+    public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
+        this.staffMemberAssigned = staffMemberAssigned;
     }
 }
