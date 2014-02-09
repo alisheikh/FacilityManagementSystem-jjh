@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FacilityDAO {
+public class FacilityDAO implements IFacilityDAO {
 
     private IDatabaseConnector Connector;
     private Connection connection;
@@ -22,19 +22,23 @@ public class FacilityDAO {
        connection = connector.connect();
     }
 
+    @Override
     public FacilityDAO create(Facility facilty) {
         return null;
     }
 
-	public FacilityDAO update(Facility facility) {
+	@Override
+    public FacilityDAO update(Facility facility) {
         return null;
     }
 
-	public void delete(int id) {
+	@Override
+    public void delete(int id) {
 
 	}
 
-	public Facility get(int id) {
+	@Override
+    public Facility get(int id) {
         Facility facility = new Facility();
         try {
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM Facilities where id = "+id);
