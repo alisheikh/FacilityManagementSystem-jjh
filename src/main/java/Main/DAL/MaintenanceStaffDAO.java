@@ -58,6 +58,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
                 }
 
                 insertStatement.close();
+                result.close();
 
             }
 
@@ -79,13 +80,12 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
             PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery);
             deleteStatement.setInt(1,staffMemberId);
             deleteStatement.executeQuery();
+            deleteStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-
-        MaintenanceStaff maintenanceStaff = new MaintenanceStaff();
     }
 
     @Override
@@ -111,12 +111,13 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
                 maintenanceStaff.setHoursPerWeek(rs.getInt("hours_per_week"));
 
             }
-            else
+            rs.close();
+            getStatement.close();
             {
                 return null;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+           // e.printStackTrace();
 
         }
 
@@ -128,4 +129,5 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
     public MaintenanceStaff Update(MaintenanceStaff updatedStaffMember) {
         return null;
     }
+
 }

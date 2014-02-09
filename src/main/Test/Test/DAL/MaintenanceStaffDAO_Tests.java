@@ -1,6 +1,7 @@
 package Test.DAL;
 
 import Main.DAL.DatabaseConnector;
+import Main.DAL.IDatabaseConnector;
 import Main.DAL.IMaintenanceStaffDAO;
 import Main.DAL.MaintenanceStaffDAO;
 import Main.Entities.maintenance.MaintenanceStaff;
@@ -22,10 +23,16 @@ public class MaintenanceStaffDAO_Tests {
     private MaintenanceStaff newStaff;
     private IMaintenanceStaffDAO maintenanceStaffDAO;
 
+
+    public MaintenanceStaffDAO_Tests() {
+
+        maintenanceStaffDAO = new MaintenanceStaffDAO(new DatabaseConnector());
+    }
+
     @Before
     public void setup ()
     {
-        maintenanceStaffDAO = new MaintenanceStaffDAO(new DatabaseConnector());
+
         newStaff = new MaintenanceStaff();
         newStaff.setFullTime(false);
         newStaff.setHoursPerWeek(35);
@@ -39,6 +46,7 @@ public class MaintenanceStaffDAO_Tests {
     @After
     public void teardown()
     {
+
         maintenanceStaffDAO = null;
     }
 
@@ -66,7 +74,7 @@ public class MaintenanceStaffDAO_Tests {
         //setup
         MaintenanceStaff ms = null;
         try {
-            ms = maintenanceStaffDAO.Get(1);
+            ms = maintenanceStaffDAO.Get(50);
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -98,6 +106,7 @@ public class MaintenanceStaffDAO_Tests {
             return;
         }
         Assert.fail("item wasn't deleted");
+
     }
 
 }

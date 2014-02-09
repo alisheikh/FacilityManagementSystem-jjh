@@ -48,13 +48,6 @@ public class MaintenanceRequest {
         this.completionDate = completionDate;
     }
 
-    public MaintenanceStaff getStaffMemberAssigned() {
-        return staffMemberAssigned;
-    }
-
-    public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
-        staffMemberAssigned = staffMemberAssigned;
-    }
 
     public String getRequest() {
         return request;
@@ -70,5 +63,13 @@ public class MaintenanceRequest {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    public MaintenanceStaff getStaffMemberAssigned() {
+        return staffMemberAssigned;
+    }
+
+    public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
+        this.staffMemberAssigned = staffMemberAssigned;
     }
 }
