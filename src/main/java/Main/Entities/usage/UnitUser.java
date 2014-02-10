@@ -1,42 +1,42 @@
 package Main.Entities.usage;
 
 import Main.Entities.Person;
-import Main.Entities.Facility.Facility;
 
 public class UnitUser extends Person {
 
 
-    private int CreditCard;
+    private String creditCard;
 
-	private String CompanyName;
+	private String companyName;
 
-    private Facility facility;
+    private int unitUserId;
 
 	public UnitUser() {
 
 	}
 
-    public Facility getFacility(){
-       return facility;
+
+    public String getCreditCard() {
+        return creditCard;
     }
 
-    public void setFacility(Facility facility){
-        this.facility = facility;
-    }
-
-    public int getCreditCard() {
-        return CreditCard;
-    }
-
-    public void setCreditCard(int creditCard) {
-        CreditCard = creditCard;
+    public void setCreditCard(String creditCard) {
+        this.creditCard = creditCard;
     }
 
     public String getCompanyName() {
-        return CompanyName;
+        return companyName;
     }
 
     public void setCompanyName(String companyName) {
-        CompanyName = companyName;
+        this.companyName = companyName;
+    }
+
+    public int getUnitUserId(){
+        return unitUserId;
+    }
+
+    public void setUnitUserId(int unitUserId){
+        this.unitUserId = unitUserId;
     }
 }

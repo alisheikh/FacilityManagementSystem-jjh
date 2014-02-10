@@ -8,16 +8,16 @@ import java.util.List;
 public interface IFacilityService {
 
 
-    List<Facility> ListFacilities();
+    List<Facility> listFacilities();
 
-    Facility GetFacilityInformation(int ID);
+    Facility getFacilityInformation(int id);
 
-    int RequestAvailibleCapacity(int UnitID);
+    int requestAvailibleCapacity(int facilityId,int unitID);
 
-    Facility AddNewFacility(String name, int managerID);
+    Facility addNewFacility(Facility facility);
 
-    Unit AddFacilityDetail(Unit unit);
+    Unit addFacilityDetail(int facilityID,Unit unit);
 
-    void RemoveFacility(int facilityID);
+    void removeFacility(Facility facility);
 
 }

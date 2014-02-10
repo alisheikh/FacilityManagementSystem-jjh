@@ -6,6 +6,8 @@ public class Facility {
 
 	private int id;
 
+    private String name;
+
     private List<Unit> units;
 
 	private int buildingNumber;
@@ -15,6 +17,14 @@ public class Facility {
 	public Facility() {
 
 	}
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
 
     public List<Unit> getUnits(){
         return this.units;
@@ -41,12 +51,20 @@ public class Facility {
         this.buildingNumber = buildingNumber;
     }
 
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
+    }
+
+    public int getCapacity(){
+        return capacity;
+    }
+
     public int getTotalCapacity() {
         int cap = 0;
         for (Unit unit:units){
            cap += unit.getCapacity();
         }
-        return cap;
+        return cap+capacity;
     }
 
 

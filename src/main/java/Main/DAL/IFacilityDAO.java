@@ -11,19 +11,11 @@ public interface IFacilityDAO {
 
     Facility update(Facility facility);
 
-    void delete(int id);
+    void delete(Facility facility);
 
     Facility get(int id);
 
-    //units
-
-    Unit getUnit(int unitID);
-
-    Unit CreateUnitForFacility(int FacilityID, Unit newUnit);
-
-    void DeleteUnit(Unit unit);
-
-    Unit UpdateUnit(Unit unit);
+    Unit getUnit(int unitId);
 
 
 }

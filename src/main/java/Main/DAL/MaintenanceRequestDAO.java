@@ -105,7 +105,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
                 request.setID(rs.getInt("id"));
                 request.setRequest(rs.getString("request"));
                 request.setUnit(facilityDAO.getUnit(rs.getInt("unit_id")));
-                request.setStaffMemberAssigned(maintenanceStaffDAO.Get(rs.getInt("staff_member_assigned_id")));
+                request.setStaffMemberAssigned(maintenanceStaffDAO.get(rs.getInt("staff_member_assigned_id")));
                 request.setCompletionDate(rs.getDate("completion_date"));
                 rs.close();
                 getStatement.close();

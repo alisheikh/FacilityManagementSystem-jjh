@@ -19,7 +19,7 @@ public class Unit {
 
     private int id;
 
-    private Facility facility;
+    private int facilityId;
 
     private List<UnitUsage> usage;
 
@@ -65,6 +65,14 @@ public class Unit {
 
     public void setUsers(List<UnitUser> users){
         this.users = users;
+    }
+
+    public int getFacilityId(){
+        return facilityId;
+    }
+
+    public void setFacilityId(int facilityId){
+        this.facilityId = facilityId;
     }
 
 
