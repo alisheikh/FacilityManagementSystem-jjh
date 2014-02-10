@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/client/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main/client/Main.java" />
     </list>
     <ignored path="FacilityManagementSystem-jjh.iws" />
@@ -17,7 +14,7 @@
     <file path="/Facility.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391984845970" ignored="false" />
     <file path="/IFacilityDAO.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391994056668" ignored="false" />
     <file path="/FacilityService.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391994295674" ignored="false" />
-    <file path="/Main.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392008945805" ignored="false" />
+    <file path="/Main.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392009441836" ignored="false" />
     <file path="/UnitUsage.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391988555361" ignored="false" />
     <file path="/Person.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391983963870" ignored="false" />
     <file path="/UnitUser.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391995200069" ignored="false" />
@@ -186,7 +183,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="70" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.6785714">
+            <state line="139" column="80" selection-start="5268" selection-end="5268" vertical-scroll-proportion="0.6785714">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1948#1959#0" expanded="true" />
@@ -946,7 +943,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Amazon EC2" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2560778" sideWeight="0.67094016" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32905984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32905984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1167,7 +1164,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="70" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.6785714">
+        <state line="139" column="80" selection-start="5268" selection-end="5268" vertical-scroll-proportion="0.6785714">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1948#1959#0" expanded="true" />

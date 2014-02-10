@@ -137,6 +137,8 @@ public class Main {
         insService.removeInspection(inspection);
         service.removeFacility(update);
 
+        System.out.println("------------------All data removed---------------");
+
 
     }
 
