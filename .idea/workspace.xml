@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/client/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main/client/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FacilityManagementSystem-jjh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +17,7 @@
     <file path="/Facility.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391984845970" ignored="false" />
     <file path="/IFacilityDAO.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391994056668" ignored="false" />
     <file path="/FacilityService.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391994295674" ignored="false" />
-    <file path="/Main.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392006385978" ignored="false" />
+    <file path="/Main.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392008945805" ignored="false" />
     <file path="/UnitUsage.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391988555361" ignored="false" />
     <file path="/Person.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391983963870" ignored="false" />
     <file path="/UnitUser.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391995200069" ignored="false" />
@@ -29,9 +28,10 @@
     <file path="/MaintenanceStaffDAO_Tests.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1391990905021" ignored="false" />
     <file path="/fragment.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392002241140" ignored="false" />
     <file path="/FacilityService_Test.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392003507223" ignored="false" />
-    <file path="/InspectionDAO.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392006054700" ignored="false" />
+    <file path="/InspectionDAO.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392008308377" ignored="false" />
     <file path="/InspectionService.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392006224426" ignored="false" />
     <file path="/IInspectionService.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392005797264" ignored="false" />
+    <file path="/Inspection.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392009140653" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,10 +112,10 @@
       <file leaf-file-name="InspectionDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="31" selection-start="3183" selection-end="3183" vertical-scroll-proportion="0.0">
+            <state line="26" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2578#2590#0" expanded="true" />
+                <element signature="e#2640#2652#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,7 +124,7 @@
       <file leaf-file-name="FacilityService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0">
+            <state line="17" column="45" selection-start="381" selection-end="404" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -155,7 +155,7 @@
       <file leaf-file-name="InspectionService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="57" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+            <state line="33" column="48" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -177,7 +177,7 @@
       <file leaf-file-name="Inspection.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
+            <state line="19" column="48" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -186,14 +186,14 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="30" selection-start="3738" selection-end="3738" vertical-scroll-proportion="0.21428572">
+            <state line="130" column="70" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.6785714">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1843#1854#0" expanded="true" />
-                <element signature="e#1998#2008#0" expanded="true" />
-                <element signature="e#2197#2203#0" expanded="true" />
-                <element signature="e#3402#3413#0" expanded="true" />
-                <element signature="e#3462#3472#0" expanded="true" />
+                <element signature="e#1948#1959#0" expanded="true" />
+                <element signature="e#2103#2113#0" expanded="true" />
+                <element signature="e#2302#2308#0" expanded="true" />
+                <element signature="e#3507#3518#0" expanded="true" />
+                <element signature="e#3567#3577#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -202,7 +202,7 @@
       <file leaf-file-name="FacilityDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="12" selection-start="7776" selection-end="7795" vertical-scroll-proportion="0.0">
+            <state line="48" column="0" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#8338#8344#0" expanded="true" />
@@ -256,7 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IMaintenanceStaffDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/PersonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/IPersonService.java" />
@@ -271,6 +270,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/client/Main.java" />
       </list>
     </option>
@@ -655,7 +655,7 @@
       <recent name="C:\Users\john\Documents\GitHub\FacilityManagementSystem-jjh\src\main" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FacilityService">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -1092,22 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="4" selection-start="161" selection-end="450" vertical-scroll-proportion="0.0">
@@ -1135,7 +1119,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="12" selection-start="7776" selection-end="7795" vertical-scroll-proportion="0.0">
+        <state line="48" column="0" selection-start="2084" selection-end="2084" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#8338#8344#0" expanded="true" />
@@ -1146,35 +1130,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="31" selection-start="3183" selection-end="3183" vertical-scroll-proportion="0.0">
+        <state line="17" column="45" selection-start="381" selection-end="404" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2578#2590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2640#2652#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="57" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+        <state line="33" column="48" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="48" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/client/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="30" selection-start="3738" selection-end="3738" vertical-scroll-proportion="0.21428572">
+        <state line="130" column="70" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.6785714">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1843#1854#0" expanded="true" />
-            <element signature="e#1998#2008#0" expanded="true" />
-            <element signature="e#2197#2203#0" expanded="true" />
-            <element signature="e#3402#3413#0" expanded="true" />
-            <element signature="e#3462#3472#0" expanded="true" />
+            <element signature="e#1948#1959#0" expanded="true" />
+            <element signature="e#2103#2113#0" expanded="true" />
+            <element signature="e#2302#2308#0" expanded="true" />
+            <element signature="e#3507#3518#0" expanded="true" />
+            <element signature="e#3567#3577#0" expanded="true" />
           </folding>
         </state>
       </provider>

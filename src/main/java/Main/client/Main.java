@@ -9,11 +9,13 @@ import Main.BL.FacilityService;
 import Main.BL.IFacilityService;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
+import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
 import org.joda.time.DateTime;
-
+import Main.BL.InspectionService;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 public class Main {
     public static void main(String[] args){
@@ -107,6 +109,32 @@ public class Main {
         service.addFacilityDetail(7,unit2);
         Facility update = service.getFacilityInformation(7);
         printFacility(update);
+
+
+        /**
+         * Adding an inspection..
+         */
+        System.out.println("----------------------Adding New Inspection-------------------");
+        InspectionService insService = new InspectionService();
+        List<Inspection> resultInsList = insService.listInspections();
+        for(Inspection inspection:resultInsList){
+            System.out.println("ID: "+inspection.getID());
+            System.out.println("TIME: "+inspection.getInspectionDate());
+            System.out.println("Date: "+inspection.getInspectionDate());
+            System.out.println("Facility: "+inspection.getFacility().getName());
+        }
+        Inspection inspection = new Inspection();
+        inspection.setID(5);
+        inspection.setInspectingStaffID(50);
+        inspection.setInspectionDate(Calendar.getInstance().getTime());
+        inspection.setFacility(update);
+        insService.addInspection(inspection);
+        Inspection resultIns = insService.getInspectionInformation(5);
+        System.out.println("ID: "+resultIns.getID());
+        System.out.println("TIME: "+resultIns.getInspectionDate());
+        System.out.println("Date: "+resultIns.getInspectionDate());
+        System.out.println("Facility: "+resultIns.getFacility().getName());
+        insService.removeInspection(inspection);
         service.removeFacility(update);
 
 

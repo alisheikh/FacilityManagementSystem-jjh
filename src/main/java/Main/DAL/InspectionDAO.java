@@ -60,10 +60,12 @@ public class InspectionDAO {
         Inspection result = new Inspection();
         try {
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM inspection where id = "+id);
-            result.setID(rs.getInt("id"));
-            result.setInspectingStaffID(rs.getInt("inspection_Staff_id"));
-            result.setInspectionDate(rs.getDate("inspection_date"));
-            result.setFacility(new FacilityService().getFacilityInformation(rs.getInt("facility_id")));
+            while (rs.next()) {
+                result.setID(rs.getInt("id"));
+                result.setInspectingStaffID(rs.getInt("inspection_Staff_id"));
+                result.setInspectionDate(rs.getDate("inspection_date"));
+                result.setFacility(new FacilityService().getFacilityInformation(rs.getInt("facility_id")));
+            }
             return result;
         }catch (SQLException e) {
             e.printStackTrace();

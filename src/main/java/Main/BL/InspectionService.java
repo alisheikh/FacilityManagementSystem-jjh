@@ -13,25 +13,24 @@ import java.util.List;
  */
 
 public class InspectionService implements IInspectionService{
-    DatabaseConnector connector = new DatabaseConnector();
 
     @Override
     public List<Inspection> listInspections() {
-        return new InspectionDAO(connector).listAllInspections();
+        return new InspectionDAO(new DatabaseConnector()).listAllInspections();
     }
 
     @Override
     public Inspection getInspectionInformation(int id) {
-        return new InspectionDAO(connector).get(id);
+        return new InspectionDAO(new DatabaseConnector()).get(id);
     }
 
     @Override
     public void addInspection(Inspection inspection) {
-        new InspectionDAO(connector).create(inspection);
+        new InspectionDAO(new DatabaseConnector()).create(inspection);
     }
 
     @Override
     public void removeInspection(Inspection inspection) {
-       new InspectionDAO(connector).delete(inspection.getID());
+       new InspectionDAO(new DatabaseConnector()).delete(inspection.getID());
     }
 }
