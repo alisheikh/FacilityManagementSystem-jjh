@@ -2,15 +2,15 @@ package Main.Entities;
 
 public class Person {
 
-	private String FirstName;
+	private String firstName;
 
-	private String LastName;
+	private String lastName;
 
-	private String PhoneNumber;
+	private int phoneNumber;
 
-	private int ID;
+	private int id;
 
-	private String EmailAddress;
+	private String emailAddress;
 
 	public Person() {
 
@@ -18,42 +18,42 @@ public class Person {
 
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
-        return PhoneNumber;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public int getID() {
-        return ID;
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setID(int id) {
+        this.id = id;
     }
 
     public String getEmailAddress() {
-        return EmailAddress;
+        return emailAddress;
     }
 
     public void setEmailAddress(String emailAddress) {
-        EmailAddress = emailAddress;
+        this.emailAddress = emailAddress;
     }
 }

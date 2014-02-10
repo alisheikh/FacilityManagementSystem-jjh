@@ -1,7 +1,6 @@
 package Main.DAL;
 
 
-import Main.Entities.Facility.Facility;
 import Main.Entities.maintenance.MaintenanceStaff;
 
 import java.sql.Connection;
@@ -26,7 +25,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
     }
 
     @Override
-    public MaintenanceStaff Create(MaintenanceStaff newStaffMember) {
+    public MaintenanceStaff create(MaintenanceStaff newStaffMember) {
             String createQuery = "INSERT INTO maintenance_staff(" +
                     "first_name, last_name, phone_number, email_address, pay_per_hour," +
                     "is_full_time, hours_per_week)" +
@@ -35,7 +34,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
                 PreparedStatement insertStatement = connection.prepareStatement(createQuery, java.sql.Statement.RETURN_GENERATED_KEYS);
                 insertStatement.setString(1,newStaffMember.getFirstName());
                 insertStatement.setString(2,newStaffMember.getLastName());
-                insertStatement.setString(3,newStaffMember.getPhoneNumber());
+                insertStatement.setInt(3,newStaffMember.getPhoneNumber());
                 insertStatement.setString(4,newStaffMember.getEmailAddress());
                 insertStatement.setDouble(5, newStaffMember.getPayPerHour());
                 insertStatement.setBoolean(6, newStaffMember.isFullTime());
@@ -73,7 +72,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
     }
 
     @Override
-    public void Delete(int staffMemberId) {
+    public void delete(int staffMemberId) {
         String deleteQuery = "DELETE FROM maintenance_staff WHERE id =?";
 
         try {
@@ -89,7 +88,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
     }
 
     @Override
-    public MaintenanceStaff Get(int id) throws SQLException {
+    public MaintenanceStaff get(int id) throws SQLException {
         String getQuery = "Select * FROM maintenance_staff where id = ?";
 
         PreparedStatement getStatement = connection.prepareStatement(getQuery);
@@ -106,7 +105,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
                 maintenanceStaff.setLastName(rs.getString("last_name"));
                 maintenanceStaff.setFullTime(rs.getBoolean("is_full_time"));
                 maintenanceStaff.setPayPerHour(rs.getDouble("pay_per_hour"));
-                maintenanceStaff.setPhoneNumber(rs.getString("phone_number"));
+                maintenanceStaff.setPhoneNumber(rs.getInt("phone_number"));
                 maintenanceStaff.setEmailAddress(rs.getString("email_address"));
                 maintenanceStaff.setHoursPerWeek(rs.getInt("hours_per_week"));
 
@@ -126,7 +125,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
     }
 
     @Override
-    public MaintenanceStaff Update(MaintenanceStaff updatedStaffMember) {
+    public MaintenanceStaff update(MaintenanceStaff updatedStaffMember) {
         return null;
     }
 

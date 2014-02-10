@@ -8,11 +8,11 @@ import java.sql.SQLException;
  * Created by Jackson on 2/8/14.
  */
 public interface IMaintenanceStaffDAO {
-    MaintenanceStaff Create(MaintenanceStaff newStaffMember);
+    MaintenanceStaff create(MaintenanceStaff newStaffMember);
 
-    void Delete(int staffMemberId);
+    void delete(int staffMemberId);
 
-    MaintenanceStaff Get(int id) throws SQLException;
+    MaintenanceStaff get(int id) throws SQLException;
 
-    MaintenanceStaff Update(MaintenanceStaff updatedStaffMember);
+    MaintenanceStaff update(MaintenanceStaff updatedStaffMember);
 }

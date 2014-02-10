@@ -5,7 +5,7 @@ import Main.Entities.usage.UnitUser;
 /**
  * Created by Jackson on 2/8/14.
  */
-public interface IUnitUserDAO {
+public interface IUserDAO {
     UnitUser Create(UnitUser newUnitUser);
 
     void Delete(int unitUserId);

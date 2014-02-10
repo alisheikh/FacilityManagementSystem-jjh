@@ -1,17 +1,15 @@
 package Test.DAL;
 
 import Main.DAL.DatabaseConnector;
-import Main.DAL.IDatabaseConnector;
 import Main.DAL.IMaintenanceStaffDAO;
 import Main.DAL.MaintenanceStaffDAO;
 import Main.Entities.maintenance.MaintenanceStaff;
-import org.junit.*;
-import org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Stack;
 
 
 /**
@@ -40,7 +38,7 @@ public class MaintenanceStaffDAO_Tests {
         newStaff.setLastName("hayes");
         newStaff.setEmailAddress("jackson@jackson.com");
         newStaff.setPayPerHour(12.12);
-        newStaff.setPhoneNumber("1234567");
+        newStaff.setPhoneNumber(1234567);
 
     }
     @After
@@ -54,7 +52,7 @@ public class MaintenanceStaffDAO_Tests {
     public void test_Create()
     {
 
-        MaintenanceStaff returnedStaff = maintenanceStaffDAO.Create(newStaff);
+        MaintenanceStaff returnedStaff = maintenanceStaffDAO.create(newStaff);
 
         Assert.assertEquals("First Name", newStaff.getFirstName(), returnedStaff.getFirstName());
         Assert.assertEquals("Last Name", newStaff.getLastName(), returnedStaff.getLastName());
@@ -64,7 +62,7 @@ public class MaintenanceStaffDAO_Tests {
 
         //clean up
 
-        maintenanceStaffDAO.Delete(returnedStaff.getID());
+        maintenanceStaffDAO.delete(returnedStaff.getID());
     }
 
     @Test
@@ -74,7 +72,7 @@ public class MaintenanceStaffDAO_Tests {
         //setup
         MaintenanceStaff ms = null;
         try {
-            ms = maintenanceStaffDAO.Get(50);
+            ms = maintenanceStaffDAO.get(50);
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -91,15 +89,15 @@ public class MaintenanceStaffDAO_Tests {
     public void test_delete()
     {
         //setup
-        MaintenanceStaff sm = maintenanceStaffDAO.Create(newStaff);
+        MaintenanceStaff sm = maintenanceStaffDAO.create(newStaff);
 
         //execute
-        maintenanceStaffDAO.Delete(sm.getID());
+        maintenanceStaffDAO.delete(sm.getID());
 
 
         //assert
         try{
-        maintenanceStaffDAO.Get(sm.getID());
+        maintenanceStaffDAO.get(sm.getID());
         }
         catch(SQLException e)
         {
