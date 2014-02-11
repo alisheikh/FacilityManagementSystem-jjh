@@ -19,6 +19,7 @@ public class DatabaseConnector{
             Class.forName("org.postgresql.Driver");
             String url = "jdbc:postgresql://ec2-54-204-27-119.compute-1.amazonaws.com:5432/d8bdfjiqldja8v?user=kzprhsuuhaqamu&password=CtkuwQTL2G3Mpv_cajVqzH_tNh&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
             connection = DriverManager.getConnection(url);
+
         } catch (ClassNotFoundException e) {
 
             System.out.println("No Driver");
