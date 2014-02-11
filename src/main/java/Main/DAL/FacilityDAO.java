@@ -31,14 +31,13 @@ public class FacilityDAO implements IFacilityDAO {
                     "VALUES ('"+facility.getName()+"','"+facility.getCapacity()+"','"
                     +facility.getID()+"','"+facility.getBuildingNumber()+"')";
             System.out.println(query1);
-            statement.executeUpdate(query1);
+            statement.addBatch(query1);
             for(Unit unit:facility.getUnits()){
                 String query2 =  "INSERT INTO unit " +
                         "(id,facility_id,capacity,unit_number)" +
                         "VALUES ('"+unit.getId()+"','"+unit.getFacilityId()+"','"+unit.getCapacity()+"','"+
                         unit.getRoomNumber()+"')";
-                System.out.println(query2);
-               statement.executeUpdate(query2);
+                statement.addBatch(query2);
                 System.out.println(query2);
                 for(UnitUser user:unit.getUsers()){
                     String query3 = "INSERT INTO unit_user " +
@@ -54,10 +53,11 @@ public class FacilityDAO implements IFacilityDAO {
                             "VALUES ('"+usage.getId()+"','"+usage.getUnitId()+"','"+usage.getStartTime()+"','"+
                             usage.getEndTime()+"','"+usage.getUserId()+"')";
                     System.out.println(query4);
-                    statement.executeUpdate(query4);
+                    statement.addBatch(query4);
                 }
 
             }
+            statement.executeBatch();
             statement.close();
 
         } catch (SQLException e) {
@@ -78,14 +78,14 @@ public class FacilityDAO implements IFacilityDAO {
                             "VALUES ('"+unit.getId()+"','"+unit.getFacilityId()+"','"+unit.getCapacity()+"','"+
                             unit.getRoomNumber()+"')";
                     System.out.println(query2);
-                    statement.executeUpdate(query2);
+                    statement.addBatch(query2);
                     for(UnitUser user:unit.getUsers()){
                         String query3 = "INSERT INTO unit_user " +
                                 "(first_name,last_name,phone_number,id,email_address,credit_card,company_name) " +
                                 "VALUES ('"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getPhoneNumber()+
                                 "','"+user.getID()+"','"+user.getEmailAddress()+"','"+user.getCreditCard()+
                                 "','"+user.getCompanyName()+"')";
-                        statement.executeUpdate(query3);
+                        statement.addBatch(query3);
                     }
                     for(UnitUsage usage:unit.getUsage()){
                         String query4 = "INSERT INTO unit_usage " +
@@ -93,9 +93,10 @@ public class FacilityDAO implements IFacilityDAO {
                                 "VALUES ('"+usage.getId()+"','"+usage.getUnitId()+"','"+usage.getStartTime()+"','"+
                                 usage.getEndTime()+"','"+usage.getUserId()+"')";
                         System.out.println(query4);
-                        statement.executeUpdate(query4);
+                        statement.addBatch(query4);
                     }
-
+                    statement.executeBatch();
+                    statement.close();
 
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -106,7 +107,7 @@ public class FacilityDAO implements IFacilityDAO {
         }
         try {
             Statement statement = connection.createStatement();
-            statement.executeUpdate("UPDATE facility" +
+            statement.addBatch("UPDATE facility" +
                     " SET (name,capacity,building_number)"+
                     "= ('"+facility.getName()+"','"+facility.getCapacity()+"','"+facility.getBuildingNumber()+"')" +
                     "WHERE id = "+facility.getID());
@@ -117,16 +118,16 @@ public class FacilityDAO implements IFacilityDAO {
                         unit.getRoomNumber()+"')" +
                         "WHERE id = "+unit.getId();
                 System.out.println(updateUnits);
-                statement.executeUpdate(updateUnits);
+                statement.addBatch(updateUnits);
                 for(UnitUser user:unit.getUsers()){
-                   statement.executeUpdate("UPDATE unit_user " +
+                   statement.addBatch("UPDATE unit_user " +
                             " SET (first_name,last_name,phone_number,email_address,credit_card,company_name)" +
                             "= ('"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getPhoneNumber()+"','"+
                             user.getEmailAddress()+"','"+user.getCreditCard()+"','"+user.getCompanyName()+"')" +
                             "WHERE id ="+user.getID());
                 }
                 for(UnitUsage usage:unit.getUsage()){
-                    statement.executeUpdate("UPDATE unit_usage" +
+                    statement.addBatch("UPDATE unit_usage" +
                             " SET (id,unit_id,start_time,end_time,unit_user_id)" +
                             "= ('"+usage.getId()+"','"+usage.getUnitId()+"','"+usage.getStartTime()+"','"+
                             usage.getEndTime()+"','"+usage.getUserId()+"')" +
@@ -134,6 +135,7 @@ public class FacilityDAO implements IFacilityDAO {
                 }
 
             }
+            statement.executeBatch();
             statement.close();
 
         } catch (SQLException e) {
@@ -146,17 +148,17 @@ public class FacilityDAO implements IFacilityDAO {
     public void delete(Facility facility) {
         try {
             Statement statement = connection.createStatement();
-            statement.executeUpdate("DELETE FROM facility where id = '"+facility.getID()+"'");
+            statement.addBatch("DELETE FROM facility where id = '"+facility.getID()+"'");
             for(Unit unit:facility.getUnits()){
-                statement.executeUpdate("DELETE FROM unit where id = '"+unit.getId()+"'");
+                statement.addBatch("DELETE FROM unit where id = '"+unit.getId()+"'");
                 for(UnitUser user:unit.getUsers()){
-                    statement.executeUpdate("DELETE FROM unit_user where id = '"+user.getID()+"'");
+                    statement.addBatch("DELETE FROM unit_user where id = '"+user.getID()+"'");
                 }
                 for(UnitUsage usage:unit.getUsage()){
-                    statement.executeUpdate("DELETE FROM unit_usage where id = '"+usage.getId()+"'");
+                    statement.addBatch("DELETE FROM unit_usage where id = '"+usage.getId()+"'");
                 }
             }
-
+            statement.executeBatch();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
