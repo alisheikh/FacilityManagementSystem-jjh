@@ -30,7 +30,8 @@ public class Main extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        printTest(resp);
+        //printTest(resp);
+        resp.getWriter().print("hello fix too many data connections");
     }
 
     public static void main(String[] args) throws Exception{
