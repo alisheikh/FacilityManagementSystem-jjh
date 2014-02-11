@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Jackson\Documents\GitHub\FacilityManagementSystem-jjh\src\main\Test\Test\DAL\FacilityService_Test.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Jackson\Documents\GitHub\FacilityManagementSystem-jjh\src\main\Test\Test\DAL\MaintenanceStaffDAO_Tests.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Jackson\Documents\GitHub\FacilityManagementSystem-jjh\src\main\Test\Test\DAL\MaintenceRequestDAO_Tests.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FacilityManagementSystem-jjh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,23 +20,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/Main.java" line="128" class="Main" package="">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -90,7 +70,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="253" column="35" selection-start="10349" selection-end="10349" vertical-scroll-proportion="1.8095238" vertical-offset="3541" max-vertical-offset="5593">
+            <state line="135" column="43" selection-start="5111" selection-end="5111" vertical-scroll-proportion="0.5952381" vertical-offset="2045" max-vertical-offset="5695">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -594,7 +574,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="35" selection-start="10349" selection-end="10349" vertical-scroll-proportion="1.8095238" vertical-offset="3541" max-vertical-offset="5593">
+        <state line="135" column="43" selection-start="5111" selection-end="5111" vertical-scroll-proportion="0.5952381" vertical-offset="2045" max-vertical-offset="5695">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

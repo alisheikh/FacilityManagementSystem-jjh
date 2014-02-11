@@ -127,8 +127,14 @@ public class Main extends HttpServlet {
             facility = facilityService.addNewFacility(facility);
 
             resp.getWriter().print("facilities current facilities in DB:");
-            printAllFacilities(facilityService.listFacilities(), resp);
 
+
+            for(Facility f:facilityService.listFacilities()){
+                resp.getWriter().println(facility.getName());
+                resp.getWriter().println(facility.getBuildingNumber());
+                resp.getWriter().println(facility.getID());
+                resp.getWriter().println();
+            }
 
 
 
