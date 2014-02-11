@@ -15,11 +15,13 @@ import java.sql.SQLException;
 public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
 
+    private IDatabaseConnector connector;
     private Connection connection;
 
-    public MaintenanceStaffDAO(){
+    public MaintenanceStaffDAO(IDatabaseConnector connector){
+        this.connector = connector;
 
-        connection = DatabaseConnector.connect();
+        connection = connector.connect();
     }
 
     @Override
@@ -107,15 +109,17 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
                 maintenanceStaff.setEmailAddress(rs.getString("email_address"));
                 maintenanceStaff.setHoursPerWeek(rs.getInt("hours_per_week"));
 
-            }
+
             rs.close();
-            getStatement.close();
-            {
+            getStatement.close();}
+            else {
+                rs.close();
+                getStatement.close();
                 return null;
             }
         } catch (SQLException e) {
-           // e.printStackTrace();
-
+            e.printStackTrace();
+            throw e;
         }
 
         return maintenanceStaff;

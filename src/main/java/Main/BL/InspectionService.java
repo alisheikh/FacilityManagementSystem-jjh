@@ -1,6 +1,6 @@
 package Main.BL;
 
-import Main.DAL.InspectionDAO;
+import Main.DAL.IInspectionDAO;
 import Main.Entities.maintenance.Inspection;
 
 import java.util.List;
@@ -13,23 +13,30 @@ import java.util.List;
 
 public class InspectionService implements IInspectionService{
 
+
+    private IInspectionDAO inspectionDAO;
+
+    public InspectionService(IInspectionDAO inspectionDAO) {
+        this.inspectionDAO = inspectionDAO;
+    }
+
     @Override
-    public List<Inspection> listInspections() {
-        return new InspectionDAO().listAllInspections();
+    public List<Inspection> listInspections(int facilityID) {
+        return inspectionDAO.listAllInspections(facilityID);
     }
 
     @Override
     public Inspection getInspectionInformation(int id) {
-        return new InspectionDAO().get(id);
+        return inspectionDAO.get(id);
     }
 
     @Override
     public void addInspection(Inspection inspection) {
-        new InspectionDAO().create(inspection);
+        inspectionDAO.create(inspection);
     }
 
     @Override
     public void removeInspection(Inspection inspection) {
-       new InspectionDAO().delete(inspection.getID());
+      inspectionDAO.delete(inspection.getID());
     }
 }

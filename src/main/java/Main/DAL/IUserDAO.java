@@ -10,4 +10,8 @@ public interface IUserDAO {
 
     void Delete(int unitUserId);
 
+    UnitUser Get(int user_id);
+
+    UnitUser Update(UnitUser unitUser) throws Exception;
+
 }

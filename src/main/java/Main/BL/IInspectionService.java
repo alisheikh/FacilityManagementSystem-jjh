@@ -10,7 +10,8 @@ import java.util.List;
  * Time: 11:14 PM
  */
 public interface IInspectionService {
-    List<Inspection> listInspections();
+
+    List<Inspection> listInspections(int facilityID);
 
     Inspection getInspectionInformation(int id);
 

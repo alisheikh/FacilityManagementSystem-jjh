@@ -36,7 +36,4 @@ public class UnitUser extends Person {
         return unitUserId;
     }
 
-    public void setUnitUserId(int unitUserId){
-        this.unitUserId = unitUserId;
-    }
 }

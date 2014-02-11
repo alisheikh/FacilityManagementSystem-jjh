@@ -9,23 +9,26 @@ package Main.Entities.Facility;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Unit {
 
     private int capacity;
 
-    private int roomNumber;
+    private int unitNumber;
 
     private int id;
 
     private int facilityId;
 
-    private List<UnitUsage> usage;
+    private List<UnitUsage> usages;
 
     private List<UnitUser> users;
 
-    public Unit(){}
+    public Unit(){
+        usages = new ArrayList<UnitUsage>();
+    }
 
     public int getCapacity(){
         return this.capacity;
@@ -43,22 +46,22 @@ public class Unit {
         this.id = id;
     }
 
-    public List<UnitUsage> getUsage(){
-        return usage;
+    public List<UnitUsage> getUsages(){
+        return usages;
     }
 
-    public void setUsage(List<UnitUsage> usage){
-        this.usage = usage;
+    public void setUsages(List<UnitUsage> usages){
+        this.usages = usages;
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
+    public int getUnitNumber() {
+        return unitNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setUnitNumber(int unitNumber) {
+        this.unitNumber = unitNumber;
     }
-
+/*
     public List<UnitUser> getUsers(){
         return users;
     }
@@ -66,7 +69,7 @@ public class Unit {
     public void setUsers(List<UnitUser> users){
         this.users = users;
     }
-
+*/
     public int getFacilityId(){
         return facilityId;
     }
@@ -76,6 +79,15 @@ public class Unit {
     }
 
 
+    public List<UnitUser> getUsers() {
+        List<UnitUser> users = new ArrayList<UnitUser>();
+
+        for(UnitUsage usage: usages)
+        {
+            users.add(usage.getUnitUser());
+        }
+        return users;
+    }
 
 
 }
