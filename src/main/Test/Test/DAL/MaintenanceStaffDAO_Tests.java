@@ -1,6 +1,5 @@
 package Test.DAL;
 
-import Main.DAL.DatabaseConnector;
 import Main.DAL.IMaintenanceStaffDAO;
 import Main.DAL.MaintenanceStaffDAO;
 import Main.Entities.maintenance.MaintenanceStaff;
@@ -24,7 +23,7 @@ public class MaintenanceStaffDAO_Tests {
 
     public MaintenanceStaffDAO_Tests() {
 
-        maintenanceStaffDAO = new MaintenanceStaffDAO(new DatabaseConnector());
+        maintenanceStaffDAO = new MaintenanceStaffDAO();
     }
 
     @Before

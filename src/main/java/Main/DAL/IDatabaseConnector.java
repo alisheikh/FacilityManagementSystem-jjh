@@ -7,4 +7,6 @@ import java.sql.Connection;
  */
 public interface IDatabaseConnector {
     Connection connect();
+
+    void diconnect();
 }

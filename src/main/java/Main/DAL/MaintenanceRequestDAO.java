@@ -32,7 +32,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
 
 
         try {
-            PreparedStatement createStatement = connection.prepareStatement(createQuery, java.sql.Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement createStatement = connection.prepareStatement(createQuery, Statement.RETURN_GENERATED_KEYS);
             createStatement.setString(1, request.getRequest());
             createStatement.setDate(2, request.getDateRequested());
             createStatement.setDate(3, null);
@@ -51,16 +51,45 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
               return request;
            }
         } catch (SQLException e) {
-         //   e.printStackTrace();
+           e.printStackTrace();
 
         }
         return null;
     }
 
 	@Override
-    public MaintenanceRequest update(MaintenanceRequest request) {
+    public MaintenanceRequest update(MaintenanceRequest request) throws Exception {
+        String updateQuery = "UPDATE maintenance_request SET request=?, date_requested=?," +
+                " completion_date=?, staff_member_assigned_id=?, unit_id=? WHERE id = ?";
+
+
+
+        try {
+            PreparedStatement createStatement = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            createStatement.setString(1, request.getRequest());
+            createStatement.setDate(2, request.getDateRequested());
+            createStatement.setDate(3, request.getCompletionDate());
+            createStatement.setInt(4, request.getStaffMemberAssigned().getID());
+            createStatement.setInt(5, request.getUnit().getId());
+
+
+            int affectedRows = createStatement.executeUpdate();
+
+           if(affectedRows == 1)
+           {
+               request = get(request.getID());
+               return request;
+           }
+           else
+           {
+               throw new Exception("UpdateUnit Failed");
+           }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
         return null;
-	}
+    }
 
 	@Override
     public void delete(int ID) {
@@ -86,7 +115,10 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
 
 
 	}
-
+    /*
+    * @return maintenance request
+    * null if no records are found
+    * */
 	@Override
     public MaintenanceRequest get(int ID)
     {
@@ -111,14 +143,13 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
                 getStatement.close();
                 return request;
             }
+            else{return null;}//no item found
 
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
 
-
-		return null;
 	}
 
 }

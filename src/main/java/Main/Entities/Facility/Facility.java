@@ -1,5 +1,6 @@
 package Main.Entities.Facility;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Facility {
@@ -15,7 +16,7 @@ public class Facility {
 	private int capacity;
 
 	public Facility() {
-
+        units = new ArrayList<Unit>();
 	}
 
     public String getName(){
@@ -61,6 +62,7 @@ public class Facility {
 
     public int getTotalCapacity() {
         int cap = 0;
+        if(units != null && !units.isEmpty())
         for (Unit unit:units){
            cap += unit.getCapacity();
         }

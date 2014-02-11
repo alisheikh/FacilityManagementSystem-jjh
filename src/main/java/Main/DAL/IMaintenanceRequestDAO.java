@@ -8,7 +8,7 @@ import Main.Entities.maintenance.MaintenanceRequest;
 public interface IMaintenanceRequestDAO {
     MaintenanceRequest create(MaintenanceRequest request);
 
-    MaintenanceRequest update(MaintenanceRequest request);
+    MaintenanceRequest update(MaintenanceRequest request) throws Exception;
 
     void delete(int ID);
 

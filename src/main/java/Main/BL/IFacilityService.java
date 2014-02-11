@@ -12,12 +12,13 @@ public interface IFacilityService {
 
     Facility getFacilityInformation(int id);
 
-    int requestAvailibleCapacity(int facilityId,int unitID);
+    int requestAvailibleCapacity(int facilityId, int unitID);
 
     Facility addNewFacility(Facility facility);
 
-    Unit addFacilityDetail(int facilityID,Unit unit);
+    Unit addFacilityDetail(int facilityID, Unit unit);
 
     void removeFacility(Facility facility);
 
+    void RemoveUnit(Unit unit1);
 }

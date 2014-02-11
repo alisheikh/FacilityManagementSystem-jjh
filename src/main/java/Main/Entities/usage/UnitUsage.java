@@ -1,47 +1,30 @@
 package Main.Entities.usage;
 
+import Main.Entities.Facility.Unit;
 import org.joda.time.DateTime;
+
+import java.sql.Date;
 
 
 public class UnitUsage {
 
     private int id;
 
-    private int userId;
+	private Date startTime;
 
-	private DateTime startTime;
+	private Date endTime;
 
-	private DateTime endTime;
+    private UnitUser unitUser;
 
-	private int unitId;
+    private Unit unit;
 
     public UnitUsage()
     {
     }
 
-    public int getUserId() {
-        return userId;
-    }
 
-    public void setUserId(int iserId) {
-        this.userId = userId;
-    }
 
-    public DateTime getStartTime() {
-        return startTime;
-    }
 
-    public void setStartTime(DateTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public DateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(DateTime endTime) {
-        this.endTime = endTime;
-    }
 
 
 
@@ -54,11 +37,35 @@ public class UnitUsage {
         this.id = id;
     }
 
-    public int getUnitId() {
-        return unitId;
+    public UnitUser getUnitUser() {
+        return unitUser;
     }
 
-    public void setUnitId(int unitId) {
-        this.unitId = unitId;
+    public void setUnitUser(UnitUser unitUser) {
+        this.unitUser = unitUser;
+    }
+
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 }

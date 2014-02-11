@@ -109,15 +109,17 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
                 maintenanceStaff.setEmailAddress(rs.getString("email_address"));
                 maintenanceStaff.setHoursPerWeek(rs.getInt("hours_per_week"));
 
-            }
+
             rs.close();
-            getStatement.close();
-            {
+            getStatement.close();}
+            else {
+                rs.close();
+                getStatement.close();
                 return null;
             }
         } catch (SQLException e) {
-           // e.printStackTrace();
-
+            e.printStackTrace();
+            throw e;
         }
 
         return maintenanceStaff;
