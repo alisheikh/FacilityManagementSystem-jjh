@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/IFacilityUseService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IInspectionDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IUnitDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IUsageDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/UnitDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/UsageDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Facility.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Facility.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacilityManagementSystem-jjh.iml" afterPath="$PROJECT_DIR$/FacilityManagementSystem-jjh.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnector.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IDatabaseConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IFacilityDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/IFacilityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/IMaintenanceRequestDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IMaintenanceRequestDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/IUserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IUserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceStaffDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceStaffDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Test/Test/DAL/MaintenanceStaffDAO_Tests.java" afterPath="$PROJECT_DIR$/src/main/Test/Test/DAL/MaintenanceStaffDAO_Tests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Test/Test/DAL/MaintenceRequestDAO_Tests.java" afterPath="$PROJECT_DIR$/src/main/Test/Test/DAL/MaintenceRequestDAO_Tests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Unit.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Unit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUsage.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUsage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUser.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FacilityManagementSystem-jjh.iws" />
@@ -100,7 +71,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="35" selection-start="9255" selection-end="9255" vertical-scroll-proportion="2.4047618" vertical-offset="2159" max-vertical-offset="4471">
+            <state line="40" column="70" selection-start="1258" selection-end="1258" vertical-scroll-proportion="-1.1022409" vertical-offset="1467" max-vertical-offset="5593">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -710,7 +681,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="35" selection-start="9255" selection-end="9255" vertical-scroll-proportion="2.4047618" vertical-offset="2159" max-vertical-offset="4471">
+        <state line="40" column="70" selection-start="1258" selection-end="1258" vertical-scroll-proportion="-1.1022409" vertical-offset="1467" max-vertical-offset="5593">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

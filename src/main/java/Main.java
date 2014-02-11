@@ -53,7 +53,7 @@ public class Main extends HttpServlet {
 
         try{
 
-            resp.getWriter().print("begining program");
+            resp.getWriter().println("----------------begining program---------------");
             IMaintenanceStaffDAO maintenanceStaffDAO = new MaintenanceStaffDAO(connector);
             IUserDAO userDAO = new UserDAO(connector);
             IUnitDAO unitDAO = new UnitDAO(userDAO, connector);
@@ -69,6 +69,7 @@ public class Main extends HttpServlet {
             Random r = new Random();
 
             List<Unit> units = new ArrayList<Unit>();
+            resp.getWriter().println("initialize test units");
 
             Unit unit1 = new Unit();
             unit1.setCapacity(r.nextInt(3));
@@ -92,6 +93,7 @@ public class Main extends HttpServlet {
             unit4.setUnitNumber(r.nextInt(3));
             units.add(unit4);
 
+            resp.getWriter().print("create facilities objects and add to units to facilities");
             Facility facility1 = new Facility();
             facility1.setBuildingNumber(r.nextInt(4));
             facility1.setCapacity(50);
@@ -117,10 +119,18 @@ public class Main extends HttpServlet {
             facility.setName("facility0");
             facility.setUnits(units);
 
+            resp.getWriter().print("add facilities with units to the database");
+
             facility1 = facilityService.addNewFacility(facility1);
             facility2 = facilityService.addNewFacility(facility2);
             facility3 = facilityService.addNewFacility(facility3);
             facility = facilityService.addNewFacility(facility);
+
+            resp.getWriter().print("facilities current facilities in DB:");
+            printAllFacilities(facilityService.listFacilities(), resp);
+
+
+
 
             try{
 
@@ -254,4 +264,60 @@ public class Main extends HttpServlet {
 
     }
 
+    public static void printFacility(Facility facility,HttpServletResponse resp) throws IOException {
+        resp.getWriter().print("Building Num: " + facility.getBuildingNumber()+"\n");
+        resp.getWriter().print("Facility ID: " + facility.getID()+"\n");
+        resp.getWriter().print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
+        for(Unit unit:facility.getUnits()){
+            resp.getWriter().print("Unit Capacity: " + unit.getCapacity()+"\n");
+            resp.getWriter().print("Unit ID: " + unit.getId()+"\n");
+            resp.getWriter().print("Room Number: " + unit.getUnitNumber()+"\n");
+            for(UnitUsage usage:unit.getUsages()){
+                resp.getWriter().print("UsageID: " + usage.getId()+"\n");
+                resp.getWriter().print("Start Time: " + usage.getStartTime()+"\n");
+                resp.getWriter().print("End Time: " + usage.getEndTime()+"\n");
+                resp.getWriter().print("UsageID: " + usage.getId()+"\n");
+                resp.getWriter().print("Usage User ID: " + usage.getUnitUser().getID()+"\n");
+            }
+            for(UnitUser user:unit.getUsers()){
+                resp.getWriter().print("Unit user comp: " + user.getCompanyName()+"\n");
+                resp.getWriter().print("Unit user cred card: " + user.getCreditCard()+"\n");
+                resp.getWriter().print("Unit user email: " + user.getEmailAddress()+"\n");
+                resp.getWriter().print("Unit user first: " + user.getFirstName()+"\n");
+                resp.getWriter().print("Unit user last: " + user.getLastName()+"\n");
+                resp.getWriter().print("Unit user id: " + user.getID()+"\n");
+                resp.getWriter().print("Unit user phone: " + user.getPhoneNumber()+"\n");
+            }
+        }
+    }
+
+    public static void printAllFacilities(List<Facility> facilities,HttpServletResponse resp) throws IOException {
+        for(Facility facility:facilities){
+            resp.getWriter().print("Building Num: " + facility.getBuildingNumber()+"\n");
+            resp.getWriter().print("Facility ID: " + facility.getID()+"\n");
+            resp.getWriter().print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
+            for(Unit unit:facility.getUnits()){
+                resp.getWriter().print("Unit Capacity: " + unit.getCapacity()+"\n");
+                resp.getWriter().print("Unit ID: " + unit.getId()+"\n");
+                resp.getWriter().print("Room Number: " + unit.getUnitNumber()+"\n");
+                for(UnitUsage usage:unit.getUsages()){
+                    resp.getWriter().print("UsageID: " + usage.getId()+"\n");
+                    resp.getWriter().print("Start Time: " + usage.getStartTime()+"\n");
+                    resp.getWriter().print("End Time: " + usage.getEndTime()+"\n");
+                    resp.getWriter().print("UsageID: " + usage.getId()+"\n");
+                    resp.getWriter().print("Usage User ID: " + usage.getUnitUser().getID()+"\n");
+                }
+                for(UnitUser user:unit.getUsers()){
+                    resp.getWriter().print("Unit user comp: " + user.getCompanyName()+"\n");
+                    resp.getWriter().print("Unit user cred card: " + user.getCreditCard()+"\n");
+                    resp.getWriter().print("Unit user email: " + user.getEmailAddress()+"\n");
+                    resp.getWriter().print("Unit user first: " + user.getFirstName()+"\n");
+                    resp.getWriter().print("Unit user last: " + user.getLastName()+"\n");
+                    resp.getWriter().print("Unit user id: " + user.getID()+"\n");
+                    resp.getWriter().print("Unit user phone: " + user.getPhoneNumber()+"\n");
+                }
+            }
+        }
+    }
 }
+
