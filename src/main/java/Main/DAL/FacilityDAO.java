@@ -76,13 +76,6 @@ public class FacilityDAO implements IFacilityDAO {
 
     }
 
-
-
-
-
-
-
-
     @Override
     public Facility update(Facility facility) {
         for(Unit unit:facility.getUnits()){
@@ -95,25 +88,7 @@ public class FacilityDAO implements IFacilityDAO {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    /*String query2 =  "INSERT INTO unit " +
-                            "(id,facility_id,capacity,unit_number)" +
-                            "VALUES ('"+unit.getId()+"','"+unit.getFacilityId()+"','"+unit.getCapacity()+"','"+
-                            unit.getUnitNumber()+"')";
-                    System.out.println(query2);
-                    connection.createStatement().executeUpdate(query2);
 
-                    */
-
-
-                    /*
-                    for(UnitUser user:unit.getUsages().){
-                        String query3 = "INSERT INTO unit_user " +
-                                "(first_name,last_name,phone_number,id,email_address,credit_card,company_name) " +
-                                "VALUES ('"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getPhoneNumber()+
-                                "','"+user.getID()+"','"+user.getEmailAddress()+"','"+user.getCreditCard()+
-                                "','"+user.getCompanyName()+"')";
-                        connection.createStatement().executeUpdate(query3);
-                    }*/
                     for(UnitUsage usage:unit.getUsages()){
                         usage = unitDAO.CreateUsage(usage);//also creates any new users
                     }
@@ -133,7 +108,6 @@ public class FacilityDAO implements IFacilityDAO {
                     "WHERE id = "+facility.getID());
 
             for(Unit unit:facility.getUnits()){
-
                 unit = unitDAO.UpdateUnit(unit);
             }
 
@@ -229,7 +203,7 @@ public class FacilityDAO implements IFacilityDAO {
     public List<Facility> getAll() {
         List<Facility> facilities = new ArrayList<Facility>();
         try {
-            ResultSet rs = connection.createStatement().executeQuery("Select*FROM facility");
+            ResultSet rs = connection.createStatement().executeQuery("Select * FROM facility");
             while (rs.next()) {
                 Facility facility = new Facility();
                 facility.setID(rs.getInt("id"));
@@ -241,7 +215,6 @@ public class FacilityDAO implements IFacilityDAO {
                 facility.setUnits(unitDAO.GetUnitForFacility(facility.getID()));
 
                 facilities.add(facility);
-                rs.close();
             }
 
         } catch (SQLException e) {

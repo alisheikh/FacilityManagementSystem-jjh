@@ -97,6 +97,39 @@ public class UsageDAO implements IUsageDAO {
         }
 
     }
+
+    @Override
+    public List<UnitUsage> GetAll() {
+        String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage";
+
+        List<UnitUsage> usages = new ArrayList<UnitUsage>();
+        try {
+            PreparedStatement getStatement = connection.prepareStatement(getQuery);
+
+            ResultSet rs = getStatement.executeQuery();
+
+            while(rs.next())
+            {
+                UnitUsage usage = new UnitUsage();
+                usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
+                usage.setUnitUser(userDAO.Get(rs.getInt("user_id")));
+                usage.setId(rs.getInt("id"));
+                usage.setStartTime(rs.getDate("start_time"));
+                usage.setEndTime(rs.getDate("end_time"));
+
+                usages.add(usage);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return usages;
+
+    }
+
     public UnitUsage GetUsage(int id)
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where id =?";

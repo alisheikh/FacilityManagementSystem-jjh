@@ -129,12 +129,9 @@ public class Main extends HttpServlet {
             resp.getWriter().print("facilities current facilities in DB:");
 
 
-            for(Facility f:facilityService.listFacilities()){
-                resp.getWriter().println(facility.getName());
-                resp.getWriter().println(facility.getBuildingNumber());
-                resp.getWriter().println(facility.getID());
-                resp.getWriter().println();
-            }
+            printAllFacilities(facilityService.listFacilities(), resp);
+
+
 
 
 
@@ -237,7 +234,36 @@ public class Main extends HttpServlet {
             List<UnitUsage> usagesforunit4 = facilityUseService.listActualUsage(unit4.getId());
 
 
+            /*
+            resp.getWriter().println("------Print sample Usages Just Created-----------");
 
+
+            if(usagesforunit2!=null){
+
+            for(UnitUsage uu :usagesforunit1)
+            {
+                resp.getWriter().println("unit:");
+                resp.getWriter().println(uu.getUnit());
+                resp.getWriter().println("unit user id");
+                resp.getWriter().println(uu.getUnitUser());
+                resp.getWriter().println(uu.getStartTime().toString());
+                resp.getWriter().println(uu.getEndTime());
+                resp.getWriter().println();
+            }}*/
+
+            resp.getWriter().println("------Print all usages -----------");
+            List<UnitUsage> usagestopring = facilityUseService.listUsages();
+            for (UnitUsage uu:usagestopring)
+            {
+                resp.getWriter().println("unit:");
+                resp.getWriter().println(uu.getUnit());
+                resp.getWriter().println("unit user id");
+                resp.getWriter().println(uu.getUnitUser());
+                resp.getWriter().println(uu.getStartTime().toString());
+                resp.getWriter().println(uu.getEndTime());
+                resp.getWriter().println();
+
+            }
 
 
 
@@ -306,22 +332,8 @@ public class Main extends HttpServlet {
                 resp.getWriter().print("Unit Capacity: " + unit.getCapacity()+"\n");
                 resp.getWriter().print("Unit ID: " + unit.getId()+"\n");
                 resp.getWriter().print("Room Number: " + unit.getUnitNumber()+"\n");
-                for(UnitUsage usage:unit.getUsages()){
-                    resp.getWriter().print("UsageID: " + usage.getId()+"\n");
-                    resp.getWriter().print("Start Time: " + usage.getStartTime()+"\n");
-                    resp.getWriter().print("End Time: " + usage.getEndTime()+"\n");
-                    resp.getWriter().print("UsageID: " + usage.getId()+"\n");
-                    resp.getWriter().print("Usage User ID: " + usage.getUnitUser().getID()+"\n");
-                }
-                for(UnitUser user:unit.getUsers()){
-                    resp.getWriter().print("Unit user comp: " + user.getCompanyName()+"\n");
-                    resp.getWriter().print("Unit user cred card: " + user.getCreditCard()+"\n");
-                    resp.getWriter().print("Unit user email: " + user.getEmailAddress()+"\n");
-                    resp.getWriter().print("Unit user first: " + user.getFirstName()+"\n");
-                    resp.getWriter().print("Unit user last: " + user.getLastName()+"\n");
-                    resp.getWriter().print("Unit user id: " + user.getID()+"\n");
-                    resp.getWriter().print("Unit user phone: " + user.getPhoneNumber()+"\n");
-                }
+
+
             }
         }
     }
