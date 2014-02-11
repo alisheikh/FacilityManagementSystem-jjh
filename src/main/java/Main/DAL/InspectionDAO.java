@@ -74,6 +74,7 @@ public class InspectionDAO {
                 result.setInspectionDate(rs.getDate("inspection_date"));
                 result.setFacility(new FacilityService().getFacilityInformation(rs.getInt("facility_id")));
             }
+            rs.close();
             statement.close();
             return result;
         }catch (SQLException e) {
@@ -95,6 +96,7 @@ public class InspectionDAO {
                 result.setFacility(new FacilityService().getFacilityInformation(rs.getInt("facility_id")));
                 inspections.add(result);
             }
+            rs.close();
             statement.close();
             return inspections;
         }catch (SQLException e) {

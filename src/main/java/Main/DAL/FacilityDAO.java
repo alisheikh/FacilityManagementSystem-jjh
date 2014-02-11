@@ -156,6 +156,7 @@ public class FacilityDAO implements IFacilityDAO {
                     statement.executeUpdate("DELETE FROM unit_usage where id = '"+usage.getId()+"'");
                 }
             }
+
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -177,6 +178,7 @@ public class FacilityDAO implements IFacilityDAO {
                 facility.setCapacity(rs.getInt("capacity"));
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
             }
+            rs.close();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -278,6 +280,7 @@ public class FacilityDAO implements IFacilityDAO {
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
                 facilities.add(facility);
             }
+            rs.close();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -299,6 +302,7 @@ public class FacilityDAO implements IFacilityDAO {
                 unit.setUsers(getUsers(rs.getInt("id")));
                 unit.setUsage(getUsages(rs.getInt("id")));
             }
+            rs.close();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
