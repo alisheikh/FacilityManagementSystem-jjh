@@ -15,13 +15,11 @@ import java.sql.SQLException;
 public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
 
-    private IDatabaseConnector connector;
     private Connection connection;
 
-    public MaintenanceStaffDAO(IDatabaseConnector connector){
-        this.connector = connector;
+    public MaintenanceStaffDAO(){
 
-        connection = connector.connect();
+        connection = DatabaseConnector.connect();
     }
 
     @Override

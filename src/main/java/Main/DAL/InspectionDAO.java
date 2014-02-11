@@ -6,6 +6,7 @@ import Main.Entities.maintenance.Inspection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,18 +14,20 @@ public class InspectionDAO {
 
     private Connection connection;
 
-    public InspectionDAO(IDatabaseConnector connector) {
-        connection = connector.connect();
+    public InspectionDAO() {
+        connection = DatabaseConnector.connect();
     }
 
 	public Inspection create(Inspection inspection) {
         try {
+            Statement statement = connection.createStatement();
             String query1 = "INSERT INTO inspection " +
                     " (id,facility_id,inspection_staff_id,inspection_date)"+
                     "VALUES ('"+inspection.getID()+"','"+inspection.getFacility().getID()+"','"
                     +inspection.getInspectingStaffID()+"','"+inspection.getInspectionDate()+"')";
             System.out.println(query1);
-            connection.createStatement().executeUpdate(query1);
+            statement.executeUpdate(query1);
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,11 +37,13 @@ public class InspectionDAO {
 	public Inspection update(Inspection inspection)
     {
         try{
-                connection.createStatement().executeUpdate("UPDATE inspection" +
+            Statement statement = connection.createStatement();
+                statement.executeUpdate("UPDATE inspection" +
                     " SET (id,facility_id,inspection_staff_id,inspection_date)"+
                     "= ('"+inspection.getID()+"','"+inspection.getFacility().getID()+"','"+inspection.getInspectingStaffID()+
                         "','"+inspection.getInspectionDate()+"')" +
                     "WHERE id = "+inspection.getID());
+            statement.close();
             return inspection;
         }catch(SQLException e) {
             e.printStackTrace();
@@ -49,7 +54,9 @@ public class InspectionDAO {
 
 	public void delete(int id) {
         try {
-            connection.createStatement().executeUpdate("DELETE FROM inspection where id = '"+id+"'");
+            Statement statement = connection.createStatement();
+                statement.executeUpdate("DELETE FROM inspection where id = '"+id+"'");
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -59,6 +66,7 @@ public class InspectionDAO {
 	public Inspection get(int id) {
         Inspection result = new Inspection();
         try {
+            Statement statement = connection.createStatement();
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM inspection where id = "+id);
             while (rs.next()) {
                 result.setID(rs.getInt("id"));
@@ -66,6 +74,7 @@ public class InspectionDAO {
                 result.setInspectionDate(rs.getDate("inspection_date"));
                 result.setFacility(new FacilityService().getFacilityInformation(rs.getInt("facility_id")));
             }
+            statement.close();
             return result;
         }catch (SQLException e) {
             e.printStackTrace();
@@ -76,6 +85,7 @@ public class InspectionDAO {
     public List<Inspection> listAllInspections(){
         List<Inspection> inspections = new ArrayList<Inspection>();
         try {
+            Statement statement = connection.createStatement();
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM inspection");
             while (rs.next()) {
                 Inspection result = new Inspection();
@@ -85,6 +95,7 @@ public class InspectionDAO {
                 result.setFacility(new FacilityService().getFacilityInformation(rs.getInt("facility_id")));
                 inspections.add(result);
             }
+            statement.close();
             return inspections;
         }catch (SQLException e) {
             e.printStackTrace();

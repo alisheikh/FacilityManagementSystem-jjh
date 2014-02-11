@@ -1,6 +1,5 @@
 package Main.BL;
 
-import Main.DAL.DatabaseConnector;
 import Main.DAL.FacilityDAO;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
@@ -15,19 +14,19 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public List<Facility> listFacilities() {
-        List<Facility> res = new FacilityDAO(new DatabaseConnector()).getAll();
+        List<Facility> res = new FacilityDAO().getAll();
         return res;
     }
 
     @Override
     public Facility getFacilityInformation(int id) {
-        Facility res = new FacilityDAO(new DatabaseConnector()).get(id);
+        Facility res = new FacilityDAO().get(id);
         return res;
     }
 
     @Override
     public int requestAvailibleCapacity(int facilityId,int unitID) {
-        FacilityDAO dao = new FacilityDAO(new DatabaseConnector());
+        FacilityDAO dao = new FacilityDAO();
         Facility res = dao.get(facilityId);
         List<Unit> units =res.getUnits();
         for(Unit unit:units){
@@ -38,12 +37,12 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public Facility addNewFacility(Facility facility) {
-        return new FacilityDAO(new DatabaseConnector()).create(facility);
+        return new FacilityDAO().create(facility);
     }
 
     @Override
     public Unit addFacilityDetail(int facilityid,Unit unit) {
-        FacilityDAO dao = new FacilityDAO(new DatabaseConnector());
+        FacilityDAO dao = new FacilityDAO();
         Facility res = dao.get(facilityid);
         List<Unit> units =res.getUnits();
         units.add(unit);
@@ -55,7 +54,7 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public void removeFacility(Facility facility) {
-        new FacilityDAO(new DatabaseConnector()).delete(facility);
+        new FacilityDAO().delete(facility);
     }
 
 }

@@ -10,17 +10,15 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
 
     //TODO:This is where we execute our sql statements.
 
-    private IDatabaseConnector connector;
     private Connection connection;
     private IFacilityDAO facilityDAO;
     private IMaintenanceStaffDAO maintenanceStaffDAO;
 
-    public MaintenanceRequestDAO(IDatabaseConnector connector, IFacilityDAO facilityDAO, IMaintenanceStaffDAO maintenanceStaffDAO) {
-        this.connector = connector;
+    public MaintenanceRequestDAO(IFacilityDAO facilityDAO, IMaintenanceStaffDAO maintenanceStaffDAO) {
         this.facilityDAO = facilityDAO;
         this.maintenanceStaffDAO = maintenanceStaffDAO;
 
-        connection = connector.connect();
+        connection = DatabaseConnector.connect();
     }
 
     @Override

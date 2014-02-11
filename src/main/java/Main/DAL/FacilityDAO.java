@@ -5,7 +5,7 @@ import Main.Entities.Facility.Unit;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
 import org.joda.time.DateTime;
-
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,30 +15,30 @@ import java.util.List;
 
 public class FacilityDAO implements IFacilityDAO {
 
-    private IDatabaseConnector Connector;
-    private Connection connection;
+    private Connection connection = DatabaseConnector.connect();
 
-    public FacilityDAO(IDatabaseConnector connector) {
-       Connector = connector;
-       connection = connector.connect();
+    public FacilityDAO() {
+
     }
 
     @Override
     public Facility create(Facility facility) {
+
         try {
+            Statement statement = connection.createStatement();
             String query1 = "INSERT INTO facility " +
                     " (name,capacity,id,building_number)"+
                     "VALUES ('"+facility.getName()+"','"+facility.getCapacity()+"','"
                     +facility.getID()+"','"+facility.getBuildingNumber()+"')";
             System.out.println(query1);
-            connection.createStatement().executeUpdate(query1);
+            statement.executeUpdate(query1);
             for(Unit unit:facility.getUnits()){
                 String query2 =  "INSERT INTO unit " +
                         "(id,facility_id,capacity,unit_number)" +
                         "VALUES ('"+unit.getId()+"','"+unit.getFacilityId()+"','"+unit.getCapacity()+"','"+
                         unit.getRoomNumber()+"')";
                 System.out.println(query2);
-               connection.createStatement().executeUpdate(query2);
+               statement.executeUpdate(query2);
                 System.out.println(query2);
                 for(UnitUser user:unit.getUsers()){
                     String query3 = "INSERT INTO unit_user " +
@@ -46,7 +46,7 @@ public class FacilityDAO implements IFacilityDAO {
                             "VALUES ('"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getPhoneNumber()+
                             "','"+user.getID()+"','"+user.getEmailAddress()+"','"+user.getCreditCard()+
                             "','"+user.getCompanyName()+"')";
-                    connection.createStatement().executeUpdate(query3);
+                    statement.executeUpdate(query3);
                 }
                 for(UnitUsage usage:unit.getUsage()){
                     String query4 = "INSERT INTO unit_usage " +
@@ -54,10 +54,11 @@ public class FacilityDAO implements IFacilityDAO {
                             "VALUES ('"+usage.getId()+"','"+usage.getUnitId()+"','"+usage.getStartTime()+"','"+
                             usage.getEndTime()+"','"+usage.getUserId()+"')";
                     System.out.println(query4);
-                    connection.createStatement().executeUpdate(query4);
+                    statement.executeUpdate(query4);
                 }
 
             }
+            statement.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,19 +72,20 @@ public class FacilityDAO implements IFacilityDAO {
             Unit check = getUnit(unit.getId());
             if(check.getId()==0){
                 try{
+                    Statement statement = connection.createStatement();
                     String query2 =  "INSERT INTO unit " +
                             "(id,facility_id,capacity,unit_number)" +
                             "VALUES ('"+unit.getId()+"','"+unit.getFacilityId()+"','"+unit.getCapacity()+"','"+
                             unit.getRoomNumber()+"')";
                     System.out.println(query2);
-                    connection.createStatement().executeUpdate(query2);
+                    statement.executeUpdate(query2);
                     for(UnitUser user:unit.getUsers()){
                         String query3 = "INSERT INTO unit_user " +
                                 "(first_name,last_name,phone_number,id,email_address,credit_card,company_name) " +
                                 "VALUES ('"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getPhoneNumber()+
                                 "','"+user.getID()+"','"+user.getEmailAddress()+"','"+user.getCreditCard()+
                                 "','"+user.getCompanyName()+"')";
-                        connection.createStatement().executeUpdate(query3);
+                        statement.executeUpdate(query3);
                     }
                     for(UnitUsage usage:unit.getUsage()){
                         String query4 = "INSERT INTO unit_usage " +
@@ -91,7 +93,7 @@ public class FacilityDAO implements IFacilityDAO {
                                 "VALUES ('"+usage.getId()+"','"+usage.getUnitId()+"','"+usage.getStartTime()+"','"+
                                 usage.getEndTime()+"','"+usage.getUserId()+"')";
                         System.out.println(query4);
-                        connection.createStatement().executeUpdate(query4);
+                        statement.executeUpdate(query4);
                     }
 
 
@@ -103,7 +105,8 @@ public class FacilityDAO implements IFacilityDAO {
 
         }
         try {
-            connection.createStatement().executeUpdate("UPDATE facility" +
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("UPDATE facility" +
                     " SET (name,capacity,building_number)"+
                     "= ('"+facility.getName()+"','"+facility.getCapacity()+"','"+facility.getBuildingNumber()+"')" +
                     "WHERE id = "+facility.getID());
@@ -114,16 +117,16 @@ public class FacilityDAO implements IFacilityDAO {
                         unit.getRoomNumber()+"')" +
                         "WHERE id = "+unit.getId();
                 System.out.println(updateUnits);
-                connection.createStatement().executeUpdate(updateUnits);
+                statement.executeUpdate(updateUnits);
                 for(UnitUser user:unit.getUsers()){
-                    connection.createStatement().executeUpdate("UPDATE unit_user " +
+                   statement.executeUpdate("UPDATE unit_user " +
                             " SET (first_name,last_name,phone_number,email_address,credit_card,company_name)" +
                             "= ('"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getPhoneNumber()+"','"+
                             user.getEmailAddress()+"','"+user.getCreditCard()+"','"+user.getCompanyName()+"')" +
                             "WHERE id ="+user.getID());
                 }
                 for(UnitUsage usage:unit.getUsage()){
-                    connection.createStatement().executeUpdate("UPDATE unit_usage" +
+                    statement.executeUpdate("UPDATE unit_usage" +
                             " SET (id,unit_id,start_time,end_time,unit_user_id)" +
                             "= ('"+usage.getId()+"','"+usage.getUnitId()+"','"+usage.getStartTime()+"','"+
                             usage.getEndTime()+"','"+usage.getUserId()+"')" +
@@ -131,6 +134,7 @@ public class FacilityDAO implements IFacilityDAO {
                 }
 
             }
+            statement.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -141,16 +145,18 @@ public class FacilityDAO implements IFacilityDAO {
     @Override
     public void delete(Facility facility) {
         try {
-            connection.createStatement().executeUpdate("DELETE FROM facility where id = '"+facility.getID()+"'");
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("DELETE FROM facility where id = '"+facility.getID()+"'");
             for(Unit unit:facility.getUnits()){
-                connection.createStatement().executeUpdate("DELETE FROM unit where id = '"+unit.getId()+"'");
+                statement.executeUpdate("DELETE FROM unit where id = '"+unit.getId()+"'");
                 for(UnitUser user:unit.getUsers()){
-                    connection.createStatement().executeUpdate("DELETE FROM unit_user where id = '"+user.getID()+"'");
+                    statement.executeUpdate("DELETE FROM unit_user where id = '"+user.getID()+"'");
                 }
                 for(UnitUsage usage:unit.getUsage()){
-                    connection.createStatement().executeUpdate("DELETE FROM unit_usage where id = '"+usage.getId()+"'");
+                    statement.executeUpdate("DELETE FROM unit_usage where id = '"+usage.getId()+"'");
                 }
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -162,7 +168,8 @@ public class FacilityDAO implements IFacilityDAO {
     public Facility get(int id) {
         Facility facility = new Facility();
         try {
-            ResultSet rs = connection.createStatement().executeQuery("Select*FROM facility where id = '"+id+"'");
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("Select*FROM facility where id = '"+id+"'");
             while (rs.next()) {
                 facility.setID(rs.getInt("id"));
                 facility.setName(rs.getString("name"));
@@ -170,6 +177,7 @@ public class FacilityDAO implements IFacilityDAO {
                 facility.setCapacity(rs.getInt("capacity"));
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -181,6 +189,7 @@ public class FacilityDAO implements IFacilityDAO {
         List<Unit> units = new ArrayList<Unit>();
         String getQuery = "Select*FROM unit where facility_id = '" +facilityId+"'";
         try {
+            Statement statement = connection.createStatement();
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             ResultSet rsUnits = getStatement.executeQuery();
 
@@ -195,6 +204,7 @@ public class FacilityDAO implements IFacilityDAO {
                 units.add(unit);
             }
             rsUnits.close();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -207,7 +217,8 @@ public class FacilityDAO implements IFacilityDAO {
     public List<UnitUsage> getUsages(int unitId){
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
         try {
-            ResultSet rs = connection.createStatement().executeQuery("Select*FROM unit_usage where unit_id = '"+unitId+"'");
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("Select*FROM unit_usage where unit_id = '"+unitId+"'");
             while (rs.next()) {
                 UnitUsage usage = new UnitUsage();
                 usage.setId(rs.getInt("id"));
@@ -219,6 +230,7 @@ public class FacilityDAO implements IFacilityDAO {
                 usages.add(usage);
             }
             rs.close();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -229,7 +241,8 @@ public class FacilityDAO implements IFacilityDAO {
     public List<UnitUser> getUsers(int userId){
         List<UnitUser> users = new ArrayList<UnitUser>();
         try {
-        ResultSet rs = connection.createStatement().executeQuery("Select*FROM unit_user where id = "+userId);
+            Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("Select*FROM unit_user where id = "+userId);
             while (rs.next()) {
                 UnitUser user = new UnitUser();
                 user.setFirstName(rs.getString("first_name"));
@@ -242,6 +255,7 @@ public class FacilityDAO implements IFacilityDAO {
                 users.add(user);
             }
             rs.close();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -253,7 +267,8 @@ public class FacilityDAO implements IFacilityDAO {
     public List<Facility> getAll() {
         List<Facility> facilities = new ArrayList<Facility>();
         try {
-            ResultSet rs = connection.createStatement().executeQuery("Select*FROM facility");
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("Select*FROM facility");
             while (rs.next()) {
                 Facility facility = new Facility();
                 facility.setID(rs.getInt("id"));
@@ -263,6 +278,7 @@ public class FacilityDAO implements IFacilityDAO {
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
                 facilities.add(facility);
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -273,7 +289,8 @@ public class FacilityDAO implements IFacilityDAO {
     public Unit getUnit(int unitId){
         Unit unit = new Unit();
         try {
-            ResultSet rs = connection.createStatement().executeQuery("Select*FROM unit where id = '"+unitId+"'");
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("Select*FROM unit where id = '"+unitId+"'");
             while (rs.next()) {
                 unit.setFacilityId(rs.getInt("facility_id"));
                 unit.setId(rs.getInt("id"));
@@ -282,6 +299,7 @@ public class FacilityDAO implements IFacilityDAO {
                 unit.setUsers(getUsers(rs.getInt("id")));
                 unit.setUsage(getUsages(rs.getInt("id")));
             }
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

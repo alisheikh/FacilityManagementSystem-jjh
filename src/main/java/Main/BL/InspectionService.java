@@ -1,6 +1,5 @@
 package Main.BL;
 
-import Main.DAL.DatabaseConnector;
 import Main.DAL.InspectionDAO;
 import Main.Entities.maintenance.Inspection;
 
@@ -16,21 +15,21 @@ public class InspectionService implements IInspectionService{
 
     @Override
     public List<Inspection> listInspections() {
-        return new InspectionDAO(new DatabaseConnector()).listAllInspections();
+        return new InspectionDAO().listAllInspections();
     }
 
     @Override
     public Inspection getInspectionInformation(int id) {
-        return new InspectionDAO(new DatabaseConnector()).get(id);
+        return new InspectionDAO().get(id);
     }
 
     @Override
     public void addInspection(Inspection inspection) {
-        new InspectionDAO(new DatabaseConnector()).create(inspection);
+        new InspectionDAO().create(inspection);
     }
 
     @Override
     public void removeInspection(Inspection inspection) {
-       new InspectionDAO(new DatabaseConnector()).delete(inspection.getID());
+       new InspectionDAO().delete(inspection.getID());
     }
 }
