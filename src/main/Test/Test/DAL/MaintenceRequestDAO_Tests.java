@@ -16,14 +16,12 @@ public class MaintenceRequestDAO_Tests {
 
         private MaintenanceRequest newRequest;
         private IMaintenanceRequestDAO maintenanceRequestDAO;
-        private IDatabaseConnector databaseConnector;
 
     public MaintenceRequestDAO_Tests()
     {
-        databaseConnector = new DatabaseConnector();
         maintenanceRequestDAO = new MaintenanceRequestDAO(
-                databaseConnector, new FacilityDAO(databaseConnector),
-                new MaintenanceStaffDAO(databaseConnector));//UGLY
+                new FacilityDAO(),
+                new MaintenanceStaffDAO());//UGLY
     }
 
 
