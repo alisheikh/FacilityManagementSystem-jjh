@@ -246,13 +246,13 @@ public class Main extends HttpServlet {
                 facilityService.RemoveUnit(u);
             }//tests deletion of individual units.
 
-
+            /*
             facilityService.removeFacility(facility);//delete facility and cascades all units and usages
             facilityService.removeFacility(facility1);
             facilityService.removeFacility(facility2);
             facilityService.removeFacility(facility3);
             facilityService.removeFacility(facility);
-
+            */
 
         }
         catch (Exception e)
