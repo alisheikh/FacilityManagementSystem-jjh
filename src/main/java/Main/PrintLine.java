@@ -1,12 +1,10 @@
 package Main;
 
-import Main.BL.FacilityMaintenanceService;
-import Main.BL.FacilityService;
-import Main.BL.FacilityUseService;
-import Main.BL.IFacilityMaintenanceService;
+import Main.BL.*;
 import Main.DAL.*;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
+import Main.Entities.maintenance.Inspection;
 import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.maintenance.MaintenanceStaff;
 import Main.Entities.usage.UnitUsage;
@@ -41,8 +39,12 @@ public class PrintLine {
             IUsageDAO usageDAO = new UsageDAO(connector, unitDAO, userDAO);
 
             FacilityService facilityService = new FacilityService(connector,facilityDAO, unitDAO);
-            IInspectionDAO inpectionDAO = new InspectionDAO(connector, facilityService);
-            FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inpectionDAO,usageDAO);
+            IInspectionDAO inspectionDAO = new InspectionDAO(connector, facilityService, maintenanceStaffDAO);
+            FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
+
+            IInspectionService inspectionService = new InspectionService(inspectionDAO, facilityDAO, maintenanceStaffDAO);
+
+
 
             Random r = new Random();
 
@@ -283,7 +285,29 @@ public class PrintLine {
             System.out.println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getID()));
 
 
-            //Todo: add inspections to
+            System.out.println("add inspections to facility:" + facility1.getName());
+
+            inspectionService.addInspection(facility1.getID(), staff.getID(), d1);
+            inspectionService.addInspection(facility1.getID(), staff.getID(), d2);
+            inspectionService.addInspection(facility1.getID(), staff.getID(), d3);
+            inspectionService.addInspection(facility1.getID(), staff.getID(), d4);
+
+            System.out.println("Inspections Scheduled for"+ facility1.getID());
+
+            List<Inspection> inspections = inspectionService.getInspectionForFacility(facility1.getID());
+
+            for(Inspection inspection:inspections)
+            {
+                System.out.println("Inspection ID:" + inspection.getID());
+                System.out.println("Staff Member Assign ID"+inspection.getInspectingStaff().getID());
+                System.out.println("Staff Member Name"+inspection.getInspectingStaff().getFirstName());
+                System.out.println("Date :" +inspection.getInspectionDate());
+
+
+            }
+
+
+
 
 
 

@@ -1,8 +1,13 @@
 package Main.BL;
 
+import Main.DAL.IFacilityDAO;
 import Main.DAL.IInspectionDAO;
+import Main.DAL.IMaintenanceStaffDAO;
 import Main.Entities.maintenance.Inspection;
 
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,9 +20,13 @@ public class InspectionService implements IInspectionService{
 
 
     private IInspectionDAO inspectionDAO;
+    private IFacilityDAO facilityDAO;
+    private IMaintenanceStaffDAO maintenanceStaffDAO;
 
-    public InspectionService(IInspectionDAO inspectionDAO) {
+    public InspectionService(IInspectionDAO inspectionDAO, IFacilityDAO facilityDAO, IMaintenanceStaffDAO maintenanceStaffDAO) {
         this.inspectionDAO = inspectionDAO;
+        this.facilityDAO = facilityDAO;
+        this.maintenanceStaffDAO = maintenanceStaffDAO;
     }
 
     @Override
@@ -31,12 +40,29 @@ public class InspectionService implements IInspectionService{
     }
 
     @Override
-    public void addInspection(Inspection inspection) {
-        inspectionDAO.create(inspection);
+    public Inspection addInspection(int facilityID, int staffMemberId, Date inspectionDate) {
+
+        Inspection inspection = new Inspection();
+        try {
+
+            inspection.setFacility(facilityDAO.get(facilityID));
+            inspection.setInspectingStaff(maintenanceStaffDAO.get(staffMemberId));
+            inspection.setInspectionDate(inspectionDate);
+            return inspectionDAO.create(inspection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return inspection;
+
     }
 
     @Override
-    public void removeInspection(Inspection inspection) {
-      inspectionDAO.delete(inspection.getID());
+    public void removeInspection(int inspectionID) {
+        inspectionDAO.delete(inspectionID);
+    }
+
+    @Override
+    public List<Inspection> getInspectionForFacility(int id) {
+      return inspectionDAO.listAllInspections(id);
     }
 }

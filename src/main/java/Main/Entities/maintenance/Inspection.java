@@ -3,7 +3,7 @@ package Main.Entities.maintenance;
 
 import Main.Entities.Facility.Facility;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Inspection {
 
@@ -11,7 +11,7 @@ public class Inspection {
 
 	private Facility facility;
 
-	private int inspectingStaffID;
+	private MaintenanceStaff inspectingStaff;
 
 	private Date inspectionDate;
 
@@ -31,19 +31,19 @@ public class Inspection {
         this.facility = facility;
     }
 
-    public int getInspectingStaffID() {
-        return inspectingStaffID;
-    }
-
-    public void setInspectingStaffID(int inspectingStaffID) {
-        this.inspectingStaffID = inspectingStaffID;
-    }
-
     public Date getInspectionDate() {
         return inspectionDate;
     }
 
     public void setInspectionDate(Date inspectionDate) {
         this.inspectionDate = inspectionDate;
+    }
+
+    public MaintenanceStaff getInspectingStaff() {
+        return inspectingStaff;
+    }
+
+    public void setInspectingStaff(MaintenanceStaff inspectingStaffID) {
+        this.inspectingStaff = inspectingStaffID;
     }
 }

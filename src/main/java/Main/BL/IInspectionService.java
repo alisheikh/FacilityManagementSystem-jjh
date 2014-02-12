@@ -2,6 +2,7 @@ package Main.BL;
 
 import Main.Entities.maintenance.Inspection;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -15,7 +16,9 @@ public interface IInspectionService {
 
     Inspection getInspectionInformation(int id);
 
-    void addInspection(Inspection inspection);
+    Inspection addInspection(int facilityID, int staffMemberId, Date inspectionDate);
 
-    void removeInspection(Inspection inspection);
+    void removeInspection(int inspectionID);
+
+    List<Inspection> getInspectionForFacility(int id);
 }
