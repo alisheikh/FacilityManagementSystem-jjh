@@ -4,40 +4,56 @@
  * Time: 7:17 PM
  */
 import Main.BL.FacilityService;
-
-import Main.DAL.IMaintenanceStaffDAO;
-import Main.DAL.IUserDAO;
+import Main.BL.FacilityUseService;
+import Main.BL.IFacilityService;
+import Main.BL.InspectionService;
+import Main.DAL.*;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
-
+import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.joda.time.DateTime;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
-;
+import java.util.Calendar;
 import java.util.List;
-
-import Main.BL.FacilityUseService;
-
-import Main.DAL.*;
 import java.util.Random;
 
-public class Main{
+public class Main extends HttpServlet {
 
-
-
-    public static void main(String[] args) throws Exception{
-        printTest();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        printTest(resp);
     }
 
-    public static void printTest(){
+    public static void main(String[] args) throws Exception{
+        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        context.setContextPath("/");
+        server.setHandler(context);
+        context.addServlet(new ServletHolder(new Main()),"/*");
+        server.start();
+        server.join();
+    }
+
+    public void printTest(HttpServletResponse resp) throws IOException {
+
         IDatabaseConnector connector = new DatabaseConnector();
 
         try{
 
-
+            resp.getWriter().println("----------------begining program---------------");
             IMaintenanceStaffDAO maintenanceStaffDAO = new MaintenanceStaffDAO(connector);
             IUserDAO userDAO = new UserDAO(connector);
             IUnitDAO unitDAO = new UnitDAO(userDAO, connector);
@@ -53,6 +69,7 @@ public class Main{
             Random r = new Random();
 
             List<Unit> units = new ArrayList<Unit>();
+            resp.getWriter().println("initialize test units");
 
             Unit unit1 = new Unit();
             unit1.setCapacity(r.nextInt(3));
@@ -76,6 +93,7 @@ public class Main{
             unit4.setUnitNumber(r.nextInt(3));
             units.add(unit4);
 
+            resp.getWriter().print("create facilities objects and add to units to facilities");
             Facility facility1 = new Facility();
             facility1.setBuildingNumber(r.nextInt(4));
             facility1.setCapacity(50);
@@ -101,10 +119,21 @@ public class Main{
             facility.setName("facility0");
             facility.setUnits(units);
 
+            resp.getWriter().print("add facilities with units to the database");
+
             facility1 = facilityService.addNewFacility(facility1);
             facility2 = facilityService.addNewFacility(facility2);
             facility3 = facilityService.addNewFacility(facility3);
             facility = facilityService.addNewFacility(facility);
+
+            resp.getWriter().print("facilities current facilities in DB:");
+
+
+            printAllFacilities(facilityService.listFacilities(), resp);
+
+
+
+
 
             try{
 
@@ -205,12 +234,41 @@ public class Main{
             List<UnitUsage> usagesforunit4 = facilityUseService.listActualUsage(unit4.getId());
 
 
+            /*
+            resp.getWriter().println("------Print sample Usages Just Created-----------");
+
+
+            if(usagesforunit2!=null){
+
+            for(UnitUsage uu :usagesforunit1)
+            {
+                resp.getWriter().println("unit:");
+                resp.getWriter().println(uu.getUnit());
+                resp.getWriter().println("unit user id");
+                resp.getWriter().println(uu.getUnitUser());
+                resp.getWriter().println(uu.getStartTime().toString());
+                resp.getWriter().println(uu.getEndTime());
+                resp.getWriter().println();
+            }}*/
+
+            resp.getWriter().println("------Print all usages -----------");
+            List<UnitUsage> usagestopring = facilityUseService.listUsages();
+            for (UnitUsage uu:usagestopring)
+            {
+                resp.getWriter().println("unit:");
+                resp.getWriter().println(uu.getUnit());
+                resp.getWriter().println("unit user id");
+                resp.getWriter().println(uu.getUnitUser());
+                resp.getWriter().println(uu.getStartTime().toString());
+                resp.getWriter().println(uu.getEndTime());
+                resp.getWriter().println();
+
+            }
 
 
 
 
-
-            System.out.println("Delete everything that was created");
+            resp.getWriter().print("Delete everything that was created");
 
             Facility testDelete = facilityService.getFacilityInformation(facility1.getID());
 
@@ -220,13 +278,13 @@ public class Main{
                 facilityService.RemoveUnit(u);
             }//tests deletion of individual units.
 
-
+            /*
             facilityService.removeFacility(facility);//delete facility and cascades all units and usages
             facilityService.removeFacility(facility1);
             facilityService.removeFacility(facility2);
             facilityService.removeFacility(facility3);
             facilityService.removeFacility(facility);
-
+            */
 
         }
         catch (Exception e)
@@ -234,64 +292,50 @@ public class Main{
             e.printStackTrace();
         }
 
-    }
-}
-/*
-    public static void printAllFacilities(List<Facility> facilities){
-        for(Facility facility:facilities){
-            System.out.println("Building Num: " + facility.getBuildingNumber()+"\n");
-            System.out.println("Facility ID: " + facility.getID()+"\n");
-            System.out.println("Facility Capacity: " + facility.getTotalCapacity()+"\n");
-            for(Unit unit:facility.getUnits()){
-                System.out.println("Unit Capacity: " + unit.getCapacity()+"\n");
-                System.out.println("Unit ID: " + unit.getId()+"\n");
-                System.out.println("Room Number: " + unit.getRoomNumber()+"\n");
-                for(UnitUsage usage:unit.getUsage()){
-                    System.out.println("UsageID: " + usage.getId()+"\n");
-                    System.out.println("Start Time: " + usage.getStartTime()+"\n");
-                    System.out.println("End Time: " + usage.getEndTime()+"\n");
-                    System.out.println("UsageID: " + usage.getUnitId()+"\n");
-                    System.out.println("Usage User ID: " + usage.getUserId()+"\n");
-                }
-                for(UnitUser user:unit.getUsers()){
-                    System.out.println("Unit user comp: " + user.getCompanyName()+"\n");
-                    System.out.println("Unit user cred card: " + user.getCreditCard()+"\n");
-                    System.out.println("Unit user email: " + user.getEmailAddress()+"\n");
-                    System.out.println("Unit user first: " + user.getFirstName()+"\n");
-                    System.out.println("Unit user last: " + user.getLastName()+"\n");
-                    System.out.println("Unit user id: " + user.getID()+"\n");
-                    System.out.println("Unit user phone: " + user.getPhoneNumber()+"\n");
-                }
-            }
-        }
+
+
     }
 
-    public static void printFacility(Facility facility){
-        System.out.println("Building Num: " + facility.getBuildingNumber()+"\n");
-        System.out.println("Facility ID: " + facility.getID()+"\n");
-        System.out.println("Facility Capacity: " + facility.getTotalCapacity()+"\n");
+    public static void printFacility(Facility facility,HttpServletResponse resp) throws IOException {
+        resp.getWriter().print("Building Num: " + facility.getBuildingNumber()+"\n");
+        resp.getWriter().print("Facility ID: " + facility.getID()+"\n");
+        resp.getWriter().print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
         for(Unit unit:facility.getUnits()){
-            System.out.println("Unit Capacity: " + unit.getCapacity()+"\n");
-            System.out.println("Unit ID: " + unit.getId()+"\n");
-            System.out.println("Room Number: " + unit.getRoomNumber()+"\n");
-            for(UnitUsage usage:unit.getUsage()){
-                System.out.println("UsageID: " + usage.getId()+"\n");
-                System.out.println("Start Time: " + usage.getStartTime()+"\n");
-                System.out.println("End Time: " + usage.getEndTime()+"\n");
-                System.out.println("UsageID: " + usage.getUnitId()+"\n");
-                System.out.println("Usage User ID: " + usage.getUserId()+"\n");
+            resp.getWriter().print("Unit Capacity: " + unit.getCapacity()+"\n");
+            resp.getWriter().print("Unit ID: " + unit.getId()+"\n");
+            resp.getWriter().print("Room Number: " + unit.getUnitNumber()+"\n");
+            for(UnitUsage usage:unit.getUsages()){
+                resp.getWriter().print("UsageID: " + usage.getId()+"\n");
+                resp.getWriter().print("Start Time: " + usage.getStartTime()+"\n");
+                resp.getWriter().print("End Time: " + usage.getEndTime()+"\n");
+                resp.getWriter().print("UsageID: " + usage.getId()+"\n");
+                resp.getWriter().print("Usage User ID: " + usage.getUnitUser().getID()+"\n");
             }
             for(UnitUser user:unit.getUsers()){
-                System.out.println("Unit user comp: " + user.getCompanyName()+"\n");
-                System.out.println("Unit user cred card: " + user.getCreditCard()+"\n");
-                System.out.println("Unit user email: " + user.getEmailAddress()+"\n");
-                System.out.println("Unit user first: " + user.getFirstName()+"\n");
-                System.out.println("Unit user last: " + user.getLastName()+"\n");
-                System.out.println("Unit user id: " + user.getID()+"\n");
-                System.out.println("Unit user phone: " + user.getPhoneNumber()+"\n");
+                resp.getWriter().print("Unit user comp: " + user.getCompanyName()+"\n");
+                resp.getWriter().print("Unit user cred card: " + user.getCreditCard()+"\n");
+                resp.getWriter().print("Unit user email: " + user.getEmailAddress()+"\n");
+                resp.getWriter().print("Unit user first: " + user.getFirstName()+"\n");
+                resp.getWriter().print("Unit user last: " + user.getLastName()+"\n");
+                resp.getWriter().print("Unit user id: " + user.getID()+"\n");
+                resp.getWriter().print("Unit user phone: " + user.getPhoneNumber()+"\n");
             }
         }
     }
 
+    public static void printAllFacilities(List<Facility> facilities,HttpServletResponse resp) throws IOException {
+        for(Facility facility:facilities){
+            resp.getWriter().print("Building Num: " + facility.getBuildingNumber()+"\n");
+            resp.getWriter().print("Facility ID: " + facility.getID()+"\n");
+            resp.getWriter().print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
+            for(Unit unit:facility.getUnits()){
+                resp.getWriter().print("Unit Capacity: " + unit.getCapacity()+"\n");
+                resp.getWriter().print("Unit ID: " + unit.getId()+"\n");
+                resp.getWriter().print("Room Number: " + unit.getUnitNumber()+"\n");
 
-}*/
+
+            }
+        }
+    }
+}
+

@@ -18,4 +18,6 @@ public interface IUsageDAO {
 
     void DeleteUsage(int id);
 
+
+    List<UnitUsage> GetAll();
 }

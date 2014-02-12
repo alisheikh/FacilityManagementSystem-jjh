@@ -27,7 +27,7 @@ public class UserDAO implements IUserDAO {
                 " credit_card, company_name) VALUES (?, ?, ?, ?, ?, ?)";
         try {
 
-                PreparedStatement insertStatement = connection.prepareStatement(createQuery, java.sql.Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement insertStatement = connection.prepareStatement(createQuery, Statement.RETURN_GENERATED_KEYS);
 
                 insertStatement.setString(1,newUnitUser.getFirstName());
                 insertStatement.setString(2,newUnitUser.getLastName());
@@ -153,6 +153,6 @@ public class UserDAO implements IUserDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return unitUser;
     }
 }

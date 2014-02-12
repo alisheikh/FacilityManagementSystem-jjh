@@ -32,7 +32,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
 
 
         try {
-            PreparedStatement createStatement = connection.prepareStatement(createQuery, java.sql.Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement createStatement = connection.prepareStatement(createQuery, Statement.RETURN_GENERATED_KEYS);
             createStatement.setString(1, request.getRequest());
             createStatement.setDate(2, request.getDateRequested());
             createStatement.setDate(3, null);
@@ -54,7 +54,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
            e.printStackTrace();
 
         }
-        return null;
+        return request;
     }
 
 	@Override
@@ -88,7 +88,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return request;
     }
 
 	@Override
@@ -97,7 +97,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
 
 
 
-        MaintenanceRequest request = null;
+        MaintenanceRequest request = new MaintenanceRequest();
         try {
             PreparedStatement getStatement = connection.prepareStatement(deleteQuery);
             getStatement.setInt(1,ID);
@@ -143,11 +143,11 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
                 getStatement.close();
                 return request;
             }
-            else{return null;}//no item found
+            else{return request;}//no item found
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            return request;
         }
 
 	}

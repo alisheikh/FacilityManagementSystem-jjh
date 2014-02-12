@@ -33,7 +33,7 @@ public class UsageDAO implements IUsageDAO {
 
         try {
 
-            PreparedStatement insertStatement = connection.prepareStatement(createQuery, java.sql.Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement insertStatement = connection.prepareStatement(createQuery, Statement.RETURN_GENERATED_KEYS);
             insertStatement.setInt(1,usage.getUnit().getId());
             insertStatement.setDate(2,usage.getStartTime());
             insertStatement.setDate(3,usage.getStartTime());
@@ -97,6 +97,39 @@ public class UsageDAO implements IUsageDAO {
         }
 
     }
+
+    @Override
+    public List<UnitUsage> GetAll() {
+        String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage";
+
+        List<UnitUsage> usages = new ArrayList<UnitUsage>();
+        try {
+            PreparedStatement getStatement = connection.prepareStatement(getQuery);
+
+            ResultSet rs = getStatement.executeQuery();
+
+            while(rs.next())
+            {
+                UnitUsage usage = new UnitUsage();
+                usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
+                usage.setUnitUser(userDAO.Get(rs.getInt("unit_user_id")));
+                usage.setId(rs.getInt("id"));
+                usage.setStartTime(rs.getDate("start_time"));
+                usage.setEndTime(rs.getDate("end_time"));
+
+                usages.add(usage);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return usages;
+
+    }
+
     public UnitUsage GetUsage(int id)
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where id =?";
@@ -117,7 +150,7 @@ public class UsageDAO implements IUsageDAO {
                 usage.setEndTime(rs.getDate("end_time"));
                 return usage;
             }
-            else{return null;}//no item found
+            else{return usage;}//no item found
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -152,7 +185,7 @@ public class UsageDAO implements IUsageDAO {
             }
                 return usages;
             }
-            else{return null;}
+            else{return usages;}
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -200,6 +233,6 @@ public class UsageDAO implements IUsageDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return unitUsage;
     }
 }

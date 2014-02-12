@@ -13,6 +13,7 @@ import org.joda.time.DateTime;
 import java.sql.Date;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityUseService implements IFacilityUseService {
@@ -87,19 +88,24 @@ public class FacilityUseService implements IFacilityUseService {
 
     @Override
     public List<UnitUsage> listActualUsage(int unitID) {
-        Unit unit = null;
+        Unit unit = new Unit();
 
-        List<UnitUsage> usages = null;
+        List<UnitUsage> usages = new ArrayList<UnitUsage>();
         try {
             unit = unitFactory.GetUnit(unitID);
 
-           usages = unitFactory.GetUsagesForUnit(unit);
+            usages = unitFactory.GetUsagesForUnit(unit);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return usages;
 
+    }
+
+    @Override
+    public List<UnitUsage> listUsages() {
+        return usageDAO.GetAll();
     }
 }
 

@@ -22,4 +22,6 @@ public interface IFacilityUseService {
     List<Inspection> listInspections(int facilityID);
 
     List<UnitUsage> listActualUsage(int unitID);
+
+    List<UnitUsage> listUsages();
 }
