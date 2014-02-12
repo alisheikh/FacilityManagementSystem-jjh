@@ -1,1 +1,1 @@
-worker: sh target/bin/worker
+java -cp target/classes:target/dependency/* Main

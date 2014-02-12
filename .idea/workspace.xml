@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacilityManagementSystem-jjh.iml" afterPath="$PROJECT_DIR$/FacilityManagementSystem-jjh.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/IUnitDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IUnitDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/IUsageDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IUsageDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/IUserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/IUserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/UnitDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/UnitDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/UsageDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/UsageDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FacilityManagementSystem-jjh.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392169465883" ignored="false" />
+    <file path="/Dummy.txt" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392170034768" ignored="false" />
     <file path="/fragment.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392167074444" ignored="false" />
     <file path="/README.md" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392167674154" ignored="false" />
     <file path="/UnitDAO.java" changelist="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" time="1392169715634" ignored="false" />
@@ -39,7 +27,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
@@ -92,15 +80,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IFacilityUseService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityUseService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="17" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IInspectionService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -123,6 +102,15 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="13" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Procfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="48" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -155,10 +143,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnitUser.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UnitUser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.111317255">
+            <state line="4" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -210,7 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Test/Test/DAL/MaintenceRequestDAO_Tests.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/DatabaseConnector.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
@@ -226,6 +213,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java" />
+        <option value="$PROJECT_DIR$/Procfile" />
       </list>
     </option>
   </component>
@@ -761,6 +749,11 @@
       <created>1391294349797</created>
       <updated>1391294349797</updated>
     </task>
+    <task id="LOCAL-00001" summary="Naming conventions...">
+      <created>1392170053223</created>
+      <updated>1392170053223</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -778,6 +771,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.60580206" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31694916" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -795,7 +789,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31694916" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -846,7 +839,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Database up - edit entities to match" />
+    <option name="LAST_COMMIT_MESSAGE" value="Naming conventions..." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -861,6 +854,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="Database up - edit entities to match" />
+    <MESSAGE value="Naming conventions..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -870,13 +864,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="13" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
@@ -977,7 +964,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/usage/UnitUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.111317255">
+        <state line="4" column="13" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="48" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
