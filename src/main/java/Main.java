@@ -3,14 +3,13 @@
  * Date: 2/4/14
  * Time: 7:17 PM
  */
-import Main.BL.FacilityService;
-import Main.BL.FacilityUseService;
-import Main.BL.IFacilityService;
-import Main.BL.InspectionService;
+import Main.BL.*;
 import Main.DAL.*;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.Inspection;
+import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.maintenance.MaintenanceStaff;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
 import org.eclipse.jetty.server.Server;
@@ -59,6 +58,7 @@ public class Main extends HttpServlet {
             IUnitDAO unitDAO = new UnitDAO(userDAO, connector);
             IFacilityDAO facilityDAO = new FacilityDAO(connector,unitDAO);
             IMaintenanceRequestDAO maintenanceRequestDAO = new MaintenanceRequestDAO(connector,facilityDAO,maintenanceStaffDAO);
+            IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);
 
             IUsageDAO usageDAO = new UsageDAO(connector, unitDAO, userDAO);
 
@@ -132,11 +132,6 @@ public class Main extends HttpServlet {
             printAllFacilities(facilityService.listFacilities(), resp);
 
 
-
-
-
-            try{
-
                 Unit unitForUse =  facility2.getUnits().get(1);
                 Unit unitForUse1 =  facility2.getUnits().get(2);
                 Unit unitForUse2 =  facility2.getUnits().get(1);
@@ -195,10 +190,9 @@ public class Main extends HttpServlet {
                 usage3.setStartTime(new Date(new DateTime(2034,3,3,3,3).toDate().getTime()));
                 usage3.setEndTime(new Date(new DateTime(2034,3,3,3,3).toDate().getTime()));
 
-                Date d1 = new Date(new DateTime(2034,3,3,3,3).toDate().getTime());
-                Date d2 = new Date(new DateTime(2034,3,3,3,3).toDate().getTime());
-                Date d3 = new Date(new DateTime(2034,3,3,3,3).toDate().getTime());
-                Date d4 = new Date(new DateTime(2034,3,3,3,3).toDate().getTime());
+                Date d1 = new Date(new DateTime(2034,2,3,3,3).toDate().getTime());
+                Date d2 = new Date(new DateTime(2034,4,3,3,3).toDate().getTime());
+                Date d3 = new Date(new DateTime(2034,5,3,3,3).toDate().getTime());
 
                 if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
                 {
@@ -221,12 +215,7 @@ public class Main extends HttpServlet {
 
 
 
-            }
-            catch(NullPointerException e)
-            {
-                e.printStackTrace();
 
-            }
 
             List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unit1.getId());
             List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unit2.getId());
@@ -234,7 +223,7 @@ public class Main extends HttpServlet {
             List<UnitUsage> usagesforunit4 = facilityUseService.listActualUsage(unit4.getId());
 
 
-            /*
+
             resp.getWriter().println("------Print sample Usages Just Created-----------");
 
 
@@ -249,7 +238,7 @@ public class Main extends HttpServlet {
                 resp.getWriter().println(uu.getStartTime().toString());
                 resp.getWriter().println(uu.getEndTime());
                 resp.getWriter().println();
-            }}*/
+            }}
 
             resp.getWriter().println("------Print all usages -----------");
             List<UnitUsage> usagestopring = facilityUseService.listUsages();
@@ -265,6 +254,59 @@ public class Main extends HttpServlet {
 
             }
 
+            Facility facilityForMaintenance = facilityDAO.get(facility1.getID());
+
+            MaintenanceStaff staff = new MaintenanceStaff();
+            staff.setHoursPerWeek(34);
+            staff.setPayPerHour(23);
+            staff.setEmailAddress("j@examle");
+            staff.setFirstName("some staff" + r.nextInt());//random makes sure these people look different in db
+            staff.setLastName("staffmember" + r.nextInt());
+            staff.setPhoneNumber(r.nextInt(100000));
+
+            staff = maintenanceStaffDAO.create(staff);
+            resp.getWriter().println("Created Staff Member :"+ staff.getFirstName());
+            resp.getWriter().println("ID " + staff.getID());
+
+ 
+            staff.setPayPerHour(45);
+            staff = maintenanceStaffDAO.update(staff);
+            resp.getWriter().println("And then we gave him a raise to 45 dollars ");
+
+
+            Date d4 = new Date(new DateTime(2014,6,3,3,3).toDate().getTime());
+            Date d5 = new Date(new DateTime(2015,6,3,3,3).toDate().getTime());
+            Date foreverFromNow = new Date(new DateTime(2050,6,3,3,3).toDate().getTime());
+
+
+            resp.getWriter().println("Facility "+ facilityForMaintenance.getName());
+
+            resp.getWriter().println("Adding maintence requests for facility:" + facilityForMaintenance.getName()+
+                    "id:"+facilityForMaintenance.getID());
+
+            for(Unit unit:facilityForMaintenance.getUnits())
+            {
+                MaintenanceRequest request = new MaintenanceRequest();
+                facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need stuff Fixed");
+
+            }
+            List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getID());
+
+
+            for(MaintenanceRequest request:requests)
+            {
+                request = facilityMaintenanceService.scheduleMaintenance(request.getID(),
+                        staff.getID(),r.nextInt(6),d4);
+            }
+
+            resp.getWriter().println("Facility "+ facilityForMaintenance.getName());
+            resp.getWriter().println("Maintenance Cost: " + facilityMaintenanceService.calcMaintenanceCostForFacility(facilityForMaintenance.getID()));
+            resp.getWriter().println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getID()));
+
+
+            //Todo: add inspections to
+
+
 
 
 
@@ -278,13 +320,15 @@ public class Main extends HttpServlet {
                 facilityService.RemoveUnit(u);
             }//tests deletion of individual units.
 
-            /*
+
             facilityService.removeFacility(facility);//delete facility and cascades all units and usages
             facilityService.removeFacility(facility1);
             facilityService.removeFacility(facility2);
             facilityService.removeFacility(facility3);
             facilityService.removeFacility(facility);
-            */
+
+
+
 
         }
         catch (Exception e)

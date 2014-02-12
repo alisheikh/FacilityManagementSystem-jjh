@@ -19,6 +19,8 @@ public class MaintenanceRequest {
 
 	private MaintenanceStaff staffMemberAssigned;
 
+    private int hoursToComplete;
+
 	public MaintenanceRequest() {
 
 	}
@@ -71,5 +73,13 @@ public class MaintenanceRequest {
 
     public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
         this.staffMemberAssigned = staffMemberAssigned;
+    }
+
+    public int getHoursToComplete() {
+        return hoursToComplete;
+    }
+
+    public void setHoursToComplete(int hoursToComplete) {
+        this.hoursToComplete = hoursToComplete;
     }
 }

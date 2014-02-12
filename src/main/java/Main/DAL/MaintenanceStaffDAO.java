@@ -3,10 +3,7 @@ package Main.DAL;
 
 import Main.Entities.maintenance.MaintenanceStaff;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 /**
@@ -49,7 +46,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
                 if(result.next())
                 {
-                    newStaffMember.setID(result.getInt(4));//todo if we ever rebuild the database reorder tables so id is the first column
+                    newStaffMember.setID(result.getInt("id"));//todo if we ever rebuild the database reorder tables so id is the first column
 
                 }
                 else {
@@ -63,7 +60,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
             catch (SQLException e) {
                 e.printStackTrace();
-                return null;
+                e.printStackTrace();
             }
 
         return newStaffMember;
@@ -128,7 +125,38 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
     @Override
     public MaintenanceStaff update(MaintenanceStaff updatedStaffMember) {
-        return null;
+        String updateQuery = "UPDATE maintenance_staff SET first_name=?, last_name=?, phone_number=?," +
+                " email_address=?,  hours_per_week=?, pay_per_hour=? where id = ?";
+
+        MaintenanceStaff staff = new MaintenanceStaff();
+
+        try {
+            PreparedStatement createStatement = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+
+            createStatement.setString(1, staff.getFirstName());
+            createStatement.setString(2, staff.getLastName());
+            createStatement.setInt(3, staff.getPhoneNumber());
+            createStatement.setString(4, staff.getEmailAddress());
+            createStatement.setDouble(5, staff.getHoursPerWeek());
+            createStatement.setDouble(6, staff.getPayPerHour());
+            createStatement.setInt(7,staff.getID());
+
+            int affectedRows = createStatement.executeUpdate();
+
+            if(affectedRows == 1)
+            {
+
+                return get(updatedStaffMember.getID());
+            }
+            else
+            {
+                throw new Exception("UpdateUnit Failed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return staff;
     }
 
 }

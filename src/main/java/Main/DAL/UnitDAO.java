@@ -58,7 +58,7 @@ public class UnitDAO implements IUnitDAO {
                 unit.setId(rs.getInt("id"));
                 rs.close();
                 createStatement.close();
-                System.out.println(createQuery);
+
                 return unit;
             }
         } catch (SQLException e) {
