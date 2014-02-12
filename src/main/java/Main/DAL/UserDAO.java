@@ -79,8 +79,8 @@ public class UserDAO implements IUserDAO {
             PreparedStatement getStatement = connection.prepareStatement(deleteQuery);
             getStatement.setInt(1,unitUserId);
 
-            ResultSet rs = getStatement.executeQuery();
-            rs.close();
+            getStatement.executeUpdate();
+
             getStatement.close();
 
         } catch (SQLException e) {

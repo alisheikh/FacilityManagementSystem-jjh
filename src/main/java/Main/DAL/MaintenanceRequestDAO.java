@@ -107,8 +107,8 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             PreparedStatement getStatement = connection.prepareStatement(deleteQuery);
             getStatement.setInt(1,ID);
 
-            ResultSet rs = getStatement.executeQuery();
-            rs.close();
+            int rowsAffected = getStatement.executeUpdate();
+
             getStatement.close();
 
         } catch (SQLException e) {

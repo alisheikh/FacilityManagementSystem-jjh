@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c5ec42c-dac1-4cba-9db5-7507d2f7f255" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" afterPath="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" afterPath="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacilityManagementSystem-jjh.iml" afterPath="$PROJECT_DIR$/FacilityManagementSystem-jjh.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/PrintLine.java" afterPath="$PROJECT_DIR$/src/main/java/Main/PrintLine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
     </list>
     <ignored path="FacilityManagementSystem-jjh.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,23 +25,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/Main/PrintLine.java" line="296" class="Main.PrintLine" package="Main">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -88,23 +72,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IFacilityMaintenanceService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IFacilityMaintenanceService.java">
+      <file leaf-file-name="MaintenanceRequestDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="76" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="510">
+            <state line="109" column="60" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.0" vertical-offset="1471" max-vertical-offset="3451">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <file leaf-file-name="UserDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="342" column="38" selection-start="13850" selection-end="13850" vertical-scroll-proportion="0.6785714" vertical-offset="5567" max-vertical-offset="6987">
+            <state line="85" column="34" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="2737">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsageDAO.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UsageDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="13" selection-start="1783" selection-end="1783" vertical-scroll-proportion="-1.6921296" vertical-offset="1581" max-vertical-offset="4046">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#2894#2900#0" expanded="true" />
+                <element signature="e#2982#2993#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,18 +104,7 @@
       <file leaf-file-name="Facility.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Facility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1020">
-              <folding>
-                <element signature="e#624#625#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FacilityMaintenanceService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="50" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="2516">
+            <state line="38" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1343">
               <folding />
             </state>
           </provider>
@@ -133,7 +113,7 @@
       <file leaf-file-name="IInspectionService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="17" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="459">
+            <state line="10" column="17" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -142,7 +122,7 @@
       <file leaf-file-name="UnitDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UnitDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="71" selection-start="5427" selection-end="5427" vertical-scroll-proportion="3.8846154" vertical-offset="3297" max-vertical-offset="6307">
+            <state line="195" column="71" selection-start="5499" selection-end="5499" vertical-scroll-proportion="0.0" vertical-offset="3315" max-vertical-offset="6409">
               <folding />
             </state>
           </provider>
@@ -151,7 +131,7 @@
       <file leaf-file-name="InspectionService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="0" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.0" vertical-offset="713" max-vertical-offset="1122">
+            <state line="60" column="0" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1258">
               <folding />
             </state>
           </provider>
@@ -160,7 +140,7 @@
       <file leaf-file-name="IInspectionDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/IInspectionDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="17" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
+            <state line="10" column="17" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="442">
               <folding />
             </state>
           </provider>
@@ -169,14 +149,8 @@
       <file leaf-file-name="Inspection.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="13" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#793#794#0" expanded="true" />
-                <element signature="e#867#868#0" expanded="true" />
-                <element signature="e#923#924#0" expanded="true" />
-              </folding>
+            <state line="7" column="13" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="935">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,10 +158,8 @@
       <file leaf-file-name="InspectionDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="31" selection-start="4173" selection-end="4173" vertical-scroll-proportion="0.0" vertical-offset="1539" max-vertical-offset="2074">
-              <folding>
-                <element signature="e#3518#3530#0" expanded="true" />
-              </folding>
+            <state line="113" column="31" selection-start="4173" selection-end="4173" vertical-scroll-proportion="0.0" vertical-offset="1921" max-vertical-offset="2159">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -227,7 +199,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IUsageDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/FacilityDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/UsageDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/IMaintenanceRequestDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/MaintenanceRequest.java" />
@@ -235,14 +206,15 @@
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/UnitDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceStaffDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/PrintLine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/IInspectionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main/PrintLine.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main/PrintLine.java" />
       </list>
     </option>
   </component>
@@ -307,6 +279,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -503,8 +477,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -630,6 +602,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -656,19 +641,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -845,8 +817,6 @@
         <state line="261" column="46" selection-start="11074" selection-end="11074" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6205">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#2894#2900#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -910,8 +880,6 @@
         <state line="255" column="8" selection-start="10430" selection-end="10430" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5899">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#2894#2900#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1027,20 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="3598" selection-end="3598" vertical-scroll-proportion="0.0" vertical-offset="1760" max-vertical-offset="2737" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UsageDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="0" selection-start="3594" selection-end="3594" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="4046">
-          <folding>
-            <element signature="e#2982#2993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityUseService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="52" selection-start="1538" selection-end="1539" vertical-scroll-proportion="-0.31170663" vertical-offset="867" max-vertical-offset="1802">
@@ -1095,16 +1049,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="0" selection-start="2925" selection-end="2925" vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="3451">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/FacilityMaintenanceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="50" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="2516">
+        <state line="51" column="0" selection-start="1683" selection-end="1683" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2516">
           <folding />
         </state>
       </provider>
@@ -1119,13 +1066,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/maintenance/Inspection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="13" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#923#924#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1145,7 +1086,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UnitDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="71" selection-start="5427" selection-end="5427" vertical-scroll-proportion="3.8846154" vertical-offset="3297" max-vertical-offset="6307">
+        <state line="195" column="71" selection-start="5499" selection-end="5499" vertical-scroll-proportion="0.0" vertical-offset="3315" max-vertical-offset="6409">
           <folding />
         </state>
       </provider>
@@ -1153,15 +1094,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/Entities/Facility/Facility.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1020">
-          <folding>
-            <element signature="e#624#625#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/BL/InspectionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.0" vertical-offset="713" max-vertical-offset="1122">
+        <state line="60" column="0" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1258">
           <folding />
         </state>
       </provider>
@@ -1169,26 +1108,45 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/InspectionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="113" column="31" selection-start="4173" selection-end="4173" vertical-scroll-proportion="0.0" vertical-offset="1539" max-vertical-offset="2074">
-          <folding>
-            <element signature="e#3518#3530#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main/PrintLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="341" column="0" selection-start="752" selection-end="13758" vertical-scroll-proportion="0.9093079" vertical-offset="5144" max-vertical-offset="6443">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="342" column="38" selection-start="13850" selection-end="13850" vertical-scroll-proportion="0.6785714" vertical-offset="5567" max-vertical-offset="6987">
+        <state line="347" column="12" selection-start="13782" selection-end="14010" vertical-scroll-proportion="0.0" vertical-offset="5304" max-vertical-offset="6630">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#2894#2900#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/MaintenanceRequestDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="60" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.0" vertical-offset="1471" max-vertical-offset="3451">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="34" selection-start="2502" selection-end="2502" vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="2737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/PrintLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="0" selection-start="4139" selection-end="4139" vertical-scroll-proportion="1.6706444" vertical-offset="881" max-vertical-offset="6613">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main/DAL/UsageDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="13" selection-start="1783" selection-end="1783" vertical-scroll-proportion="-1.6921296" vertical-offset="1581" max-vertical-offset="4046">
+          <folding>
+            <element signature="e#2982#2993#0" expanded="true" />
           </folding>
         </state>
       </provider>

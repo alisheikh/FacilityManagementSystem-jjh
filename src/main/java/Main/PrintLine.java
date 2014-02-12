@@ -112,9 +112,9 @@ public class PrintLine {
             printAllFacilities(facilityService.listFacilities());
 
 
-            Unit unitForUse =  facility2.getUnits().get(1);
-            Unit unitForUse1 =  facility2.getUnits().get(2);
-            Unit unitForUse2 =  facility2.getUnits().get(1);
+            Unit unitForUse =  facility2.getUnits().get(0);
+            Unit unitForUse1 =  facility2.getUnits().get(1);
+            Unit unitForUse2 =  facility2.getUnits().get(2);
 
             UnitUser user1 = new UnitUser();
             user1.setCreditCard(String.valueOf(r.nextInt(9)));
@@ -269,6 +269,7 @@ public class PrintLine {
             {
 
                 facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need stuff Fixed");
+                facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need more stuff Fixed ");
 
             }
             List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getID());
@@ -314,6 +315,15 @@ public class PrintLine {
 
 
             System.out.print("Delete everything that was created");
+
+            //should be encapsalated in a service later
+            maintenanceRequestDAO.delete(staff.getID());
+            userDAO.Delete(user1.getID());
+            userDAO.Delete(user2.getID());
+            userDAO.Delete(user3.getID());
+
+
+            ////
 
             Facility testDelete = facilityService.getFacilityInformation(facility1.getID());
 

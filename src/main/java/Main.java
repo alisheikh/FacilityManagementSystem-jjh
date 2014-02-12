@@ -290,6 +290,7 @@ public class Main extends HttpServlet {
         {
 
             facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need stuff Fixed");
+            facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need stuff Fixed again");
 
         }
         List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getID());
