@@ -263,6 +263,7 @@ public class Main extends HttpServlet {
             staff.setFirstName("some staff" + r.nextInt());//random makes sure these people look different in db
             staff.setLastName("staffmember" + r.nextInt());
             staff.setPhoneNumber(r.nextInt(100000));
+            staff.setFullTime(false);
 
             staff = maintenanceStaffDAO.create(staff);
             resp.getWriter().println("Created Staff Member :"+ staff.getFirstName());

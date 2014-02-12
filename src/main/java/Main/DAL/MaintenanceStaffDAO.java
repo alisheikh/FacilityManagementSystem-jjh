@@ -31,7 +31,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
                 PreparedStatement insertStatement = connection.prepareStatement(createQuery, java.sql.Statement.RETURN_GENERATED_KEYS);
                 insertStatement.setString(1,newStaffMember.getFirstName());
                 insertStatement.setString(2,newStaffMember.getLastName());
-                insertStatement.setInt(3,newStaffMember.getPhoneNumber());
+                insertStatement.setInt(3, newStaffMember.getPhoneNumber());
                 insertStatement.setString(4,newStaffMember.getEmailAddress());
                 insertStatement.setDouble(5, newStaffMember.getPayPerHour());
                 insertStatement.setBoolean(6, newStaffMember.isFullTime());
@@ -60,7 +60,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
             catch (SQLException e) {
                 e.printStackTrace();
-                e.printStackTrace();
+
             }
 
         return newStaffMember;
@@ -133,13 +133,13 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
         try {
             PreparedStatement createStatement = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 
-            createStatement.setString(1, staff.getFirstName());
-            createStatement.setString(2, staff.getLastName());
-            createStatement.setInt(3, staff.getPhoneNumber());
-            createStatement.setString(4, staff.getEmailAddress());
-            createStatement.setDouble(5, staff.getHoursPerWeek());
-            createStatement.setDouble(6, staff.getPayPerHour());
-            createStatement.setInt(7,staff.getID());
+            createStatement.setString(1, updatedStaffMember.getFirstName());
+            createStatement.setString(2, updatedStaffMember.getLastName());
+            createStatement.setInt(3, updatedStaffMember.getPhoneNumber());
+            createStatement.setString(4, updatedStaffMember.getEmailAddress());
+            createStatement.setDouble(5, updatedStaffMember.getHoursPerWeek());
+            createStatement.setDouble(6, updatedStaffMember.getPayPerHour());
+            createStatement.setInt(7,updatedStaffMember.getID());
 
             int affectedRows = createStatement.executeUpdate();
 
@@ -148,15 +148,11 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
                 return get(updatedStaffMember.getID());
             }
-            else
-            {
-                throw new Exception("UpdateUnit Failed");
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
-
         }
-        return staff;
+        return updatedStaffMember;
     }
 
 }
