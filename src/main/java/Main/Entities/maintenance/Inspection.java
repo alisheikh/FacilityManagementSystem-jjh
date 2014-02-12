@@ -1,7 +1,7 @@
-package Main.Entities.maintenance;
+package main.Entities.maintenance;
 
 
-import Main.Entities.Facility.Facility;
+import main.Entities.Facility.Facility;
 
 import java.util.Date;
 

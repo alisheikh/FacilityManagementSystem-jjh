@@ -1,8 +1,8 @@
-package Main.DAL;
+package main.DAL;
 
-import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.Unit;
-import Main.Entities.usage.UnitUsage;
+import main.Entities.Facility.Facility;
+import main.Entities.Facility.Unit;
+import main.Entities.usage.UnitUsage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

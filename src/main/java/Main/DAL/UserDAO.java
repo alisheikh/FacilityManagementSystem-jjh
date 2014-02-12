@@ -1,6 +1,6 @@
-package Main.DAL;
+package main.DAL;
 
-import Main.Entities.usage.UnitUser;
+import main.Entities.usage.UnitUser;
 
 import java.sql.*;
 

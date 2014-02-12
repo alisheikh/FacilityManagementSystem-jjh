@@ -6,6 +6,7 @@ by: j-hayes and A-Thorn
 Running
 --------
 
-cd FacilityManagementSystem-jjh
 mvn package
-java -cp target/classes:target/dependency/* Main
+java -jar target/dependency/jetty-runner.jar target/*.war
+
+App is now running on localhost:8080

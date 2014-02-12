@@ -1,4 +1,4 @@
-package Main.DAL;
+package main.DAL;
 
 import java.sql.Connection;
 

@@ -1,1 +1,1 @@
-java -cp target/classes:target/dependency/* Main
+java -cp target/classes:target/dependency/* main

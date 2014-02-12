@@ -1,7 +1,6 @@
-package Main.Entities.maintenance;
+package main.Entities.maintenance;
 
-import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.Unit;
+import main.Entities.Facility.Unit;
 
 import java.sql.Date;
 

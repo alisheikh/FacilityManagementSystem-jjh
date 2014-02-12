@@ -1,6 +1,6 @@
-package Main.Entities.maintenance;
+package main.Entities.maintenance;
 
-import Main.Entities.Person;
+import main.Entities.Person;
 
 public class MaintenanceStaff extends Person {
 

@@ -1,4 +1,4 @@
-package Main.Entities.Facility;
+package main.Entities.Facility;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package Main.DAL;
+package main.DAL;
 
-import Main.Entities.maintenance.Inspection;
+import main.Entities.maintenance.Inspection;
 
 import java.util.List;
 

@@ -1,11 +1,10 @@
-package Main.BL;
+package main.BL;
 
 
-import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.Unit;
-import Main.Entities.maintenance.Inspection;
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
+import main.Entities.Facility.Unit;
+import main.Entities.maintenance.Inspection;
+import main.Entities.usage.UnitUsage;
+import main.Entities.usage.UnitUser;
 
 import java.util.Date;
 import java.util.List;

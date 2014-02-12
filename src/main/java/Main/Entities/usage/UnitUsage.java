@@ -1,7 +1,6 @@
-package Main.Entities.usage;
+package main.Entities.usage;
 
-import Main.Entities.Facility.Unit;
-import org.joda.time.DateTime;
+import main.Entities.Facility.Unit;
 
 import java.sql.Date;
 

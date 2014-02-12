@@ -1,7 +1,7 @@
-package Main.BL;
+package main.BL;
 
-import Main.DAL.IInspectionDAO;
-import Main.Entities.maintenance.Inspection;
+import main.DAL.IInspectionDAO;
+import main.Entities.maintenance.Inspection;
 
 import java.util.List;
 

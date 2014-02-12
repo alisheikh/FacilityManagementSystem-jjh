@@ -1,7 +1,7 @@
-package Main.DAL;
+package main.DAL;
 
-import Main.Entities.Facility.Unit;
-import Main.Entities.usage.UnitUsage;
+import main.Entities.Facility.Unit;
+import main.Entities.usage.UnitUsage;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class UnitDAO implements IUnitDAO {
 
             List<UnitUsage> usages = unit.getUsages();
             for(UnitUsage usage:usages){
-                userDAO.Create(usage.getUnitUser());
+                userDAO.create(usage.getUnitUser());
                 createUsage(usage);
             }
         }
@@ -226,11 +226,11 @@ public class UnitDAO implements IUnitDAO {
 
             if(usage.getUnitUser().getID()==0)
             {
-                usage.setUnitUser(userDAO.Create(usage.getUnitUser()));
+                usage.setUnitUser(userDAO.create(usage.getUnitUser()));
             }
             else
             {
-                usage.setUnitUser(userDAO.Update(usage.getUnitUser()));
+                usage.setUnitUser(userDAO.update(usage.getUnitUser()));
             }
             return usage;
 
@@ -277,7 +277,7 @@ public class UnitDAO implements IUnitDAO {
             if(rs.next())
             {
                 usage.setUnit(getUnit(rs.getInt("unit_id")));
-                usage.setUnitUser(userDAO.Get(rs.getInt("user_id")));
+                usage.setUnitUser(userDAO.get(rs.getInt("user_id")));
                 usage.setId(rs.getInt("id"));
                 usage.setStartTime(rs.getDate("start_time"));
                 usage.setEndTime(rs.getDate("end_time"));
@@ -310,7 +310,7 @@ public class UnitDAO implements IUnitDAO {
                 {
                     //usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
                     usage.setUnit(unit);//this enables not to call back and forth between the DAOs for unit and usage --jjh
-                    usage.setUnitUser(userDAO.Get(rs.getInt("unit_user_id")));
+                    usage.setUnitUser(userDAO.get(rs.getInt("unit_user_id")));
                     usage.setId(rs.getInt("id"));
                     usage.setStartTime(rs.getDate("start_time"));
                     usage.setEndTime(rs.getDate("end_time"));
@@ -354,11 +354,11 @@ public class UnitDAO implements IUnitDAO {
 
             if(unitUsage.getUnitUser().getID()==0)
             {
-                unitUsage.setUnitUser(userDAO.Create(unitUsage.getUnitUser()));
+                unitUsage.setUnitUser(userDAO.create(unitUsage.getUnitUser()));
             }
             else
             {
-                unitUsage.setUnitUser(userDAO.Update(unitUsage.getUnitUser()));
+                unitUsage.setUnitUser(userDAO.update(unitUsage.getUnitUser()));
             }
 
             return unitUsage;

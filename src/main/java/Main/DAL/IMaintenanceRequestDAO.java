@@ -1,6 +1,6 @@
-package Main.DAL;
+package main.DAL;
 
-import Main.Entities.maintenance.MaintenanceRequest;
+import main.Entities.maintenance.MaintenanceRequest;
 
 /**
  * Created by Jackson on 2/8/14.

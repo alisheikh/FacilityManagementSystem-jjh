@@ -1,4 +1,4 @@
-package Main.Entities.Facility;
+package main.Entities.Facility;
 
 /**
  * User: alexthornburg
@@ -6,8 +6,8 @@ package Main.Entities.Facility;
  * Time: 1:22 PM
  */
 
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
+import main.Entities.usage.UnitUsage;
+import main.Entities.usage.UnitUser;
 
 import java.util.ArrayList;
 import java.util.List;

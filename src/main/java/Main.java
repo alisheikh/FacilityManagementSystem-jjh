@@ -3,13 +3,13 @@
  * Date: 2/4/14
  * Time: 7:17 PM
  */
-import Main.BL.FacilityService;
-import Main.BL.FacilityUseService;
-import Main.DAL.*;
-import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.Unit;
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
+import main.BL.FacilityService;
+import main.BL.FacilityUseService;
+import main.DAL.*;
+import main.Entities.Facility.Facility;
+import main.Entities.Facility.Unit;
+import main.Entities.usage.UnitUsage;
+import main.Entities.usage.UnitUser;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -162,9 +162,9 @@ public class Main extends HttpServlet {
                 user3.setPhoneNumber(r.nextInt(10));
 
 
-                user1 = userDAO.Create(user1);
-                user2 = userDAO.Create(user2);
-                user3 = userDAO.Create(user3);
+                user1 = userDAO.create(user1);
+                user2 = userDAO.create(user2);
+                user3 = userDAO.create(user3);
 
 
                 UnitUsage usage1 = new UnitUsage();

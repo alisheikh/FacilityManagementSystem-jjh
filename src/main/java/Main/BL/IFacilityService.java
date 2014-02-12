@@ -1,7 +1,7 @@
-package Main.BL;
+package main.BL;
 
-import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.Unit;
+import main.Entities.Facility.Facility;
+import main.Entities.Facility.Unit;
 
 import java.util.List;
 

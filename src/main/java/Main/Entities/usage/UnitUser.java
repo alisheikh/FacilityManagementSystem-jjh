@@ -1,6 +1,6 @@
-package Main.Entities.usage;
+package main.Entities.usage;
 
-import Main.Entities.Person;
+import main.Entities.Person;
 
 public class UnitUser extends Person {
 

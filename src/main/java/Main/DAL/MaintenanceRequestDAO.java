@@ -1,7 +1,7 @@
-package Main.DAL;
+package main.DAL;
 
 
-import Main.Entities.maintenance.MaintenanceRequest;
+import main.Entities.maintenance.MaintenanceRequest;
 
 import java.sql.*;
 

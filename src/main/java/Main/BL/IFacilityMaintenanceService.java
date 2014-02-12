@@ -1,7 +1,7 @@
-package Main.BL;
+package main.BL;
 
-import Main.Entities.maintenance.MaintenanceRequest;
-import Main.Entities.maintenance.MaintenanceStaff;
+import main.Entities.maintenance.MaintenanceRequest;
+import main.Entities.maintenance.MaintenanceStaff;
 
 import java.util.Date;
 import java.util.List;

@@ -1,6 +1,6 @@
-package Main.DAL;
+package main.DAL;
 
-import Main.Entities.usage.UnitUser;
+import main.Entities.usage.UnitUser;
 
 /**
  * Created by Jackson on 2/8/14.

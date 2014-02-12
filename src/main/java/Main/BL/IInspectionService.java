@@ -1,6 +1,6 @@
-package Main.BL;
+package main.BL;
 
-import Main.Entities.maintenance.Inspection;
+import main.Entities.maintenance.Inspection;
 
 import java.util.List;
 

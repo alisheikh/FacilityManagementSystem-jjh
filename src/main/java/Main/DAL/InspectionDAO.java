@@ -1,7 +1,7 @@
-package Main.DAL;
+package main.DAL;
 
-import Main.BL.IFacilityService;
-import Main.Entities.maintenance.Inspection;
+import main.BL.IFacilityService;
+import main.Entities.maintenance.Inspection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

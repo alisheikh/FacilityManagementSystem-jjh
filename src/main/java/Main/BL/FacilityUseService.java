@@ -1,14 +1,14 @@
-package Main.BL;
+package main.BL;
 
 
-import Main.DAL.IFacilityDAO;
-import Main.DAL.IInspectionDAO;
-import Main.DAL.IUnitDAO;
-import Main.DAL.IUsageDAO;
-import Main.Entities.Facility.Unit;
-import Main.Entities.maintenance.Inspection;
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
+import main.DAL.IFacilityDAO;
+import main.DAL.IInspectionDAO;
+import main.DAL.IUnitDAO;
+import main.DAL.IUsageDAO;
+import main.Entities.Facility.Unit;
+import main.Entities.maintenance.Inspection;
+import main.Entities.usage.UnitUsage;
+import main.Entities.usage.UnitUser;
 
 import java.sql.Date;
 import java.sql.SQLException;

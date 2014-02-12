@@ -1,8 +1,8 @@
-package Main.BL;
+package main.BL;
 
-import Main.DAL.*;
-import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.Unit;
+import main.DAL.*;
+import main.Entities.Facility.Facility;
+import main.Entities.Facility.Unit;
 
 import java.util.List;
 
