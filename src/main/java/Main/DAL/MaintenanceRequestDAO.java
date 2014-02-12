@@ -44,13 +44,14 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             createStatement.setInt(5, request.getHoursToComplete());
 
 
-           int affectedRows = createStatement.executeUpdate();
+
+           int affectedRows = createStatement.executeUpdate();//
 
             ResultSet rs = createStatement.getGeneratedKeys();
            if(rs.next())
            {
               request.setID(rs.getInt("id"));
-              rs.close();
+                rs.close();
                createStatement.close();
               return request;
            }
@@ -74,11 +75,10 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             updateStatement.setString(1, request.getRequest());
             updateStatement.setDate(2, request.getDateRequested());
             updateStatement.setDate(3, request.getCompletionDate());
-
-
             updateStatement.setInt(4, request.getStaffMemberAssigned().getID());
             updateStatement.setInt(5, request.getUnit().getId());
             updateStatement.setInt(6, request.getHoursToComplete());
+            updateStatement.setInt(7, request.getID());
 
 
             int affectedRows = updateStatement.executeUpdate();
@@ -182,12 +182,13 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
                 request.setStaffMemberAssigned(maintenanceStaffDAO.get(rs.getInt("staff_member_assigned_id")));
                 request.setCompletionDate(rs.getDate("completion_date"));
                 request.setHoursToComplete(rs.getInt("hours_to_complete"));
-                rs.close();
-                getStatement.close();
+
 
                 maintenanceRequests.add(request);
 
             }
+            rs.close();
+            getStatement.close();
             return maintenanceRequests;
 
         }

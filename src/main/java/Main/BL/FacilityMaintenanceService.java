@@ -49,11 +49,14 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
 
         try {
             request = maintenanceRequestDAO.get(MaintainenceRequestID);
+
             MaintenanceStaff staff = maintenanceStaffDAO.get(staffMemberId);
             System.out.println("StaffMemberID in scheduleMaintenceService" + staff.getID());
 
+            request.setHoursToComplete(estimatedTime);
             request.setStaffMemberAssigned(staff);
             request.setCompletionDate(completionDate);
+
             return maintenanceRequestDAO.update(request);
 
         } catch (Exception e) {

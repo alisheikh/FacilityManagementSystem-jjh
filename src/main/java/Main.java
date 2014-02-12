@@ -217,10 +217,9 @@ public class Main extends HttpServlet {
 
 
 
-            List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unit1.getId());
-            List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unit2.getId());
-            List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unit3.getId());
-            List<UnitUsage> usagesforunit4 = facilityUseService.listActualUsage(unit4.getId());
+            List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getId());
+            List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unitForUse1.getId());
+            List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unitForUse2.getId()); //
 
 
 
@@ -322,11 +321,23 @@ public class Main extends HttpServlet {
             }//tests deletion of individual units.
 
 
+
+
+            //needs a service added
+
+            userDAO.Delete(user1.getID());
+            userDAO.Delete(user2.getID());
+            userDAO.Delete(user3.getID());
+            
+            maintenanceStaffDAO.delete(staff.getID());
+
             facilityService.removeFacility(facility);//delete facility and cascades all units and usages
             facilityService.removeFacility(facility1);
             facilityService.removeFacility(facility2);
             facilityService.removeFacility(facility3);
             facilityService.removeFacility(facility);
+
+
 
 
 
