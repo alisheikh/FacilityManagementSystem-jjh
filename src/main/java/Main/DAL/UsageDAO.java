@@ -112,7 +112,7 @@ public class UsageDAO implements IUsageDAO {
             {
                 UnitUsage usage = new UnitUsage();
                 usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
-                usage.setUnitUser(userDAO.Get(rs.getInt("user_id")));
+                usage.setUnitUser(userDAO.Get(rs.getInt("unit_user_id")));
                 usage.setId(rs.getInt("id"));
                 usage.setStartTime(rs.getDate("start_time"));
                 usage.setEndTime(rs.getDate("end_time"));
@@ -150,7 +150,7 @@ public class UsageDAO implements IUsageDAO {
                 usage.setEndTime(rs.getDate("end_time"));
                 return usage;
             }
-            else{return null;}//no item found
+            else{return usage;}//no item found
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -185,7 +185,7 @@ public class UsageDAO implements IUsageDAO {
             }
                 return usages;
             }
-            else{return null;}
+            else{return usages;}
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -233,6 +233,6 @@ public class UsageDAO implements IUsageDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return unitUsage;
     }
 }

@@ -65,7 +65,7 @@ public class UnitDAO implements IUnitDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return unit;
 
     }
 
@@ -134,7 +134,7 @@ public class UnitDAO implements IUnitDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return unit;
     }
 
     @Override
@@ -247,7 +247,7 @@ public class UnitDAO implements IUnitDAO {
 
         String deleteQuery = "DELETE FROM unit_usage WHERE id = ?";
 
-        MaintenanceRequest request = null;
+
         try {
             PreparedStatement getStatement = connection.prepareStatement(deleteQuery);
             getStatement.setInt(1,id);
@@ -283,11 +283,11 @@ public class UnitDAO implements IUnitDAO {
                 usage.setEndTime(rs.getDate("end_time"));
                 return usage;
             }
-            else{return null;}//no item found
+            else{return usage;}//no item found
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            return usage;
         }
 
     }
@@ -318,7 +318,7 @@ public class UnitDAO implements IUnitDAO {
                 }
                 return usages;
             }
-            else{return null;}
+            else{return usages;}
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -366,6 +366,6 @@ public class UnitDAO implements IUnitDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return unitUsage;
     }
 }

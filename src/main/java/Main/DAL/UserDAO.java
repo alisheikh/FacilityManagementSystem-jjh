@@ -153,6 +153,6 @@ public class UserDAO implements IUserDAO {
             e.printStackTrace();
 
         }
-        return null;
+        return unitUser;
     }
 }

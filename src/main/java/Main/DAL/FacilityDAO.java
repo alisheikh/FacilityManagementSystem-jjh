@@ -71,7 +71,7 @@ public class FacilityDAO implements IFacilityDAO {
 
         catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return facility;
         }
 
     }
@@ -170,7 +170,7 @@ public class FacilityDAO implements IFacilityDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return units;
 
 
     }
@@ -230,6 +230,6 @@ public class FacilityDAO implements IFacilityDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return new Unit();
     }
 }
