@@ -5,12 +5,9 @@
  */
 import Main.BL.FacilityService;
 import Main.BL.FacilityUseService;
-import Main.BL.IFacilityService;
-import Main.BL.InspectionService;
 import Main.DAL.*;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
-import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
 import org.eclipse.jetty.server.Server;
@@ -25,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 

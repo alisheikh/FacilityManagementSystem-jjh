@@ -71,7 +71,7 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public void RemoveUnit(Unit unit1) {
-        unitDAO.DeleteUnit(unit1.getId());
+        unitDAO.deleteUnit(unit1.getId());
     }
 
 }

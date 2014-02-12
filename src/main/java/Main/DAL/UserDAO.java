@@ -1,6 +1,5 @@
 package Main.DAL;
 
-import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.usage.UnitUser;
 
 import java.sql.*;
@@ -22,7 +21,7 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public UnitUser Create(UnitUser newUnitUser) {
+    public UnitUser create(UnitUser newUnitUser) {
         String createQuery = "INSERT INTO unit_user(first_name, last_name, phone_number, email_address," +
                 " credit_card, company_name) VALUES (?, ?, ?, ?, ?, ?)";
         try {
@@ -68,7 +67,7 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public void Delete(int unitUserId) {
+    public void delete(int unitUserId) {
 
         String deleteQuery = "DELETE FROM unit_user WHERE id = ?";
 
@@ -91,7 +90,7 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public UnitUser Get(int user_id) {
+    public UnitUser get(int user_id) {
         String getQuery = "SELECT first_name, last_name, phone_number, id," +
                 " email_address, credit_card, company_name FROM unit_user where id =?";
 
@@ -122,7 +121,7 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public UnitUser Update(UnitUser unitUser) throws Exception {
+    public UnitUser update(UnitUser unitUser) throws Exception {
         String updateQuery = "UPDATE unit_user SET first_name=?, last_name=?," +
                 " phone_number=?, email_address=?, credit_card=?, company_name=? WHERE id = ?";
 
@@ -142,7 +141,7 @@ public class UserDAO implements IUserDAO {
 
             if(affectedRows == 1)
             {
-                unitUser = Get(unitUser.getID());
+                unitUser = get(unitUser.getID());
                 return unitUser;
             }
             else

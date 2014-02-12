@@ -6,12 +6,12 @@ import Main.Entities.usage.UnitUser;
  * Created by Jackson on 2/8/14.
  */
 public interface IUserDAO {
-    UnitUser Create(UnitUser newUnitUser);
+    UnitUser create(UnitUser newUnitUser);
 
-    void Delete(int unitUserId);
+    void delete(int unitUserId);
 
-    UnitUser Get(int user_id);
+    UnitUser get(int user_id);
 
-    UnitUser Update(UnitUser unitUser) throws Exception;
+    UnitUser update(UnitUser unitUser) throws Exception;
 
 }

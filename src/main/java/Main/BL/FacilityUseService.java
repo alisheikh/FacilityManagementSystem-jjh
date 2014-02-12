@@ -1,17 +1,16 @@
 package Main.BL;
 
 
-import Main.DAL.*;
-import Main.Entities.Facility.Facility;
+import Main.DAL.IFacilityDAO;
+import Main.DAL.IInspectionDAO;
+import Main.DAL.IUnitDAO;
+import Main.DAL.IUsageDAO;
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
-import org.joda.time.DateTime;
-
 
 import java.sql.Date;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class FacilityUseService implements IFacilityUseService {
     public boolean IsInUseDuringInterval(int unitID, java.util.Date startTime, java.util.Date endTime) {
         Unit unit = new Unit();
         try {
-            unit = unitFactory.GetUnit(unitID);
+            unit = unitFactory.getUnit(unitID);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -68,7 +67,7 @@ public class FacilityUseService implements IFacilityUseService {
         usage.setUnitUser(unitUser);
 
         try {
-            return usageDAO.CreateUsage(usage);
+            return usageDAO.createUsage(usage);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -78,7 +77,7 @@ public class FacilityUseService implements IFacilityUseService {
     @Override
     public void vacateFacility(int usageID)
     {
-        usageDAO.DeleteUsage(usageID);
+        usageDAO.deleteUsage(usageID);
     }
 
     @Override
@@ -92,9 +91,9 @@ public class FacilityUseService implements IFacilityUseService {
 
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
         try {
-            unit = unitFactory.GetUnit(unitID);
+            unit = unitFactory.getUnit(unitID);
 
-            usages = unitFactory.GetUsagesForUnit(unit);
+            usages = unitFactory.getUsagesForUnit(unit);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -105,7 +104,7 @@ public class FacilityUseService implements IFacilityUseService {
 
     @Override
     public List<UnitUsage> listUsages() {
-        return usageDAO.GetAll();
+        return usageDAO.getAll();
     }
 }
 

@@ -3,7 +3,6 @@ package Main.DAL;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
 import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,7 +54,7 @@ public class FacilityDAO implements IFacilityDAO {
                     u.setFacilityId(facility.getID());
                 }
 
-                unitDAO.CreateUnit(units);
+                unitDAO.createUnit(units);
             }
             else {
                 throw new SQLException("Creating user failed, no generated key obtained.");
@@ -84,13 +83,13 @@ public class FacilityDAO implements IFacilityDAO {
                 try{
 
                     try {
-                        unitDAO.CreateUnit(unit);
+                        unitDAO.createUnit(unit);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
 
                     for(UnitUsage usage:unit.getUsages()){
-                        usage = unitDAO.CreateUsage(usage);//also creates any new users
+                        usage = unitDAO.createUsage(usage);//also creates any new users
                     }
 
 
@@ -108,7 +107,7 @@ public class FacilityDAO implements IFacilityDAO {
                     "WHERE id = "+facility.getID());
 
             for(Unit unit:facility.getUnits()){
-                unit = unitDAO.UpdateUnit(unit);
+                unit = unitDAO.updateUnit(unit);
             }
 
         } catch (Exception e) {
@@ -153,7 +152,7 @@ public class FacilityDAO implements IFacilityDAO {
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
             }
 
-            facility.setUnits(unitDAO.GetUnitForFacility(facility.getID()));
+            facility.setUnits(unitDAO.getUnitForFacility(facility.getID()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -166,7 +165,7 @@ public class FacilityDAO implements IFacilityDAO {
 
 
         try {
-            return unitDAO.GetUnitForFacility(facilityId);
+            return unitDAO.getUnitForFacility(facilityId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -212,7 +211,7 @@ public class FacilityDAO implements IFacilityDAO {
                 facility.setCapacity(rs.getInt("capacity"));
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
 
-                facility.setUnits(unitDAO.GetUnitForFacility(facility.getID()));
+                facility.setUnits(unitDAO.getUnitForFacility(facility.getID()));
 
                 facilities.add(facility);
             }
@@ -226,7 +225,7 @@ public class FacilityDAO implements IFacilityDAO {
     @Override
     public Unit getUnit(int unitId){
         try {
-            return unitDAO.GetUnit(unitId);
+            return unitDAO.getUnit(unitId);
         } catch (SQLException e) {
             e.printStackTrace();
         }

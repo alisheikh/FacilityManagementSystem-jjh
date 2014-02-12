@@ -1,7 +1,6 @@
 package Main.DAL;
 
 import Main.Entities.Facility.Unit;
-import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.usage.UnitUsage;
 
 import java.sql.*;
@@ -25,20 +24,20 @@ public class UnitDAO implements IUnitDAO {
     }
 
     @Override
-    public void CreateUnit(List<Unit> units) throws SQLException {
+    public void createUnit(List<Unit> units) throws SQLException {
         for(Unit unit:units){
-            CreateUnit(unit);
+            createUnit(unit);
 
             List<UnitUsage> usages = unit.getUsages();
             for(UnitUsage usage:usages){
                 userDAO.Create(usage.getUnitUser());
-                CreateUsage(usage);
+                createUsage(usage);
             }
         }
     }
 
     @Override
-    public Unit CreateUnit(Unit unit) throws SQLException {
+    public Unit createUnit(Unit unit) throws SQLException {
         String createQuery = "INSERT INTO unit(facility_id, capacity, unit_number) VALUES (?, ?, ?)";
 
 
@@ -70,7 +69,7 @@ public class UnitDAO implements IUnitDAO {
     }
 
     @Override
-    public Unit GetUnit(int unit_id) throws SQLException {
+    public Unit getUnit(int unit_id) throws SQLException {
         String getQuery = "Select * FROM unit where id = ?";
 
         Unit unit = new Unit();
@@ -84,7 +83,7 @@ public class UnitDAO implements IUnitDAO {
                unit.setCapacity(rs.getInt("capacity"));
                unit.setFacilityId(rs.getInt("facility_id"));
                unit.setUnitNumber(rs.getInt("unit_number"));
-               unit.setUsages(GetUsagesForUnit(unit));
+               unit.setUsages(getUsagesForUnit(unit));
 
                 rs.close();
                 getStatement.close();}
@@ -103,7 +102,7 @@ public class UnitDAO implements IUnitDAO {
     }
 
     @Override
-    public Unit UpdateUnit(Unit unit) throws Exception {
+    public Unit updateUnit(Unit unit) throws Exception {
         String updateQuery = "UPDATE unit SET facility_id=?, capacity=?, unit_number=? WHERE id =?";
 
 
@@ -123,7 +122,7 @@ public class UnitDAO implements IUnitDAO {
 
             if(affectedRows == 1)
             {
-                unit = GetUnit(unit.getId());
+                unit = getUnit(unit.getId());
                 return unit;
             }
             else
@@ -138,7 +137,7 @@ public class UnitDAO implements IUnitDAO {
     }
 
     @Override
-    public List<Unit> GetUnitForFacility(int facilityId) throws SQLException {
+    public List<Unit> getUnitForFacility(int facilityId) throws SQLException {
         String getQuery = "Select * FROM unit where facility_id = ?";
         List<Unit> units = new ArrayList<Unit>();
 
@@ -156,7 +155,7 @@ public class UnitDAO implements IUnitDAO {
                 unit.setCapacity(rs.getInt("capacity"));
                 unit.setFacilityId(rs.getInt("facility_id"));
                 unit.setUnitNumber(rs.getInt("unit_number"));
-                unit.setUsages(GetUsagesForUnit(unit));
+                unit.setUsages(getUsagesForUnit(unit));
                 units.add(unit);
 
 
@@ -173,7 +172,7 @@ public class UnitDAO implements IUnitDAO {
     }
 
     @Override
-    public void DeleteUnit(int id) {
+    public void deleteUnit(int id) {
 
         String deleteQuery = "DELETE FROM unit WHERE id = ?";
 
@@ -192,7 +191,7 @@ public class UnitDAO implements IUnitDAO {
         }
     }
 
-    public UnitUsage CreateUsage(UnitUsage usage) throws SQLException {
+    public UnitUsage createUsage(UnitUsage usage) throws SQLException {
         String createQuery = "INSERT INTO unit_usage (unit_id,start_time,end_time,unit_user_id)" +
                 "VALUES (?,?,?,?)";
 
@@ -243,7 +242,8 @@ public class UnitDAO implements IUnitDAO {
         }
     }
 
-    public void DeleteUsage(int id){
+    @Override
+    public void deleteUsage(int id){
 
         String deleteQuery = "DELETE FROM unit_usage WHERE id = ?";
 
@@ -263,7 +263,7 @@ public class UnitDAO implements IUnitDAO {
         }
 
     }
-    public UnitUsage GetUsage(int id)
+    public UnitUsage getUsage(int id)
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where id =?";
 
@@ -276,7 +276,7 @@ public class UnitDAO implements IUnitDAO {
             ResultSet rs = getStatement.executeQuery();
             if(rs.next())
             {
-                usage.setUnit(GetUnit(rs.getInt("unit_id")));
+                usage.setUnit(getUnit(rs.getInt("unit_id")));
                 usage.setUnitUser(userDAO.Get(rs.getInt("user_id")));
                 usage.setId(rs.getInt("id"));
                 usage.setStartTime(rs.getDate("start_time"));
@@ -292,7 +292,7 @@ public class UnitDAO implements IUnitDAO {
 
     }
     @Override
-    public List<UnitUsage> GetUsagesForUnit(Unit unit)
+    public List<UnitUsage> getUsagesForUnit(Unit unit)
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where unit_id =?";
 
@@ -327,7 +327,7 @@ public class UnitDAO implements IUnitDAO {
     }
 
     @Override
-    public UnitUsage UpdateUsage(UnitUsage unitUsage) throws Exception {
+    public UnitUsage updateUsage(UnitUsage unitUsage) throws Exception {
 
         String updateQuery = "UPDATE unit_usage unit_id=?, start_time=?, end_time=?, unit_user_id=? where id = ?";
         try {
@@ -344,7 +344,7 @@ public class UnitDAO implements IUnitDAO {
 
             if(affectedRows == 1)
             {
-                unitUsage = GetUsage(unitUsage.getId());
+                unitUsage = getUsage(unitUsage.getId());
 
             }
             else

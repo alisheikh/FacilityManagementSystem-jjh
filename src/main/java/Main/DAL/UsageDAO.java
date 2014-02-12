@@ -26,7 +26,8 @@ public class UsageDAO implements IUsageDAO {
         connection = connector.connect();
     }
 
-    public UnitUsage CreateUsage(UnitUsage usage) throws SQLException {
+    @Override
+    public UnitUsage createUsage(UnitUsage usage) throws SQLException {
         String createQuery = "INSERT INTO unit_usage (unit_id,start_time,end_time,unit_user_id)" +
                 "VALUES (?,?,?,?)";
 
@@ -77,7 +78,8 @@ public class UsageDAO implements IUsageDAO {
         }
     }
 
-    public void DeleteUsage(int id){
+    @Override
+    public void deleteUsage(int id){
 
         String deleteQuery = "DELETE FROM unit_usage WHERE id = ?";
 
@@ -99,7 +101,7 @@ public class UsageDAO implements IUsageDAO {
     }
 
     @Override
-    public List<UnitUsage> GetAll() {
+    public List<UnitUsage> getAll() {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage";
 
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
@@ -111,7 +113,7 @@ public class UsageDAO implements IUsageDAO {
             while(rs.next())
             {
                 UnitUsage usage = new UnitUsage();
-                usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
+                usage.setUnit(unitDAO.getUnit(rs.getInt("unit_id")));
                 usage.setUnitUser(userDAO.Get(rs.getInt("unit_user_id")));
                 usage.setId(rs.getInt("id"));
                 usage.setStartTime(rs.getDate("start_time"));
@@ -130,7 +132,7 @@ public class UsageDAO implements IUsageDAO {
 
     }
 
-    public UnitUsage GetUsage(int id)
+    public UnitUsage getUsage(int id)
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where id =?";
 
@@ -143,7 +145,7 @@ public class UsageDAO implements IUsageDAO {
             ResultSet rs = getStatement.executeQuery();
             if(rs.next())
             {
-                usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
+                usage.setUnit(unitDAO.getUnit(rs.getInt("unit_id")));
                 usage.setUnitUser(userDAO.Get(rs.getInt("user_id")));
                 usage.setId(rs.getInt("id"));
                 usage.setStartTime(rs.getDate("start_time"));
@@ -159,7 +161,7 @@ public class UsageDAO implements IUsageDAO {
 
     }
     @Override
-    public List<UnitUsage> GetUsagesForUnit(Unit unit)
+    public List<UnitUsage> getUsagesForUnit(Unit unit)
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where unit_id =?";
 
@@ -194,7 +196,7 @@ public class UsageDAO implements IUsageDAO {
     }
 
     @Override
-    public UnitUsage UpdateUsage(UnitUsage unitUsage) throws Exception {
+    public UnitUsage updateUsage(UnitUsage unitUsage) throws Exception {
 
         String updateQuery = "UPDATE unit_usage unit_id=?, start_time=?, end_time=?, unit_user_id=? where id = ?";
         try {
@@ -211,7 +213,7 @@ public class UsageDAO implements IUsageDAO {
 
             if(affectedRows == 1)
             {
-                unitUsage = GetUsage(unitUsage.getId());
+                unitUsage = getUsage(unitUsage.getId());
 
             }
             else
