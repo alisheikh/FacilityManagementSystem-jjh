@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+ 	<session-factory>		
+ 	 	<!-- Database connection settings -->	
+ 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+ 		<property name="hibernate.connection.url"> jdbc:postgresql://127.0.0.1:5432/BookStore</property>
+ 		<property name="connection.username">student</property>
+ 		<property name="connection.password">Comp442</property>
+ 		<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+ 
+ 		<!-- SQL dialect - generate SQL for a particular database -->
+ 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+ 
+ 		<!-- Echo all executed SQL statements -->
+ 		<property name="show_sql">true</property>
+ 
+ 		<!-- Enable Hibernate's automatic session context management -->
+ 		<property name="current_session_context_class">thread</property>
+		<!-- Mapping resource configuration files -->
+ 		<mapping resource="com/online/bookstore/dao/Customer.hbm.xml"/> 
+ 		<mapping resource="com/online/bookstore/dao/Address.hbm.xml"/> 		 
+ 	</session-factory>
+ </hibernate-configuration>
