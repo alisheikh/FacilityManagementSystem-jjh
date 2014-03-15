@@ -1,4 +1,4 @@
-package Main;
+package Main.Application;
 
 import Main.BL.*;
 import Main.DAL.*;

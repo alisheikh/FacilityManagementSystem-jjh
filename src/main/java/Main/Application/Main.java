@@ -1,17 +1,17 @@
-/**
+package Main.Application; /**
  * User: alexthornburg
  * Date: 2/4/14
  * Time: 7:17 PM
  */
-import Main.BL.*;
-import Main.DAL.*;
-import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.Unit;
-import Main.Entities.maintenance.Inspection;
-import Main.Entities.maintenance.MaintenanceRequest;
-import Main.Entities.maintenance.MaintenanceStaff;
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
+import Main.Application.Main.BL.*;
+import Main.Application.Main.DAL.*;
+import Main.Application.Main.Entities.Facility.Facility;
+import Main.Application.Main.Entities.Facility.Unit;
+import Main.Application.Main.Entities.maintenance.Inspection;
+import Main.Application.Main.Entities.maintenance.MaintenanceRequest;
+import Main.Application.Main.Entities.maintenance.MaintenanceStaff;
+import Main.Application.Main.Entities.usage.UnitUsage;
+import Main.Application.Main.Entities.usage.UnitUser;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
