@@ -1,59 +1,26 @@
 package Main.Entities;
 
-public class Person {
+/**
+ * Created by Jackson on 3/13/14.
+ */
+public interface Person {
+    String getFirstName();
 
-	private String firstName;
+    void setFirstName(String firstName);
 
-	private String lastName;
+    String getLastName();
 
-	private int phoneNumber;
+    void setLastName(String lastName);
 
-	private int id;
+    int getPhoneNumber();
 
-	private String emailAddress;
+    void setPhoneNumber(int phoneNumber);
 
-	public Person() {
+    int getId();
 
-	}
+    void setId(int id);
 
+    String getEmailAddress();
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public int getID() {
-        return id;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
+    void setEmailAddress(String emailAddress);
 }

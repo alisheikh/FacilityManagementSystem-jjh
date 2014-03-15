@@ -3,6 +3,7 @@ package Main.DAL;
 
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.maintenance.MaintenanceRequestImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             createStatement.setDate(3, null);
            // createStatement.setInt(4, null);//no one assigned on create
             createStatement.setInt(4, request.getUnit().getId());
-            createStatement.setInt(5, request.getHoursToComplete());
+            createStatement.setDouble(5, request.getHoursToComplete());
 
 
 
@@ -50,7 +51,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             ResultSet rs = createStatement.getGeneratedKeys();
            if(rs.next())
            {
-              request.setID(rs.getInt("id"));
+              request.setId(rs.getInt("id"));
                 rs.close();
                createStatement.close();
               return request;
@@ -67,7 +68,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
         String updateQuery = "UPDATE maintenance_request SET request=?, date_requested=?," +
                 " completion_date=?, staff_member_assigned_id=?, unit_id=?, hours_to_complete = ? WHERE id = ?";
 
-        System.out.println("StaffMember Assigned ID in DAO"+ request.getStaffMemberAssigned().getID());
+        System.out.println("StaffMember Assigned ID in DAO"+ request.getStaffMemberAssigned().getId());
 
 
         try {
@@ -75,17 +76,17 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             updateStatement.setString(1, request.getRequest());
             updateStatement.setDate(2, request.getDateRequested());
             updateStatement.setDate(3, request.getCompletionDate());
-            updateStatement.setInt(4, request.getStaffMemberAssigned().getID());
+            updateStatement.setInt(4, request.getStaffMemberAssigned().getId());
             updateStatement.setInt(5, request.getUnit().getId());
-            updateStatement.setInt(6, request.getHoursToComplete());
-            updateStatement.setInt(7, request.getID());
+            updateStatement.setDouble(6, request.getHoursToComplete());
+            updateStatement.setInt(7, request.getId());
 
 
             int affectedRows = updateStatement.executeUpdate();
 
            if(affectedRows == 1)
            {
-               request = get(request.getID());
+               request = get(request.getId());
                return request;
            }
            
@@ -102,7 +103,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
 
 
 
-        MaintenanceRequest request = new MaintenanceRequest();
+        MaintenanceRequest request = new MaintenanceRequestImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(deleteQuery);
             getStatement.setInt(1,ID);
@@ -125,11 +126,11 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
     * null if no records are found
     * */
 	@Override
-    public MaintenanceRequest get(int ID)
+    public MaintenanceRequestImpl get(int ID)
     {
         String getQuery = "SELECT * FROM maintenance_request where id =? ";
 
-        MaintenanceRequest request = new MaintenanceRequest();
+        MaintenanceRequestImpl request = new MaintenanceRequestImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             getStatement.setInt(1,ID);
@@ -139,7 +140,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             if(rs.next())
             {
                 request.setDateRequested(rs.getDate("date_requested"));
-                request.setID(rs.getInt("id"));
+                request.setId(rs.getInt("id"));
                 request.setRequest(rs.getString("request"));
                 request.setUnit(facilityDAO.getUnit(rs.getInt("unit_id")));
                 request.setStaffMemberAssigned(maintenanceStaffDAO.get(rs.getInt("staff_member_assigned_id")));
@@ -173,10 +174,10 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             while(rs.next())
             {
 
-                MaintenanceRequest request = new MaintenanceRequest();
+                MaintenanceRequestImpl request = new MaintenanceRequestImpl();
 
                 request.setDateRequested(rs.getDate("date_requested"));
-                request.setID(rs.getInt("id"));
+                request.setId(rs.getInt("id"));
                 request.setRequest(rs.getString("request"));
                 request.setUnit(facilityDAO.getUnit(rs.getInt("unit_id")));
                 request.setStaffMemberAssigned(maintenanceStaffDAO.get(rs.getInt("staff_member_assigned_id")));

@@ -2,6 +2,7 @@ package Main.DAL;
 
 import Main.BL.IFacilityService;
 import Main.Entities.maintenance.Inspection;
+import Main.Entities.maintenance.InspectionImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,8 +28,8 @@ public class InspectionDAO implements IInspectionDAO {
 
 
             PreparedStatement createStatement = connection.prepareStatement(createQuery, Statement.RETURN_GENERATED_KEYS);
-            createStatement.setInt(1, inspection.getFacility().getID());
-            createStatement.setInt(2, inspection.getInspectingStaff().getID());
+            createStatement.setInt(1, inspection.getFacility().getId());
+            createStatement.setInt(2, inspection.getInspectingStaff().getId());
             createStatement.setDate(3, inspection.getInspectionDate());
 
             int rowsAffected = createStatement.executeUpdate();
@@ -37,7 +38,7 @@ public class InspectionDAO implements IInspectionDAO {
             {
                 ResultSet resultSet = createStatement.getGeneratedKeys();
                 if(resultSet.next()){
-                inspection.setID(resultSet.getInt("id"));
+                inspection.setId(resultSet.getInt("id"));
             }
             }
             else
@@ -57,9 +58,9 @@ public class InspectionDAO implements IInspectionDAO {
         try{
                 connection.createStatement().executeUpdate("UPDATE inspection" +
                     " SET (id,facility_id,inspection_staff_id,inspection_date)"+
-                    "= ('"+inspection.getID()+"','"+inspection.getFacility().getID()+"','"+inspection.getInspectingStaff().getID()+
+                    "= ('"+inspection.getId()+"','"+inspection.getFacility().getId()+"','"+inspection.getInspectingStaff().getId()+
                         "','"+inspection.getInspectionDate()+"')" +
-                    "WHERE id = "+inspection.getID());
+                    "WHERE id = "+inspection.getId());
             return inspection;
         }catch(SQLException e) {
             e.printStackTrace();
@@ -80,11 +81,11 @@ public class InspectionDAO implements IInspectionDAO {
 
 	@Override
     public Inspection get(int id) {
-        Inspection result = new Inspection();
+        Inspection result = new InspectionImpl();
         try {
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM inspection where id = "+id);
             while (rs.next()) {
-                result.setID(rs.getInt("id"));
+                result.setId(rs.getInt("id"));
                 result.setInspectingStaff(maintenanceStaffDAO.get(rs.getInt("inspection_Staff_id")));
                 result.setInspectionDate(rs.getDate("inspection_date"));
                 result.setFacility(facilityService.getFacilityInformation(rs.getInt("facility_id")));
@@ -104,8 +105,8 @@ public class InspectionDAO implements IInspectionDAO {
 
 
             while (rs.next()) {
-                Inspection result = new Inspection();
-                result.setID(rs.getInt("id"));
+                Inspection result = new InspectionImpl();
+                result.setId(rs.getInt("id"));
                 result.setInspectingStaff(maintenanceStaffDAO.get(rs.getInt("inspection_Staff_id")));
                 result.setInspectionDate(rs.getDate("inspection_date"));
                 result.setFacility(facilityService.getFacilityInformation(rs.getInt("facility_id")));

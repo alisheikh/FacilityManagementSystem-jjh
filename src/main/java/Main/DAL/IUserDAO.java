@@ -1,6 +1,7 @@
 package Main.DAL;
 
 import Main.Entities.usage.UnitUser;
+import Main.Entities.usage.UnitUserImpl;
 
 /**
  * Created by Jackson on 2/8/14.

@@ -1,71 +1,30 @@
 package Main.Entities.usage;
 
 import Main.Entities.Facility.Unit;
-import org.joda.time.DateTime;
 
 import java.sql.Date;
 
+/**
+ * Created by Jackson on 3/13/14.
+ */
+public interface UnitUsage {
+    int getId();
 
-public class UnitUsage {
+    void setId(int id);
 
-    private int id;
+    UnitUser getUnitUser();
 
-	private Date startTime;
+    void setUnitUser(UnitUser unitUser);
 
-	private Date endTime;
+    Unit getUnit();
 
-    private UnitUser unitUser;
+    void setUnit(Unit unit);
 
-    private Unit unit;
+    Date getStartTime();
 
-    public UnitUsage()
-    {
-    }
+    void setStartTime(Date startTime);
 
+    Date getEndTime();
 
-
-
-
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public UnitUser getUnitUser() {
-        return unitUser;
-    }
-
-    public void setUnitUser(UnitUser unitUser) {
-        this.unitUser = unitUser;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
+    void setEndTime(Date endTime);
 }

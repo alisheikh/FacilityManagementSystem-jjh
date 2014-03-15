@@ -2,6 +2,7 @@ package Main.DAL;
 
 
 import Main.Entities.maintenance.MaintenanceStaff;
+import Main.Entities.maintenance.MaintenanceStaffImpl;
 
 import java.sql.*;
 
@@ -46,7 +47,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
 
                 if(result.next())
                 {
-                    newStaffMember.setID(result.getInt("id"));//todo if we ever rebuild the database reorder tables so id is the first column
+                    newStaffMember.setId(result.getInt("id"));//todo if we ever rebuild the database reorder tables so id is the first column
 
                 }
                 else {
@@ -92,12 +93,12 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
         getStatement.setInt(1, id);
 
 
-        MaintenanceStaff maintenanceStaff = new MaintenanceStaff();
+        MaintenanceStaff maintenanceStaff = new MaintenanceStaffImpl();
         try {
             ResultSet rs = getStatement.executeQuery();
             if (rs.next()) {
 
-                maintenanceStaff.setID(rs.getInt("id"));
+                maintenanceStaff.setId(rs.getInt("id"));
                 maintenanceStaff.setFirstName(rs.getString("first_name"));
                 maintenanceStaff.setLastName(rs.getString("last_name"));
                 maintenanceStaff.setFullTime(rs.getBoolean("is_full_time"));
@@ -128,7 +129,7 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
         String updateQuery = "UPDATE maintenance_staff SET first_name=?, last_name=?, phone_number=?," +
                 " email_address=?,  hours_per_week=?, pay_per_hour=? where id = ?";
 
-        MaintenanceStaff staff = new MaintenanceStaff();
+        MaintenanceStaff staff = new MaintenanceStaffImpl();
 
         try {
             PreparedStatement createStatement = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
@@ -139,14 +140,14 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
             createStatement.setString(4, updatedStaffMember.getEmailAddress());
             createStatement.setDouble(5, updatedStaffMember.getHoursPerWeek());
             createStatement.setDouble(6, updatedStaffMember.getPayPerHour());
-            createStatement.setInt(7,updatedStaffMember.getID());
+            createStatement.setInt(7,updatedStaffMember.getId());
 
             int affectedRows = createStatement.executeUpdate();
 
             if(affectedRows == 1)
             {
 
-                return get(updatedStaffMember.getID());
+                return get(updatedStaffMember.getId());
             }
 
         } catch (Exception e) {

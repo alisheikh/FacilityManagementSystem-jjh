@@ -4,7 +4,9 @@ import Main.DAL.*;
 
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.maintenance.MaintenanceRequestImpl;
 import Main.Entities.maintenance.MaintenanceStaff;
+import Main.Entities.maintenance.MaintenanceStaffImpl;
 
 
 import java.sql.Date;
@@ -29,7 +31,7 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
 
     @Override
     public MaintenanceRequest makeFacilityMaintRequest(int unitID, String request) {
-        MaintenanceRequest newRequest = new MaintenanceRequest();
+        MaintenanceRequest newRequest = new MaintenanceRequestImpl();
         newRequest.setRequest(request);
 
         try {
@@ -45,13 +47,13 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
     @Override
     public MaintenanceRequest scheduleMaintenance(int MaintainenceRequestID, int staffMemberId, int estimatedTime, java.sql.Date completionDate) {
 
-        MaintenanceRequest request = new MaintenanceRequest();
+        MaintenanceRequest request = new MaintenanceRequestImpl();
 
         try {
             request = maintenanceRequestDAO.get(MaintainenceRequestID);
 
             MaintenanceStaff staff = maintenanceStaffDAO.get(staffMemberId);
-            System.out.println("StaffMemberID in scheduleMaintenceService" + staff.getID());
+            System.out.println("StaffMemberID in scheduleMaintenceService" + staff.getId());
 
             request.setHoursToComplete(estimatedTime);
             request.setStaffMemberAssigned(staff);

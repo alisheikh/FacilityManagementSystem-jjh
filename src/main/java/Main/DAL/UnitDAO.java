@@ -1,8 +1,9 @@
 package Main.DAL;
 
 import Main.Entities.Facility.Unit;
-import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.Facility.UnitImpl;
 import Main.Entities.usage.UnitUsage;
+import Main.Entities.usage.UnitUsageImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,11 +30,12 @@ public class UnitDAO implements IUnitDAO {
         for(Unit unit:units){
             CreateUnit(unit);
 
+            /*
             List<UnitUsage> usages = unit.getUsages();
             for(UnitUsage usage:usages){
                 userDAO.Create(usage.getUnitUser());
                 CreateUsage(usage);
-            }
+            }*/
         }
     }
 
@@ -73,7 +75,7 @@ public class UnitDAO implements IUnitDAO {
     public Unit GetUnit(int unit_id) throws SQLException {
         String getQuery = "Select * FROM unit where id = ?";
 
-        Unit unit = new Unit();
+        Unit unit = new UnitImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             getStatement.setInt(1, unit_id);
@@ -84,7 +86,7 @@ public class UnitDAO implements IUnitDAO {
                unit.setCapacity(rs.getInt("capacity"));
                unit.setFacilityId(rs.getInt("facility_id"));
                unit.setUnitNumber(rs.getInt("unit_number"));
-               unit.setUsages(GetUsagesForUnit(unit));
+
 
                 rs.close();
                 getStatement.close();}
@@ -149,14 +151,14 @@ public class UnitDAO implements IUnitDAO {
 
             while (rs.next()) {
 
-                Unit unit = new Unit();
+                Unit unit = new UnitImpl();
 
                 int iddd = rs.getInt("id");
                 unit.setId(rs.getInt("id"));
                 unit.setCapacity(rs.getInt("capacity"));
                 unit.setFacilityId(rs.getInt("facility_id"));
                 unit.setUnitNumber(rs.getInt("unit_number"));
-                unit.setUsages(GetUsagesForUnit(unit));
+
                 units.add(unit);
 
 
@@ -203,7 +205,7 @@ public class UnitDAO implements IUnitDAO {
             insertStatement.setInt(1,usage.getId());
             insertStatement.setDate(2,usage.getStartTime());
             insertStatement.setDate(3,usage.getStartTime());
-            insertStatement.setInt(4,usage.getUnitUser().getID());
+            insertStatement.setInt(4,usage.getUnitUser().getId());
 
 
             int affectedRows = insertStatement.executeUpdate();
@@ -225,7 +227,7 @@ public class UnitDAO implements IUnitDAO {
             insertStatement.close();
             result.close();
 
-            if(usage.getUnitUser().getID()==0)
+            if(usage.getUnitUser().getId()==0)
             {
                 usage.setUnitUser(userDAO.Create(usage.getUnitUser()));
             }
@@ -267,7 +269,7 @@ public class UnitDAO implements IUnitDAO {
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where id =?";
 
-        UnitUsage usage = new UnitUsage();
+        UnitUsage usage = new UnitUsageImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             getStatement.setInt(1,id);
@@ -296,7 +298,7 @@ public class UnitDAO implements IUnitDAO {
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where unit_id =?";
 
-        UnitUsage usage = new UnitUsage();
+        UnitUsage usage = new UnitUsageImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             getStatement.setInt(1,unit.getId());
@@ -336,7 +338,7 @@ public class UnitDAO implements IUnitDAO {
             createStatement.setInt(1, unitUsage.getUnit().getId());
             createStatement.setDate(2, unitUsage.getStartTime());
             createStatement.setDate(3, unitUsage.getEndTime());
-            createStatement.setInt(4, unitUsage.getUnitUser().getID());
+            createStatement.setInt(4, unitUsage.getUnitUser().getId());
             createStatement.setInt(5, unitUsage.getId());
 
 
@@ -352,7 +354,7 @@ public class UnitDAO implements IUnitDAO {
                 throw new Exception("UpdateUnit Failed");
             }
 
-            if(unitUsage.getUnitUser().getID()==0)
+            if(unitUsage.getUnitUser().getId()==0)
             {
                 unitUsage.setUnitUser(userDAO.Create(unitUsage.getUnitUser()));
             }

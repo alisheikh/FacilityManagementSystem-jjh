@@ -1,9 +1,10 @@
 package Main.DAL;
 
 import Main.Entities.Facility.Facility;
+import Main.Entities.Facility.FacilityImpl;
 import Main.Entities.Facility.Unit;
+import Main.Entities.Facility.UnitImpl;
 import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,13 +47,13 @@ public class FacilityDAO implements IFacilityDAO {
 
             if(result.next())
             {
-                facility.setID(result.getInt("id"));
+                facility.setId(result.getInt("id"));
 
 
                 List<Unit> units  = facility.getUnits();
 
                 for(Unit u:units){
-                    u.setFacilityId(facility.getID());
+                    u.setFacilityId(facility.getId());
                 }
 
                 unitDAO.CreateUnit(units);
@@ -89,12 +90,10 @@ public class FacilityDAO implements IFacilityDAO {
                         e.printStackTrace();
                     }
 
-                    for(UnitUsage usage:unit.getUsages()){
-                        usage = unitDAO.CreateUsage(usage);//also creates any new users
-                    }
 
 
-                } catch (SQLException e) {
+
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -105,7 +104,7 @@ public class FacilityDAO implements IFacilityDAO {
             connection.createStatement().executeUpdate("UPDATE facility" +
                     " SET (name,capacity,building_number)"+
                     "= ('"+facility.getName()+"','"+facility.getCapacity()+"','"+facility.getBuildingNumber()+"')" +
-                    "WHERE id = "+facility.getID());
+                    "WHERE id = "+facility.getId());
 
             for(Unit unit:facility.getUnits()){
                 unit = unitDAO.UpdateUnit(unit);
@@ -125,7 +124,7 @@ public class FacilityDAO implements IFacilityDAO {
 
         try {
             PreparedStatement getStatement = connection.prepareStatement(deleteQuery);
-            getStatement.setInt(1,facility.getID());
+            getStatement.setInt(1,facility.getId());
 
             getStatement.executeUpdate();
 
@@ -142,18 +141,18 @@ public class FacilityDAO implements IFacilityDAO {
 
 	@Override
     public Facility get(int id) {
-        Facility facility = new Facility();
+        Facility facility = new FacilityImpl();
         try {
             ResultSet rs = connection.createStatement().executeQuery("Select*FROM facility where id = '"+id+"'");
             while (rs.next()) {
-                facility.setID(rs.getInt("id"));
+                facility.setId(rs.getInt("id"));
                 facility.setName(rs.getString("name"));
                 facility.setBuildingNumber(rs.getInt("building_number"));
                 facility.setCapacity(rs.getInt("capacity"));
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
             }
 
-            facility.setUnits(unitDAO.GetUnitForFacility(facility.getID()));
+            facility.setUnits(unitDAO.GetUnitForFacility(facility.getId()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -205,14 +204,14 @@ public class FacilityDAO implements IFacilityDAO {
         try {
             ResultSet rs = connection.createStatement().executeQuery("Select * FROM facility");
             while (rs.next()) {
-                Facility facility = new Facility();
-                facility.setID(rs.getInt("id"));
+                Facility facility = new FacilityImpl();
+                facility.setId(rs.getInt("id"));
                 facility.setName(rs.getString("name"));
                 facility.setBuildingNumber(rs.getInt("building_number"));
                 facility.setCapacity(rs.getInt("capacity"));
                 facility.setUnits(getUnitsForFacility(rs.getInt("id")));
 
-                facility.setUnits(unitDAO.GetUnitForFacility(facility.getID()));
+                facility.setUnits(unitDAO.GetUnitForFacility(facility.getId()));
 
                 facilities.add(facility);
             }
@@ -230,6 +229,6 @@ public class FacilityDAO implements IFacilityDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new Unit();
+        return new UnitImpl();
     }
 }

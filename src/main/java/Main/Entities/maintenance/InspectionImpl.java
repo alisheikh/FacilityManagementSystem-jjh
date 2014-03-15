@@ -16,12 +16,12 @@ public class InspectionImpl implements Inspection {
 	private Date inspectionDate;
 
     @Override
-    public int getID() {
+    public int getId() {
         return id;
     }
 
     @Override
-    public void setID(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

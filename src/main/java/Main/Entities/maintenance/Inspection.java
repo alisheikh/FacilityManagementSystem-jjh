@@ -1,49 +1,26 @@
 package Main.Entities.maintenance;
 
-
 import Main.Entities.Facility.Facility;
 
 import java.sql.Date;
 
-public class Inspection {
+/**
+ * Created by Jackson on 3/13/14.
+ */
+public interface Inspection {
+    int getId();
 
-	private int id;
+    void setId(int id);
 
-	private Facility facility;
+    Facility getFacility();
 
-	private MaintenanceStaff inspectingStaff;
+    void setFacility(Facility facility);
 
-	private Date inspectionDate;
+    Date getInspectionDate();
 
-    public int getID() {
-        return id;
-    }
+    void setInspectionDate(Date inspectionDate);
 
-    public void setID(int id) {
-        this.id = id;
-    }
+    MaintenanceStaff getInspectingStaff();
 
-    public Facility getFacility() {
-        return facility;
-    }
-
-    public void setFacility(Facility facility) {
-        this.facility = facility;
-    }
-
-    public Date getInspectionDate() {
-        return inspectionDate;
-    }
-
-    public void setInspectionDate(Date inspectionDate) {
-        this.inspectionDate = inspectionDate;
-    }
-
-    public MaintenanceStaff getInspectingStaff() {
-        return inspectingStaff;
-    }
-
-    public void setInspectingStaff(MaintenanceStaff inspectingStaffID) {
-        this.inspectingStaff = inspectingStaffID;
-    }
+    void setInspectingStaff(MaintenanceStaff inspectingStaffID);
 }

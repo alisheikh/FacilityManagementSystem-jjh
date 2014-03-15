@@ -1,39 +1,35 @@
 package Main.Entities.usage;
 
-import Main.Entities.Person;
+/**
+ * Created by Jackson on 3/13/14.
+ */
+public interface UnitUser {
+    String getCreditCard();
 
-public class UnitUser extends Person {
+    void setCreditCard(String creditCard);
+
+    String getCompanyName();
+
+    void setCompanyName(String companyName);
+
+    int getId();
+
+    void setId(int id);
+
+    String getFirstName();
+
+    String getLastName();
+
+    int getPhoneNumber();
+
+    String getEmailAddress();
 
 
-    private String creditCard;
+    void setLastName(String last_name);
 
-	private String companyName;
+    void setFirstName(String first_name);
 
-    private int unitUserId;
+    void setPhoneNumber(int phone_number);
 
-	public UnitUser() {
-
-	}
-
-
-    public String getCreditCard() {
-        return creditCard;
-    }
-
-    public void setCreditCard(String creditCard) {
-        this.creditCard = creditCard;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public int getUnitUserId(){
-        return unitUserId;
-    }
-
+    void setEmailAddress(String email_address);
 }

@@ -2,6 +2,7 @@ package Main.DAL;
 
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.maintenance.MaintenanceRequestImpl;
 
 import java.util.List;
 

@@ -2,12 +2,12 @@ package Main.BL;
 
 
 import Main.DAL.*;
-import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
+import Main.Entities.Facility.UnitImpl;
 import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUser;
-import org.joda.time.DateTime;
+import Main.Entities.usage.UnitUsageImpl;
+import Main.Entities.usage.UnitUserImpl;
 
 
 import java.sql.Date;
@@ -24,23 +24,27 @@ public class FacilityUseService implements IFacilityUseService {
     private  IInspectionDAO inspectionDcAO;
     private  IUsageDAO usageDAO;
 
-    public FacilityUseService(IFacilityDAO facilityFactory, IUnitDAO unitFactory, IInspectionDAO inspectionDcAO, IUsageDAO usageDAO){
+    public FacilityUseService(IFacilityDAO facilityFactory, IUnitDAO unitDAO, IInspectionDAO inspectionDcAO, IUsageDAO usageDAO){
         this.facilityFactory = facilityFactory;
-        this.unitFactory = unitFactory;
+        this.unitFactory = unitDAO;
         this.inspectionDcAO = inspectionDcAO;
         this.usageDAO = usageDAO;
     }
 
     @Override
     public boolean IsInUseDuringInterval(int unitID, java.util.Date startTime, java.util.Date endTime) {
-        Unit unit = new Unit();
+        Unit unit = new UnitImpl();
+        unit.setId(unitID);
+        List<UnitUsage> usages = new ArrayList<UnitUsage>();
+
         try {
-            unit = unitFactory.GetUnit(unitID);
-        } catch (SQLException e) {
+            usages = usageDAO.GetUsagesForUnit(unit);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        List<UnitUsage> usages = unit.getUsages();
+
         if(usages!=null){
         for(UnitUsage usage: usages)
         {
@@ -60,8 +64,8 @@ public class FacilityUseService implements IFacilityUseService {
     }
 
     @Override
-    public UnitUsage assignFacilityToUse(Date sartTime, Date entTime, UnitUser unitUser, Unit unit) {
-        UnitUsage usage = new UnitUsage();
+    public UnitUsage assignFacilityToUse(Date sartTime, Date entTime, UnitUserImpl unitUser, Unit unit) {
+        UnitUsage usage = new UnitUsageImpl();
         usage.setEndTime(entTime);
         usage.setStartTime(sartTime);
         usage.setUnit(unit);
@@ -88,7 +92,7 @@ public class FacilityUseService implements IFacilityUseService {
 
     @Override
     public List<UnitUsage> listActualUsage(int unitID) {
-        Unit unit = new Unit();
+        Unit unit = new UnitImpl();
 
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
         try {

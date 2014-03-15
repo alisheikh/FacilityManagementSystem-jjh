@@ -7,6 +7,7 @@ package Main.Entities.Facility;
  */
 
 import Main.Entities.usage.UnitUsage;
+import Main.Entities.usage.UnitUsageImpl;
 import Main.Entities.usage.UnitUser;
 
 import java.util.ArrayList;
@@ -22,12 +23,8 @@ public class UnitImpl implements Unit {
 
     private int facilityId;
 
-    private List<UnitUsage> usages;
-
-    private List<UnitUser> users;
-
     public UnitImpl(){
-        usages = new ArrayList<UnitUsage>();
+       //usages = new ArrayList<UnitUsageImpl>();
     }
 
     @Override
@@ -50,15 +47,6 @@ public class UnitImpl implements Unit {
         this.id = id;
     }
 
-    @Override
-    public List<UnitUsage> getUsages(){
-        return usages;
-    }
-
-    @Override
-    public void setUsages(List<UnitUsage> usages){
-        this.usages = usages;
-    }
 
     @Override
     public int getUnitNumber() {
@@ -69,15 +57,6 @@ public class UnitImpl implements Unit {
     public void setUnitNumber(int unitNumber) {
         this.unitNumber = unitNumber;
     }
-/*
-    public List<UnitUser> getUsers(){
-        return users;
-    }
-
-    public void setUsers(List<UnitUser> users){
-        this.users = users;
-    }
-*/
     @Override
     public int getFacilityId(){
         return facilityId;
@@ -89,16 +68,6 @@ public class UnitImpl implements Unit {
     }
 
 
-    @Override
-    public List<UnitUser> getUsers() {
-        List<UnitUser> users = new ArrayList<UnitUser>();
-
-        for(UnitUsage usage: usages)
-        {
-            users.add(usage.getUnitUser());
-        }
-        return users;
-    }
 
 
 }

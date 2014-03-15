@@ -1,73 +1,30 @@
 package Main.Entities.Facility;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Facility {
+/**
+ * Created by Jackson on 3/13/14.
+ */
+public interface Facility {
+    String getName();
 
-	private int id;
+    void setName(String name);
 
-    private String name;
+    List<Unit> getUnits();
 
-    private List<Unit> units;
+    void setUnits(List<Unit> unit);
 
-	private int buildingNumber;
+    int getId();
 
-	private int capacity;
+    void setId(int id);
 
-	public Facility() {
-        units = new ArrayList<Unit>();
-	}
+    int getBuildingNumber();
 
-    public String getName(){
-        return name;
-    }
+    void setBuildingNumber(int buildingNumber);
 
-    public void setName(String name){
-        this.name = name;
-    }
+    void setCapacity(int capacity);
 
-    public List<Unit> getUnits(){
-        return this.units;
-    }
+    int getCapacity();
 
-    public void setUnits(List<Unit> unit){
-        this.units = unit;
-    }
-
-    public int getID() {
-        return id;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-
-    public int getBuildingNumber() {
-        return buildingNumber;
-    }
-
-
-    public void setBuildingNumber(int buildingNumber) {
-        this.buildingNumber = buildingNumber;
-    }
-
-    public void setCapacity(int capacity){
-        this.capacity = capacity;
-    }
-
-    public int getCapacity(){
-        return capacity;
-    }
-
-    public int getTotalCapacity() {
-        int cap = 0;
-        if(units != null && !units.isEmpty())
-        for (Unit unit:units){
-           cap += unit.getCapacity();
-        }
-        return cap+capacity;
-    }
-
-
+    int getTotalCapacity();
 }

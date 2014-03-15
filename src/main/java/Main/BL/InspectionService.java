@@ -4,10 +4,10 @@ import Main.DAL.IFacilityDAO;
 import Main.DAL.IInspectionDAO;
 import Main.DAL.IMaintenanceStaffDAO;
 import Main.Entities.maintenance.Inspection;
+import Main.Entities.maintenance.InspectionImpl;
 
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,7 +42,7 @@ public class InspectionService implements IInspectionService{
     @Override
     public Inspection addInspection(int facilityID, int staffMemberId, Date inspectionDate) {
 
-        Inspection inspection = new Inspection();
+        Inspection inspection = new InspectionImpl();
         try {
 
             inspection.setFacility(facilityDAO.get(facilityID));

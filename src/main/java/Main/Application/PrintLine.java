@@ -3,13 +3,22 @@ package Main.Application;
 import Main.BL.*;
 import Main.DAL.*;
 import Main.Entities.Facility.Facility;
+import Main.Entities.Facility.FacilityImpl;
 import Main.Entities.Facility.Unit;
+import Main.Entities.Facility.UnitImpl;
 import Main.Entities.maintenance.Inspection;
 import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.maintenance.MaintenanceStaff;
+import Main.Entities.maintenance.MaintenanceStaffImpl;
 import Main.Entities.usage.UnitUsage;
+import Main.Entities.usage.UnitUsageImpl;
 import Main.Entities.usage.UnitUser;
+import Main.Entities.usage.UnitUserImpl;
 import org.joda.time.DateTime;
+
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -24,11 +33,20 @@ import java.util.Random;
 public class PrintLine {
     public static void main(String[] args)
     {
-        IDatabaseConnector connector = new DatabaseConnector();
+        ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+
+        IDatabaseConnector connector = new DatabaseConnector();//create bean?
 
         try{
 
+
+
+
             System.out.println("----------------begining program---------------");
+
+
+            //Create DAO objects
+
             IMaintenanceStaffDAO maintenanceStaffDAO = new MaintenanceStaffDAO(connector);
             IUserDAO userDAO = new UserDAO(connector);
             IUnitDAO unitDAO = new UnitDAO(userDAO, connector);
@@ -51,49 +69,49 @@ public class PrintLine {
             List<Unit> units = new ArrayList<Unit>();
             System.out.println("initialize test units");
 
-            Unit unit1 = new Unit();
+            Unit unit1 = (Unit) context.getBean("Unit");
             unit1.setCapacity(r.nextInt(3));
             unit1.setUnitNumber(111);
             units.add(unit1);
 
-            Unit unit2 = new Unit();
+            Unit unit2 = new UnitImpl();
             unit2.setCapacity(r.nextInt(3));
             unit2.setUnitNumber(r.nextInt(3));
             units.add(unit2);
 
 
-            Unit unit3 = new Unit();
+            Unit unit3 = new UnitImpl();
             unit3.setCapacity(r.nextInt(3));
             unit3.setUnitNumber(r.nextInt(3));
             units.add(unit3);
 
 
-            Unit unit4 = new Unit();
+            Unit unit4 = new UnitImpl();
             unit4.setCapacity(r.nextInt(3));
             unit4.setUnitNumber(r.nextInt(3));
             units.add(unit4);
 
             System.out.print("create facilities objects and add to units to facilities");
-            Facility facility1 = new Facility();
+            Facility facility1 = new FacilityImpl();
             facility1.setBuildingNumber(r.nextInt(4));
             facility1.setCapacity(50);
             facility1.setName("facility1");
             facility1.setUnits(units);
 
 
-            Facility facility2 = new Facility();
+            Facility facility2 = new FacilityImpl();
             facility2.setBuildingNumber(r.nextInt(4));
             facility2.setCapacity(34);
             facility2.setName("facility2");
             facility2.setUnits(units);
 
-            Facility facility3 = new Facility();
+            Facility facility3 = new FacilityImpl();
             facility3.setBuildingNumber(r.nextInt(4));
             facility3.setCapacity(23);
             facility3.setName("facility3");
             facility3.setUnits(units);
 
-            Facility facility = new Facility();
+            Facility facility = new FacilityImpl();
             facility.setBuildingNumber(r.nextInt(4));
             facility.setCapacity(50);
             facility.setName("facility0");
@@ -116,7 +134,7 @@ public class PrintLine {
             Unit unitForUse1 =  facility2.getUnits().get(1);
             Unit unitForUse2 =  facility2.getUnits().get(2);
 
-            UnitUser user1 = new UnitUser();
+            UnitUser user1 = new UnitUserImpl();
             user1.setCreditCard(String.valueOf(r.nextInt(9)));
             user1.setEmailAddress("j@examle");
             user1.setCompanyName("random company "+ r.nextInt());
@@ -124,7 +142,7 @@ public class PrintLine {
             user1.setLastName("lastName" + r.nextInt());
             user1.setPhoneNumber(r.nextInt(10));
 
-            UnitUser user2 = new UnitUser();
+            UnitUser user2 = new UnitUserImpl();
             user2.setCreditCard(String.valueOf(r.nextInt(9)));
             user2.setEmailAddress("j@examle");
             user2.setCompanyName("random company "+ r.nextInt());
@@ -132,7 +150,7 @@ public class PrintLine {
             user2.setLastName("lastName" + r.nextInt());
             user2.setPhoneNumber(r.nextInt(10));
 
-            UnitUser user3 = new UnitUser();
+            UnitUser user3 = new UnitUserImpl();
             user3.setCreditCard(String.valueOf(r.nextInt(9)));
             user3.setEmailAddress("j@examle");
             user3.setCompanyName("random company "+ r.nextInt());
@@ -146,25 +164,25 @@ public class PrintLine {
             user3 = userDAO.Create(user3);
 
 
-            UnitUsage usage1 = new UnitUsage();
+            UnitUsage usage1 = new UnitUsageImpl();
             usage1.setUnit(unitForUse);
             usage1.setUnitUser(user1);
             usage1.setStartTime(new Date(new DateTime(2014,1,1,1,1).toDate().getTime()));
             usage1.setEndTime(new Date(new DateTime(2014,1,3,1,1).toDate().getTime()));
 
-            UnitUsage usage2 = new UnitUsage();
+            UnitUsage usage2 = new UnitUsageImpl();
             usage2.setUnit(unitForUse1);
             usage2.setUnitUser(user2);
             usage2.setStartTime(new Date(new DateTime(2024,2,2,2,2).toDate().getTime()));
             usage2.setEndTime(new Date(new DateTime(2024,2,3,2,2).toDate().getTime()));
 
-            UnitUsage usage4 = new UnitUsage();
+            UnitUsage usage4 = new UnitUsageImpl();
             usage4.setUnit(unitForUse1);
             usage4.setUnitUser(user3);
             usage4.setStartTime(new Date(new DateTime(2044,4,4,4,4).toDate().getTime()));
             usage4.setEndTime(new Date(new DateTime(2044,4,3,4,4).toDate().getTime()));
 
-            UnitUsage usage3 = new UnitUsage();
+            UnitUsage usage3 = new UnitUsageImpl();
             usage3.setUnit(unitForUse2);
             usage3.setUnitUser(user3);
             usage3.setStartTime(new Date(new DateTime(2034,3,3,3,3).toDate().getTime()));
@@ -173,7 +191,7 @@ public class PrintLine {
             Date d1 = new Date(new DateTime(2034,2,3,3,3).toDate().getTime());
             Date d2 = new Date(new DateTime(2034,4,3,3,3).toDate().getTime());
             Date d3 = new Date(new DateTime(2034,5,3,3,3).toDate().getTime());
-
+/*
             if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
@@ -191,7 +209,7 @@ public class PrintLine {
             if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
-            }
+            }*/
 
 
 
@@ -234,9 +252,9 @@ public class PrintLine {
 
             }
 
-            Facility facilityForMaintenance = facilityDAO.get(facility1.getID());
+            Facility facilityForMaintenance = facilityDAO.get(facility1.getId());
 
-            MaintenanceStaff staff = new MaintenanceStaff();
+            MaintenanceStaff staff = new MaintenanceStaffImpl();
             staff.setHoursPerWeek(34);
             staff.setPayPerHour(23);
             staff.setEmailAddress("j@examle");
@@ -247,7 +265,7 @@ public class PrintLine {
 
             staff = maintenanceStaffDAO.create(staff);
             System.out.println("Created Staff Member :"+ staff.getFirstName());
-            System.out.println("ID " + staff.getID());
+            System.out.println("ID " + staff.getId());
 
 
             staff.setPayPerHour(45);
@@ -263,7 +281,7 @@ public class PrintLine {
             System.out.println("Facility "+ facilityForMaintenance.getName());
 
             System.out.println("Adding maintence requests for facility:" + facilityForMaintenance.getName()+
-                    "id:"+facilityForMaintenance.getID());
+                    "id:"+facilityForMaintenance.getId());
 
             for(Unit unit:facilityForMaintenance.getUnits())
             {
@@ -272,35 +290,35 @@ public class PrintLine {
                 facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need more stuff Fixed ");
 
             }
-            List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getID());
+            List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getId());
 
 
             for(MaintenanceRequest request:requests)
             {
-                request = facilityMaintenanceService.scheduleMaintenance(request.getID(),
-                        staff.getID(),r.nextInt(6),d4);
+                request = facilityMaintenanceService.scheduleMaintenance(request.getId(),
+                        staff.getId(),r.nextInt(6),d4);
             }
 
             System.out.println("Facility "+ facilityForMaintenance.getName());
-            System.out.println("Maintenance Cost: " + facilityMaintenanceService.calcMaintenanceCostForFacility(facilityForMaintenance.getID()));
-            System.out.println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getID()));
+            System.out.println("Maintenance Cost: " + facilityMaintenanceService.calcMaintenanceCostForFacility(facilityForMaintenance.getId()));
+            System.out.println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getId()));
 
 
             System.out.println("add inspections to facility:" + facility1.getName());
 
-            inspectionService.addInspection(facility1.getID(), staff.getID(), d1);
-            inspectionService.addInspection(facility1.getID(), staff.getID(), d2);
-            inspectionService.addInspection(facility1.getID(), staff.getID(), d3);
-            inspectionService.addInspection(facility1.getID(), staff.getID(), d4);
+            inspectionService.addInspection(facility1.getId(), staff.getId(), d1);
+            inspectionService.addInspection(facility1.getId(), staff.getId(), d2);
+            inspectionService.addInspection(facility1.getId(), staff.getId(), d3);
+            inspectionService.addInspection(facility1.getId(), staff.getId(), d4);
 
-            System.out.println("Inspections Scheduled for"+ facility1.getID());
+            System.out.println("Inspections Scheduled for"+ facility1.getId());
 
-            List<Inspection> inspections = inspectionService.getInspectionForFacility(facility1.getID());
+            List<Inspection> inspections = inspectionService.getInspectionForFacility(facility1.getId());
 
             for(Inspection inspection:inspections)
             {
-                System.out.println("Inspection ID:" + inspection.getID());
-                System.out.println("Staff Member Assign ID"+inspection.getInspectingStaff().getID());
+                System.out.println("Inspection ID:" + inspection.getId());
+                System.out.println("Staff Member Assign ID"+inspection.getInspectingStaff().getId());
                 System.out.println("Staff Member Name"+inspection.getInspectingStaff().getFirstName());
                 System.out.println("Date :" +inspection.getInspectionDate());
 
@@ -317,15 +335,15 @@ public class PrintLine {
             System.out.print("Delete everything that was created");
 
             //should be encapsalated in a service later
-            maintenanceRequestDAO.delete(staff.getID());
-            userDAO.Delete(user1.getID());
-            userDAO.Delete(user2.getID());
-            userDAO.Delete(user3.getID());
+            maintenanceRequestDAO.delete(staff.getId());
+            userDAO.Delete(user1.getId());
+            userDAO.Delete(user2.getId());
+            userDAO.Delete(user3.getId());
 
 
             ////
 
-            Facility testDelete = facilityService.getFacilityInformation(facility1.getID());
+            Facility testDelete = facilityService.getFacilityInformation(facility1.getId());
 
             List<Unit> unitsfordelte = testDelete.getUnits();
             for(Unit u: unitsfordelte)
@@ -357,35 +375,21 @@ public class PrintLine {
 
     public static void printFacility(Facility facility,HttpServletResponse resp) throws IOException {
         System.out.print("Building Num: " + facility.getBuildingNumber()+"\n");
-        System.out.print("Facility ID: " + facility.getID()+"\n");
+        System.out.print("Facility ID: " + facility.getId()+"\n");
         System.out.print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
         for(Unit unit:facility.getUnits()){
             System.out.print("Unit Capacity: " + unit.getCapacity()+"\n");
             System.out.print("Unit ID: " + unit.getId()+"\n");
             System.out.print("Room Number: " + unit.getUnitNumber()+"\n");
-            for(UnitUsage usage:unit.getUsages()){
-                System.out.print("UsageID: " + usage.getId()+"\n");
-                System.out.print("Start Time: " + usage.getStartTime()+"\n");
-                System.out.print("End Time: " + usage.getEndTime()+"\n");
-                System.out.print("UsageID: " + usage.getId()+"\n");
-                System.out.print("Usage User ID: " + usage.getUnitUser().getID()+"\n");
-            }
-            for(UnitUser user:unit.getUsers()){
-                System.out.print("Unit user comp: " + user.getCompanyName()+"\n");
-                System.out.print("Unit user cred card: " + user.getCreditCard()+"\n");
-                System.out.print("Unit user email: " + user.getEmailAddress()+"\n");
-                System.out.print("Unit user first: " + user.getFirstName()+"\n");
-                System.out.print("Unit user last: " + user.getLastName()+"\n");
-                System.out.print("Unit user id: " + user.getID()+"\n");
-                System.out.print("Unit user phone: " + user.getPhoneNumber()+"\n");
-            }
+
+          /* */
         }
     }
 
     public static void printAllFacilities(List<Facility> facilities) throws IOException {
         for(Facility facility:facilities){
             System.out.print("Building Num: " + facility.getBuildingNumber()+"\n");
-            System.out.print("Facility ID: " + facility.getID()+"\n");
+            System.out.print("Facility ID: " + facility.getId()+"\n");
             System.out.print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
             for(Unit unit:facility.getUnits()){
                 System.out.print("Unit Capacity: " + unit.getCapacity()+"\n");

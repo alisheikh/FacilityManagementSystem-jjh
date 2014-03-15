@@ -1,41 +1,39 @@
 package Main.Entities.maintenance;
 
-import Main.Entities.Person;
+/**
+ * Created by Jackson on 3/13/14.
+ */
+public interface MaintenanceStaff  {
+    int getId();
 
-public class MaintenanceStaff extends Person {
+    String getFirstName();
 
-    private double payPerHour;
+    String getLastName();
 
-	private boolean isFullTime;
+    double getPayPerHour();
 
-	private double hoursPerWeek;
+    void setPayPerHour(double payPerHour);
 
-	public MaintenanceStaff() {
+    boolean isFullTime();
 
-	}
+    void setFullTime(boolean isFullTime);
 
-    public double getPayPerHour() {
-        return payPerHour;
-    }
+    double getHoursPerWeek();
 
-    public void setPayPerHour(double payPerHour) {
-        this.payPerHour = payPerHour;
-    }
+    void setHoursPerWeek(double hoursPerWeek);
 
-    public boolean isFullTime() {
-        return isFullTime;
-    }
 
-    public void setFullTime(boolean isFullTime) {
-        this.isFullTime = isFullTime;
-    }
+    int getPhoneNumber();
 
-    public double getHoursPerWeek() {
-        return hoursPerWeek;
-    }
+    String getEmailAddress();
 
-    public void setHoursPerWeek(double hoursPerWeek) {
-        this.hoursPerWeek = hoursPerWeek;
-    }
+    void setId(int id);
 
+    void setFirstName(String first_name);
+
+    void setLastName(String last_name);
+
+    void setPhoneNumber(int phone_number);
+
+    void setEmailAddress(String email_address);
 }

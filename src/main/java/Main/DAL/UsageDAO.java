@@ -3,6 +3,7 @@ package Main.DAL;
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.usage.UnitUsage;
+import Main.Entities.usage.UnitUsageImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class UsageDAO implements IUsageDAO {
             insertStatement.setInt(1,usage.getUnit().getId());
             insertStatement.setDate(2,usage.getStartTime());
             insertStatement.setDate(3,usage.getStartTime());
-            insertStatement.setInt(4,usage.getUnitUser().getID());
+            insertStatement.setInt(4,usage.getUnitUser().getId());
 
 
             int affectedRows = insertStatement.executeUpdate();
@@ -59,7 +60,7 @@ public class UsageDAO implements IUsageDAO {
             insertStatement.close();
             result.close();
 
-            if(usage.getUnitUser().getID()==0)
+            if(usage.getUnitUser().getId()==0)
             {
                  usage.setUnitUser(userDAO.Create(usage.getUnitUser()));
             }
@@ -110,7 +111,7 @@ public class UsageDAO implements IUsageDAO {
 
             while(rs.next())
             {
-                UnitUsage usage = new UnitUsage();
+                UnitUsage usage = new UnitUsageImpl();
                 usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
                 usage.setUnitUser(userDAO.Get(rs.getInt("unit_user_id")));
                 usage.setId(rs.getInt("id"));
@@ -134,7 +135,7 @@ public class UsageDAO implements IUsageDAO {
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where id =?";
 
-       UnitUsage usage = new UnitUsage();
+       UnitUsage usage = new UnitUsageImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             getStatement.setInt(1,id);
@@ -163,7 +164,7 @@ public class UsageDAO implements IUsageDAO {
     {
         String getQuery = "SELECT id, unit_id, start_time, end_time, unit_user_id FROM unit_usage where unit_id =?";
 
-        UnitUsage usage = new UnitUsage();
+        UnitUsage usage = new UnitUsageImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             getStatement.setInt(1,unit.getId());
@@ -203,7 +204,7 @@ public class UsageDAO implements IUsageDAO {
             createStatement.setInt(1, unitUsage.getUnit().getId());
             createStatement.setDate(2, unitUsage.getStartTime());
             createStatement.setDate(3, unitUsage.getEndTime());
-            createStatement.setInt(4, unitUsage.getUnitUser().getID());
+                    createStatement.setInt(4, unitUsage.getUnitUser().getId());
             createStatement.setInt(5, unitUsage.getId());
 
 
@@ -219,7 +220,7 @@ public class UsageDAO implements IUsageDAO {
                 throw new Exception("UpdateUnit Failed");
             }
 
-            if(unitUsage.getUnitUser().getID()==0)
+            if(unitUsage.getUnitUser().getId()==0)
             {
                 unitUsage.setUnitUser(userDAO.Create(unitUsage.getUnitUser()));
             }

@@ -1,8 +1,8 @@
 package Main.Entities.maintenance;
 
-import Main.Entities.Person;
+import Main.Entities.PersonImpl;
 
-public class MaintenanceStaffImpl extends Person implements MaintenanceStaff {
+public class MaintenanceStaffImpl extends PersonImpl implements MaintenanceStaff {
 
     private double payPerHour;
 
@@ -13,6 +13,10 @@ public class MaintenanceStaffImpl extends Person implements MaintenanceStaff {
 	public MaintenanceStaffImpl() {
 
 	}
+
+
+
+
 
     @Override
     public double getPayPerHour() {
@@ -42,6 +46,11 @@ public class MaintenanceStaffImpl extends Person implements MaintenanceStaff {
     @Override
     public void setHoursPerWeek(double hoursPerWeek) {
         this.hoursPerWeek = hoursPerWeek;
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
 }

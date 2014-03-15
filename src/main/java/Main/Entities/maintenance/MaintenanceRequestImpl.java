@@ -10,13 +10,14 @@ public class MaintenanceRequestImpl implements MaintenanceRequest {
 
 	private Unit unit;
 
+    private MaintenanceStaff staffMemberAssigned;
+
     private String request;
 
 	private Date dateRequested;
 
 	private Date completionDate;
 
-	private MaintenanceStaff staffMemberAssigned;
 
     private int hoursToComplete;
 
@@ -25,12 +26,12 @@ public class MaintenanceRequestImpl implements MaintenanceRequest {
 	}
 
     @Override
-    public int getID() {
+    public int getId() {
         return id;
     }
 
     @Override
-    public void setID(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -86,7 +87,7 @@ public class MaintenanceRequestImpl implements MaintenanceRequest {
         this.staffMemberAssigned = staffMemberAssigned;
     }
 
-    public int getHoursToComplete() {
+    public double getHoursToComplete() {
         return hoursToComplete;
     }
 

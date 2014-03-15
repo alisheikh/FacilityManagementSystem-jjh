@@ -16,7 +16,7 @@ public class FacilityImpl implements Facility {
 	private int capacity;
 
 	public FacilityImpl() {
-        units = new ArrayList<Unit>();
+       //units = new ArrayList<Unit>();
 	}
 
     @Override
@@ -40,12 +40,12 @@ public class FacilityImpl implements Facility {
     }
 
     @Override
-    public int getID() {
+    public int getId() {
         return id;
     }
 
     @Override
-    public void setID(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 

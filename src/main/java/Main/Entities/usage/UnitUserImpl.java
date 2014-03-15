@@ -1,15 +1,15 @@
 package Main.Entities.usage;
 
-import Main.Entities.Person;
+import Main.Entities.PersonImpl;
 
-public class UnitUserImpl extends Person implements UnitUser {
+public class UnitUserImpl extends PersonImpl implements UnitUser {
 
 
     private String creditCard;
 
 	private String companyName;
 
-    private int unitUserId;
+
 
 	public UnitUserImpl() {
 
@@ -37,8 +37,13 @@ public class UnitUserImpl extends Person implements UnitUser {
     }
 
     @Override
-    public int getUnitUserId(){
-        return unitUserId;
+    public int getId(){
+        return super.getId();
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
 }

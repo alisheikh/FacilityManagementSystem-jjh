@@ -1,6 +1,7 @@
 package Main.DAL;
 
 import Main.Entities.maintenance.MaintenanceStaff;
+import Main.Entities.maintenance.MaintenanceStaffImpl;
 
 import java.sql.SQLException;
 

@@ -19,16 +19,6 @@
     </bean>
 
     <bean id="Unit" class="Main.Entities.Facility.UnitImpl" scope="prototype">
-        <property name="users">
-            <list>
-                <ref bean="UnitUser"></ref>
-            </list>
-        </property>
-        <property name="usages">
-            <list>
-                <ref bean="UnitUsage"></ref>
-            </list>
-        </property>
     </bean>
 
     <bean id="Facility" class="Main.Entities.Facility.FacilityImpl" scope="prototype">
@@ -63,7 +53,7 @@
 
     <!--Zudies entities -->
 
-    <bean id="" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype"/>
+
 
 
 

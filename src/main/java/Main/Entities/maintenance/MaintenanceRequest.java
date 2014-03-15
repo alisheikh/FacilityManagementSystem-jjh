@@ -1,85 +1,38 @@
 package Main.Entities.maintenance;
 
-import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
 
 import java.sql.Date;
 
-public class MaintenanceRequest {
+/**
+ * Created by Jackson on 3/13/14.
+ */
+public interface MaintenanceRequest {
+    int getId();
 
-	private int id;
+    void setId(int id);
 
-	private Unit unit;
+    Date getDateRequested();
 
-    private String request;
+    void setDateRequested(Date dateRequested);
 
-	private Date dateRequested;
+    Date getCompletionDate();
 
-	private Date completionDate;
+    void setCompletionDate(Date completionDate);
 
-	private MaintenanceStaff staffMemberAssigned;
+    String getRequest();
 
-    private int hoursToComplete;
+    void setRequest(String request);
 
-	public MaintenanceRequest() {
+    Unit getUnit();
 
-	}
+    void setUnit(Unit unit);
 
-    public int getID() {
-        return id;
-    }
+    MaintenanceStaff getStaffMemberAssigned();
 
-    public void setID(int id) {
-        this.id = id;
-    }
+    void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned);
 
+    double getHoursToComplete();
 
-    public Date getDateRequested() {
-        return dateRequested;
-    }
-
-    public void setDateRequested(Date dateRequested) {
-        this.dateRequested = dateRequested;
-    }
-
-    public Date getCompletionDate() {
-        return completionDate;
-    }
-
-    public void setCompletionDate(Date completionDate) {
-        this.completionDate = completionDate;
-    }
-
-
-    public String getRequest() {
-        return request;
-    }
-
-    public void setRequest(String request) {
-        this.request = request;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
-
-    public MaintenanceStaff getStaffMemberAssigned() {
-        return staffMemberAssigned;
-    }
-
-    public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
-        this.staffMemberAssigned = staffMemberAssigned;
-    }
-
-    public int getHoursToComplete() {
-        return hoursToComplete;
-    }
-
-    public void setHoursToComplete(int hoursToComplete) {
-        this.hoursToComplete = hoursToComplete;
-    }
+    void setHoursToComplete(int estimatedTime);
 }

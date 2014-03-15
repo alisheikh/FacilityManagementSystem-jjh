@@ -1,7 +1,7 @@
 package Main.DAL;
 
-import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.usage.UnitUser;
+import Main.Entities.usage.UnitUserImpl;
 
 import java.sql.*;
 
@@ -45,7 +45,7 @@ public class UserDAO implements IUserDAO {
 
                 if(result.next())
                 {
-                    newUnitUser.setID(result.getInt("id"));
+                    newUnitUser.setId(result.getInt("id"));
 
                 }
                 else {
@@ -74,7 +74,7 @@ public class UserDAO implements IUserDAO {
 
 
 
-        UnitUser user = new UnitUser();
+        UnitUser user = new UnitUserImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(deleteQuery);
             getStatement.setInt(1,unitUserId);
@@ -95,7 +95,7 @@ public class UserDAO implements IUserDAO {
         String getQuery = "SELECT first_name, last_name, phone_number, id," +
                 " email_address, credit_card, company_name FROM unit_user where id =?";
 
-        UnitUser user = new UnitUser();
+        UnitUser user = new UnitUserImpl();
         try {
             PreparedStatement getStatement = connection.prepareStatement(getQuery);
             getStatement.setInt(1,user_id);
@@ -103,7 +103,7 @@ public class UserDAO implements IUserDAO {
             ResultSet rs = getStatement.executeQuery();
             if(rs.next())
             {
-                user.setID(rs.getInt("id"));
+                user.setId(rs.getInt("id"));
                 user.setLastName(rs.getString("last_name"));
                 user.setFirstName(rs.getString("first_name"));
                 user.setPhoneNumber(rs.getInt("phone_number"));
@@ -135,14 +135,14 @@ public class UserDAO implements IUserDAO {
             createStatement.setString(4, unitUser.getEmailAddress());
             createStatement.setString(5, unitUser.getCreditCard());
             createStatement.setString(6, unitUser.getCompanyName());
-            createStatement.setInt(7, unitUser.getID());
+            createStatement.setInt(7, unitUser.getId());
 
 
             int affectedRows = createStatement.executeUpdate();
 
             if(affectedRows == 1)
             {
-                unitUser = Get(unitUser.getID());
+                unitUser = Get(unitUser.getId());
                 return unitUser;
             }
             else
