@@ -7,6 +7,7 @@ import Main.Entities.Facility.UnitImpl;
 import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUsageImpl;
+import Main.Entities.usage.UnitUser;
 import Main.Entities.usage.UnitUserImpl;
 
 
@@ -64,7 +65,7 @@ public class FacilityUseService implements IFacilityUseService {
     }
 
     @Override
-    public UnitUsage assignFacilityToUse(Date sartTime, Date entTime, UnitUserImpl unitUser, Unit unit) {
+    public UnitUsage assignFacilityToUse(Date sartTime, Date entTime, UnitUser unitUser, Unit unit) {
         UnitUsage usage = new UnitUsageImpl();
         usage.setEndTime(entTime);
         usage.setStartTime(sartTime);
@@ -98,7 +99,7 @@ public class FacilityUseService implements IFacilityUseService {
         try {
             unit = unitFactory.GetUnit(unitID);
 
-            usages = unitFactory.GetUsagesForUnit(unit);
+            usages = usageDAO.GetUsagesForUnit(unit);
 
         } catch (SQLException e) {
             e.printStackTrace();

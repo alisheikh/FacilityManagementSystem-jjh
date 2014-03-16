@@ -4,6 +4,7 @@ package Main.BL;
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
+import Main.Entities.usage.UnitUser;
 import Main.Entities.usage.UnitUserImpl;
 
 import java.util.Date;
@@ -14,7 +15,7 @@ public interface IFacilityUseService {
 
     boolean IsInUseDuringInterval(int unitID, Date startTime, Date endTime);
 
-    UnitUsage assignFacilityToUse(java.sql.Date sartTime, java.sql.Date entTime, UnitUserImpl unitUser, Unit unit);
+    UnitUsage assignFacilityToUse(java.sql.Date sartTime, java.sql.Date entTime, UnitUser unitUser, Unit unit);
 
     void vacateFacility(int usageID);
 

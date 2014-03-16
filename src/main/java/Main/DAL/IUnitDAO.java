@@ -10,15 +10,6 @@ import java.util.List;
  * Created by Jackson on 2/10/14.
  */
 public interface IUnitDAO {
-    UnitUsage CreateUsage(UnitUsage usage) throws SQLException;
-
-    List<UnitUsage> GetUsagesForUnit(Unit unit);
-
-    UnitUsage UpdateUsage(UnitUsage unit) throws Exception;
-
-    void DeleteUsage(int id);
-
-    UnitUsage GetUsage(int id);
 
     void CreateUnit(List<Unit> units) throws SQLException;
 

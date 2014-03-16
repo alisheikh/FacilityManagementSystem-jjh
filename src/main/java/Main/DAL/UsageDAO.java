@@ -178,7 +178,7 @@ public class UsageDAO implements IUsageDAO {
             {
                 //usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
                 usage.setUnit(unit);//this enables not to call back and forth between the DAOs for unit and usage --jjh
-                usage.setUnitUser(userDAO.Get(rs.getInt("user_id")));
+                usage.setUnitUser(userDAO.Get(rs.getInt("unit_user_id")));
                 usage.setId(rs.getInt("id"));
                 usage.setStartTime(rs.getDate("start_time"));
                 usage.setEndTime(rs.getDate("end_time"));

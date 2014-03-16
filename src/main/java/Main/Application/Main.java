@@ -49,7 +49,7 @@ public class Main extends HttpServlet {
         resp.getWriter().println("----------------begining program---------------");
         IMaintenanceStaffDAO maintenanceStaffDAO = new MaintenanceStaffDAO(connector);
         IUserDAO userDAO = new UserDAO(connector);
-        IUnitDAO unitDAO = new UnitDAO(userDAO, connector);
+        IUnitDAO unitDAO = new UnitDAO(connector);
         IFacilityDAO facilityDAO = new FacilityDAO(connector,unitDAO);
         IMaintenanceRequestDAO maintenanceRequestDAO = new MaintenanceRequestDAO(connector,facilityDAO,maintenanceStaffDAO);
         IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);

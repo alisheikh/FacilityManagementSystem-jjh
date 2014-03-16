@@ -44,6 +44,13 @@
     </bean>
     
 
+    <!--DAO object Dependencies-->
+
+    <bean id="DatabaseConnector" class="Main.DAL.DatabaseConnector"></bean>
+
+    <bean id="UnitDAO" class="Main.DAL.UnitDAO">
+        <property name="connector" ref="DatabaseConnector"></property>
+    </bean>
 
 
 
@@ -51,55 +58,5 @@
 
 
 
-    <!--Zudies entities -->
-
-
-
-
-
-
-
-
-    <!--Zudies entities -->
-
-    <bean id="billingAddress" class="" scope="prototype"/>
-    <bean id="shippingAddress" class="" scope="prototype"/>
-    <bean id="book" class="com.online.bookstore.model.product.Book" scope="prototype"/>
-
-    <bean id="orderDetail" class="" scope="prototype">
-        <property name="book" ref="book" />
-        <property name="quantity" >
-            <value>0</value>
-        </property>
-    </bean>
-
-    <bean id="order" class="" scope="prototype">
-        <property name="orderDetails">
-            <list/>
-            <!--
-             <list>
-                 <ref bean="orderDetail" />
-            </list>
-            -->
-        </property>
-    </bean>
-
-    <bean id="customer" class="" scope="prototype">
-        <property name="billingAddress" ref="billingAddress" />
-        <property name="shippingAddress" ref="shippingAddress" />
-        <!-- Inject the Order List -->
-        <property name="orders">
-            <list/>
-            <!--
-            <list>
-                <ref bean="order" />
-            </list>
-             -->
-        </property>
-    </bean>
-
-    <bean id="customerService" class="" scope="prototype">
-        <property name="customer" ref="customer" />
-    </bean>
 
 </beans>

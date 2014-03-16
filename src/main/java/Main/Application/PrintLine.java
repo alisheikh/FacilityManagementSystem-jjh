@@ -49,7 +49,7 @@ public class PrintLine {
 
             IMaintenanceStaffDAO maintenanceStaffDAO = new MaintenanceStaffDAO(connector);
             IUserDAO userDAO = new UserDAO(connector);
-            IUnitDAO unitDAO = new UnitDAO(userDAO, connector);
+            IUnitDAO unitDAO = (IUnitDAO) context.getBean("UnitDAO");
             IFacilityDAO facilityDAO = new FacilityDAO(connector,unitDAO);
             IMaintenanceRequestDAO maintenanceRequestDAO = new MaintenanceRequestDAO(connector,facilityDAO,maintenanceStaffDAO);
             IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);
@@ -74,44 +74,44 @@ public class PrintLine {
             unit1.setUnitNumber(111);
             units.add(unit1);
 
-            Unit unit2 = new UnitImpl();
+            Unit unit2 =(Unit) context.getBean("Unit");
             unit2.setCapacity(r.nextInt(3));
             unit2.setUnitNumber(r.nextInt(3));
             units.add(unit2);
 
 
-            Unit unit3 = new UnitImpl();
+            Unit unit3 =(Unit) context.getBean("Unit");
             unit3.setCapacity(r.nextInt(3));
             unit3.setUnitNumber(r.nextInt(3));
             units.add(unit3);
 
 
-            Unit unit4 = new UnitImpl();
+            Unit unit4 = (Unit) context.getBean("Unit");
             unit4.setCapacity(r.nextInt(3));
             unit4.setUnitNumber(r.nextInt(3));
             units.add(unit4);
 
             System.out.print("create facilities objects and add to units to facilities");
-            Facility facility1 = new FacilityImpl();
+            Facility facility1 = (Facility) context.getBean("Facility");
             facility1.setBuildingNumber(r.nextInt(4));
             facility1.setCapacity(50);
             facility1.setName("facility1");
             facility1.setUnits(units);
 
 
-            Facility facility2 = new FacilityImpl();
+            Facility facility2 = (Facility) context.getBean("Facility");
             facility2.setBuildingNumber(r.nextInt(4));
             facility2.setCapacity(34);
             facility2.setName("facility2");
             facility2.setUnits(units);
 
-            Facility facility3 = new FacilityImpl();
+            Facility facility3 = (Facility) context.getBean("Facility");
             facility3.setBuildingNumber(r.nextInt(4));
             facility3.setCapacity(23);
             facility3.setName("facility3");
             facility3.setUnits(units);
 
-            Facility facility = new FacilityImpl();
+            Facility facility =(Facility) context.getBean("Facility");
             facility.setBuildingNumber(r.nextInt(4));
             facility.setCapacity(50);
             facility.setName("facility0");
@@ -134,7 +134,7 @@ public class PrintLine {
             Unit unitForUse1 =  facility2.getUnits().get(1);
             Unit unitForUse2 =  facility2.getUnits().get(2);
 
-            UnitUser user1 = new UnitUserImpl();
+            UnitUser user1 = (UnitUser) context.getBean("UnitUser");
             user1.setCreditCard(String.valueOf(r.nextInt(9)));
             user1.setEmailAddress("j@examle");
             user1.setCompanyName("random company "+ r.nextInt());
@@ -142,7 +142,7 @@ public class PrintLine {
             user1.setLastName("lastName" + r.nextInt());
             user1.setPhoneNumber(r.nextInt(10));
 
-            UnitUser user2 = new UnitUserImpl();
+            UnitUser user2 =(UnitUser) context.getBean("UnitUser");
             user2.setCreditCard(String.valueOf(r.nextInt(9)));
             user2.setEmailAddress("j@examle");
             user2.setCompanyName("random company "+ r.nextInt());
@@ -150,7 +150,7 @@ public class PrintLine {
             user2.setLastName("lastName" + r.nextInt());
             user2.setPhoneNumber(r.nextInt(10));
 
-            UnitUser user3 = new UnitUserImpl();
+            UnitUser user3 = (UnitUser) context.getBean("UnitUser");
             user3.setCreditCard(String.valueOf(r.nextInt(9)));
             user3.setEmailAddress("j@examle");
             user3.setCompanyName("random company "+ r.nextInt());
@@ -164,25 +164,25 @@ public class PrintLine {
             user3 = userDAO.Create(user3);
 
 
-            UnitUsage usage1 = new UnitUsageImpl();
+            UnitUsage usage1 = (UnitUsage) context.getBean("UnitUsage");
             usage1.setUnit(unitForUse);
             usage1.setUnitUser(user1);
             usage1.setStartTime(new Date(new DateTime(2014,1,1,1,1).toDate().getTime()));
             usage1.setEndTime(new Date(new DateTime(2014,1,3,1,1).toDate().getTime()));
 
-            UnitUsage usage2 = new UnitUsageImpl();
+            UnitUsage usage2 = (UnitUsage) context.getBean("UnitUsage");
             usage2.setUnit(unitForUse1);
             usage2.setUnitUser(user2);
             usage2.setStartTime(new Date(new DateTime(2024,2,2,2,2).toDate().getTime()));
             usage2.setEndTime(new Date(new DateTime(2024,2,3,2,2).toDate().getTime()));
 
-            UnitUsage usage4 = new UnitUsageImpl();
+            UnitUsage usage4 =(UnitUsage) context.getBean("UnitUsage");
             usage4.setUnit(unitForUse1);
             usage4.setUnitUser(user3);
             usage4.setStartTime(new Date(new DateTime(2044,4,4,4,4).toDate().getTime()));
             usage4.setEndTime(new Date(new DateTime(2044,4,3,4,4).toDate().getTime()));
 
-            UnitUsage usage3 = new UnitUsageImpl();
+            UnitUsage usage3 = (UnitUsage) context.getBean("UnitUsage");
             usage3.setUnit(unitForUse2);
             usage3.setUnitUser(user3);
             usage3.setStartTime(new Date(new DateTime(2034,3,3,3,3).toDate().getTime()));
@@ -191,7 +191,7 @@ public class PrintLine {
             Date d1 = new Date(new DateTime(2034,2,3,3,3).toDate().getTime());
             Date d2 = new Date(new DateTime(2034,4,3,3,3).toDate().getTime());
             Date d3 = new Date(new DateTime(2034,5,3,3,3).toDate().getTime());
-/*
+
             if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
@@ -209,7 +209,7 @@ public class PrintLine {
             if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
-            }*/
+            }
 
 
 
@@ -254,7 +254,7 @@ public class PrintLine {
 
             Facility facilityForMaintenance = facilityDAO.get(facility1.getId());
 
-            MaintenanceStaff staff = new MaintenanceStaffImpl();
+            MaintenanceStaff staff = (MaintenanceStaff) context.getBean("MaintenanceStaff");
             staff.setHoursPerWeek(34);
             staff.setPayPerHour(23);
             staff.setEmailAddress("j@examle");
