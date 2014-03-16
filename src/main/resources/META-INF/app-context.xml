@@ -48,7 +48,7 @@
 
     <bean id="DatabaseConnector" class="Main.DAL.DatabaseConnector"></bean>
 
-    <bean id="UnitDAO" class="Main.DAL.UnitDAOHib">
+    <bean id="UnitDAO" class="Main.DAL.UnitDAO">
         <property name="connector" ref="DatabaseConnector"></property>
     </bean>
 
