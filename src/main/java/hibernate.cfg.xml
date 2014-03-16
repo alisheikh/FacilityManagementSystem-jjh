@@ -7,9 +7,9 @@
  	<session-factory>		
  	 	<!-- Database connection settings -->	
  		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
- 		<property name="hibernate.connection.url"> jdbc:postgresql://127.0.0.1:5432/BookStore</property>
- 		<property name="connection.username">student</property>
- 		<property name="connection.password">Comp442</property>
+ 		<property name="hibernate.connection.url"> ec2-54-204-27-119.compute-1.amazonaws.com/d8bdfjiqldja8v</property>
+ 		<property name="connection.username">kzprhsuuhaqamu</property>
+ 		<property name="connection.password">CtkuwQTL2G3Mpv_cajVqzH_tNh</property>
  		<property name="transaction.factory_class">org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory</property>
 
  		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>

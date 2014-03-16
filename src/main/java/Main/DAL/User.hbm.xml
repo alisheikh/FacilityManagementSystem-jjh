@@ -4,12 +4,14 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="Main.Entities.usage">
-    <class name="UnitUser" table="usage">
+    <class name="UnitUserImpl" table="unit_user">
+        <id name="id" column="id"/>
         <property name="firstName" column="first_name"/>
+        <property name="lastName" column="last_name"/>
         <property name="creditCard" column="credit_card"/>
         <property name="lastName" column="last_name"/>
         <property name="phoneNumber" column="phone_number"/>
         <property name="endTime"  column="end_time"/>
-        <id name="id" column="id"/>
+
     </class>
 </hibernate-mapping>
