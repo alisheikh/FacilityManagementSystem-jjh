@@ -47,17 +47,17 @@ public class PrintLine {
 
             //Create DAO objects
 
-            IMaintenanceStaffDAO maintenanceStaffDAO = new MaintenanceStaffDAO(connector);
-            IUserDAO userDAO = new UserDAO(connector);
+            IMaintenanceStaffDAO maintenanceStaffDAO = (IMaintenanceStaffDAO) context.getBean("MaintenanceStaffDAO");
+            IUserDAO userDAO =(IUserDAO) context.getBean("UserDAO");
             IUnitDAO unitDAO = (IUnitDAO) context.getBean("UnitDAO");
-            IFacilityDAO facilityDAO = new FacilityDAO(connector,unitDAO);
-            IMaintenanceRequestDAO maintenanceRequestDAO = new MaintenanceRequestDAO(connector,facilityDAO,maintenanceStaffDAO);
+            IFacilityDAO facilityDAO = (IFacilityDAO) context.getBean("FacilityDAO");
+            IMaintenanceRequestDAO maintenanceRequestDAO = (IMaintenanceRequestDAO) context.getBean("MaintenanceRequestDAO");
             IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);
 
-            IUsageDAO usageDAO = new UsageDAO(connector, unitDAO, userDAO);
+            IUsageDAO usageDAO = (IUsageDAO) context.getBean("UsageDAO");
 
             FacilityService facilityService = new FacilityService(connector,facilityDAO, unitDAO);
-            IInspectionDAO inspectionDAO = new InspectionDAO(connector, facilityService, maintenanceStaffDAO);
+            IInspectionDAO inspectionDAO = (IInspectionDAO) context.getBean("InspectionDAO");
             FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
 
             IInspectionService inspectionService = new InspectionService(inspectionDAO, facilityDAO, maintenanceStaffDAO);

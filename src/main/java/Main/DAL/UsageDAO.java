@@ -20,11 +20,8 @@ public class UsageDAO implements IUsageDAO {
     private IUnitDAO unitDAO;
     private IUserDAO userDAO;
 
-    public UsageDAO(IDatabaseConnector connector, IUnitDAO unitDAO, IUserDAO userDAO) {
-        this.connector = connector;
-        this.unitDAO = unitDAO;
-        this.userDAO = userDAO;
-        connection = connector.connect();
+    public UsageDAO() {
+
     }
 
     public UnitUsage CreateUsage(UnitUsage usage) throws SQLException {
@@ -235,5 +232,22 @@ public class UsageDAO implements IUsageDAO {
 
         }
         return unitUsage;
+    }
+
+    public IDatabaseConnector getConnector() {
+        return connector;
+    }
+
+    public void setConnector(IDatabaseConnector connector) {
+        this.connector = connector;
+        connection = connector.connect();
+    }
+
+    public void setUnitDAO(IUnitDAO unitDAO) {
+        this.unitDAO = unitDAO;
+    }
+
+    public void setUserDAO(IUserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 }

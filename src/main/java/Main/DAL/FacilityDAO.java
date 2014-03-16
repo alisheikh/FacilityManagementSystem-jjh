@@ -4,7 +4,6 @@ import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.FacilityImpl;
 import Main.Entities.Facility.Unit;
 import Main.Entities.Facility.UnitImpl;
-import Main.Entities.usage.UnitUsage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,14 +14,12 @@ import java.util.List;
 
 public class FacilityDAO implements IFacilityDAO {
 
-    private IDatabaseConnector Connector;
+    private IDatabaseConnector connector;
     private Connection connection;
     private IUnitDAO unitDAO;
 
-    public FacilityDAO(IDatabaseConnector connector, IUnitDAO unitDAO) {
-       Connector = connector;
-        this.unitDAO = unitDAO;
-        connection = connector.connect();
+    public FacilityDAO() {
+
     }
 
     @Override
@@ -174,28 +171,6 @@ public class FacilityDAO implements IFacilityDAO {
 
     }
 
-    /*
-    public List<UnitUsage> getUsages(int unitId){
-        List<UnitUsage> usages = new ArrayList<UnitUsage>();
-        try {
-            ResultSet rs = connection.createStatement().executeQuery("Select*FROM unit_usage where unit_id = '"+unitId+"'");
-            while (rs.next()) {
-                UnitUsage usage = new UnitUsage();
-                usage.setId(rs.getInt("id"));
-                //usage.setUnit(getUnit(unitId));
-                usage.setStartTime(rs.getDate("start_time"));
-                usage.setEndTime(rs.getDate("end_time"));
-                usage.setUnit(unitDAO.GetUnit(rs.getInt("unit_id")));
-                usage.setUnitUser(usrs.getInt("unit_user_id"));
-                usages.add(usage);
-            }
-            rs.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return usages;
-    }*/
-
 
 
     @Override
@@ -230,5 +205,18 @@ public class FacilityDAO implements IFacilityDAO {
             e.printStackTrace();
         }
         return new UnitImpl();
+    }
+
+    public IDatabaseConnector getConnector() {
+        return connector;
+    }
+
+    public void setConnector(IDatabaseConnector connector) {
+        this.connector = connector;
+        connection = connector.connect();
+    }
+
+    public void setUnitDAO(IUnitDAO unitDAO) {
+        this.unitDAO = unitDAO;
     }
 }

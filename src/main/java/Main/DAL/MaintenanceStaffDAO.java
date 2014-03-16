@@ -16,10 +16,8 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
     private IDatabaseConnector connector;
     private Connection connection;
 
-    public MaintenanceStaffDAO(IDatabaseConnector connector){
-        this.connector = connector;
+    public MaintenanceStaffDAO(){
 
-        connection = connector.connect();
     }
 
     @Override
@@ -156,4 +154,12 @@ public class MaintenanceStaffDAO implements IMaintenanceStaffDAO {
         return updatedStaffMember;
     }
 
+    public IDatabaseConnector getConnector() {
+        return connector;
+    }
+
+    public void setConnector(IDatabaseConnector connector) {
+        this.connector = connector;
+        connection = connector.connect();
+    }
 }

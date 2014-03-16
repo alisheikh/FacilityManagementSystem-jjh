@@ -19,12 +19,8 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
     private IFacilityDAO facilityDAO;
     private IMaintenanceStaffDAO maintenanceStaffDAO;
 
-    public MaintenanceRequestDAO(IDatabaseConnector connector, IFacilityDAO facilityDAO, IMaintenanceStaffDAO maintenanceStaffDAO) {
-        this.connector = connector;
-        this.facilityDAO = facilityDAO;
-        this.maintenanceStaffDAO = maintenanceStaffDAO;
+    public MaintenanceRequestDAO() {
 
-        connection = connector.connect();
     }
 
     @Override
@@ -200,4 +196,20 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
             return maintenanceRequests;
     }
 
+    public void setFacilityDAO(IFacilityDAO facilityDAO) {
+        this.facilityDAO = facilityDAO;
+    }
+
+    public void setMaintenanceStaffDAO(IMaintenanceStaffDAO maintenanceStaffDAO) {
+        this.maintenanceStaffDAO = maintenanceStaffDAO;
+    }
+
+    public IDatabaseConnector getConnector() {
+        return connector;
+    }
+
+    public void setConnector(IDatabaseConnector connector) {
+        this.connector = connector;
+        connection = connector.connect();
+    }
 }

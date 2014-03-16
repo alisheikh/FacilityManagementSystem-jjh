@@ -13,6 +13,8 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.joda.time.DateTime;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -44,27 +46,29 @@ public class Main extends HttpServlet {
 
     public void printTest(HttpServletResponse resp) throws IOException {
 
-        IDatabaseConnector connector = new DatabaseConnector();
+        ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+
+        IDatabaseConnector connector = (IDatabaseConnector) context.getBean("DatabaseConnector");
+
         try{
         resp.getWriter().println("----------------begining program---------------");
-        IMaintenanceStaffDAO maintenanceStaffDAO = new MaintenanceStaffDAO(connector);
-        IUserDAO userDAO = new UserDAO(connector);
-        IUnitDAO unitDAO = new UnitDAO(connector);
-        IFacilityDAO facilityDAO = new FacilityDAO(connector,unitDAO);
-        IMaintenanceRequestDAO maintenanceRequestDAO = new MaintenanceRequestDAO(connector,facilityDAO,maintenanceStaffDAO);
-        IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);
+            IMaintenanceStaffDAO maintenanceStaffDAO = (IMaintenanceStaffDAO) context.getBean("MaintenanceStaffDAO");
+            IUserDAO userDAO =(IUserDAO) context.getBean("UserDAO");
+            IUnitDAO unitDAO = (IUnitDAO) context.getBean("UnitDAO");
+            IFacilityDAO facilityDAO = (IFacilityDAO) context.getBean("FacilityDAO");
+            IMaintenanceRequestDAO maintenanceRequestDAO = (IMaintenanceRequestDAO) context.getBean("MaintenanceRequestDAO");
+            IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);
 
-        IUsageDAO usageDAO = new UsageDAO(connector, unitDAO, userDAO);
+            IUsageDAO usageDAO = (IUsageDAO) context.getBean("UsageDAO");
 
-        FacilityService facilityService = new FacilityService(connector,facilityDAO, unitDAO);
-        IInspectionDAO inspectionDAO = new InspectionDAO(connector, facilityService, maintenanceStaffDAO);
-        FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
+            FacilityService facilityService = new FacilityService(connector,facilityDAO, unitDAO);
+            IInspectionDAO inspectionDAO = (IInspectionDAO) context.getBean("InspectionDAO");
+            FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
 
-        IInspectionService inspectionService = new InspectionService(inspectionDAO, facilityDAO, maintenanceStaffDAO);
+            IInspectionService inspectionService = new InspectionService(inspectionDAO, facilityDAO, maintenanceStaffDAO);
 
 
-
-        Random r = new Random();
+            Random r = new Random();
 
         List<Unit> units = new ArrayList<Unit>();
         resp.getWriter().println("initialize test units");

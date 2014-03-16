@@ -10,14 +10,13 @@ import java.util.List;
 
 public class InspectionDAO implements IInspectionDAO {
 
+    private IDatabaseConnector connector;
     private Connection connection;
-    private IFacilityService facilityService;
+    private IFacilityDAO facilityDAO;
     private IMaintenanceStaffDAO maintenanceStaffDAO;
 
-    public InspectionDAO(IDatabaseConnector connector, IFacilityService facilityService, IMaintenanceStaffDAO maintenanceStaffDAO) {
-        this.facilityService = facilityService;
-        this.maintenanceStaffDAO = maintenanceStaffDAO;
-        connection = connector.connect();
+    public InspectionDAO() {
+
     }
 
 	@Override
@@ -88,7 +87,7 @@ public class InspectionDAO implements IInspectionDAO {
                 result.setId(rs.getInt("id"));
                 result.setInspectingStaff(maintenanceStaffDAO.get(rs.getInt("inspection_Staff_id")));
                 result.setInspectionDate(rs.getDate("inspection_date"));
-                result.setFacility(facilityService.getFacilityInformation(rs.getInt("facility_id")));
+                result.setFacility(facilityDAO.get(rs.getInt("facility_id")));
             }
             return result;
         }catch (SQLException e) {
@@ -109,7 +108,7 @@ public class InspectionDAO implements IInspectionDAO {
                 result.setId(rs.getInt("id"));
                 result.setInspectingStaff(maintenanceStaffDAO.get(rs.getInt("inspection_Staff_id")));
                 result.setInspectionDate(rs.getDate("inspection_date"));
-                result.setFacility(facilityService.getFacilityInformation(rs.getInt("facility_id")));
+                result.setFacility(facilityDAO.get(rs.getInt("facility_id")));
                 inspections.add(result);
             }
             return inspections;
@@ -119,4 +118,24 @@ public class InspectionDAO implements IInspectionDAO {
         return inspections;
     }
 
+    @Override
+    public IDatabaseConnector getConnector() {
+        return connector;
+    }
+
+    @Override
+    public void setConnector(IDatabaseConnector connector) {
+        this.connector = connector;
+        connection = connector.connect();
+    }
+
+     @Override
+     public void setMaintenanceStaffDAO(IMaintenanceStaffDAO maintenanceStaffDAO) {
+        this.maintenanceStaffDAO = maintenanceStaffDAO;
+    }
+
+    @Override
+    public void setFacilityDAO(IFacilityDAO facilityDAO) {
+        this.facilityDAO = facilityDAO;
+    }
 }

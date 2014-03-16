@@ -15,9 +15,8 @@ public class UserDAO implements IUserDAO {
     private IDatabaseConnector connector;
     private Connection connection;
 
-    public UserDAO(IDatabaseConnector connector) {
-        this.connector = connector;
-        connection = connector.connect();
+    public UserDAO() {
+
 
     }
 
@@ -154,5 +153,14 @@ public class UserDAO implements IUserDAO {
 
         }
         return unitUser;
+    }
+
+    public IDatabaseConnector getConnector() {
+        return connector;
+    }
+
+    public void setConnector(IDatabaseConnector connector) {
+        this.connector = connector;
+        connection = connector.connect();
     }
 }

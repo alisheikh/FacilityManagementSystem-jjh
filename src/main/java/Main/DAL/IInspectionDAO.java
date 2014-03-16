@@ -17,4 +17,12 @@ public interface IInspectionDAO {
     Inspection get(int id);
 
     List<Inspection> listAllInspections(int facilityID);
+
+    IDatabaseConnector getConnector();
+
+    void setConnector(IDatabaseConnector connector);
+
+    void setMaintenanceStaffDAO(IMaintenanceStaffDAO maintenanceStaffDAO);
+
+    void setFacilityDAO(IFacilityDAO facilityDAO);
 }

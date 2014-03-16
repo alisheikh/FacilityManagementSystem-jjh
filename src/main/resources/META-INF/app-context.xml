@@ -53,8 +53,49 @@
     </bean>
 
 
+    <bean id="UserDAO" class="Main.DAL.UserDAO">
+        <property name="connector" ref="DatabaseConnector"></property>
+    </bean>
 
-    
+
+    <bean id="UsageDAO" class="Main.DAL.UsageDAO">
+        <property name="connector" ref="DatabaseConnector"></property>
+        <property name="unitDAO" ref="UnitDAO"></property>
+        <property name="userDAO" ref="UserDAO"></property>
+    </bean>
+
+
+    <bean id="FacilityDAO" class="Main.DAL.FacilityDAO">
+        <property name="connector" ref="DatabaseConnector"></property>
+        <property name="unitDAO" ref="UnitDAO"></property>
+    </bean>
+
+    <bean id="MaintenanceStaffDAO" class="Main.DAL.MaintenanceStaffDAO">
+        <property name="connector" ref="DatabaseConnector"></property>
+    </bean>
+
+    <bean id="MaintenanceRequestDAO" class="Main.DAL.MaintenanceRequestDAO">
+        <property name="connector" ref="DatabaseConnector"></property>
+        <property name="maintenanceStaffDAO" ref="MaintenanceStaffDAO"></property>
+        <property name="facilityDAO" ref="FacilityDAO"></property>
+    </bean>
+
+    <bean id="InspectionDAO" class="Main.DAL.InspectionDAO">
+        <property name="connector" ref="DatabaseConnector"></property>
+        <property name="maintenanceStaffDAO" ref="MaintenanceStaffDAO"></property>
+        <property name="facilityDAO" ref="FacilityDAO"></property>
+    </bean>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
