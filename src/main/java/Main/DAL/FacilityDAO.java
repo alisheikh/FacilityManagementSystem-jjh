@@ -23,40 +23,10 @@ public class FacilityDAO implements IFacilityDAO {
 
     @Override
     public Facility update(Facility facility) {
-        /*for(Unit unit:facility.getUnits()){
-            Unit check = getUnit(unit.getId());
-            if(check.getId()==0){
-                try{
-
-                    try {
-                        unitDAO.CreateUnit(unit);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-
-        }
-        try {
-            connection.createStatement().executeUpdate("UPDATE facility" +
-                    " SET (name,capacity,building_number)"+
-                    "= ('"+facility.getName()+"','"+facility.getCapacity()+"','"+facility.getBuildingNumber()+"')" +
-                    "WHERE id = "+facility.getId());
-
-            for(Unit unit:facility.getUnits()){
-                unit = unitDAO.UpdateUnit(unit);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
+        Session session = DatabaseConnector.connect().getCurrentSession();
+        session.beginTransaction();
+        session.save(facility);
+        session.getTransaction().commit();
         return facility;
     }
 
@@ -101,8 +71,10 @@ public class FacilityDAO implements IFacilityDAO {
     @Override
     public List<Facility> getAll() {
         Session session = DatabaseConnector.connect().getCurrentSession();
+        System.out.println(session.toString());
         Query query = session.createQuery("from Facility");
-        List<Facility> facilities = new ArrayList<Facility>();
+        System.out.println(session.createQuery("from Facility").toString());
+        List<Facility> facilities;
         session.beginTransaction();
         facilities = query.list();
         return facilities;

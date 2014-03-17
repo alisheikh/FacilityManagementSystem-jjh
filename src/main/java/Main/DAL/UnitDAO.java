@@ -73,8 +73,10 @@ public class UnitDAO implements IUnitDAO {
 
     @Override
     public List<Unit> getAll(int facilityId) {
+        System.out.println("Listing all facilities");
         Session session = DatabaseConnector.connect().getCurrentSession();
-        Query query = session.createQuery("from facility where facility_id=facilityId");
+        System.out.println("Session ready: "+session.toString());
+        Query query = session.createQuery("from Unit where facilityId=facilityId");
         List<Unit> units = new ArrayList<Unit>();
         session.beginTransaction();
         units = query.list();

@@ -3,6 +3,7 @@ package Main.BL;
 import Main.DAL.*;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
+import org.hibernate.Session;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public List<Facility> listFacilities() {
+        Session session = DatabaseConnector.connect().getCurrentSession();
+        System.out.println(session.toString());
         List<Facility> res = facilityDAO.getAll();
         return res;
     }
