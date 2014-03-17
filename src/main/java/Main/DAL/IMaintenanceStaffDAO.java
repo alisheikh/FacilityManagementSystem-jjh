@@ -1,9 +1,6 @@
 package Main.DAL;
 
 import Main.Entities.maintenance.MaintenanceStaff;
-import Main.Entities.maintenance.MaintenanceStaffImpl;
-
-import java.sql.SQLException;
 
 /**
  * Created by Jackson on 2/8/14.
@@ -11,9 +8,9 @@ import java.sql.SQLException;
 public interface IMaintenanceStaffDAO {
     MaintenanceStaff create(MaintenanceStaff newStaffMember);
 
-    void delete(int staffMemberId);
+    void delete(MaintenanceStaff maintenanceStaff);
 
-    MaintenanceStaff get(int id) throws SQLException;
+    MaintenanceStaff get(int id);
 
     MaintenanceStaff update(MaintenanceStaff updatedStaffMember);
 }

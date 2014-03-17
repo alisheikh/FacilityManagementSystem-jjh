@@ -6,10 +6,8 @@
 <hibernate-mapping package="Main.Entities.Facility">
     <class name="Unit" table="unit">
         <id name="id" column="id"/>
-        <id name="facilityId" column="facility_id"/>
         <property name="capacity" column="capcity"/>
         <property name="unitNumber"  column="unitNumber"/>
-        <one-to-many name="usages" class="Main.Entities.Facility.Usage" cascade="save-update, delete"/>
-        <one-to-many name="users" class="Main.Entities.Facility.User" cascade="save-update, delete"/>
+
     </class>
 </hibernate-mapping>

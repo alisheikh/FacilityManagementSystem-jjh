@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Main.Entities.maintenance">
+    <class name="Inspection" table="inspection">
+        <id name="id" column="id"/>
+        <property name="inspectionDate"  column="inspection_id"/>
+        <one-to-one name="facility" class="Main.Entities.Facility.Facility" cascade="save-update, delete"></one-to-one>
+        <one-to-one name="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaff" cascade="save-update, delete"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,26 +1,18 @@
 package Main.DAL;
 
 import Main.Entities.Facility.Unit;
-import Main.Entities.usage.UnitUsage;
-
-import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Created by Jackson on 2/10/14.
  */
 public interface IUnitDAO {
 
-    void CreateUnit(List<Unit> units) throws SQLException;
+    Unit create(Unit unit);
 
-    Unit CreateUnit(Unit unit) throws SQLException;
+    Unit get(int unit_id);
 
-    Unit GetUnit(int unit_id) throws SQLException;
+    Unit update(Unit unit) throws Exception;
 
-    Unit UpdateUnit(Unit unit) throws Exception;
-
-    List<Unit> GetUnitForFacility(int id) throws SQLException;
-
-    void DeleteUnit(int id);
+    void delete(Unit unit);
 
 }

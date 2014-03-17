@@ -1,10 +1,6 @@
 package Main.DAL;
 
-import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.MaintenanceRequest;
-import Main.Entities.maintenance.MaintenanceRequestImpl;
-
-import java.util.List;
 
 /**
  * Created by Jackson on 2/8/14.
@@ -14,9 +10,7 @@ public interface IMaintenanceRequestDAO {
 
     MaintenanceRequest update(MaintenanceRequest request) throws Exception;
 
-    void delete(int ID);
+    void delete(MaintenanceRequest maintenanceRequest);
 
-    MaintenanceRequest get(int ID);
-
-    List<MaintenanceRequest> getAllForUnit(Unit unit);
+    MaintenanceRequest get(int id);
 }

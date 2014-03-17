@@ -12,10 +12,6 @@ public class PersonImpl implements Person {
 
 	private String emailAddress;
 
-	public PersonImpl() {
-
-	}
-
 
     @Override
     public String getFirstName() {

@@ -20,7 +20,7 @@ public interface Inspection {
 
     void setInspectionDate(Date inspectionDate);
 
-    MaintenanceStaff getInspectingStaff();
+    MaintenanceStaff getMaintenanceStaff();
 
-    void setInspectingStaff(MaintenanceStaff inspectingStaffID);
+    void setMaintenanceStaff(MaintenanceStaff maintenanceStaff);
 }

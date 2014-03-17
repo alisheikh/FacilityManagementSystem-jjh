@@ -10,7 +10,7 @@ public class MaintenanceRequestImpl implements MaintenanceRequest {
 
 	private Unit unit;
 
-    private MaintenanceStaff staffMemberAssigned;
+    private MaintenanceStaff maintenanceStaff;
 
     private String request;
 
@@ -78,13 +78,13 @@ public class MaintenanceRequestImpl implements MaintenanceRequest {
     }
 
     @Override
-    public MaintenanceStaff getStaffMemberAssigned() {
-        return staffMemberAssigned;
+    public MaintenanceStaff getMaintenanceStaff() {
+        return maintenanceStaff;
     }
 
     @Override
-    public void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned) {
-        this.staffMemberAssigned = staffMemberAssigned;
+    public void setMaintenanceStaff(MaintenanceStaff maintenanceStaff) {
+        this.maintenanceStaff = maintenanceStaff;
     }
 
     public double getHoursToComplete() {

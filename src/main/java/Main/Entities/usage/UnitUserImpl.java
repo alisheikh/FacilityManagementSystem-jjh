@@ -11,11 +11,6 @@ public class UnitUserImpl extends PersonImpl implements UnitUser {
 
 
 
-	public UnitUserImpl() {
-
-	}
-
-
     @Override
     public String getCreditCard() {
         return creditCard;

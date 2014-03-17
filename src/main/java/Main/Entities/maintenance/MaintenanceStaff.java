@@ -14,9 +14,9 @@ public interface MaintenanceStaff  {
 
     void setPayPerHour(double payPerHour);
 
-    boolean isFullTime();
+    boolean getIsFullTime();
 
-    void setFullTime(boolean isFullTime);
+    void setIsFullTime(boolean isFullTime);
 
     double getHoursPerWeek();
 

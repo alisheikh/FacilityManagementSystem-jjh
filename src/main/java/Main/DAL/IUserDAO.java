@@ -1,18 +1,17 @@
 package Main.DAL;
 
 import Main.Entities.usage.UnitUser;
-import Main.Entities.usage.UnitUserImpl;
 
 /**
  * Created by Jackson on 2/8/14.
  */
 public interface IUserDAO {
-    UnitUser Create(UnitUser newUnitUser);
+    UnitUser create(UnitUser user);
 
-    void Delete(int unitUserId);
+    void delete(UnitUser user);
 
-    UnitUser Get(int user_id);
+    UnitUser get(int id);
 
-    UnitUser Update(UnitUser unitUser) throws Exception;
+    UnitUser update(UnitUser user);
 
 }

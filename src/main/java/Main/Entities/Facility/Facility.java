@@ -6,6 +6,7 @@ import java.util.List;
  * Created by Jackson on 3/13/14.
  */
 public interface Facility {
+
     String getName();
 
     void setName(String name);

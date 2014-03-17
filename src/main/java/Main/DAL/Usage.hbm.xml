@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC
-        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 
 <hibernate-mapping package="Main.Entities.usage">
     <class name="UnitUsage" table="usage">
         <id name="id" column="id"/>
-        <id name="unit_id" column="unit_id"/>
         <property name="startTime" column="start_time"/>
         <property name="endTime"  column="end_time"/>
-        <id name="unitUserId" column="unit_user_id"/>
     </class>
 </hibernate-mapping>

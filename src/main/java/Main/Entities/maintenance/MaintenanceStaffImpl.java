@@ -10,14 +10,6 @@ public class MaintenanceStaffImpl extends PersonImpl implements MaintenanceStaff
 
 	private double hoursPerWeek;
 
-	public MaintenanceStaffImpl() {
-
-	}
-
-
-
-
-
     @Override
     public double getPayPerHour() {
         return payPerHour;
@@ -29,12 +21,12 @@ public class MaintenanceStaffImpl extends PersonImpl implements MaintenanceStaff
     }
 
     @Override
-    public boolean isFullTime() {
+    public boolean getIsFullTime() {
         return isFullTime;
     }
 
     @Override
-    public void setFullTime(boolean isFullTime) {
+    public void setIsFullTime(boolean isFullTime) {
         this.isFullTime = isFullTime;
     }
 

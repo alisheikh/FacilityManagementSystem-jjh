@@ -28,9 +28,9 @@ public interface MaintenanceRequest {
 
     void setUnit(Unit unit);
 
-    MaintenanceStaff getStaffMemberAssigned();
+    MaintenanceStaff getMaintenanceStaff();
 
-    void setStaffMemberAssigned(MaintenanceStaff staffMemberAssigned);
+    void setMaintenanceStaff(MaintenanceStaff maintenanceStaff);
 
     double getHoursToComplete();
 

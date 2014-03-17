@@ -11,7 +11,7 @@ public class InspectionImpl implements Inspection {
 
 	private Facility facility;
 
-	private MaintenanceStaff inspectingStaff;
+	private MaintenanceStaff maintenanceStaff;
 
 	private Date inspectionDate;
 
@@ -46,12 +46,12 @@ public class InspectionImpl implements Inspection {
     }
 
     @Override
-    public MaintenanceStaff getInspectingStaff() {
-        return inspectingStaff;
+    public MaintenanceStaff getMaintenanceStaff() {
+        return maintenanceStaff;
     }
 
     @Override
-    public void setInspectingStaff(MaintenanceStaff inspectingStaffID) {
-        this.inspectingStaff = inspectingStaffID;
+    public void setMaintenanceStaff(MaintenanceStaff maintenanceStaff) {
+        this.maintenanceStaff = maintenanceStaff;
     }
 }

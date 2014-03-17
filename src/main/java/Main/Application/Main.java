@@ -169,26 +169,18 @@ public class Main extends HttpServlet {
 
 
         UnitUsage usage1 = new UnitUsageImpl();
-        usage1.setUnit(unitForUse);
-        usage1.setUnitUser(user1);
         usage1.setStartTime(new Date(new DateTime(2014,1,1,1,1).toDate().getTime()));
         usage1.setEndTime(new Date(new DateTime(2014,1,3,1,1).toDate().getTime()));
 
         UnitUsage usage2 = new UnitUsageImpl();
-        usage2.setUnit(unitForUse1);
-        usage2.setUnitUser(user2);
         usage2.setStartTime(new Date(new DateTime(2024,2,2,2,2).toDate().getTime()));
         usage2.setEndTime(new Date(new DateTime(2024,2,3,2,2).toDate().getTime()));
 
         UnitUsage usage4 = new UnitUsageImpl();
-        usage4.setUnit(unitForUse1);
-        usage4.setUnitUser(user3);
         usage4.setStartTime(new Date(new DateTime(2044,4,4,4,4).toDate().getTime()));
         usage4.setEndTime(new Date(new DateTime(2044,4,3,4,4).toDate().getTime()));
 
         UnitUsage usage3 = new UnitUsageImpl();
-        usage3.setUnit(unitForUse2);
-        usage3.setUnitUser(user3);
         usage3.setStartTime(new Date(new DateTime(2034,3,3,3,3).toDate().getTime()));
         usage3.setEndTime(new Date(new DateTime(2034,3,3,3,3).toDate().getTime()));
 
@@ -235,9 +227,7 @@ public class Main extends HttpServlet {
             for(UnitUsage uu :usagesforunit1)
             {
                 resp.getWriter().println("unit:");
-                resp.getWriter().println(uu.getUnit());
                 resp.getWriter().println("unit user id");
-                resp.getWriter().println(uu.getUnitUser());
                 resp.getWriter().println(uu.getStartTime().toString());
                 resp.getWriter().println(uu.getEndTime());
                 resp.getWriter().println();
@@ -248,9 +238,7 @@ public class Main extends HttpServlet {
         for (UnitUsage uu:usagestopring)
         {
             resp.getWriter().println("unit:");
-            resp.getWriter().println(uu.getUnit());
             resp.getWriter().println("unit user id");
-            resp.getWriter().println(uu.getUnitUser());
             resp.getWriter().println(uu.getStartTime().toString());
             resp.getWriter().println(uu.getEndTime());
             resp.getWriter().println();
@@ -266,7 +254,6 @@ public class Main extends HttpServlet {
         staff.setFirstName("some staff" + r.nextInt());//random makes sure these people look different in db
         staff.setLastName("staffmember" + r.nextInt());
         staff.setPhoneNumber(r.nextInt(100000));
-        staff.setFullTime(false);
 
         staff = maintenanceStaffDAO.create(staff);
         resp.getWriter().println("Created Staff Member :"+ staff.getFirstName());
@@ -323,8 +310,6 @@ public class Main extends HttpServlet {
         for(Inspection inspection:inspections)
         {
             resp.getWriter().println("Inspection ID:" + inspection.getId());
-            resp.getWriter().println("Staff Member Assign ID"+inspection.getInspectingStaff().getId());
-            resp.getWriter().println("Staff Member Name"+inspection.getInspectingStaff().getFirstName());
             resp.getWriter().println("Date :" +inspection.getInspectionDate());
 
 

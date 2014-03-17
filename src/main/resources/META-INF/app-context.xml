@@ -29,18 +29,18 @@
         </property>
     </bean>
 
-    <bean id="MaintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype"/>
+    <bean id="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype"/>
     
 
 
     <bean id="Inspection" class="Main.Entities.maintenance.InspectionImpl" scope="prototype">
        <property name="facility" ref="Facility"></property>
-       <property name="inspectingStaff" ref="MaintenanceStaff"></property>
+       <property name="inspectingStaff" ref="maintenanceStaff"></property>
     </bean>
 
     <bean id="MaintenanceRequest" class="Main.Entities.maintenance.MaintenanceRequestImpl" scope="prototype">
         <property name="unit" ref="Unit"></property>
-        <property name="staffMemberAssigned" ref="MaintenanceStaffImpl"></property>
+        <property name="staffMemberAssigned" ref="maintenanceStaff"></property>
     </bean>
     
 

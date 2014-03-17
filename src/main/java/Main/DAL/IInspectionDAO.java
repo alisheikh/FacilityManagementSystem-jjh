@@ -8,19 +8,15 @@ import java.util.List;
  * Created by Jackson on 2/10/14.
  */
 public interface IInspectionDAO {
-    Inspection create(Inspection inspection);
+    Inspection add(Inspection inspection);
 
     Inspection update(Inspection inspection);
 
-    void delete(int id);
+    void delete(Inspection inspection);
 
     Inspection get(int id);
 
-    List<Inspection> listAllInspections(int facilityID);
-
-    IDatabaseConnector getConnector();
-
-    void setConnector(IDatabaseConnector connector);
+    List<Inspection> listAllInspections();
 
     void setMaintenanceStaffDAO(IMaintenanceStaffDAO maintenanceStaffDAO);
 

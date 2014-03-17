@@ -1,6 +1,5 @@
 package Main.Entities.Facility;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityImpl implements Facility {
@@ -14,10 +13,6 @@ public class FacilityImpl implements Facility {
 	private int buildingNumber;
 
 	private int capacity;
-
-	public FacilityImpl() {
-       //units = new ArrayList<Unit>();
-	}
 
     @Override
     public String getName(){
