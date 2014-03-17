@@ -14,7 +14,7 @@ public class DatabaseConnector {
 
     static {
         try {
-            sessionFactory = new Configuration().configure("/resources/hibernate.cfg.xml").buildSessionFactory();
+            sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Initial SessionFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);

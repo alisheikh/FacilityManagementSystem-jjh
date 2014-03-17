@@ -18,5 +18,14 @@
 
  		<property name="current_session_context_class">thread</property>
 
+        <!-- Mapping resource configuration files -->
+        <mapping resource="Main/DAL/Facility.hbm.xml"/>
+        <mapping resource="Main/DAL/Inspection.hbm.xml"/>
+        <mapping resource="Main/DAL/MaintenanceRequest.hbm.xml"/>
+        <mapping resource="Main/DAL/MaintenanceStaff.hbm.xml"/>
+        <mapping resource="Main/DAL/Unit.hbm.xml"/>
+        <mapping resource="Main/DAL/Usage.hbm.xml"/>
+        <mapping resource="Main/DAL/User.hbm.xml"/>
+
  	</session-factory>
  </hibernate-configuration>

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityDAO implements IFacilityDAO {
-    UnitDAO unit = new UnitDAO();
+    UnitDAO unitDAO = new UnitDAO();
 
     @Override
     public Facility create(Facility facility) {
@@ -92,7 +92,7 @@ public class FacilityDAO implements IFacilityDAO {
     {
         List<Unit> units = new ArrayList<Unit>();
 
-        return unit.getAll(facilityId);
+        return unitDAO.getAll(facilityId);
 
     }
 
@@ -110,7 +110,7 @@ public class FacilityDAO implements IFacilityDAO {
 
     @Override
     public Unit getUnit(int unitId){
-        return unit.get(unitId);
+        return unitDAO.get(unitId);
     }
 
 }

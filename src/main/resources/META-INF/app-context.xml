@@ -11,36 +11,31 @@
 
     <!--Entities -->
 
-    <bean id="UnitUser" class="Main.Entities.usage.UnitUserImpl" scope="prototype"/>
+    <bean id="unitUser" class="Main.Entities.usage.UnitUserImpl" scope="prototype"/>
 
-    <bean id="UnitUsage" class="Main.Entities.usage.UnitUsageImpl" scope="prototype">
-        <property name="unit" ref="Unit"></property>
-        <property name="unitUser" ref="UnitUser" ></property>
+    <bean id="unitUsage" class="Main.Entities.usage.UnitUsageImpl" scope="prototype">
     </bean>
 
-    <bean id="Unit" class="Main.Entities.Facility.UnitImpl" scope="prototype">
+    <bean id="unit" class="Main.Entities.Facility.UnitImpl" scope="prototype">
     </bean>
 
-    <bean id="Facility" class="Main.Entities.Facility.FacilityImpl" scope="prototype">
+    <bean id="facility" class="Main.Entities.Facility.FacilityImpl" scope="prototype">
         <property name="units">
             <list>
-                <ref bean="Unit"/>
+                <ref bean="unit"/>
             </list>
         </property>
     </bean>
 
     <bean id="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype"/>
-    
-
 
     <bean id="Inspection" class="Main.Entities.maintenance.InspectionImpl" scope="prototype">
-       <property name="facility" ref="Facility"></property>
-       <property name="inspectingStaff" ref="maintenanceStaff"></property>
+       <property name="facility" ref="facility"></property>
+       <property name="maintenanceStaff" ref="maintenanceStaff"></property>
     </bean>
 
     <bean id="MaintenanceRequest" class="Main.Entities.maintenance.MaintenanceRequestImpl" scope="prototype">
-        <property name="unit" ref="Unit"></property>
-        <property name="staffMemberAssigned" ref="maintenanceStaff"></property>
+        <property name="maintenanceStaff" ref="maintenanceStaff"></property>
     </bean>
     
 
@@ -53,32 +48,24 @@
 
 
     <bean id="UserDAO" class="Main.DAL.UserDAO">
-        <property name="connector" ref="DatabaseConnector"></property>
     </bean>
 
 
     <bean id="UsageDAO" class="Main.DAL.UsageDAO">
-        <property name="unitDAO" ref="UnitDAO"></property>
-        <property name="userDAO" ref="UserDAO"></property>
     </bean>
 
 
     <bean id="FacilityDAO" class="Main.DAL.FacilityDAO">
-        <property name="unitDAO" ref="UnitDAO"></property>
     </bean>
 
     <bean id="MaintenanceStaffDAO" class="Main.DAL.MaintenanceStaffDAO">
-        <property name="connector" ref="DatabaseConnector"></property>
     </bean>
 
     <bean id="MaintenanceRequestDAO" class="Main.DAL.MaintenanceRequestDAO">
-        <property name="connector" ref="DatabaseConnector"></property>
-        <property name="maintenanceStaffDAO" ref="MaintenanceStaffDAO"></property>
-        <property name="facilityDAO" ref="FacilityDAO"></property>
+
     </bean>
 
     <bean id="InspectionDAO" class="Main.DAL.InspectionDAO">
-        <property name="connector" ref="DatabaseConnector"></property>
         <property name="maintenanceStaffDAO" ref="MaintenanceStaffDAO"></property>
         <property name="facilityDAO" ref="FacilityDAO"></property>
     </bean>
