@@ -91,6 +91,12 @@ public class PrintLine {
             unit4.setUnitNumber(r.nextInt(3));
             units.add(unit4);
 
+
+            //Jackson test here TODO:DELETE
+
+
+            ///
+
             System.out.print("create facilities objects and add to units to facilities");
             Facility facility1 = (Facility) context.getBean("Facility");
             facility1.setBuildingNumber(r.nextInt(4));
