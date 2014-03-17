@@ -48,8 +48,7 @@
 
     <bean id="DatabaseConnector" class="Main.DAL.DatabaseConnector"></bean>
 
-    <bean id="UnitDAO" class="Main.DAL.UnitDAO">
-        <property name="connector" ref="DatabaseConnector"></property>
+    <bean id="unitDAO" class="Main.DAL.UnitDAO">
     </bean>
 
 
@@ -59,14 +58,12 @@
 
 
     <bean id="UsageDAO" class="Main.DAL.UsageDAO">
-        <property name="connector" ref="DatabaseConnector"></property>
         <property name="unitDAO" ref="UnitDAO"></property>
         <property name="userDAO" ref="UserDAO"></property>
     </bean>
 
 
     <bean id="FacilityDAO" class="Main.DAL.FacilityDAO">
-        <property name="connector" ref="DatabaseConnector"></property>
         <property name="unitDAO" ref="UnitDAO"></property>
     </bean>
 

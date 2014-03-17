@@ -34,7 +34,7 @@ public class FacilityUseService implements IFacilityUseService {
 
     @Override
     public boolean IsInUseDuringInterval(int unitID, java.util.Date startTime, java.util.Date endTime) {
-        Unit unit = new UnitImpl();
+        /*Unit unit = new UnitImpl();
         unit.setId(unitID);
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
 
@@ -43,10 +43,10 @@ public class FacilityUseService implements IFacilityUseService {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        } */
 
 
-        if(usages!=null){
+       /* if(usages!=null){
         for(UnitUsage usage: usages)
         {
             if(usage.getStartTime().compareTo(startTime) > 0 && usage.getStartTime().compareTo(endTime) < 0 )
@@ -60,7 +60,7 @@ public class FacilityUseService implements IFacilityUseService {
             }
         }
 
-        }
+        }*/
         return false;
     }
 
@@ -69,26 +69,21 @@ public class FacilityUseService implements IFacilityUseService {
         UnitUsage usage = new UnitUsageImpl();
         usage.setEndTime(entTime);
         usage.setStartTime(sartTime);
-        usage.setUnit(unit);
-        usage.setUnitUser(unitUser);
+        /*usage.setUnit(unit);
+        usage.setUnitUser(unitUser);*/
 
-        try {
-            return usageDAO.CreateUsage(usage);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return usageDAO.create(usage);
     }
 
     @Override
-    public void vacateFacility(int usageID)
+    public void vacateFacility(UnitUsage usage)
     {
-        usageDAO.DeleteUsage(usageID);
+        usageDAO.delete(usage);
     }
 
     @Override
     public List<Inspection> listInspections(int facilityID) {
-        return inspectionDcAO.listAllInspections(facilityID);
+        return inspectionDcAO.listAllInspections();
     }
 
     @Override
@@ -96,21 +91,16 @@ public class FacilityUseService implements IFacilityUseService {
         Unit unit = new UnitImpl();
 
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
-        try {
-            unit = unitFactory.GetUnit(unitID);
+            unit = unitFactory.get(unitID);
 
-            usages = usageDAO.GetUsagesForUnit(unit);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            usages = null;//unit.getUsages?
         return usages;
 
     }
 
     @Override
     public List<UnitUsage> listUsages() {
-        return usageDAO.GetAll();
+        return usageDAO.getAll();
     }
 }
 

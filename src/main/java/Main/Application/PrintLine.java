@@ -1,31 +1,10 @@
 package Main.Application;
 
-import Main.BL.*;
-import Main.DAL.*;
 import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.FacilityImpl;
 import Main.Entities.Facility.Unit;
-import Main.Entities.Facility.UnitImpl;
-import Main.Entities.maintenance.Inspection;
-import Main.Entities.maintenance.MaintenanceRequest;
-import Main.Entities.maintenance.MaintenanceStaff;
-import Main.Entities.maintenance.MaintenanceStaffImpl;
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUsageImpl;
-import Main.Entities.usage.UnitUser;
-import Main.Entities.usage.UnitUserImpl;
-import org.joda.time.DateTime;
 
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Jackson on 2/12/14.
@@ -33,7 +12,7 @@ import java.util.Random;
 public class PrintLine {
     public static void main(String[] args)
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+        /*ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
 
         IDatabaseConnector connector = new DatabaseConnector();//create bean?
 
@@ -390,7 +369,7 @@ public class PrintLine {
 
           /* */
         }
-    }
+    //}
 
     public static void printAllFacilities(List<Facility> facilities) throws IOException {
         for(Facility facility:facilities){

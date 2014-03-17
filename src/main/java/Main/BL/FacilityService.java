@@ -11,16 +11,8 @@ public class FacilityService implements IFacilityService {
 
     private Facility facility;
 
-    private IDatabaseConnector connector;
     private IFacilityDAO facilityDAO;
     private IUnitDAO unitDAO;
-
-    public FacilityService(IDatabaseConnector connector, IFacilityDAO facilityDAO, IUnitDAO unitDAO) {
-        this.connector = connector;
-
-        this.facilityDAO = facilityDAO;
-        this.unitDAO = unitDAO;
-    }
 
 
     @Override
@@ -70,8 +62,8 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public void RemoveUnit(Unit unit1) {
-        unitDAO.DeleteUnit(unit1.getId());
+    public void removeUnit(Unit unit1) {
+        unitDAO.delete(unit1);
     }
 
 }

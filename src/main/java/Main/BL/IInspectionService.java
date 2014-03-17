@@ -18,7 +18,7 @@ public interface IInspectionService {
 
     Inspection addInspection(int facilityID, int staffMemberId, Date inspectionDate);
 
-    void removeInspection(int inspectionID);
+    void removeInspection(Inspection inspection);
 
     List<Inspection> getInspectionForFacility(int id);
 }

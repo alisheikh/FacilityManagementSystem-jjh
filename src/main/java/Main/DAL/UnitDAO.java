@@ -1,5 +1,6 @@
 package Main.DAL;
 
+import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
 import Main.Entities.Facility.UnitImpl;
 import Main.Entities.maintenance.MaintenanceStaff;
@@ -68,6 +69,16 @@ public class UnitDAO implements IUnitDAO {
         session.getTransaction().commit();
 
         return unit;
+    }
+
+    @Override
+    public List<Unit> getAll(int facilityId) {
+        Session session = DatabaseConnector.connect().getCurrentSession();
+        Query query = session.createQuery("from facility where facility_id=facilityId");
+        List<Unit> units = new ArrayList<Unit>();
+        session.beginTransaction();
+        units = query.list();
+        return units;
     }
 
 

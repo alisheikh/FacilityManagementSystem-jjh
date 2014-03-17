@@ -15,7 +15,7 @@ public interface IFacilityDAO {
 
     void delete(Facility facility);
 
-    Facility get(String name);
+    Facility get(int id);
 
     List<Facility> getAll();
 

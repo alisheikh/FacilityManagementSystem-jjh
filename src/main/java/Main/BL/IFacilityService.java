@@ -20,5 +20,5 @@ public interface IFacilityService {
 
     void removeFacility(Facility facility);
 
-    void RemoveUnit(Unit unit1);
+    void removeUnit(Unit unit1);
 }

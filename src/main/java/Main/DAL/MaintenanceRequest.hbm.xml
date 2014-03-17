@@ -11,6 +11,5 @@
         <property name="completionDate"  column="completion_date"/>
         <property name="hoursToComplete"  column="hours_to_complete"/>
         <one-to-one name="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaff" cascade="save-update, delete"></one-to-one>
-        <one-to-one name="unit" class="Main.Entities.Facility.Facility" cascade="save-update, delete"></one-to-one>
     </class>
 </hibernate-mapping>

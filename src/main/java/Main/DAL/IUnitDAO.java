@@ -2,6 +2,8 @@ package Main.DAL;
 
 import Main.Entities.Facility.Unit;
 
+import java.util.List;
+
 /**
  * Created by Jackson on 2/10/14.
  */
@@ -15,4 +17,5 @@ public interface IUnitDAO {
 
     void delete(Unit unit);
 
+    List<Unit> getAll(int facilityID);
 }

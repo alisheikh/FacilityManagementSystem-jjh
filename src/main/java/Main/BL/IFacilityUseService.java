@@ -5,7 +5,6 @@ import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
-import Main.Entities.usage.UnitUserImpl;
 
 import java.util.Date;
 import java.util.List;
@@ -17,7 +16,7 @@ public interface IFacilityUseService {
 
     UnitUsage assignFacilityToUse(java.sql.Date sartTime, java.sql.Date entTime, UnitUser unitUser, Unit unit);
 
-    void vacateFacility(int usageID);
+    void vacateFacility(UnitUsage usage);
 
     List<Inspection> listInspections(int facilityID);
 

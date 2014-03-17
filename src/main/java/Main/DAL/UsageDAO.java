@@ -1,14 +1,9 @@
 package Main.DAL;
 
-import Main.Entities.Facility.Unit;
-import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUsageImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,6 +33,22 @@ public class UsageDAO implements IUsageDAO {
         session.getTransaction().commit();
 
 
+    }
+
+    @Override
+    public List<UnitUsage> getAll() {
+        try {
+            Session session = DatabaseConnector.connect().getCurrentSession();
+            session.beginTransaction();
+            Query getUnitQuery = session.createQuery("From UnitUsage");
+            List unitUsage = getUnitQuery.list();
+
+            session.getTransaction().commit();
+            return unitUsage;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

@@ -7,7 +7,6 @@ import Main.Entities.maintenance.Inspection;
 import Main.Entities.maintenance.InspectionImpl;
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -31,7 +30,7 @@ public class InspectionService implements IInspectionService{
 
     @Override
     public List<Inspection> listInspections(int facilityID) {
-        return inspectionDAO.listAllInspections(facilityID);
+        return inspectionDAO.listAllInspections();
     }
 
     @Override
@@ -43,26 +42,22 @@ public class InspectionService implements IInspectionService{
     public Inspection addInspection(int facilityID, int staffMemberId, Date inspectionDate) {
 
         Inspection inspection = new InspectionImpl();
-        try {
 
             inspection.setFacility(facilityDAO.get(facilityID));
-            inspection.setInspectingStaff(maintenanceStaffDAO.get(staffMemberId));
+            inspection.setMaintenanceStaff(maintenanceStaffDAO.get(staffMemberId));
             inspection.setInspectionDate(inspectionDate);
-            return inspectionDAO.create(inspection);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return inspection;
+            return inspectionDAO.add(inspection);
 
     }
 
     @Override
-    public void removeInspection(int inspectionID) {
-        inspectionDAO.delete(inspectionID);
+    public void removeInspection(Inspection inspection) {
+        inspectionDAO.delete(inspection);
     }
 
     @Override
     public List<Inspection> getInspectionForFacility(int id) {
-      return inspectionDAO.listAllInspections(id);
+      //return inspectionDAO.get(id);
+        return null;
     }
 }

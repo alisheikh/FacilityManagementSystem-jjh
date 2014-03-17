@@ -1,16 +1,15 @@
 package Main.BL;
 
-import Main.DAL.*;
-
+import Main.DAL.IFacilityDAO;
+import Main.DAL.IMaintenanceRequestDAO;
+import Main.DAL.IMaintenanceStaffDAO;
+import Main.DAL.IUnitDAO;
 import Main.Entities.Facility.Unit;
 import Main.Entities.maintenance.MaintenanceRequest;
 import Main.Entities.maintenance.MaintenanceRequestImpl;
 import Main.Entities.maintenance.MaintenanceStaff;
-import Main.Entities.maintenance.MaintenanceStaffImpl;
-
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,19 +27,12 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
         this.maintenanceRequestDAO = maintenanceRequestDAO;
         this.maintenanceStaffDAO = maintenanceStaffDAO;
     }
-
     @Override
-    public MaintenanceRequest makeFacilityMaintRequest(int unitID, String request) {
+    public MaintenanceRequest makeFacilityMaintRequest(int unitId, String request) {
         MaintenanceRequest newRequest = new MaintenanceRequestImpl();
         newRequest.setRequest(request);
+        newRequest = maintenanceRequestDAO.create(newRequest);
 
-        try {
-            newRequest.setUnit(unitDAO.GetUnit(unitID));
-            newRequest = maintenanceRequestDAO.create(newRequest);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return newRequest;
     }
 
@@ -56,7 +48,7 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
             System.out.println("StaffMemberID in scheduleMaintenceService" + staff.getId());
 
             request.setHoursToComplete(estimatedTime);
-            request.setStaffMemberAssigned(staff);
+            request.setMaintenanceStaff(staff);
             request.setCompletionDate(completionDate);
 
             return maintenanceRequestDAO.update(request);
@@ -70,27 +62,22 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
 
     @Override
     public double calcMaintenanceCostForFacility(int facilityID) {
-        try {
-            List<Unit> units = unitDAO.GetUnitForFacility(facilityID);
+            List<Unit> units = unitDAO.getAll(facilityID);
             List<MaintenanceRequest> requests = new ArrayList<MaintenanceRequest>();
 
 
             for(Unit unit:units)
             {
-              requests.addAll(maintenanceRequestDAO.getAllForUnit(unit));
+              requests.addAll(maintenanceRequestDAO.getAll(unit.getId()));
             }
             double cost = 0.0;
             for(MaintenanceRequest maintenanceRequest:requests)
             {
-               cost += maintenanceRequest.getStaffMemberAssigned().getHoursPerWeek() * maintenanceRequest.getHoursToComplete();
+               cost += maintenanceRequest.getMaintenanceStaff().getHoursPerWeek() * maintenanceRequest.getHoursToComplete();
             }
             return cost;
 
-            } catch (SQLException e) {
-            e.printStackTrace();
-            return -1;
         }
-    }
 
     @Override
     public float calcDownTimeForFacility(int FacilityID, Date startDate, Date endDate) {
@@ -99,14 +86,13 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
 
     @Override
     public float calcProblemRateForFacility(int facilityID) {
-        try {
-            List<Unit> units = unitDAO.GetUnitForFacility(facilityID);
+            List<Unit> units = unitDAO.getAll(facilityID);
             List<MaintenanceRequest> requests = new ArrayList<MaintenanceRequest>();
 
             int numberOfunits = 0;
             for(Unit unit:units)
             {
-                requests.addAll(maintenanceRequestDAO.getAllForUnit(unit));
+                requests.addAll(maintenanceRequestDAO.getAll(unit.getId()));
                 numberOfunits++;
             }
             int numberOfProblems=0;
@@ -115,11 +101,6 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
                 numberOfProblems++;
             }
             return (float) numberOfProblems/numberOfunits;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return -1;
     }
 
 
@@ -127,19 +108,14 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
     public List<MaintenanceRequest> listMaintenanceRequests(int facilityID) {
 
         List<MaintenanceRequest> requests = new ArrayList<MaintenanceRequest>();
-        try {
 
-            List<Unit> units = unitDAO.GetUnitForFacility(facilityID);
+
+            List<Unit> units = unitDAO.getAll(facilityID);
             for(Unit unit:units)
             {
-                requests.addAll(maintenanceRequestDAO.getAllForUnit(unit));
+                requests.addAll(maintenanceRequestDAO.getAll(unit.getId()));
             }
             return requests;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return requests;
-        }
     }
 
 }

@@ -1,19 +1,10 @@
 package Main.DAL;
 
-import Main.Entities.Facility.Unit;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-
 /**
  * Created by Jackson on 3/16/14.
  */
-public class UnitDAOHib implements IUnitDAO  {
-    private IDatabaseConnector connector;
+public class UnitDAOHib  {
+    /*private IDatabaseConnector connector;
     private Connection connection;
 
     @Override
@@ -89,5 +80,5 @@ public class UnitDAOHib implements IUnitDAO  {
 
     public void setConnection(Connection connection) {
         this.connection = connection;
-    }
+    } */
 }

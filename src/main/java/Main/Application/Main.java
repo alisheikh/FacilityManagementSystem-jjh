@@ -4,15 +4,9 @@ package Main.Application; /**
  * Time: 7:17 PM
  */
 
-import Main.BL.*;
-import Main.DAL.*;
-import Main.Entities.Facility.*;
-import Main.Entities.maintenance.*;
-import Main.Entities.usage.*;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import org.joda.time.DateTime;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -21,10 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class Main extends HttpServlet {
 
@@ -48,7 +38,7 @@ public class Main extends HttpServlet {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
 
-        IDatabaseConnector connector = (IDatabaseConnector) context.getBean("DatabaseConnector");
+        /*IDatabaseConnector connector = (IDatabaseConnector) context.getBean("DatabaseConnector");
 
         try{
         resp.getWriter().println("----------------begining program---------------");
@@ -212,7 +202,7 @@ public class Main extends HttpServlet {
 
 
 
-        List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getId());
+        /*List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getId());
         List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unitForUse1.getId());
         List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unitForUse2.getId());
 
@@ -373,7 +363,7 @@ public class Main extends HttpServlet {
 
 
             }
-        }
+        }*/
     }
 }
 

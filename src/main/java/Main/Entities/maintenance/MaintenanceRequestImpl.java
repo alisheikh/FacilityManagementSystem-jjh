@@ -1,14 +1,12 @@
 package Main.Entities.maintenance;
 
-import Main.Entities.Facility.Unit;
-
 import java.sql.Date;
 
 public class MaintenanceRequestImpl implements MaintenanceRequest {
 
 	private int id;
 
-	private Unit unit;
+	private int unitId;
 
     private MaintenanceStaff maintenanceStaff;
 
@@ -68,13 +66,13 @@ public class MaintenanceRequestImpl implements MaintenanceRequest {
     }
 
     @Override
-    public Unit getUnit() {
-        return unit;
+    public int getUnitId() {
+        return unitId;
     }
 
     @Override
-    public void setUnit(Unit unit) {
-        this.unit = unit;
+    public void setUnitId(int unitId) {
+        this.unitId = unitId;
     }
 
     @Override
