@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="Main.Entities.Facility">
     <class name="Facility" table="facility">
-        <id name="id" column="id"/>
+        <id name="id" type="integer" column="id"/>
         <property name="name" column="name"/>
         <property name="capacity"  column="capacity"/>
         <property name="buildingNumber" column="building_number"/>

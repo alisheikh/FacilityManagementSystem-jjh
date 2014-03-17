@@ -37,11 +37,7 @@
     <bean id="MaintenanceRequest" class="Main.Entities.maintenance.MaintenanceRequestImpl" scope="prototype">
         <property name="maintenanceStaff" ref="maintenanceStaff"></property>
     </bean>
-    
 
-    <!--DAO object Dependencies-->
-
-    <bean id="DatabaseConnector" class="Main.DAL.DatabaseConnector"></bean>
 
     <bean id="unitDAO" class="Main.DAL.UnitDAO">
     </bean>
@@ -70,18 +66,7 @@
         <property name="facilityDAO" ref="FacilityDAO"></property>
     </bean>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <bean id="facilityService" class="Main.BL.FacilityService">
+    </bean>
 
 </beans>

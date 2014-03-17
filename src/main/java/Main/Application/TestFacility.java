@@ -2,7 +2,6 @@ package Main.Application;
 
 import Main.BL.FacilityService;
 import Main.Entities.Facility.Facility;
-import Main.Entities.Facility.FacilityImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -28,8 +27,11 @@ public class TestFacility /*extends HttpServlet*/ {
         server.start();
         server.join();*/
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
-        FacilityImpl facility = (FacilityImpl) context.getBean("Facility");
-        System.out.println(facility.getName());
+        FacilityService service = (FacilityService) context.getBean("facilityService");
+        List<Facility> list = service.listFacilities();
+        for(Facility facility:list){
+            System.out.println(facility.getName());
+        }
         printTest();
     }
 
