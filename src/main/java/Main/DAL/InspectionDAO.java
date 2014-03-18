@@ -1,16 +1,11 @@
 package Main.DAL;
 
 
-import Main.Entities.Facility.Facility;
 import Main.Entities.maintenance.Inspection;
-import Main.Entities.maintenance.InspectionImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class InspectionDAO implements IInspectionDAO {
@@ -25,50 +20,46 @@ public class InspectionDAO implements IInspectionDAO {
 
 	@Override
     public Inspection add(Inspection inspection) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.save(inspection);
         session.getTransaction().commit();
+        session.close();
         return inspection;
 	}
 
 	@Override
     public Inspection update(Inspection inspection)
     {
-        /*try{
-                connection.createStatement().executeUpdate("UPDATE inspection" +
-                    " SET (id,facility_id,inspection_staff_id,inspection_date)"+
-                    "= ('"+inspection.getId()+"','"+inspection.getFacility().getId()+"','"+inspection.getInspectingStaff().getId()+
-                        "','"+inspection.getInspectionDate()+"')" +
-                    "WHERE id = "+inspection.getId());
-            return inspection;
-        }catch(SQLException e) {
-            e.printStackTrace();
-        }
-        return null;*/
+        Session session = DatabaseConnector.connect();
+        session.beginTransaction();
+        session.save(inspection);
+        session.getTransaction().commit();
+        session.close();
         return inspection;
 
 	}
 
 	@Override
     public void delete(Inspection inspection) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.delete(inspection);
         session.getTransaction().commit();
+        session.close();
 
 	}
 
 	@Override
     public Inspection get(int id) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
 
         //System.out.println("*************** Hibernate session is created ..................\n" + session.toString());
 
         //Query getCustQuery = session.createQuery("From CustomerImpl ");
-        Query getCustQuery = session.createQuery("From inspection where id=:id");
-        getCustQuery.setString("id", String.valueOf(id));
+        Query getCustQuery = session.createQuery("From InspectionImpl where id=:id");
+        getCustQuery.setInteger("id", id);
 
         System.out.println("*************** Retrieve Query is ....>>\n" + getCustQuery.toString());
 
@@ -81,12 +72,23 @@ public class InspectionDAO implements IInspectionDAO {
 
     @Override
     public List<Inspection> listAllInspections(){
-        List<Inspection> inspections = new ArrayList<Inspection>();
-        Session session = DatabaseConnector.connect().getCurrentSession();
-        Query query = session.createQuery("from inspection");
+        List<Inspection> inspections;
+        Session session = DatabaseConnector.connect();
+        Query query = session.createQuery("from InspectionImpl");
         session.beginTransaction();
         inspections = query.list();
+            session.close();
+        return inspections;
+    }
 
+    @Override
+    public List<Inspection> listAllInspections(int facilityId){
+        List<Inspection> inspections;
+        Session session = DatabaseConnector.connect();
+        Query query = session.createQuery("from InspectionImpl where facility.id=:facilityID");
+        session.beginTransaction();
+        inspections = query.list();
+              session.close();
         return inspections;
     }
 

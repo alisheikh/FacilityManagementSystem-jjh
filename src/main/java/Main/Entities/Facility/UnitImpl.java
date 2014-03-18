@@ -6,13 +6,6 @@ package Main.Entities.Facility;
  * Time: 1:22 PM
  */
 
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUsageImpl;
-import Main.Entities.usage.UnitUser;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class UnitImpl implements Unit {
 
     private int capacity;
@@ -21,10 +14,17 @@ public class UnitImpl implements Unit {
 
     private int id;
 
-    private int facilityId;
+    private Facility facility;
 
-    public UnitImpl(){
-       //usages = new ArrayList<UnitUsageImpl>();
+
+    @Override
+    public Facility getFacility() {
+        return facility;
+    }
+
+    @Override
+    public void setFacility(Facility facility) {
+        this.facility = facility;
     }
 
     @Override
@@ -33,9 +33,10 @@ public class UnitImpl implements Unit {
     }
 
     @Override
-    public void setCapacity(int capacity){
-        this.capacity = capacity;
+    public void setCapacity(int capacity) {
+       this.capacity = capacity;
     }
+
 
     @Override
     public int getId(){
@@ -57,15 +58,9 @@ public class UnitImpl implements Unit {
     public void setUnitNumber(int unitNumber) {
         this.unitNumber = unitNumber;
     }
-    @Override
-    public int getFacilityId(){
-        return facilityId;
-    }
 
-    @Override
-    public void setFacilityId(int facilityId){
-        this.facilityId = facilityId;
-    }
+
+
 
 
 

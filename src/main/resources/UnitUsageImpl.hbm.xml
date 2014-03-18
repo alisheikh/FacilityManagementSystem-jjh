@@ -5,7 +5,9 @@
 
 <hibernate-mapping package="Main.Entities.usage">
     <class name="UnitUsageImpl" table="unit_usage">
-        <id name="id" column="id"/>
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment" />
+        </id>
         <property name="startTime" column="start_time"/>
         <property name="endTime"  column="end_time"/>
         <one-to-one name="unit" class="Main.Entities.Facility.UnitImpl" cascade="save-update, delete"/>

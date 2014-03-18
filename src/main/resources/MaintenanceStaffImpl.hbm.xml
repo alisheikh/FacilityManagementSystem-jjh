@@ -5,7 +5,9 @@
 
 <hibernate-mapping package="Main.Entities.maintenance">
     <class name="MaintenanceStaffImpl" table="unit_user">
-        <id name="id" column="id"/>
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment" />
+        </id>
         <property name="firstName" type = "string" column="first_name"/>
         <property name="lastName" type="string" column="last_name"/>
         <property name="phoneNumber" type ="java.lang.Integer" column="phone_number"/>

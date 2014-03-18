@@ -21,4 +21,6 @@ public interface IInspectionDAO {
     void setMaintenanceStaffDAO(IMaintenanceStaffDAO maintenanceStaffDAO);
 
     void setFacilityDAO(IFacilityDAO facilityDAO);
+
+    List<Inspection> listAllInspections(int facilityId);
 }

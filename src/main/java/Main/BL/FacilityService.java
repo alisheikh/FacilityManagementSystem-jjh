@@ -15,10 +15,15 @@ public class FacilityService implements IFacilityService {
     private IFacilityDAO facilityDAO;
     private IUnitDAO unitDAO;
 
+    public FacilityService(){
+        facilityDAO = new FacilityDAO();
+        unitDAO = new UnitDAO();
+    }
+
 
     @Override
     public List<Facility> listFacilities() {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         System.out.println(session.toString());
         List<Facility> res = facilityDAO.getAll();
         return res;
@@ -43,13 +48,17 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public Facility addNewFacility(Facility facility) {
+        List<Unit> units = facility.getUnits();
+        for(Unit unit:units){
+            System.out.println(unit.getUnitNumber());
+
+        }
         return facilityDAO.create(facility);
     }
 
     @Override
     public Unit addFacilityDetail(int facilityid,Unit unit) {
-
-
+        unitDAO.create(unit);
         Facility facility = facilityDAO.get(facilityid);
         List<Unit> units = facility.getUnits();
         units.add(unit);

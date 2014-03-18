@@ -6,6 +6,7 @@ package Main.DAL;
  * Time: 7:07 PM
  */
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -21,9 +22,13 @@ public class DatabaseConnector {
         }
     }
 
-    public static SessionFactory connect(){
+    public static Session connect(){
 
-     return sessionFactory;
+
+      return   sessionFactory.openSession();
+
+
+
 
     }
 

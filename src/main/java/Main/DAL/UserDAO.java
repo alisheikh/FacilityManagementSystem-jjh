@@ -1,12 +1,9 @@
 package Main.DAL;
 
-import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUser;
-import Main.Entities.usage.UnitUserImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.sql.*;
 import java.util.List;
 
 
@@ -18,11 +15,11 @@ import java.util.List;
 public class UserDAO implements IUserDAO {
     @Override
     public UnitUser create(UnitUser user) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
-
+        session.close();
         return user;
 
 
@@ -30,25 +27,26 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public void delete(UnitUser user) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.delete(user);
         session.getTransaction().commit();
-
+        session.close();
 
     }
 
     @Override
     public UnitUser get(int id) {
         try {
-            Session session = DatabaseConnector.connect().getCurrentSession();
+            Session session = DatabaseConnector.connect();
             session.beginTransaction();
-            Query getUnitQuery = session.createQuery("From unit_user where id=:id");
-            getUnitQuery.setString("id", String.valueOf(id));
+            Query getUnitQuery = session.createQuery("From UnitUsageImpl where id=:id");
+            getUnitQuery.setInteger("id", id);
 
             List unitUser = getUnitQuery.list();
 
             session.getTransaction().commit();
+            session.close();
             return (UnitUser)unitUser.get(0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,11 +57,11 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public UnitUser update(UnitUser user) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
-
+        session.close();
         return user;
     }
 }

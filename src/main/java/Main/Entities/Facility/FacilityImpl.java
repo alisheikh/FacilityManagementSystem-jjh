@@ -30,8 +30,9 @@ public class FacilityImpl implements Facility {
     }
 
     @Override
-    public void setUnits(List<Unit> unit){
-        this.units = unit;
+    public void setUnits(List<Unit> units){
+
+        this.units = units;
     }
 
     @Override
@@ -68,7 +69,7 @@ public class FacilityImpl implements Facility {
     @Override
     public int getTotalCapacity() {
         int cap = 0;
-        if(units != null && !units.isEmpty())
+        if(units != null && !units.isEmpty() && units.size() > 0)
         for (Unit unit:units){
            cap += unit.getCapacity();
         }

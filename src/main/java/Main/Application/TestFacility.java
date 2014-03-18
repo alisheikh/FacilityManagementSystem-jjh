@@ -34,12 +34,16 @@ public class TestFacility /*extends HttpServlet*/ {
         server.join();*/
         Random r = new Random();
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+
+
         FacilityService service = (FacilityService) context.getBean("facilityService");
+
+
         List<Unit> units = new ArrayList<Unit>();
 
         Unit unit1 = new UnitImpl();
         unit1.setCapacity(r.nextInt(3));
-        unit1.setUnitNumber(111);
+        unit1.setUnitNumber(r.nextInt(3));
         units.add(unit1);
 
         Unit unit2 = new UnitImpl();
@@ -64,6 +68,10 @@ public class TestFacility /*extends HttpServlet*/ {
         facility1.setName("facility1");
         facility1.setUnits(units);
         service.addNewFacility(facility1);
+
+
+
+
         List<Facility> list = service.listFacilities();
         for(Facility facility:list){
             System.out.println(facility.getName());

@@ -30,6 +30,11 @@ public class InspectionService implements IInspectionService{
 
     @Override
     public List<Inspection> listInspections(int facilityID) {
+        return inspectionDAO.listAllInspections(facilityID);
+    }
+
+    @Override
+    public List<Inspection> listInspections() {
         return inspectionDAO.listAllInspections();
     }
 
@@ -57,7 +62,7 @@ public class InspectionService implements IInspectionService{
 
     @Override
     public List<Inspection> getInspectionForFacility(int id) {
-      //return inspectionDAO.get(id);
-        return null;
+        return inspectionDAO.listAllInspections(id);
+
     }
 }

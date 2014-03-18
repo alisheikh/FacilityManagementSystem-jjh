@@ -1,16 +1,9 @@
 package Main.DAL;
 
-import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
-import Main.Entities.Facility.UnitImpl;
-import Main.Entities.maintenance.MaintenanceStaff;
-import Main.Entities.usage.UnitUsage;
-import Main.Entities.usage.UnitUsageImpl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,11 +15,12 @@ public class UnitDAO implements IUnitDAO {
 
     @Override
     public Unit create(Unit unit) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.save(unit);
         session.getTransaction().commit();
 
+        session.close();
         return unit;
 
 
@@ -34,26 +28,22 @@ public class UnitDAO implements IUnitDAO {
 
     @Override
     public void delete(Unit unit) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.delete(unit);
         session.getTransaction().commit();
-
-
+        session.close();
     }
 
     @Override
     public Unit get(int id) {
         try {
-            Session session = DatabaseConnector.connect().getCurrentSession();
+            Session session = DatabaseConnector.connect();
             session.beginTransaction();
-            Query getUnitQuery = session.createQuery("From unit where id=:id");
-            getUnitQuery.setString("id", String.valueOf(id));
-
-            List unit = getUnitQuery.list();
-
+            Unit unit = (Unit)session.byId(String.valueOf(id));
             session.getTransaction().commit();
-            return (Unit)unit.get(0);
+            session.close();
+            return unit;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,23 +53,25 @@ public class UnitDAO implements IUnitDAO {
 
     @Override
     public Unit update(Unit unit) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.save(unit);
         session.getTransaction().commit();
-
+        session.close();
         return unit;
     }
 
     @Override
     public List<Unit> getAll(int facilityId) {
         System.out.println("Listing all facilities");
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         System.out.println("Session ready: "+session.toString());
-        Query query = session.createQuery("from Unit where facilityId=facilityId");
-        List<Unit> units = new ArrayList<Unit>();
+        Query query = session.createQuery("from UnitImpl where facility.id =:facilityId");
+        query.setInteger("facilityId",facilityId);
+        List<Unit> units;
         session.beginTransaction();
         units = query.list();
+        session.close();
         return units;
     }
 

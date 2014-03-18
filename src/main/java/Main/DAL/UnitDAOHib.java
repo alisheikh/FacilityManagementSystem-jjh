@@ -17,7 +17,7 @@ public class UnitDAOHib  {
 
     @Override
     public Unit CreateUnit(Unit unit) throws SQLException {
-        Session session = HibernatePGSQLHelper.getSessionFactory().getCurrentSession();
+        Session session = HibernatePGSQLHelper.getSessionFactory();
         session.beginTransaction();
         session.save(unit);
         session.getTransaction().commit();

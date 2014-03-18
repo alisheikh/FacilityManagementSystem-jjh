@@ -5,8 +5,8 @@
 
 <hibernate-mapping package="Main.Entities.maintenance">
     <class name="MaintenanceRequestImpl" table="maintenance_request">
-        <id name="id">
-            <column name="id" sql-type="serial" length="10" not-null="true"/>
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment" />
         </id>
         <property name="request">
             <column name="request" sql-type="text" length="2147483647"/>

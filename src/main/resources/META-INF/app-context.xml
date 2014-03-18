@@ -11,38 +11,38 @@
 
     <!--Entities -->
 
-    <bean id="unitUser" class="Main.Entities.usage.UnitUserImpl" scope="prototype"/>
+    <bean id="UnitUser" class="Main.Entities.usage.UnitUserImpl" scope="prototype"/>
 
-    <bean id="unitUsage" class="Main.Entities.usage.UnitUsageImpl" scope="prototype">
+    <bean id="UnitUsage" class="Main.Entities.usage.UnitUsageImpl" scope="prototype">
     </bean>
 
-    <bean id="unit" class="Main.Entities.Facility.UnitImpl" scope="prototype">
+    <bean id="Unit" class="Main.Entities.Facility.UnitImpl" scope="prototype">
     </bean>
 
-    <bean id="facility" class="Main.Entities.Facility.FacilityImpl" scope="prototype">
+    <bean id="Facility" class="Main.Entities.Facility.FacilityImpl" scope="prototype">
         <property name="units">
             <list>
-                <ref bean="unit"/>
+                <ref bean="Unit"/>
             </list>
         </property>
     </bean>
 
-    <bean id="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype">
+    <bean id="MaintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype">
 
     </bean>
 
     <bean id="Inspection" class="Main.Entities.maintenance.InspectionImpl" scope="prototype">
-       <property name="facility" ref="facility"></property>
-       <property name="maintenanceStaff" ref="maintenanceStaff"></property>
+       <property name="facility" ref="Facility"></property>
+       <property name="maintenanceStaff" ref="MaintenanceStaff"></property>
     </bean>
 
     <bean id="MaintenanceRequest" class="Main.Entities.maintenance.MaintenanceRequestImpl" scope="prototype">
-        <property name="maintenanceStaff" ref="maintenanceStaff"></property>
-        <property name="unit" ref="unit"></property>
+        <property name="maintenanceStaff" ref="MaintenanceStaff"></property>
+        <property name="unit" ref="Unit"></property>
     </bean>
 
 
-    <bean id="unitDAO" class="Main.DAL.UnitDAO">
+    <bean id="UnitDAO" class="Main.DAL.UnitDAO">
     </bean>
 
 
@@ -69,7 +69,7 @@
         <property name="facilityDAO" ref="FacilityDAO"></property>
     </bean>
 
-    <bean id="facilityService" class="Main.BL.FacilityService">
+    <bean id="FacilityService" class="Main.BL.FacilityService">
     </bean>
 
 </beans>

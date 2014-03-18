@@ -61,25 +61,25 @@ public class PrintLine {
             System.out.println("initialize test units");
 
             Unit unit1 = (Unit) context.getBean("Unit");
-            unit1.setCapacity(r.nextInt(3));
+            unit1.setCapacity(r.nextInt());
             unit1.setUnitNumber(111);
             units.add(unit1);
 
             Unit unit2 =(Unit) context.getBean("Unit");
-            unit2.setCapacity(r.nextInt(3));
-            unit2.setUnitNumber(r.nextInt(3));
+            unit2.setCapacity(r.nextInt());
+            unit2.setUnitNumber(r.nextInt());
             units.add(unit2);
 
 
             Unit unit3 =(Unit) context.getBean("Unit");
-            unit3.setCapacity(r.nextInt(3));
-            unit3.setUnitNumber(r.nextInt(3));
+            unit3.setCapacity(r.nextInt());
+            unit3.setUnitNumber(r.nextInt());
             units.add(unit3);
 
 
             Unit unit4 = (Unit) context.getBean("Unit");
-            unit4.setCapacity(r.nextInt(3));
-            unit4.setUnitNumber(r.nextInt(3));
+            unit4.setCapacity(r.nextInt());
+            unit4.setUnitNumber(r.nextInt());
             units.add(unit4);
 
 
@@ -90,14 +90,14 @@ public class PrintLine {
 
             System.out.print("create facilities objects and add to units to facilities");
             Facility facility1 = (Facility) context.getBean("Facility");
-            facility1.setBuildingNumber(r.nextInt(4));
+            facility1.setBuildingNumber(r.nextInt());
             facility1.setCapacity(50);
             facility1.setName("facility1");
             facility1.setUnits(units);
 
 
             Facility facility2 = (Facility) context.getBean("Facility");
-            facility2.setBuildingNumber(r.nextInt(4));
+            facility2.setBuildingNumber(r.nextInt());
             facility2.setCapacity(34);
             facility2.setName("facility2");
             facility2.setUnits(units);
@@ -123,6 +123,10 @@ public class PrintLine {
 
             System.out.print("facilities current facilities in DB:");
 
+
+
+            Facility facilityTest = facilityService.getFacilityInformation(facility3.getId());
+            List<Unit> unitsForTest = facilityTest.getUnits();
 
             printAllFacilities(facilityService.listFacilities());
 
@@ -314,8 +318,8 @@ public class PrintLine {
             for(Inspection inspection:inspections)
             {
                 System.out.println("Inspection ID:" + inspection.getId());
-                System.out.println("Staff Member Assign ID"+inspection.getMaintenanceStaff().getId());
-                System.out.println("Staff Member Name"+inspection.getMaintenanceStaff().getFirstName());
+                System.out.println("Staff Member Assign ID" + inspection.getMaintenanceStaff().getId());
+                System.out.println("Staff Member Name" + inspection.getMaintenanceStaff().getFirstName());
                 System.out.println("Date :" +inspection.getInspectionDate());
 
 

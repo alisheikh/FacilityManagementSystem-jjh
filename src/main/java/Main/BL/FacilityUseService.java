@@ -1,19 +1,18 @@
 package Main.BL;
 
 
-import Main.DAL.*;
+import Main.DAL.IFacilityDAO;
+import Main.DAL.IInspectionDAO;
+import Main.DAL.IUnitDAO;
+import Main.DAL.IUsageDAO;
 import Main.Entities.Facility.Unit;
 import Main.Entities.Facility.UnitImpl;
 import Main.Entities.maintenance.Inspection;
 import Main.Entities.usage.UnitUsage;
 import Main.Entities.usage.UnitUsageImpl;
 import Main.Entities.usage.UnitUser;
-import Main.Entities.usage.UnitUserImpl;
-
 
 import java.sql.Date;
-
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class FacilityUseService implements IFacilityUseService {
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
 
         try {
-            usages = usageDAO.GetUsagesForUnit(unit);
+            usages = unit.getUsage();
 
         } catch (Exception e) {
             e.printStackTrace();

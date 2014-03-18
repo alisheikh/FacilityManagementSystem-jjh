@@ -17,7 +17,7 @@ public interface Unit {
 
     void setUnitNumber(int unitNumber);
 
-    int getFacilityId();
+    Facility getFacility();
 
-    void setFacilityId(int facilityId);
+    void setFacility(Facility facility);
 }

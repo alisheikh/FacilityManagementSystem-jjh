@@ -5,10 +5,12 @@
 
 <hibernate-mapping package="Main.Entities.Facility">
     <class name="UnitImpl" table="unit">
-        <id name="id" column="id"/>
-        <property name="facilityId">
-            <column name="facility_id" sql-type="serial" length="10" not-null="true"/>
-        </property>
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment" />
+        </id>
+        <many-to-one name="facility" class="Main.Entities.Facility.FacilityImpl" fetch="select"  cascade="all">
+            <column name="facility_id" sql-type="serial"  length="10" not-null="true"/>
+        </many-to-one>
         <property name="capacity">
             <column name="capacity" sql-type="int4" length="10" not-null="true"/>
         </property>

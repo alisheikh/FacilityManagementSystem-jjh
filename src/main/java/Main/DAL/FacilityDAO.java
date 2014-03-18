@@ -13,20 +13,22 @@ public class FacilityDAO implements IFacilityDAO {
 
     @Override
     public Facility create(Facility facility) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.save(facility);
         session.getTransaction().commit();
+        session.close();
         return facility;
 
     }
 
     @Override
     public Facility update(Facility facility) {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.save(facility);
         session.getTransaction().commit();
+        session.close();
         return facility;
     }
 
@@ -34,10 +36,11 @@ public class FacilityDAO implements IFacilityDAO {
     public void delete(Facility facility) {
 
 
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         session.beginTransaction();
         session.delete(facility);
         session.getTransaction().commit();
+        session.close();
 
 
 	}
@@ -45,12 +48,13 @@ public class FacilityDAO implements IFacilityDAO {
 	@Override
     public Facility get(int id) {
         try {
-            Session session = DatabaseConnector.connect().getCurrentSession();
+            Session session = DatabaseConnector.connect();
             session.beginTransaction();
-            Query getFacilityQuery = session.createQuery("From facility where id=:id");
-            getFacilityQuery.setString("id", String.valueOf(id));
+            Query getFacilityQuery = session.createQuery("From FacilityImpl where id=:id");
+            getFacilityQuery.setInteger("id",id);
             List facilities = getFacilityQuery.list();
             session.getTransaction().commit();
+            session.close();
             return (Facility)facilities.get(0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,13 +74,15 @@ public class FacilityDAO implements IFacilityDAO {
 
     @Override
     public List<Facility> getAll() {
-        Session session = DatabaseConnector.connect().getCurrentSession();
+        Session session = DatabaseConnector.connect();
         System.out.println(session.toString());
-        Query query = session.createQuery("from Facility");
-        System.out.println(session.createQuery("from Facility").toString());
+        Query query = session.createQuery("from FacilityImpl");
+        System.out.println(session.createQuery("from FacilityImpl").toString());
         List<Facility> facilities;
         session.beginTransaction();
         facilities = query.list();
+        session.close();
+
         return facilities;
     }
 

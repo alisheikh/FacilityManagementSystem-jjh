@@ -21,4 +21,6 @@ public interface IInspectionService {
     void removeInspection(Inspection inspection);
 
     List<Inspection> getInspectionForFacility(int id);
+
+    List<Inspection> listInspections();
 }

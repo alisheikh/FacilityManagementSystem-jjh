@@ -4,9 +4,9 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="Main.Entities.Facility">
-    <class name="Main.Entities.Facility.FacilityImpl" table="FACILITY">
-        <id name="id">
-            <column name="id" sql-type="serial" length="10" not-null="true"/>
+    <class name="FacilityImpl" table="facility">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment" />
         </id>
         <property name="name">
             <column name="name" sql-type="text" length="2147483647"/>
@@ -17,12 +17,15 @@
         <property name="buildingNumber">
             <column name="building_number" sql-type="int4" length="10"/>
         </property>
-        <set name="units" table="unit"
+        <list name="units" table="unit"
              inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="facility_id" not-null="true" />
             </key>
-            <one-to-many class="Main.Entities.Facility.UnitImpl" />
-        </set>
+            <list-index column="id">
+
+            </list-index>
+            <one-to-many  class="Main.Entities.Facility.UnitImpl"  />
+        </list>
     </class>
 </hibernate-mapping>
