@@ -15,7 +15,13 @@ public class FacilityDAO implements IFacilityDAO {
     public Facility create(Facility facility) {
         Session session = DatabaseConnector.connect();
         session.beginTransaction();
-        session.save(facility);
+        Integer facilityId = (Integer)session.save(facility);
+        facility.setId(facilityId);
+        for(Unit unit:facility.getUnits()){
+            unit.setFacility(facility);
+           session.save(unit);
+        }
+
         session.getTransaction().commit();
         session.close();
         return facility;
