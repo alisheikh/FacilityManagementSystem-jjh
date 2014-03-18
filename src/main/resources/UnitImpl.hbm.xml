@@ -8,7 +8,7 @@
         <id name="id" column="id" type="java.lang.Integer">
             <generator class="increment" />
         </id>
-        <many-to-one name="facility" class="Main.Entities.Facility.FacilityImpl" fetch="select"  cascade="all">
+        <many-to-one name="facility" class="Main.Entities.Facility.FacilityImpl" fetch="select"  cascade="save-update">
             <column name="facility_id" sql-type="serial"  length="10" not-null="true"/>
         </many-to-one>
         <property name="capacity">
