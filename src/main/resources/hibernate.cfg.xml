@@ -17,12 +17,12 @@
  		<property name="current_session_context_class">thread</property>
 
         <!-- Mapping resource configuration files -->
-        <mapping resource="Facility.hbm.xml"/>
-        <mapping resource="Inspection.hbm.xml"/>
-        <mapping resource="MaintenanceRequest.hbm.xml"/>
-        <mapping resource="MaintenanceStaff.hbm.xml"/>
-        <mapping resource="Unit.hbm.xml"/>
-        <mapping resource="Usage.hbm.xml"/>
+        <mapping resource="FacilityImpl.hbm.xml"/>
+        <mapping resource="InspectionImpl.hbm.xml"/>
+        <mapping resource="MaintenanceRequestImpl.hbm.xml"/>
+        <mapping resource="MaintenanceStaffImpl.hbm.xml"/>
+        <mapping resource="UnitImpl.hbm.xml"/>
+        <mapping resource="UsageImpl.hbm.xml"/>
 
- 	</session-factory>
+    </session-factory>
  </hibernate-configuration>

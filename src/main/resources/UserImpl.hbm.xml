@@ -3,15 +3,13 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="Main.Entities.maintenance">
-    <class name="MaintenanceStaff" table="unit_user">
+<hibernate-mapping package="Main.Entities.usage">
+    <class name="UnitUserImpl" table="unit_user">
         <id name="id" type="java.lang.Integer" column="id"/>
         <property name="firstName" type = "string" column="first_name"/>
-        <property name="isFullTime" type ="java.lang.Boolean" column="is_full_time"/>
+        <property name="creditCard" type ="java.lang.Integer" column="credit_card"/>
         <property name="lastName" type="string" column="last_name"/>
         <property name="phoneNumber" type ="java.lang.Integer" column="phone_number"/>
         <property name="emailAddress" type="string" column="email_address"/>
-        <property name="hoursPerWeek" type ="java.lang.Integer" column="hours_per_week"/>
-        <property name="payPerHour" type ="java.lang.Integer" column="pay_per_hour"/>
     </class>
 </hibernate-mapping>

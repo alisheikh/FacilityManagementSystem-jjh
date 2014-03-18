@@ -4,11 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="Main.Entities.usage">
-    <class name="UnitUsage" table="usage">
+    <class name="UnitUsageImpl" table="unit_usage">
         <id name="id" column="id"/>
-        <id name="unit_id" column="unit_id"/>
         <property name="startTime" column="start_time"/>
         <property name="endTime"  column="end_time"/>
-        <id name="unitUserId" column="unit_user_id"/>
+        <one-to-one name="unit" class="Main.Entities.Facility.Unit" cascade="save-update, delete"/>
+        <one-to-one name="unitUser" class="Main.Entities.usage.UnitUser" cascade="save-update, delete"/>
     </class>
 </hibernate-mapping>

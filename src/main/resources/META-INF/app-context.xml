@@ -27,7 +27,9 @@
         </property>
     </bean>
 
-    <bean id="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype"/>
+    <bean id="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" scope="prototype">
+
+    </bean>
 
     <bean id="Inspection" class="Main.Entities.maintenance.InspectionImpl" scope="prototype">
        <property name="facility" ref="facility"></property>
@@ -36,6 +38,7 @@
 
     <bean id="MaintenanceRequest" class="Main.Entities.maintenance.MaintenanceRequestImpl" scope="prototype">
         <property name="maintenanceStaff" ref="maintenanceStaff"></property>
+        <property name="unit" ref="unit"></property>
     </bean>
 
 

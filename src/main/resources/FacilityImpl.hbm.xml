@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Main.Entities.Facility">
+    <class name="Main.Entities.Facility.FacilityImpl" table="FACILITY">
+        <id name="id">
+            <column name="id" sql-type="serial" length="10" not-null="true"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="text" length="2147483647"/>
+        </property>
+        <property name="capacity">
+            <column name="capacity" sql-type="int4" length="10"/>
+        </property>
+        <property name="buildingNumber">
+            <column name="building_number" sql-type="int4" length="10"/>
+        </property>
+        <set name="units" table="unit"
+             inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="facility_id" not-null="true" />
+            </key>
+            <one-to-many class="Main.Entities.Facility.UnitImpl" />
+        </set>
+    </class>
+</hibernate-mapping>

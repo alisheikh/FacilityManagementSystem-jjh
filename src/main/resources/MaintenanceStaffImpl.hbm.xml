@@ -3,11 +3,10 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="Main.Entities.usage">
-    <class name="UnitUser" table="unit_user">
-        <id name="id" type="java.lang.Integer" column="id"/>
+<hibernate-mapping package="Main.Entities.maintenance">
+    <class name="MaintenanceStaffImpl" table="unit_user">
+        <id name="id" column="id"/>
         <property name="firstName" type = "string" column="first_name"/>
-        <property name="creditCard" type ="java.lang.Integer" column="credit_card"/>
         <property name="lastName" type="string" column="last_name"/>
         <property name="phoneNumber" type ="java.lang.Integer" column="phone_number"/>
         <property name="emailAddress" type="string" column="email_address"/>
