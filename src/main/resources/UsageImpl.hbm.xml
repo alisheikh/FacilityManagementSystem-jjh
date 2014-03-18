@@ -8,7 +8,7 @@
         <id name="id" column="id"/>
         <property name="startTime" column="start_time"/>
         <property name="endTime"  column="end_time"/>
-        <one-to-one name="unit" class="Main.Entities.Facility.Unit" cascade="save-update, delete"/>
-        <one-to-one name="unitUser" class="Main.Entities.usage.UnitUser" cascade="save-update, delete"/>
+        <one-to-one name="unit" class="Main.Entities.Facility.UnitImpl" cascade="save-update, delete"/>
+        <one-to-one name="unitUser" class="Main.Entities.usage.UnitUserImpl" cascade="save-update, delete"/>
     </class>
 </hibernate-mapping>

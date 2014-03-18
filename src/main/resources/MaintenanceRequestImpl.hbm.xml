@@ -20,7 +20,7 @@
         <property name="hoursToComplete">
             <column name="hours_to_complete" sql-type="int4" length="10"/>
         </property>
-        <one-to-one name="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaff" cascade="save-update, delete"></one-to-one>
-        <one-to-one name="unit" class="Main.Entities.Facility.Unit" cascade="save-update, delete"></one-to-one>
+        <one-to-one name="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" cascade="save-update, delete"></one-to-one>
+        <one-to-one name="unit" class="Main.Entities.Facility.UnitImpl" cascade="save-update, delete"></one-to-one>
     </class>
 </hibernate-mapping>
