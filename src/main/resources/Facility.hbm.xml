@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="Main.Entities.Facility">
-    <class name="Main.Entities.Facility.FacilityImpl" table="Facility">
+    <class name="Main.Entities.Facility.FacilityImpl" table="facility">
         <id name="id" type="long">
             <column name="id"/>
             <generator class="sequence"/>
@@ -12,9 +12,9 @@
         <set name="units" table="unit"
             inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="unitId" not-null="true" />
+                <column name="facility_id" not-null="true" />
             </key>
-            <one-to-many class="Main" />
+            <one-to-many class="Main.Entities.Facility.UnitImpl" />
         </set>
         <property name="name" column="name"/>
         <property name="capacity"  type="integer" column="capacity"/>

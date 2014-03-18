@@ -7,9 +7,7 @@
  	<session-factory>		
  	 	<!-- Database connection settings -->	
  		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
- 		<property name="hibernate.connection.url"> jdbc:postgresql://ec2-54-204-27-119.compute-1.amazonaws.com:5432/d8bdfjiqldja8v?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory</property>
- 		<property name="connection.username">kzprhsuuhaqamu</property>
- 		<property name="connection.password">CtkuwQTL2G3Mpv_cajVqzH_tNh</property>
+ 		<property name="hibernate.connection.url">jdbc:postgresql://ec2-54-204-27-119.compute-1.amazonaws.com:5432/d8bdfjiqldja8v?user=kzprhsuuhaqamu&amp;password=CtkuwQTL2G3Mpv_cajVqzH_tNh&amp;ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</property>
  		<property name="transaction.factory_class">org.hibernate.engine.transaction.internal.jdbc.JdbcTransactionFactory</property>
 
  		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
@@ -25,7 +23,6 @@
         <mapping resource="MaintenanceStaff.hbm.xml"/>
         <mapping resource="Unit.hbm.xml"/>
         <mapping resource="Usage.hbm.xml"/>
-        <mapping resource="User.hbm.xml"/>
 
  	</session-factory>
  </hibernate-configuration>
