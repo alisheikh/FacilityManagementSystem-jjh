@@ -47,7 +47,7 @@ public class FacilityDAO implements IFacilityDAO {
         try {
             Session session = DatabaseConnector.connect().getCurrentSession();
             session.beginTransaction();
-            Query getFacilityQuery = session.createQuery("From Facility where id=:id");
+            Query getFacilityQuery = session.createQuery("From facility where id=:id");
             getFacilityQuery.setString("id", String.valueOf(id));
             List facilities = getFacilityQuery.list();
             session.getTransaction().commit();

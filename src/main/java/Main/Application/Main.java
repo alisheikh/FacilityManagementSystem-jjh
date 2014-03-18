@@ -4,9 +4,24 @@ package Main.Application; /**
  * Time: 7:17 PM
  */
 
+import Main.BL.*;
+import Main.DAL.*;
+import Main.Entities.Facility.Facility;
+import Main.Entities.Facility.FacilityImpl;
+import Main.Entities.Facility.Unit;
+import Main.Entities.Facility.UnitImpl;
+import Main.Entities.maintenance.Inspection;
+import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.maintenance.MaintenanceStaff;
+import Main.Entities.maintenance.MaintenanceStaffImpl;
+import Main.Entities.usage.UnitUsage;
+import Main.Entities.usage.UnitUsageImpl;
+import Main.Entities.usage.UnitUser;
+import Main.Entities.usage.UnitUserImpl;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.joda.time.DateTime;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,6 +30,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Main extends HttpServlet {
 
@@ -38,8 +57,6 @@ public class Main extends HttpServlet {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
 
-        /*IDatabaseConnector connector = (IDatabaseConnector) context.getBean("DatabaseConnector");
-
         try{
         resp.getWriter().println("----------------begining program---------------");
             IMaintenanceStaffDAO maintenanceStaffDAO = (IMaintenanceStaffDAO) context.getBean("MaintenanceStaffDAO");
@@ -51,7 +68,7 @@ public class Main extends HttpServlet {
 
             IUsageDAO usageDAO = (IUsageDAO) context.getBean("UsageDAO");
 
-            FacilityService facilityService = new FacilityService(connector,facilityDAO, unitDAO);
+            FacilityService facilityService = new FacilityService();
             IInspectionDAO inspectionDAO = (IInspectionDAO) context.getBean("InspectionDAO");
             FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
 
@@ -153,9 +170,9 @@ public class Main extends HttpServlet {
         user3.setPhoneNumber(r.nextInt(10));
 
 
-        user1 = userDAO.Create(user1);
-        user2 = userDAO.Create(user2);
-        user3 = userDAO.Create(user3);
+        user1 = userDAO.create(user1);
+        user2 = userDAO.create(user2);
+        user3 = userDAO.create(user3);
 
 
         UnitUsage usage1 = new UnitUsageImpl();
@@ -178,7 +195,7 @@ public class Main extends HttpServlet {
         Date d2 = new Date(new DateTime(2034,4,3,3,3).toDate().getTime());
         Date d3 = new Date(new DateTime(2034,5,3,3,3).toDate().getTime());
 
-        /*
+
         if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
         {
             facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
@@ -196,13 +213,13 @@ public class Main extends HttpServlet {
         if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
         {
             facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
-        }*/
+        }
 
 
 
 
 
-        /*List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getId());
+        List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getId());
         List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unitForUse1.getId());
         List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unitForUse2.getId());
 
@@ -312,14 +329,14 @@ public class Main extends HttpServlet {
         List<Unit> unitsfordelte = testDelete.getUnits();
         for(Unit u: unitsfordelte)
         {
-            facilityService.RemoveUnit(u);
+            facilityService.removeUnit(u);
         }//tests deletion of individual units.
 
         //should be encapsalated in a service later
-        maintenanceRequestDAO.delete(staff.getId());
-        userDAO.Delete(user1.getId());
-        userDAO.Delete(user2.getId());
-        userDAO.Delete(user3.getId());
+        maintenanceStaffDAO.delete(staff);
+        userDAO.delete(user1);
+        userDAO.delete(user2);
+        userDAO.delete(user3);
 
 
         ////
@@ -363,7 +380,7 @@ public class Main extends HttpServlet {
 
 
             }
-        }*/
+        }
     }
 }
 

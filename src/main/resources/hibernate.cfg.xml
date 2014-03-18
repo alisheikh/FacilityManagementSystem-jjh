@@ -22,7 +22,7 @@
         <mapping resource="MaintenanceRequestImpl.hbm.xml"/>
         <mapping resource="MaintenanceStaffImpl.hbm.xml"/>
         <mapping resource="UnitImpl.hbm.xml"/>
-        <mapping resource="UsageImpl.hbm.xml"/>
+        <mapping resource="UnitUsageImpl.hbm.xml"/>
 
     </session-factory>
  </hibernate-configuration>

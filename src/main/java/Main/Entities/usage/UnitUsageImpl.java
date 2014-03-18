@@ -15,9 +15,7 @@ public class UnitUsageImpl implements UnitUsage {
 
     private Unit unit;
 
-    private UnitUser unitUser;
-
-
+   private UnitUser unitUser;
 
 
     @Override
@@ -58,9 +56,11 @@ public class UnitUsageImpl implements UnitUsage {
         this.unit = unit;
     }
 
-    public void setUnitUser(UnitUser unitUser){
+    @Override
+    public void setUnitUser(UnitUser unitUser) {
         this.unitUser = unitUser;
     }
+
 
     public UnitUser getUnitUser(){
         return unitUser;

@@ -1,10 +1,24 @@
 package Main.Application;
 
+import Main.BL.*;
+import Main.DAL.*;
 import Main.Entities.Facility.Facility;
 import Main.Entities.Facility.Unit;
+import Main.Entities.maintenance.Inspection;
+import Main.Entities.maintenance.MaintenanceRequest;
+import Main.Entities.maintenance.MaintenanceStaff;
+import Main.Entities.usage.UnitUsage;
+import Main.Entities.usage.UnitUser;
+import org.joda.time.DateTime;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Jackson on 2/12/14.
@@ -12,9 +26,7 @@ import java.util.List;
 public class PrintLine {
     public static void main(String[] args)
     {
-        /*ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
-
-        IDatabaseConnector connector = new DatabaseConnector();//create bean?
+        ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
 
         try{
 
@@ -35,7 +47,7 @@ public class PrintLine {
 
             IUsageDAO usageDAO = (IUsageDAO) context.getBean("UsageDAO");
 
-            FacilityService facilityService = new FacilityService(connector,facilityDAO, unitDAO);
+            FacilityService facilityService = new FacilityService();
             IInspectionDAO inspectionDAO = (IInspectionDAO) context.getBean("InspectionDAO");
             FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
 
@@ -144,9 +156,9 @@ public class PrintLine {
             user3.setPhoneNumber(r.nextInt(10));
 
 
-            user1 = userDAO.Create(user1);
-            user2 = userDAO.Create(user2);
-            user3 = userDAO.Create(user3);
+            user1 = userDAO.create(user1);
+            user2 = userDAO.create(user2);
+            user3 = userDAO.create(user3);
 
 
             UnitUsage usage1 = (UnitUsage) context.getBean("UnitUsage");
@@ -246,7 +258,6 @@ public class PrintLine {
             staff.setFirstName("some staff" + r.nextInt());//random makes sure these people look different in db
             staff.setLastName("staffmember" + r.nextInt());
             staff.setPhoneNumber(r.nextInt(100000));
-            staff.setFullTime(false);
 
             staff = maintenanceStaffDAO.create(staff);
             System.out.println("Created Staff Member :"+ staff.getFirstName());
@@ -303,8 +314,8 @@ public class PrintLine {
             for(Inspection inspection:inspections)
             {
                 System.out.println("Inspection ID:" + inspection.getId());
-                System.out.println("Staff Member Assign ID"+inspection.getInspectingStaff().getId());
-                System.out.println("Staff Member Name"+inspection.getInspectingStaff().getFirstName());
+                System.out.println("Staff Member Assign ID"+inspection.getMaintenanceStaff().getId());
+                System.out.println("Staff Member Name"+inspection.getMaintenanceStaff().getFirstName());
                 System.out.println("Date :" +inspection.getInspectionDate());
 
 
@@ -320,10 +331,10 @@ public class PrintLine {
             System.out.print("Delete everything that was created");
 
             //should be encapsalated in a service later
-            maintenanceRequestDAO.delete(staff.getId());
-            userDAO.Delete(user1.getId());
-            userDAO.Delete(user2.getId());
-            userDAO.Delete(user3.getId());
+            maintenanceStaffDAO.delete(staff);
+            userDAO.delete(user1);
+            userDAO.delete(user2);
+            userDAO.delete(user3);
 
 
             ////
@@ -333,7 +344,7 @@ public class PrintLine {
             List<Unit> unitsfordelte = testDelete.getUnits();
             for(Unit u: unitsfordelte)
             {
-                facilityService.RemoveUnit(u);
+                facilityService.removeUnit(u);
             }//tests deletion of individual units.
 
 
@@ -367,9 +378,9 @@ public class PrintLine {
             System.out.print("Unit ID: " + unit.getId()+"\n");
             System.out.print("Room Number: " + unit.getUnitNumber()+"\n");
 
-          /* */
+
         }
-    //}
+    }
 
     public static void printAllFacilities(List<Facility> facilities) throws IOException {
         for(Facility facility:facilities){
