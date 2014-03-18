@@ -13,6 +13,10 @@ public class UnitUsageImpl implements UnitUsage {
 
 	private Date endTime;
 
+    private Unit unit;
+
+    private UnitUser unitUser;
+
 
 
 
@@ -44,5 +48,21 @@ public class UnitUsageImpl implements UnitUsage {
     @Override
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public Unit getUnit(){
+        return unit;
+    }
+
+    public void setUnit(Unit unit){
+        this.unit = unit;
+    }
+
+    public void setUnitUser(UnitUser unitUser){
+        this.unitUser = unitUser;
+    }
+
+    public UnitUser getUnitUser(){
+        return unitUser;
     }
 }

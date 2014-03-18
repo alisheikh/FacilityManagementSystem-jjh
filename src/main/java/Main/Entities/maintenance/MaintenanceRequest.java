@@ -1,7 +1,7 @@
 package Main.Entities.maintenance;
 
 import java.sql.Date;
-
+import Main.Entities.Facility.Unit;
 /**
  * Created by Jackson on 3/13/14.
  */
@@ -22,9 +22,9 @@ public interface MaintenanceRequest {
 
     void setRequest(String request);
 
-   int getUnitId();
+    Unit getUnit();
 
-    void setUnitId(int unitId);
+    void setUnit(Unit unit);
 
     MaintenanceStaff getMaintenanceStaff();
 
