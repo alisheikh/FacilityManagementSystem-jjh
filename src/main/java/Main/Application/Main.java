@@ -40,7 +40,7 @@ public class Main extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        printTest(resp);
+        justGetNoCreate(resp);
     }
 
     public static void main(String[] args) throws Exception{
@@ -51,6 +51,44 @@ public class Main extends HttpServlet {
         context.addServlet(new ServletHolder(new Main()),"/*");
         server.start();
         server.join();
+    }
+
+    public void justGetNoCreate(HttpServletResponse resp) throws IOException{
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+
+        try{
+
+
+
+
+            System.out.println("----------------begining program---------------");
+
+
+            //Create DAO objects
+
+            IMaintenanceStaffDAO maintenanceStaffDAO = (IMaintenanceStaffDAO) context.getBean("MaintenanceStaffDAO");
+            IUserDAO userDAO =(IUserDAO) context.getBean("UserDAO");
+            IUnitDAO unitDAO = (IUnitDAO) context.getBean("UnitDAO");
+            IFacilityDAO facilityDAO = (IFacilityDAO) context.getBean("FacilityDAO");
+            IMaintenanceRequestDAO maintenanceRequestDAO = (IMaintenanceRequestDAO) context.getBean("MaintenanceRequestDAO");
+            IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);
+
+            IUsageDAO usageDAO = (IUsageDAO) context.getBean("UsageDAO");
+
+            FacilityService facilityService = new FacilityService();
+            IInspectionDAO inspectionDAO = (IInspectionDAO) context.getBean("InspectionDAO");
+            FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
+
+            IInspectionService inspectionService = new InspectionService(inspectionDAO, facilityDAO, maintenanceStaffDAO);
+
+
+            printAllFacilities(facilityService.listFacilities(), resp);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public void printTest(HttpServletResponse resp) throws IOException {
@@ -381,6 +419,7 @@ public class Main extends HttpServlet {
 
             }
         }
+
     }
 }
 
