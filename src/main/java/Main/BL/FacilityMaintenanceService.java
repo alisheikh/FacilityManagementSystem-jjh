@@ -68,7 +68,7 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
 
             for(Unit unit:units)
             {
-              requests.addAll(maintenanceRequestDAO.getAll(unit.getId()));
+              requests.addAll(maintenanceRequestDAO.getAll(unit.getUnitId()));
             }
             double cost = 0.0;
             for(MaintenanceRequest maintenanceRequest:requests)
@@ -92,7 +92,7 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
             int numberOfunits = 0;
             for(Unit unit:units)
             {
-                requests.addAll(maintenanceRequestDAO.getAll(unit.getId()));
+                requests.addAll(maintenanceRequestDAO.getAll(unit.getUnitId()));
                 numberOfunits++;
             }
             int numberOfProblems=0;
@@ -113,7 +113,7 @@ public class FacilityMaintenanceService implements IFacilityMaintenanceService {
             List<Unit> units = unitDAO.getAll(facilityID);
             for(Unit unit:units)
             {
-                requests.addAll(maintenanceRequestDAO.getAll(unit.getId()));
+                requests.addAll(maintenanceRequestDAO.getAll(unit.getUnitId()));
             }
             return requests;
     }

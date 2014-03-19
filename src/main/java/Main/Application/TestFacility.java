@@ -36,7 +36,7 @@ public class TestFacility /*extends HttpServlet*/ {
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
 
 
-        FacilityService service = (FacilityService) context.getBean("facilityService");
+        FacilityService service = (FacilityService) context.getBean("FacilityService");
 
 
         List<Unit> units = new ArrayList<Unit>();
@@ -44,28 +44,33 @@ public class TestFacility /*extends HttpServlet*/ {
         Unit unit1 = new UnitImpl();
         unit1.setCapacity(r.nextInt(3));
         unit1.setUnitNumber(r.nextInt(3));
+
         units.add(unit1);
 
         Unit unit2 = new UnitImpl();
         unit2.setCapacity(r.nextInt(3));
         unit2.setUnitNumber(r.nextInt(3));
+
         units.add(unit2);
 
 
         Unit unit3 = new UnitImpl();
         unit3.setCapacity(r.nextInt(3));
         unit3.setUnitNumber(r.nextInt(3));
+
         units.add(unit3);
 
 
         Unit unit4 = new UnitImpl();
         unit4.setCapacity(r.nextInt(3));
         unit4.setUnitNumber(r.nextInt(3));
+
         units.add(unit4);
         Facility facility1 = new FacilityImpl();
         facility1.setBuildingNumber(r.nextInt(4));
         facility1.setCapacity(50);
         facility1.setName("facility1");
+
         facility1.setUnits(units);
         service.addNewFacility(facility1);
 

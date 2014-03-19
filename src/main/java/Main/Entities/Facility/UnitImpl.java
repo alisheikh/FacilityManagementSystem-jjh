@@ -12,10 +12,13 @@ public class UnitImpl implements Unit {
 
     private int unitNumber;
 
-    private int id;
+    private int unitId;
 
     private Facility facility;
 
+    public UnitImpl(){
+        setUnitId(-1);
+    }
 
     @Override
     public Facility getFacility() {
@@ -39,13 +42,13 @@ public class UnitImpl implements Unit {
 
 
     @Override
-    public int getId(){
-        return id;
+    public int getUnitId(){
+        return unitId;
     }
 
     @Override
-    public void setId(int id){
-        this.id = id;
+    public void setUnitId(int id){
+        this.unitId = id;
     }
 
 

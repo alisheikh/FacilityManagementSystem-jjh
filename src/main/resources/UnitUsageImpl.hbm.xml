@@ -10,7 +10,7 @@
         </id>
         <property name="startTime" column="start_time"/>
         <property name="endTime"  column="end_time"/>
-        <one-to-one name="unit" class="Main.Entities.Facility.UnitImpl" cascade="save-update, delete"/>
-        <!--<one-to-one name="unitUserImpl" class="Main.Entities.usage.UnitUserImpl" cascade="save-update, delete"/-->
+        <many-to-one name="unit" class="Main.Entities.Facility.UnitImpl" cascade="save-update, delete"/>
+        <many-to-one name="unitUser" class="Main.Entities.usage.UnitUserImpl" cascade="save-update, delete"></many-to-one>
     </class>
 </hibernate-mapping>

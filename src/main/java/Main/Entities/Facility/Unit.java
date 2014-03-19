@@ -9,9 +9,9 @@ public interface Unit {
 
     void setCapacity(int capacity);
 
-    int getId();
+    int getUnitId();
 
-    void setId(int id);
+    void setUnitId(int id);
 
     int getUnitNumber();
 

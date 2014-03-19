@@ -41,7 +41,7 @@ public class FacilityService implements IFacilityService {
         Facility res = facilityDAO.get(facilityId);
         List<Unit> units = res.getUnits();
         for(Unit unit:units){
-            if(unit.getId() == unitID) return unit.getCapacity();
+            if(unit.getUnitId() == unitID) return unit.getCapacity();
         }
         return 0;
     }

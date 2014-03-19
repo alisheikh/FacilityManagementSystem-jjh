@@ -85,7 +85,7 @@ public class InspectionDAO implements IInspectionDAO {
     public List<Inspection> listAllInspections(int facilityId){
         List<Inspection> inspections;
         Session session = DatabaseConnector.connect();
-        Query query = session.createQuery("from InspectionImpl where facility.id=:facilityID");
+        Query query = session.createQuery("from InspectionImpl where facility.facilityId=:facilityID");
         session.beginTransaction();
         inspections = query.list();
               session.close();

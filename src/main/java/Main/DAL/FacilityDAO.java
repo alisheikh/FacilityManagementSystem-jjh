@@ -1,6 +1,7 @@
 package Main.DAL;
 
 import Main.Entities.Facility.Facility;
+import Main.Entities.Facility.FacilityImpl;
 import Main.Entities.Facility.Unit;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -9,21 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityDAO implements IFacilityDAO {
-    UnitDAO unitDAO = new UnitDAO();
+    private IUnitDAO unitDAO;
+    private DatabaseConnector databaseConnector;
 
     @Override
     public Facility create(Facility facility) {
-        Session session = DatabaseConnector.connect();
+        Session session = databaseConnector.connect();
         session.beginTransaction();
-        Integer facilityId = (Integer)session.save(facility);
-        facility.setId(facilityId);
+
+
+          int facilityId = (Integer) session.save(facility);
+          facility.setFacilityId(facilityId);
+
         for(Unit unit:facility.getUnits()){
+
             unit.setFacility(facility);
            session.save(unit);
+
         }
 
+
         session.getTransaction().commit();
-        session.close();
+
         return facility;
 
     }
@@ -56,7 +64,7 @@ public class FacilityDAO implements IFacilityDAO {
         try {
             Session session = DatabaseConnector.connect();
             session.beginTransaction();
-            Query getFacilityQuery = session.createQuery("From FacilityImpl where id=:id");
+            Query getFacilityQuery = session.createQuery("From FacilityImpl where facilityId=:id");
             getFacilityQuery.setInteger("id",id);
             List facilities = getFacilityQuery.list();
             session.getTransaction().commit();
@@ -93,8 +101,22 @@ public class FacilityDAO implements IFacilityDAO {
     }
 
     @Override
-    public Unit getUnit(int unitId){
-        return unitDAO.get(unitId);
+    public IUnitDAO getUnitDAO(){
+        return unitDAO;
     }
 
+    @Override
+    public void setUnitDAO(IUnitDAO unitDAO){
+        this.unitDAO = unitDAO;
+    }
+
+    @Override
+    public DatabaseConnector getDatabaseConnector() {
+        return databaseConnector;
+    }
+
+    @Override
+    public void setDatabaseConnector(DatabaseConnector databaseConnector) {
+        this.databaseConnector = databaseConnector;
+    }
 }

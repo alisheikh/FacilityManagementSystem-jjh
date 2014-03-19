@@ -196,21 +196,21 @@ public class Main extends HttpServlet {
         Date d3 = new Date(new DateTime(2034,5,3,3,3).toDate().getTime());
 
 
-        if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
+        if(!facilityUseService.IsInUseDuringInterval(unitForUse.getUnitId(),d1,d2))
         {
             facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
         }
 
-        if(!facilityUseService.IsInUseDuringInterval(unitForUse1.getId(),d2,d3))
+        if(!facilityUseService.IsInUseDuringInterval(unitForUse1.getUnitId(),d2,d3))
         {
             facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse1);
         }
-        if(!facilityUseService.IsInUseDuringInterval(unitForUse2.getId(),d1,d3))
+        if(!facilityUseService.IsInUseDuringInterval(unitForUse2.getUnitId(),d1,d3))
         {
             facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse2);
         }
 
-        if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
+        if(!facilityUseService.IsInUseDuringInterval(unitForUse.getUnitId(),d1,d2))
         {
             facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
         }
@@ -219,9 +219,9 @@ public class Main extends HttpServlet {
 
 
 
-        List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getId());
-        List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unitForUse1.getId());
-        List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unitForUse2.getId());
+        List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getUnitId());
+        List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unitForUse1.getUnitId());
+        List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unitForUse2.getUnitId());
 
 
 
@@ -252,7 +252,7 @@ public class Main extends HttpServlet {
 
         }
 
-        Facility facilityForMaintenance = facilityDAO.get(facility1.getId());
+        Facility facilityForMaintenance = facilityDAO.get(facility1.getFacilityId());
 
         MaintenanceStaff staff = new MaintenanceStaffImpl();
         staff.setHoursPerWeek(34);
@@ -280,16 +280,16 @@ public class Main extends HttpServlet {
         resp.getWriter().println("Facility "+ facilityForMaintenance.getName());
 
         resp.getWriter().println("Adding maintence requests for facility:" + facilityForMaintenance.getName()+
-                "id:"+facilityForMaintenance.getId());
+                "id:"+facilityForMaintenance.getFacilityId());
 
         for(Unit unit:facilityForMaintenance.getUnits())
         {
 
-            facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need stuff Fixed");
-            facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need stuff Fixed again");
+            facilityMaintenanceService.makeFacilityMaintRequest(unit.getUnitId(),"I need stuff Fixed");
+            facilityMaintenanceService.makeFacilityMaintRequest(unit.getUnitId(),"I need stuff Fixed again");
 
         }
-        List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getId());
+        List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getFacilityId());
 
 
         for(MaintenanceRequest request:requests)
@@ -299,20 +299,20 @@ public class Main extends HttpServlet {
         }
 
         resp.getWriter().println("Facility "+ facilityForMaintenance.getName());
-        resp.getWriter().println("Maintenance Cost: " + facilityMaintenanceService.calcMaintenanceCostForFacility(facilityForMaintenance.getId()));
-        resp.getWriter().println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getId()));
+        resp.getWriter().println("Maintenance Cost: " + facilityMaintenanceService.calcMaintenanceCostForFacility(facilityForMaintenance.getFacilityId()));
+        resp.getWriter().println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getFacilityId()));
 
 
         resp.getWriter().println("add inspections to facility:" + facility1.getName());
 
-        inspectionService.addInspection(facility1.getId(), staff.getId(), d1);
-        inspectionService.addInspection(facility1.getId(), staff.getId(), d2);
-        inspectionService.addInspection(facility1.getId(), staff.getId(), d3);
-        inspectionService.addInspection(facility1.getId(), staff.getId(), d4);
+        inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d1);
+        inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d2);
+        inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d3);
+        inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d4);
 
-        resp.getWriter().println("Inspections Scheduled for"+ facility1.getId());
+        resp.getWriter().println("Inspections Scheduled for"+ facility1.getFacilityId());
 
-        List<Inspection> inspections = inspectionService.getInspectionForFacility(facility1.getId());
+        List<Inspection> inspections = inspectionService.getInspectionForFacility(facility1.getFacilityId());
 
         for(Inspection inspection:inspections)
         {
@@ -324,7 +324,7 @@ public class Main extends HttpServlet {
 
         resp.getWriter().print("Delete everything that created(Some Cascade Delete from Database)");
 
-        Facility testDelete = facilityService.getFacilityInformation(facility1.getId());
+        Facility testDelete = facilityService.getFacilityInformation(facility1.getFacilityId());
 
         List<Unit> unitsfordelte = testDelete.getUnits();
         for(Unit u: unitsfordelte)
@@ -357,11 +357,11 @@ public class Main extends HttpServlet {
     }
     public static void printFacility(Facility facility,HttpServletResponse resp) throws IOException {
         resp.getWriter().print("Building Num: " + facility.getBuildingNumber()+"\n");
-        resp.getWriter().print("Facility ID: " + facility.getId()+"\n");
+        resp.getWriter().print("Facility ID: " + facility.getFacilityId()+"\n");
         resp.getWriter().print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
         for(Unit unit:facility.getUnits()){
             resp.getWriter().print("Unit Capacity: " + unit.getCapacity()+"\n");
-            resp.getWriter().print("Unit ID: " + unit.getId()+"\n");
+            resp.getWriter().print("Unit ID: " + unit.getUnitId()+"\n");
             resp.getWriter().print("Room Number: " + unit.getUnitNumber()+"\n");
 
 
@@ -371,11 +371,11 @@ public class Main extends HttpServlet {
     public static void printAllFacilities(List<Facility> facilities,HttpServletResponse resp) throws IOException {
         for(Facility facility:facilities){
             resp.getWriter().print("Building Num: " + facility.getBuildingNumber()+"\n");
-            resp.getWriter().print("Facility ID: " + facility.getId()+"\n");
+            resp.getWriter().print("Facility ID: " + facility.getFacilityId()+"\n");
             resp.getWriter().print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
             for(Unit unit:facility.getUnits()){
                 resp.getWriter().print("Unit Capacity: " + unit.getCapacity()+"\n");
-                resp.getWriter().print("Unit ID: " + unit.getId()+"\n");
+                resp.getWriter().print("Unit ID: " + unit.getUnitId()+"\n");
                 resp.getWriter().print("Room Number: " + unit.getUnitNumber()+"\n");
 
 

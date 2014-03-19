@@ -1,0 +1,164 @@
+CREATE TABLE maintenance_staff
+(
+  first_name text,
+  last_name text,
+  phone_number character varying(10),
+  id integer NOT NULL,
+  email_address text,
+  is_full_time boolean,
+  hours_per_week integer,
+  pay_per_hour double precision,
+  CONSTRAINT "MSprimary" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE maintenance_staff
+  OWNER TO htbuesnnialmky;
+
+
+
+
+
+CREATE TABLE facility
+(
+  name text,
+  capacity integer,
+  id integer NOT NULL,
+  building_number integer,
+  CONSTRAINT "Facility_pkey" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE facility
+  OWNER TO htbuesnnialmky;
+
+CREATE TABLE public.unit
+(
+   id integer NOT NULL , 
+   facility_id integer NOT NULL, 
+   capacity integer, 
+   unit_number integer
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+ALTER TABLE public.unit
+  OWNER TO htbuesnnialmky;
+
+
+
+  CREATE TABLE inspection
+  (
+    id integer NOT NULL DEFAULT nextval('"Inspection_ID_seq"'::regclass),
+    facility_id integer NOT NULL,
+    inspection_staff_id integer,
+    inspection_date timestamp without time zone,
+    CONSTRAINT "PrimayKeyInspection" PRIMARY KEY (id)
+  )
+  WITH (
+    OIDS=FALSE
+  );
+  ALTER TABLE inspection
+    OWNER TO htbuesnnialmky;
+
+  -- Index: "fki_staffIDFK"
+
+  -- DROP INDEX "fki_staffIDFK";
+
+  CREATE INDEX "fki_staffIDFK"
+    ON inspection
+    USING btree
+    (inspection_staff_id);
+
+
+
+
+
+CREATE TABLE maintenance_request
+(
+  id integer NOT NULL,
+   request text,
+  date_requested timestamp without time zone DEFAULT ('now'::text)::date,
+  completion_date text,
+  staff_member_assigned_id integer,
+  unit_id integer NOT NULL DEFAULT nextval('"MaintenanceRequest_UnitID_seq"'::regclass),
+  hours_to_complete integer,
+  CONSTRAINT "requestPK" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE maintenance_request
+  OWNER TO htbuesnnialmky;
+
+-- Index: "fki_StaffFk"
+
+-- DROP INDEX "fki_StaffFk";
+
+CREATE INDEX "fki_StaffFk"
+  ON maintenance_request
+  USING btree
+  (staff_member_assigned_id);
+
+CREATE INDEX "fki_UnitFK"
+  ON maintenance_request
+  USING btree
+  (unit_id);
+
+
+
+
+
+
+CREATE TABLE unit_user
+(
+  first_name text,
+  last_name text,
+  phone_number character varying(10),
+  id integer NOT NULL,
+  email_address text,
+  credit_card character varying(16),
+  company_name text,
+  CONSTRAINT "Primaryere" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE unit_user
+  OWNER TO htbuesnnialmky;
+
+CREATE TABLE unit_usage
+(
+  id integer NOT NULL ,
+  unit_id integer NOT NULL ,
+  start_time timestamp without time zone DEFAULT ('now'::text)::date,
+  end_time timestamp without time zone DEFAULT '2001-02-16 20:38:40'::timestamp without time zone,
+  unit_user_id integer NOT NULL ,
+  CONSTRAINT "UnitUsagePK" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE unit_usage
+  OWNER TO htbuesnnialmky;
+
+-- Index: "fki_Unit_User_FK"
+
+-- DROP INDEX "fki_Unit_User_FK";
+
+CREATE INDEX "fki_Unit_User_FK"
+  ON unit_usage
+  USING btree
+  (unit_id);
+
+-- Index: fki_unit_user_fk
+
+-- DROP INDEX fki_unit_user_fk;
+
+CREATE INDEX fki_unit_user_fk
+  ON unit_usage
+  USING btree
+  (unit_user_id);

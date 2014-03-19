@@ -17,6 +17,7 @@
     </bean>
 
     <bean id="Unit" class="Main.Entities.Facility.UnitImpl" scope="prototype">
+
     </bean>
 
     <bean id="Facility" class="Main.Entities.Facility.FacilityImpl" scope="prototype">
@@ -43,6 +44,7 @@
 
 
     <bean id="UnitDAO" class="Main.DAL.UnitDAO">
+
     </bean>
 
 
@@ -55,6 +57,8 @@
 
 
     <bean id="FacilityDAO" class="Main.DAL.FacilityDAO">
+        <property name="databaseConnector" ref="DatabaseConnector"></property>
+        <property name="unitDAO" ref="UnitDAO"></property>
     </bean>
 
     <bean id="MaintenanceStaffDAO" class="Main.DAL.MaintenanceStaffDAO">
@@ -71,5 +75,6 @@
 
     <bean id="FacilityService" class="Main.BL.FacilityService">
     </bean>
+    <bean id="DatabaseConnector" class="Main.DAL.DatabaseConnector" scope="singleton" />
 
 </beans>

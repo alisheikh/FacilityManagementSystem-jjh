@@ -72,7 +72,7 @@ public class MaintenanceRequestDAO implements IMaintenanceRequestDAO {
     @Override
     public List<MaintenanceRequest> getAll(int unitId) {
         Session session = DatabaseConnector.connect();
-        Query query = session.createQuery("From MaintenanceRequestImpl where unit.id=:unitId");
+        Query query = session.createQuery("From MaintenanceRequestImpl where unit.unitId=:unitId");
         query.setString("unitId",String.valueOf(unitId));
         List<MaintenanceRequest> requests;
         session.beginTransaction();

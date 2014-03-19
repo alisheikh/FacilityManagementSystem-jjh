@@ -8,8 +8,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by Jackson on 3/16/14.
@@ -45,8 +43,8 @@ public class UnitDAOHibTest extends TestCase {
     public void testCreateUnit() throws Exception {
         unit = unitDAOHib.CreateUnit(unit);
 
-        Assert.assertNotNull(unit.getId());
-        Assert.assertTrue(unit.getId() == 0);
+        Assert.assertNotNull(unit.getUnitId());
+        Assert.assertTrue(unit.getUnitId() == 0);
 
     }
 

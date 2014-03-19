@@ -11,7 +11,8 @@
         <property name="inspectionDate">
             <column name="inspection_date" sql-type="timestamp" length="29" precision="6"/>
         </property>
-        <one-to-one name="facility" class="Main.Entities.Facility.FacilityImpl" cascade="save-update, delete"/>
-        <one-to-one name="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" cascade="save-update, delete"/>
+
+        <many-to-one name="facility" class="Main.Entities.Facility.FacilityImpl" cascade="save-update, delete"/>
+        <many-to-one name="maintenanceStaff" class="Main.Entities.maintenance.MaintenanceStaffImpl" cascade="save-update, delete"/>
     </class>
 </hibernate-mapping>

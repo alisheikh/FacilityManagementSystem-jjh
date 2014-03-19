@@ -19,7 +19,12 @@ public interface IFacilityDAO {
 
     List<Facility> getAll();
 
-    Unit getUnit(int unitId);
+    IUnitDAO getUnitDAO();
 
 
+    void setUnitDAO(IUnitDAO unitDAO);
+
+    DatabaseConnector getDatabaseConnector();
+
+    void setDatabaseConnector(DatabaseConnector databaseConnector);
 }

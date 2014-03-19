@@ -5,24 +5,28 @@
 
 <hibernate-mapping package="Main.Entities.Facility">
     <class name="FacilityImpl" table="facility">
-        <id name="id" column="id" type="java.lang.Integer">
-            <generator class="increment" />
+        <id name="facilityId" unsaved-value="-1"  type="java.lang.Integer" >
+
+            <column name="facility_id"></column>
+            <generator class="identity">
+                <param name="sequence">facility_facility_id_seq</param>
+            </generator>
         </id>
         <property name="name">
-            <column name="name" sql-type="text" length="2147483647"/>
+            <column name="name"/>
         </property>
         <property name="capacity">
-            <column name="capacity" sql-type="int4" length="10"/>
+            <column name="capacity"/>
         </property>
         <property name="buildingNumber">
-            <column name="building_number" sql-type="int4" length="10"/>
+            <column name="building_number"/>
         </property>
         <list name="units" table="unit"
-             inverse="true" lazy="true" fetch="select">
+             inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="facility_id" not-null="true" />
             </key>
-            <list-index column="id">
+            <list-index column="unit_id">
 
             </list-index>
             <one-to-many  class="Main.Entities.Facility.UnitImpl"  />

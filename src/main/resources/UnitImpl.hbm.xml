@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="Main.Entities.Facility">
     <class name="UnitImpl" table="unit">
-        <id name="id" column="id" type="java.lang.Integer">
+        <id name="unitId" column="unit_id" type="java.lang.Integer">
             <generator class="increment" />
         </id>
         <many-to-one name="facility" class="Main.Entities.Facility.FacilityImpl"   cascade="save-update">

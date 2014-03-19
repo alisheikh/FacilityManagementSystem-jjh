@@ -66,7 +66,7 @@ public class UnitDAO implements IUnitDAO {
         System.out.println("Listing all facilities");
         Session session = DatabaseConnector.connect();
         System.out.println("Session ready: "+session.toString());
-        Query query = session.createQuery("from UnitImpl where facility.id =:facilityId");
+        Query query = session.createQuery("from UnitImpl where facility.facilityId =:facilityId");
         query.setInteger("facilityId",facilityId);
         List<Unit> units;
         session.beginTransaction();

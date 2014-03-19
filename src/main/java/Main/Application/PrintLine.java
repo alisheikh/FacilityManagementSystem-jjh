@@ -125,7 +125,7 @@ public class PrintLine {
 
 
 
-            Facility facilityTest = facilityService.getFacilityInformation(facility3.getId());
+            Facility facilityTest = facilityService.getFacilityInformation(facility3.getFacilityId());
             List<Unit> unitsForTest = facilityTest.getUnits();
 
             printAllFacilities(facilityService.listFacilities());
@@ -193,21 +193,21 @@ public class PrintLine {
             Date d2 = new Date(new DateTime(2034,4,3,3,3).toDate().getTime());
             Date d3 = new Date(new DateTime(2034,5,3,3,3).toDate().getTime());
 
-            if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
+            if(!facilityUseService.IsInUseDuringInterval(unitForUse.getUnitId(),d1,d2))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
             }
 
-            if(!facilityUseService.IsInUseDuringInterval(unitForUse1.getId(),d2,d3))
+            if(!facilityUseService.IsInUseDuringInterval(unitForUse1.getUnitId(),d2,d3))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse1);
             }
-            if(!facilityUseService.IsInUseDuringInterval(unitForUse2.getId(),d1,d3))
+            if(!facilityUseService.IsInUseDuringInterval(unitForUse2.getUnitId(),d1,d3))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse2);
             }
 
-            if(!facilityUseService.IsInUseDuringInterval(unitForUse.getId(),d1,d2))
+            if(!facilityUseService.IsInUseDuringInterval(unitForUse.getUnitId(),d1,d2))
             {
                 facilityUseService.assignFacilityToUse(d1,d2, user1,unitForUse);
             }
@@ -216,9 +216,9 @@ public class PrintLine {
 
 
 
-            List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getId());
-            List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unitForUse1.getId());
-            List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unitForUse2.getId());
+            List<UnitUsage> usagesforunit1 = facilityUseService.listActualUsage(unitForUse.getUnitId());
+            List<UnitUsage> usagesforunit2 = facilityUseService.listActualUsage(unitForUse1.getUnitId());
+            List<UnitUsage> usagesforunit3 = facilityUseService.listActualUsage(unitForUse2.getUnitId());
 
 
 
@@ -253,7 +253,7 @@ public class PrintLine {
 
             }
 
-            Facility facilityForMaintenance = facilityDAO.get(facility1.getId());
+            Facility facilityForMaintenance = facilityDAO.get(facility1.getFacilityId());
 
             MaintenanceStaff staff = (MaintenanceStaff) context.getBean("MaintenanceStaff");
             staff.setHoursPerWeek(34);
@@ -281,16 +281,16 @@ public class PrintLine {
             System.out.println("Facility "+ facilityForMaintenance.getName());
 
             System.out.println("Adding maintence requests for facility:" + facilityForMaintenance.getName()+
-                    "id:"+facilityForMaintenance.getId());
+                    "id:"+facilityForMaintenance.getFacilityId());
 
             for(Unit unit:facilityForMaintenance.getUnits())
             {
 
-                facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need stuff Fixed");
-                facilityMaintenanceService.makeFacilityMaintRequest(unit.getId(),"I need more stuff Fixed ");
+                facilityMaintenanceService.makeFacilityMaintRequest(unit.getUnitId(),"I need stuff Fixed");
+                facilityMaintenanceService.makeFacilityMaintRequest(unit.getUnitId(),"I need more stuff Fixed ");
 
             }
-            List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getId());
+            List<MaintenanceRequest> requests = facilityMaintenanceService.listMaintenanceRequests(facilityForMaintenance.getFacilityId());
 
 
             for(MaintenanceRequest request:requests)
@@ -300,20 +300,20 @@ public class PrintLine {
             }
 
             System.out.println("Facility "+ facilityForMaintenance.getName());
-            System.out.println("Maintenance Cost: " + facilityMaintenanceService.calcMaintenanceCostForFacility(facilityForMaintenance.getId()));
-            System.out.println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getId()));
+            System.out.println("Maintenance Cost: " + facilityMaintenanceService.calcMaintenanceCostForFacility(facilityForMaintenance.getFacilityId()));
+            System.out.println("Problem Rate: " + facilityMaintenanceService.calcProblemRateForFacility(facilityForMaintenance.getFacilityId()));
 
 
             System.out.println("add inspections to facility:" + facility1.getName());
 
-            inspectionService.addInspection(facility1.getId(), staff.getId(), d1);
-            inspectionService.addInspection(facility1.getId(), staff.getId(), d2);
-            inspectionService.addInspection(facility1.getId(), staff.getId(), d3);
-            inspectionService.addInspection(facility1.getId(), staff.getId(), d4);
+            inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d1);
+            inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d2);
+            inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d3);
+            inspectionService.addInspection(facility1.getFacilityId(), staff.getId(), d4);
 
-            System.out.println("Inspections Scheduled for"+ facility1.getId());
+            System.out.println("Inspections Scheduled for"+ facility1.getFacilityId());
 
-            List<Inspection> inspections = inspectionService.getInspectionForFacility(facility1.getId());
+            List<Inspection> inspections = inspectionService.getInspectionForFacility(facility1.getFacilityId());
 
             for(Inspection inspection:inspections)
             {
@@ -343,7 +343,7 @@ public class PrintLine {
 
             ////
 
-            Facility testDelete = facilityService.getFacilityInformation(facility1.getId());
+            Facility testDelete = facilityService.getFacilityInformation(facility1.getFacilityId());
 
             List<Unit> unitsfordelte = testDelete.getUnits();
             for(Unit u: unitsfordelte)
@@ -375,11 +375,11 @@ public class PrintLine {
 
     public static void printFacility(Facility facility,HttpServletResponse resp) throws IOException {
         System.out.print("Building Num: " + facility.getBuildingNumber()+"\n");
-        System.out.print("Facility ID: " + facility.getId()+"\n");
+        System.out.print("Facility ID: " + facility.getFacilityId()+"\n");
         System.out.print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
         for(Unit unit:facility.getUnits()){
             System.out.print("Unit Capacity: " + unit.getCapacity()+"\n");
-            System.out.print("Unit ID: " + unit.getId()+"\n");
+            System.out.print("Unit ID: " + unit.getUnitId()+"\n");
             System.out.print("Room Number: " + unit.getUnitNumber()+"\n");
 
 
@@ -389,11 +389,11 @@ public class PrintLine {
     public static void printAllFacilities(List<Facility> facilities) throws IOException {
         for(Facility facility:facilities){
             System.out.print("Building Num: " + facility.getBuildingNumber()+"\n");
-            System.out.print("Facility ID: " + facility.getId()+"\n");
+            System.out.print("Facility ID: " + facility.getFacilityId()+"\n");
             System.out.print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
             for(Unit unit:facility.getUnits()){
                 System.out.print("Unit Capacity: " + unit.getCapacity()+"\n");
-                System.out.print("Unit ID: " + unit.getId()+"\n");
+                System.out.print("Unit ID: " + unit.getUnitId()+"\n");
                 System.out.print("Room Number: " + unit.getUnitNumber()+"\n");
 
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FacilityImpl implements Facility {
 
-	private int id;
+	private int facilityId;
 
     private String name;
 
@@ -13,6 +13,10 @@ public class FacilityImpl implements Facility {
 	private int buildingNumber;
 
 	private int capacity;
+
+    public FacilityImpl(){
+        setFacilityId(-1);
+    }
 
     @Override
     public String getName(){
@@ -36,13 +40,13 @@ public class FacilityImpl implements Facility {
     }
 
     @Override
-    public int getId() {
-        return id;
+    public int getFacilityId() {
+        return facilityId;
     }
 
     @Override
-    public void setId(int id) {
-        this.id = id;
+    public void setFacilityId(int id) {
+        this.facilityId = id;
     }
 
     @Override

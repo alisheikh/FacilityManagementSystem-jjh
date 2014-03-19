@@ -34,7 +34,7 @@ public class FacilityUseService implements IFacilityUseService {
     @Override
     public boolean IsInUseDuringInterval(int unitID, java.util.Date startTime, java.util.Date endTime) {
         /*Unit unit = new UnitImpl();
-        unit.setId(unitID);
+        unit.setFacilityId(unitID);
         List<UnitUsage> usages = new ArrayList<UnitUsage>();
 
         try {
