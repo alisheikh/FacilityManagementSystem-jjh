@@ -5,14 +5,14 @@
 
 <hibernate-mapping package="Main.Entities.Facility">
     <class name="UnitImpl" table="unit">
-        <id name="id" column="id" type="java.lang.Integer">
+        <id name="id" column="unit_id" unsaved-value="-1" type="java.lang.Integer">
             <generator class="increment" />
         </id>
         <many-to-one name="facility" class="Main.Entities.Facility.FacilityImpl"   cascade="save-update">
-            <column name="facility_id" sql-type="serial"  length="10" not-null="true"/>
+            <column name="facility_id" sql-type="int" not-null="true"/>
         </many-to-one>
         <property name="capacity">
-            <column name="capacity" sql-type="int4" length="10" not-null="true"/>
+            <column name="capacity" sql-type="int4" not-null="true"/>
         </property>
         <property name="unitNumber">
             <column name="unit_number" sql-type="int4" length="10" not-null="true"/>

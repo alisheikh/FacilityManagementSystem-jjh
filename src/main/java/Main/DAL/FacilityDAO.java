@@ -19,7 +19,7 @@ public class FacilityDAO implements IFacilityDAO {
         facility.setId(facilityId);
         for(Unit unit:facility.getUnits()){
             unit.setFacility(facility);
-           session.save(unit);
+            session.save(unit);
         }
 
         session.getTransaction().commit();

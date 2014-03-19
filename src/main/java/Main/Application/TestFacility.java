@@ -36,7 +36,7 @@ public class TestFacility /*extends HttpServlet*/ {
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
 
 
-        FacilityService service = (FacilityService) context.getBean("facilityService");
+        FacilityService service = (FacilityService) context.getBean("FacilityService");
 
 
         List<Unit> units = new ArrayList<Unit>();

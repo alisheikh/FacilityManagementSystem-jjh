@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="Main.Entities.Facility">
     <class name="FacilityImpl" table="facility">
-        <id name="id" column="id" type="java.lang.Integer">
+        <id name="id" column="facility_id" unsaved-value="-1" type="java.lang.Integer">
             <generator class="increment" />
         </id>
         <property name="name">
@@ -18,11 +18,11 @@
             <column name="building_number" sql-type="int4" length="10"/>
         </property>
         <list name="units" table="unit"
-             inverse="true" lazy="true" fetch="select">
+             inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="facility_id" not-null="true" />
             </key>
-            <list-index column="id">
+            <list-index column="unit_id">
 
             </list-index>
             <one-to-many  class="Main.Entities.Facility.UnitImpl"  />

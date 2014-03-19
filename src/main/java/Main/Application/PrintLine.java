@@ -26,6 +26,51 @@ import java.util.Random;
 public class PrintLine {
     public static void main(String[] args)
     {
+
+        justGet();
+        //fullFunctionalirty();
+
+
+        
+        
+    }
+
+    private static void justGet() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+
+        try{
+
+
+
+
+            System.out.println("----------------begining program---------------");
+
+
+            //Create DAO objects
+
+            IMaintenanceStaffDAO maintenanceStaffDAO = (IMaintenanceStaffDAO) context.getBean("MaintenanceStaffDAO");
+            IUserDAO userDAO =(IUserDAO) context.getBean("UserDAO");
+            IUnitDAO unitDAO = (IUnitDAO) context.getBean("UnitDAO");
+            IFacilityDAO facilityDAO = (IFacilityDAO) context.getBean("FacilityDAO");
+            IMaintenanceRequestDAO maintenanceRequestDAO = (IMaintenanceRequestDAO) context.getBean("MaintenanceRequestDAO");
+            IFacilityMaintenanceService facilityMaintenanceService = new FacilityMaintenanceService(facilityDAO,unitDAO,maintenanceRequestDAO,maintenanceStaffDAO);
+
+            IUsageDAO usageDAO = (IUsageDAO) context.getBean("UsageDAO");
+
+            FacilityService facilityService = new FacilityService();
+            IInspectionDAO inspectionDAO = (IInspectionDAO) context.getBean("InspectionDAO");
+            FacilityUseService facilityUseService = new FacilityUseService(facilityDAO,unitDAO,inspectionDAO,usageDAO);
+
+            IInspectionService inspectionService = new InspectionService(inspectionDAO, facilityDAO, maintenanceStaffDAO);
+
+
+            printAllFacilities(facilityService.listFacilities());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    private static void fullFunctionalirty() {
         ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
 
         try{
@@ -366,10 +411,6 @@ public class PrintLine {
         {
             e.printStackTrace();
         }
-
-
-        
-        
     }
 
 
@@ -389,13 +430,15 @@ public class PrintLine {
     public static void printAllFacilities(List<Facility> facilities) throws IOException {
         for(Facility facility:facilities){
             System.out.print("Building Num: " + facility.getBuildingNumber()+"\n");
+            System.out.print("Building Name: " + facility.getName()+"\n");
             System.out.print("Facility ID: " + facility.getId()+"\n");
             System.out.print("Facility Capacity: " + facility.getTotalCapacity()+"\n");
             for(Unit unit:facility.getUnits()){
+                if(unit!=null){//weird that this is necessary
                 System.out.print("Unit Capacity: " + unit.getCapacity()+"\n");
                 System.out.print("Unit ID: " + unit.getId()+"\n");
                 System.out.print("Room Number: " + unit.getUnitNumber()+"\n");
-
+                }
 
             }
 

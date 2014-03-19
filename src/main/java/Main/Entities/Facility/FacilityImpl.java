@@ -71,7 +71,9 @@ public class FacilityImpl implements Facility {
         int cap = 0;
         if(units != null && !units.isEmpty() && units.size() > 0)
         for (Unit unit:units){
+            if(unit!=null){
            cap += unit.getCapacity();
+        }
         }
         return cap+capacity;
     }
